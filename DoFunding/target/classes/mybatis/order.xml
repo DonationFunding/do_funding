@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="order.model.Order">
+	<insert id="InsertOrder">
+		insert into orders(oid, mid, orderdate) 
+		values(seqoid.nextval, #{mid}, sysdate)
+	</insert>
+	
+	<select id="GetMaxOid" resultType="int">
+		select max(oid) from orders
+	</select>
+
+<!-- 	
+	<select id="">
+		select od.odid, o.orderdate from (orders o inner JOIN members m on m.id like o.mid) 
+		inner JOIN orderdetails od o.oid = od.oid where m.id='';
+	</select>
+ -->
+ 	<select id="OrderList" resultType="MyOrder">
+ 		select * from orders where mid = #{mid} order by oid desc
+ 	</select>
+</mapper>
+
+<!-- order.xml -->
