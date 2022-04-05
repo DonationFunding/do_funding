@@ -6,6 +6,7 @@
 <configuration>
 	
 	<typeAliases>
+		<typeAlias type="product.model.OrderDetailBean" alias="MyOrderDetail"/>
 		<typeAlias type="product.model.ProductBean" alias="MyProduct"/>
 		<typeAlias type="member.model.MemberBean" alias="MyMember"/>
 		<typeAlias type="order.model.OrderBean" alias="MyOrder"/>

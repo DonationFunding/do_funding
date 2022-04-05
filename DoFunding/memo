@@ -114,6 +114,10 @@ create table do_product(
 	--찜 누른사람 아이디,아이디,아이디......
 	p_like 		varchar2(3000) not null		//게시글 찜(찜 수는 length)			
 			
+
+	--대분류 카테고리(카테고리 테이블 추가)
+	p_category_fk	varchar2(100)	not null	//
+	
 	
 	--옵션은 옵션과 value 한쌍을 하나의 값으로 묶어서 입력 ","
 	--옵션/value 구분자: /
@@ -142,7 +146,28 @@ create table do_product(
 	p_reg_date 		default sysdate  ,	//작성일 default sysdate 넣어도 괜찮을꺼 같습니다.
 	p_start_date 	date not null,		//펀딩 시작일		
 	p_end_date 		date not null		//펀딩 마감일	마감일 되면 펀딩못하게 막고, orderdetail 성공, 실패 (진행중)
+
+
 );
+
+-- 카테고리 테이블
+drop sequence catseq ;
+
+--create sequence catseq nocache ;
+create sequence catseq
+increment by 1
+start with 1
+minvalue 1
+maxvalue 10000
+nocache;
+
+drop table category cascade constraints purge ;
+create table category(
+	cnum 	number primary key,
+	code 	varchar2(20) not null,	//카테고리 코드
+	cname 	varchar2(50) not null	//케테고리 이름
+);
+
 
 
 
