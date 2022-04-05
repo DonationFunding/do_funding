@@ -73,8 +73,6 @@ public class ProductDao {
 
 	
 	
-	
-	
 	//상품 다중삭제 이건 혹시 모름
 	public int multiDeleteProduct(String[] rowcheck ){		//다중체크값 넘겨받아오기
 			int cnt=-1;

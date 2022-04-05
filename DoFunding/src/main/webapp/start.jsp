@@ -2,4 +2,4 @@
     pageEncoding="UTF-8"%>
 start.jsp<br>
 
-<input type="button" value="list" onclick="location.href='list.bd'">
+<input type="button" value="list" onclick="location.href='productLis.prd'">
