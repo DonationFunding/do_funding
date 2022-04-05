@@ -37,36 +37,27 @@ create sequence seqdo_members
 2-2 직원은 관리자 페이지에서 button으로 등업하는 방식
 DROP TABLE members CASCADE CONSTRAINTS;
 create table do_members(
-	no number not null,			//회원번호	(1번을 관리자로 설정하면 될꺼 같아요. 관리자 여러명 추후 만든다면 관리자 리스트를 배열로 해서 설정하고)
-	admin number default 1		//1은 일반회원, 직원은 관리자 페이지에서 button으로 등업하는 방식
-	id varchar2(10) primary key,//아이디 중복체크
-	
-	password varchar2(30),		//비밀번호
-	
-	name varchar2(30),			//이름
-	
-	birthday date not null,		//생일
-	
-	joindate date default sysdate,	//가입일
-	
-	gender varchar2(10),		//성별 
-	
-	hp1 varchar2(10),			//(폰)앞자리
-	hp2 varchar2(10),			//(폰)중간자리
-	hp3 varchar2(20),			//(폰)뒷자리
-	
-	address1 varchar2(30),		//주소1
-	address2 varchar2(30),		//주소2(상세주소)
-	
-	accountbank varchar2(20),	//계좌은행
-	account varchar2(20),		//계좌 
-	
-	mpoint number default 0 	//이건 잘 모르겟음(포인트 기능)
-) ;
+	no number not null,			
+	admin number default 1,	
+	id varchar2(10) primary key,
+	password varchar2(30),		
+	name varchar2(30),			
+	birthday date not null,		
+	joindate date default sysdate,	
+	gender varchar2(10),		 
+	hp1 varchar2(10),			
+	hp2 varchar2(10),			
+	hp3 varchar2(20),			
+	address1 varchar2(30),		
+	address2 varchar2(30),		
+	accountbank varchar2(20),	
+	account varchar2(20),		 
+	mpoint number default 0
+	);
 
 --insert추가해야함()
-insert into do_members(id,name,password,salary,hiredate,gender,hobby,job,zipcode)
-values(seqdo_members.nextval,'kim','김철수','1234',100,sysdate,'남자','게임','학생','123-456');
+insert into do_members(no,id,password,name,birthday,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)
+values(seqdo_members.nextval,'kim','1234','김철수','2022-04-05','남자','010','2580','9876','서울시','은평구','국민은행','012345678','10000');
 
 commit ;
 
