@@ -19,7 +19,7 @@
 -상품 테이블
 -
 
-
+ㅁㄴㅇㄻㄴㅇㄼㅈㄷㄱㄹ
 DB 
 
 -- 회원 테이블
@@ -69,7 +69,7 @@ insert into do_members(id,name,password,salary,hiredate,gender,hobby,job,zipcode
 values(seqdo_members.nextval,'kim','김철수','1234',100,sysdate,'남자','게임','학생','123-456');
 
 commit ;
-
+ㅁㄴㅇㄹ
 col id for a6
 col password for a8
 col name for a8
