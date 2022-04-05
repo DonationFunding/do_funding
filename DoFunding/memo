@@ -94,6 +94,8 @@ create sequence seqdo_product
   
 drop table do_product CASCADE CONSTRAINTS;
 create table do_product( 
+    --대분류 카테고리(카테고리 테이블 추가)
+    p_category_fk    varchar2(100)    not null    //
 	p_num 		number not null primary key,	//제품 번호()
 	p_writer 	varchar2(10) references orders(id) on delete cascade,	//작성자는 member id
 	p_subject 	varchar2(20) not null,		//게시글 제목
@@ -141,6 +143,7 @@ create table do_product(
 
 );
 
+<<<<<<< HEAD
 -- 카테고리 테이블
 drop sequence catseq ;
 
@@ -159,6 +162,25 @@ create table category(
 	cname 	varchar2(50) not null	//케테고리 이름
 );
 
+=======
+- 카테고리 테이블
+drop sequence catseq ;
+
+--create sequence catseq nocache ;
+create sequence catseq
+increment by 1
+start with 1
+minvalue 1
+maxvalue 10000
+nocache;
+
+drop table category cascade constraints purge ;
+create table category(
+    cnum     number primary key,
+    code     varchar2(20) not null,    //카테고리 코드
+    cname     varchar2(50) not null    //케테고리 이름
+);
+>>>>>>> refs/remotes/origin/do-khc
 
 
 
