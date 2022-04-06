@@ -5,39 +5,31 @@
 
 <mapper namespace="product.model.Product">
 	<select id="GetTotalCount" resultType="int">
-		select count(*) from products
+		select count(*) from do_product
 		<if test="whatColumn == 'name'">
 			where name like #{keyword}
 		</if>
 		<if test="whatColumn == 'contents'">
 			where contents like #{keyword}
 		</if>
-		order by num desc
+		order by p_num desc
 	</select>
 	
 	<select id="ProductList" resultType="MyProduct">
-		select * from products
+		select * from do_product
 		<if test="whatColumn=='name'">
 			where name like #{keyword}
 		</if>
 		<if test="whatColumn=='contents'">
 			where contents like #{keyword}
 		</if>
-		order by num desc
+		order by p_num desc
 	</select>
 	
 	<select id="GetProduct" resultType="MyProduct">
- 		select * from products where num=#{num}	
+ 		select * from do_product where p_num=#{p_num}	
  	</select>
 	
-	<insert id="InsertProduct">
- 		insert into products(num,name,company,image,stock,price,category,contents,point,inputdate)
- 		values(seqprod.nextval,#{name},#{company},#{image},#{stock},#{price},#{category,jdbcType=VARCHAR},#{contents},#{point},#{inputdate})
- 	</insert>
-	
-	<update id="StockUpdate">
-		update products set stock=stock-#{stock} where num=#{num}
-	</update>
 	
 </mapper>
 
