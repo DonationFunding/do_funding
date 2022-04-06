@@ -26,7 +26,7 @@ DB
 1-1--계좌연동이 필요한 페이지입니다.(펀딩을 하려할때 if문)
 
 2.admin
-2-1 초기에 생성시에 insert에서 관리자 no를 0으로 잡는다.
+2-1 초기에 생성시에 insert에서 관리자 admin를 0으로 잡는다.
 2-2 직원은 관리자 페이지에서 button으로 등업하는 방식
 
 -- 회원 테이블
@@ -36,7 +36,7 @@ create sequence seqdo_members
 	start with 1 
 	nocache ;
   
-DROP TABLE members CASCADE CONSTRAINTS;
+DROP TABLE do_members CASCADE CONSTRAINTS;
 create table do_members(
 	no number not null,			
 	admin number default 1,	
@@ -49,16 +49,16 @@ create table do_members(
 	hp1 varchar2(10),			
 	hp2 varchar2(10),			
 	hp3 varchar2(20),			
-	address1 varchar2(30),		
-	address2 varchar2(30),		
+	address1 varchar2(200),		
+	address2 varchar2(200),		
 	accountbank varchar2(20),	
 	account varchar2(20),		 
 	mpoint number default 0
 	);
 
 --insert추가해야함()
-insert into do_members(no,id,password,name,birthday,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)
-values(seqdo_members.nextval,'kim','1234','김철수','2022-04-05','남자','010','2580','9876','서울시','은평구','국민은행','012345678','10000');
+insert into do_members(no,admin,id,password,name,birthday,joindate,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)
+values(seqdo_members.nextval,'0','kim','1234','관리자1','2022-3-6',sysdate,'남자','010','4586','5870','서울특별시 어딘가로 123-4','펀딩아파트 205호','국민은행','123456-23442323','0');
 
 commit ;
 
@@ -70,12 +70,6 @@ col address1 for a10
 col address2 for a10
 col job for a6
 select * from members;
-
-
---아래 sql문은 답글까지 insert 한 것
---insert 수정해야함	
-insert into do_board(num,writer,email,subject,passwd,reg_date,ref,re_step,re_level,content,ip)
-values(board_seq.nextval,'a1','a1','a1','1234','2015-1-1',1,0,0,'내용1','127.0.0.1');
 
 commit;
 
@@ -151,11 +145,11 @@ drop table do_product CASCADE CONSTRAINTS;
 create table do_product( 
 	p_num 		number not null primary key,	
 	p_category_fk  varchar2(100)    not null,    
-	p_writer 	varchar2(10) references do_members(id) on delete cascade,
-	p_subject 	varchar2(20) not null,		
+	p_writer 	varchar2(50) references do_members(id) on delete cascade,
+	p_subject 	varchar2(100) not null,		
 	p_readcount int default 0,				
-	p_image    	varchar2(500),				
-	p_content 	varchar2(20) not null,				
+	p_image    	varchar2(100),				
+	p_content 	varchar2(3000) not null,				
 	p_like 		varchar2(3000) not null,		
 	p_option	 varchar2(500),
 	p_option2	 varchar2(500),
@@ -167,6 +161,8 @@ create table do_product(
 	p_start_date 	date not null,		
 	p_end_date 		date not null		
 );
+
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','');
 
 -- 카테고리 테이블
 drop sequence catseq ;
@@ -254,6 +250,13 @@ create table do_board(
 	--답글마다 1씩 증가
 	b_content varchar2(20) not null		//게시글 내용			
 );
+
+
+--아래 sql문은 답글까지 insert 한 것
+--insert 수정해야함	
+insert into do_board(num,writer,email,subject,passwd,reg_date,ref,re_step,re_level,content,ip)
+values(board_seq.nextval,'a1','a1','a1','1234','2015-1-1',1,0,0,'내용1','127.0.0.1');
+
 
 
 --일딴 패스

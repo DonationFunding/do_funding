@@ -13,17 +13,19 @@
 
 <script type="text/javascript">
 	$(function(){
-		$('#rotator').rotator({ms:3000});	//이미지가 3초마다 알아서 바꿔줌..너무 편하고..
+		$('#rotator').rotator({ms:2000});	//이미지가 3초마다 알아서 바꿔줌..너무 편하고..
 	}); //function
 	
-	function insert(){
-		location.href = "insert.prd"; // ProductInsertController
+	function productInsert(){
+		location.href = "productInsert.prd"; // ProductInsertController
 	}
 </script>
-	<td width="100%">
-		<div id="rotator" style="height:140px; width:250px; overflow: hidden;">
+
+
+	<td width="100%" align="center">
+		<div id="rotator" style="/* height:140px; */ width:100%; overflow: hidden;">
 			<div class="area">
-				<a><img src="<%=request.getContextPath() %>/resources/images/im0.jpg"></a>
+				<a><img src="<%=request.getContextPath() %>/resources/images/im0.jpg" width="50%" height="100%"></a>
 			</div>
 			
 			<div class="area">
@@ -56,7 +58,7 @@
 	<table border="1">
 		<tr>
 			<td align="right" colspan="6">
-				<input type="button" value="추가하기" onclick="insert()">
+				<input type="button" value="추가하기" onclick="productInsert()">
 			</td>
 		</tr>
 		<tr>
