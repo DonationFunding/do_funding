@@ -20,11 +20,8 @@ import utility.Paging;
 @Controller
 public class ProductListController {
 
-	private final String command = "list.prd";
-	private String getPage = "product_list";
-	// /WEB-INF/product/productInsertForm.jsp
-	private String gotoPage="redirect:/list.prd";
-
+	private final String command = "productList.prd";
+	private String getPage = "product_list"; // /WEB-INF/product/productList.jsp
 	
 	@Autowired
 	private ProductDao productDao;

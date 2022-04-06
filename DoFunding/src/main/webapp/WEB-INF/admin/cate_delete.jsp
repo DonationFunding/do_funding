@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%
+<%-- <%
 	String cnum = request.getParameter("cnum");
 	CategoryDao cdao = CategoryDao.getInstance();
 	int cnt = cdao.categoryDelete(cnum);  
@@ -21,6 +21,6 @@
 		alert("<%=msg%>");
 		location.href="<%=url%>";
 	</script>
-
+ --%>
 
  

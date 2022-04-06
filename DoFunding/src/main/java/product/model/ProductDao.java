@@ -29,7 +29,7 @@ public class ProductDao {
 	}	
 	
 	//상품 리스트 정보
-	public List<ProductBean> ProductList(Paging pageInfo, Map<String, String> map) {
+	public List<ProductBean> productList(Paging pageInfo, Map<String, String> map) {
 		RowBounds rowBounds=new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
 		List<ProductBean> list=sqlSessionTemplate.selectList(namespace+".ProductList",map,rowBounds);
 		return list;

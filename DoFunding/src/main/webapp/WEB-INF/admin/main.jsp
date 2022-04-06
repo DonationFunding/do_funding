@@ -6,4 +6,5 @@
    <td colspan="6" align="center">
         <img src="<%=request.getContextPath() %>" width="500" height="400">
    </td>
-<%@include file ="bottom.jsp" %>   
+<%@include file ="bottom.jsp" %>
+   
