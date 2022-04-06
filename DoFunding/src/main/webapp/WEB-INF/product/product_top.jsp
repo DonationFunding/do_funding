@@ -7,7 +7,7 @@
 	<title>두펀딩</title>
 	<!-- <link rel="stylesheet" href="product_top.css"> -->
 	<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
-	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
+	<%-- <script src="<%=request.getContextPath() %>/resources/common_tb.js"></script> --%>
 </head>
 <body>
 	<div id="top-wrap">
