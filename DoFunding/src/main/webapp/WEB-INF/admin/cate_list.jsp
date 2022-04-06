@@ -31,7 +31,7 @@
 						<td><a href="cate_delete.jsp?cnum=<%=cb.getCnum() %>">삭제</a></td>
 					</tr>
 			<%					
-				}//for
+				}//fordddd
 			%>
 		</table>
 	</td>
