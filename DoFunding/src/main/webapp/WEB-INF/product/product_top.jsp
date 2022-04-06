@@ -9,7 +9,6 @@
 	</td>
 </tr>
 <tr>
-=======
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,4 +19,3 @@
 
 </body>
 </html>
->>>>>>> refs/remotes/origin/do_cjh
