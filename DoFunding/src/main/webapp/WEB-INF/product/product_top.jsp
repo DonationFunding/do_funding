@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>두펀딩</title>
 	<!-- <link rel="stylesheet" href="product_top.css"> -->
-	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
-	<script src="<%=request.getContextPath() %>/resources/js/common.js"></script>
+	<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
+	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
 </head>
 <body>
 	<div id="top-wrap">
@@ -114,3 +114,5 @@
 		</header>
 	</div>
 </body>
+product_top.jsp<br>
+

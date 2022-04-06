@@ -1,8 +1,5 @@
 package product.model;
 
-import java.sql.Date;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -10,11 +7,10 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartRequest;
 
 import utility.Paging;
 
-@Component
+@Component("myProductDao")
 public class ProductDao {
 
 	private String namespace="product.model.Product";
@@ -67,12 +63,6 @@ public class ProductDao {
 	}//updateProduct
 
 	
-
-	
-	
-
-	
-	
 	//상품 다중삭제 이건 혹시 모름
 	public int multiDeleteProduct(String[] rowcheck ){		//다중체크값 넘겨받아오기
 			int cnt=-1;
@@ -103,4 +93,5 @@ public class ProductDao {
 
 	
 	
+
 }
