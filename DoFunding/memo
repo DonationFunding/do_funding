@@ -162,7 +162,7 @@ create table do_product(
 	p_end_date 		date not null		
 );
 
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1','내용123','kim','color/yellow','갤럭시',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 
 -- 카테고리 테이블
 drop sequence catseq ;

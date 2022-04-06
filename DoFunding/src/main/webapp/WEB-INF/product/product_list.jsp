@@ -1,16 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="product_top.jsp" %>
-<%@ include file="../common/common.jsp" %>
 <style type="text/css">
 .area{
  	height:130px;
  	
 }
 </style>
-<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.rotator.js"></script>
-
 <script type="text/javascript">
 	$(function(){
 		$('#rotator').rotator({ms:2000});	//이미지가 3초마다 알아서 바꿔줌..너무 편하고..
@@ -21,29 +18,29 @@
 	}
 </script>
 
+<body>
+	<div>
+		<div id="rotator" style="width: 100%; overflow: hidden;">
+			<div class="area">
+				<a><img
+					src="<%=request.getContextPath()%>/resources/images/im0.jpg"
+					width="50%" height="100%"></a>
+			</div>
 
-	<td width="100%" align="center">
-		<div id="rotator" style="/* height:140px; */ width:100%; overflow: hidden;">
 			<div class="area">
-				<a><img src="<%=request.getContextPath() %>/resources/images/im0.jpg" width="50%" height="100%"></a>
+				<img src="<%=request.getContextPath()%>/resources/images/im1.jpg">
 			</div>
-			
+
 			<div class="area">
-				<img src="<%=request.getContextPath() %>/resources/images/im1.jpg">
+				<img src="<%=request.getContextPath()%>/resources/images/im2.jpg">
 			</div>
-			
+
 			<div class="area">
-				<img src="<%=request.getContextPath() %>/resources/images/im2.jpg">
+				<img src="<%=request.getContextPath()%>/resources/images/im4.jpg">
 			</div>
-			
-			<div class="area">
-				<img src="<%=request.getContextPath() %>/resources/images/im4.jpg">
-			</div>
-		</div>			
-	</td>
-</tr>	
-<tr>
-	<td>
+		</div>
+	</div>
+	
 	<h2>상품 리스트 화면</h2>
 	<h2>ProductList.jsp</h2>
 	<form action="productList.prd" method="get">
@@ -69,14 +66,14 @@
 			<th>삭제</th>
 			<th>수정</th>
 		</tr>		
-		<c:if test="${requestScope.list == null}">
+		<c:if test="${requestScope.list eq null}">
 		 <tr>
 		 	<td>
 		 	상품이 없습니다.
 		 	</td>
 		 </tr>	
 		 </c:if>
-		<c:if test="${requestScope.list != null}">
+		<c:if test="${requestScope.list ne null}">
 				<c:forEach var="product" items="${list}">
 					<tr>
 						<td><c:out value="${product.num }" /></td>
@@ -94,7 +91,7 @@
 <br>
 	${pageInfo.pagingHtml }		
 	</td>
-
+</body>
 
 
 
