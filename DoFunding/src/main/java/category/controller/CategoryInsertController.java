@@ -27,13 +27,12 @@ public class CategoryInsertController {
 		
 
 	@RequestMapping(value=command, method = RequestMethod.GET)
-	public String doAction() {
-			
+	public String doAction() {			
 	     return getPage; 
 	}
 
 	@RequestMapping(value=command, method = RequestMethod.POST)
-	public ModelAndView doAction(@Valid CategoryBean bean,BindingResult result){
+	public ModelAndView doAction(@ModelAttribute("category") @Valid CategoryBean bean,BindingResult result){
 		
 	ModelAndView mav = new ModelAndView();	
 		

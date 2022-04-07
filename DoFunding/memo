@@ -59,14 +59,12 @@ create table do_members(
 
 
 --insert추가해야함()
-<<<<<<< HEAD
 
 insert into do_members(no,admin,id,password,name,birthday,joindate,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)
 values(seqdo_members.nextval,'0','kim','1234','관리자1','2022-3-6',sysdate,'남자','010','4586','5870','서울특별시 어딘가로 123-4','펀딩아파트 205호','국민은행','123456-23442323','0');
 
-=======
 insert into do_members(no,id,password,name,birthday,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)values(seqdo_members.nextval,'kim','1234','김철수','2022-04-05','남자','010','2580','9876','서울시','은평구','국민은행','012345678','10000');
->>>>>>> refs/remotes/origin/do-khc
+
 
 commit ;
 

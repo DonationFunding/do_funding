@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,7 +38,10 @@ public class ProductUpdateController {
 	ServletContext servletContext;	
 	
 	@RequestMapping(value=command,method = RequestMethod.GET)
-	public String doAction(HttpSession session) {
+	public String doAction(
+			@RequestParam("pageNumber") int pageNumber,
+			@RequestParam("p_num") int p_num,
+			HttpSession session) {
 
 		//어차피 admin만 수정하잔아?
 //		System.out.println("loginInfo:"+session.getAttribute("loginInfo")); // null

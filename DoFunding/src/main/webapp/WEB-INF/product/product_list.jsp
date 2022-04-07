@@ -31,8 +31,8 @@ h2 { margin: 20px 0}
 	<form action="productList.prd" method="get">
 		<select name="whatColumn">
 			<option value="">선택
-			<option value="name">상품명
-			<option value="contents">설명
+			<option value="p_subject">상품명
+			<option value="p_content">설명
 		</select>
 		<input type="text" name="keyword">
 		<input type="submit" value="검색">

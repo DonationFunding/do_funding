@@ -1,4 +1,4 @@
-package product.controller;
+package admin.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,10 +19,10 @@ import product.model.ProductDao;
 import utility.Paging;
 
 @Controller
-public class ProductListController {
+public class AdminProductListController {
 
-	private final String command = "/list.prd";
-	private String getPage = "product_list"; // /WEB-INF/product/productList.jsp
+	private final String command = "/adminlist.ad";
+	private String getPage = "admin_prd_list"; // /WEB-INF/product/productList.jsp
 	
 	@Autowired
 	@Qualifier("myProductDao")
@@ -31,7 +31,6 @@ public class ProductListController {
 	@Autowired
 	ServletContext servletContext;	
 	
-	//일반회원용
 	@RequestMapping(command)
 	public ModelAndView doAction(
 			@RequestParam(value="whatColumn", required=false) String whatColumn,
@@ -62,6 +61,8 @@ public class ProductListController {
 	}
 	
 
+
+	
 	
 	
 }
