@@ -65,7 +65,7 @@ values(seqdo_members.nextval,'0','kim','1234','관리자1','2022-3-6',sysdate,'남자
 
 
 commit ;
-
+ㅁㄴㅇㄹ
 col id for a6
 col password for a8
 col name for a8
