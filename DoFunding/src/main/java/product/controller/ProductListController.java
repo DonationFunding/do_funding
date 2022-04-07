@@ -8,6 +8,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +25,7 @@ public class ProductListController {
 	private String getPage = "product_list"; // /WEB-INF/product/productList.jsp
 	
 	@Autowired
+	@Qualifier("myProductDao")
 	private ProductDao productDao;
 	
 	@Autowired
