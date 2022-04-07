@@ -5,49 +5,38 @@
 
 <mapper namespace="product.model.Product">
 	<select id="GetTotalCount" resultType="int">
-		select count(*) from do_product
-		<if test="whatColumn == 'p_subject'">
-			where p_subject like #{keyword}
+		select count(*) from products
+		<if test="whatColumn == 'name'">
+			where name like #{keyword}
 		</if>
-		<if test="whatColumn == 'p_content'">
-			where p_content like #{keyword}
+		<if test="whatColumn == 'contents'">
+			where contents like #{keyword}
 		</if>
-		<if test="whatColumn=='p_category_fk'">
-			where p_category_fk like #{keyword}
-		</if>		
-		order by p_num desc
+		order by num desc
 	</select>
 	
 	<select id="ProductList" resultType="MyProduct">
-		select * from do_product
-		
-		<if test="whatColumn=='p_subject'">
-			where p_subject like #{keyword}
+		select * from products
+		<if test="whatColumn=='name'">
+			where name like #{keyword}
 		</if>
-		<if test="whatColumn=='p_content'">
-			where p_content like #{keyword}
+		<if test="whatColumn=='contents'">
+			where contents like #{keyword}
 		</if>
-		<if test="whatColumn=='p_category_fk'">
-			where p_category_fk like #{keyword}
-		</if>
-		order by p_num desc
+		order by num desc
 	</select>
 	
-	<update id="ReadcountUp">
-		update do_product set readcount = readcount+1 where p_p_num=#{p_p_num}
-	</update>
-	
 	<select id="GetProduct" resultType="MyProduct">
- 		select * from do_product where p_num=#{p_num}	
+ 		select * from products where num=#{num}	
  	</select>
 	
 	<insert id="InsertProduct">
- 		insert into do_product(p_num,name,company,image,stock,price,category,contents,point,inputdate)
+ 		insert into products(num,name,company,image,stock,price,category,contents,point,inputdate)
  		values(seqprod.nextval,#{name},#{company},#{image},#{stock},#{price},#{category,jdbcType=VARCHAR},#{contents},#{point},#{inputdate})
  	</insert>
 	
-	<update id="UpdateProduct">
-		update do_product set stock=stock-#{stock} where p_num=#{p_num}
+	<update id="StockUpdate">
+		update products set stock=stock-#{stock} where num=#{num}
 	</update>
 	
 </mapper>

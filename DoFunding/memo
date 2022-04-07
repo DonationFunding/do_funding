@@ -26,7 +26,7 @@ DB
 1-1--계좌연동이 필요한 페이지입니다.(펀딩을 하려할때 if문)
 
 2.admin
-2-1 초기에 생성시에 insert에서 관리자 no를 0으로 잡는다.
+2-1 초기에 생성시에 insert에서 관리자 admin를 0으로 잡는다.
 2-2 직원은 관리자 페이지에서 button으로 등업하는 방식
 
 -- 회원 테이블
@@ -36,8 +36,9 @@ create sequence seqdo_members
 	start with 1 
 	nocache ;
   
-DROP TABLE members CASCADE CONSTRAINTS;
+DROP TABLE do_members CASCADE CONSTRAINTS;
 create table do_members(
+
 	no number not null,			
 	admin number default 1,	
 	id varchar2(10) primary key,
@@ -49,16 +50,19 @@ create table do_members(
 	hp1 varchar2(10),			
 	hp2 varchar2(10),			
 	hp3 varchar2(20),			
-	address1 varchar2(30),		
-	address2 varchar2(30),		
+	address1 varchar2(200),		
+	address2 varchar2(200),		
 	accountbank varchar2(20),	
 	account varchar2(20),		 
 	mpoint number default 0
 	);
 
+
 --insert추가해야함()
-insert into do_members(no,id,password,name,birthday,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)
-values(seqdo_members.nextval,'kim','1234','김철수','2022-04-05','남자','010','2580','9876','서울시','은평구','국민은행','012345678','10000');
+
+insert into do_members(no,admin,id,password,name,birthday,joindate,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)
+values(seqdo_members.nextval,'0','kim','1234','관리자1','2022-3-6',sysdate,'남자','010','4586','5870','서울특별시 어딘가로 123-4','펀딩아파트 205호','국민은행','123456-23442323','0');
+
 
 commit ;
 
@@ -70,12 +74,6 @@ col address1 for a10
 col address2 for a10
 col job for a6
 select * from members;
-
-
---아래 sql문은 답글까지 insert 한 것
---insert 수정해야함	
-insert into do_board(num,writer,email,subject,passwd,reg_date,ref,re_step,re_level,content,ip)
-values(board_seq.nextval,'a1','a1','a1','1234','2015-1-1',1,0,0,'내용1','127.0.0.1');
 
 commit;
 
@@ -94,6 +92,7 @@ create sequence seqdo_product
 --3. loginInfo에서 admin 이 0인(직원or관리자) 유저만 제품등록 가능/아마도 관리자페이지에서만 등록 가능
   
 drop table do_product CASCADE CONSTRAINTS;
+<<<<<<< HEAD
 create table do_product(
 	p_category_fk varchar2(100) not null ,   
 	p_num number not null primary key,	
@@ -115,6 +114,53 @@ create table do_product(
 	p_reg_date date default sysdate,
 	p_start_date date not null,
 	p_end_date date not null		
+=======
+create table do_product( 
+    --대분류 카테고리(카테고리 테이블 추가)
+    p_category_fk    varchar2(100)    not null    --
+	p_num 		number not null primary key,	--제품 번호()
+	p_writer 	varchar2(10) references do_members(id) on delete cascade,	--작성자는 member id
+	p_subject 	varchar2(20) not null,		--게시글 제목
+	p_readcount int default 0,				--조회수
+	p_image    	varchar2(500),				--이미지 파일
+	p_content 	varchar2(20) not null		--게시글 내용			
+	
+	--데이터 한계 돌파는 나중에
+	--찜 누른사람 아이디,아이디,아이디......
+	p_like 		varchar2(3000) not null		--게시글 찜(찜 수는 length)			
+			
+
+	--옵션은 옵션과 value 한쌍을 하나의 값으로 묶어서 입력 ","
+	--옵션/value 구분자: /
+	--옵션덩어리,옵션덩어리  구분자: ,
+	--옵션1(..)	selectbox(color/red), radiobox
+	
+	p_option		varchar2(500)
+	
+	--옵션2(..)
+	p_option2		varchar2(500)
+	
+	--가격
+	p_origin_price 	int default 0,			--단가	
+	p_total_price 	int default 0,			--가격(현재금액)
+	p_end_price 	int default 0,			--가격(목표금액) 157%~ 200% 있으니 자유롭게
+	
+	
+	p_point 	varchar2(20) not null		--제품포인트	
+	
+	--후기게시판(이거 테이블 따로 잡을게요) == do_p_board
+--	p_ref 		number not null,			--게시글(글)
+--	p_re_step 	number not null,			--한 게시글에 대한 순번(글,댓글,답글)
+--	p_re_level 	number not null,			--게시글 단계(글=0,댓글=1,답글=2,답글의답글=3...)
+
+	--요일
+
+	p_reg_date 		default sysdate  ,	--작성일 default sysdate 넣어도 괜찮을꺼 같습니다.
+	p_start_date 	date not null,		--펀딩 시작일		
+	p_end_date 		date not null		--펀딩 마감일	마감일 되면 펀딩못하게 막고, orderdetail 성공, 실패 (진행중)
+
+
+>>>>>>> refs/remotes/origin/do-kyg
 );
 
 
@@ -130,11 +176,11 @@ drop table do_product CASCADE CONSTRAINTS;
 create table do_product( 
 	p_num 		number not null primary key,	
 	p_category_fk  varchar2(100)    not null,    
-	p_writer 	varchar2(10) references do_members(id) on delete cascade,
-	p_subject 	varchar2(20) not null,		
+	p_writer 	varchar2(50) references do_members(id) on delete cascade,
+	p_subject 	varchar2(100) not null,		
 	p_readcount int default 0,				
-	p_image    	varchar2(500),				
-	p_content 	varchar2(20) not null,				
+	p_image    	varchar2(100),				
+	p_content 	varchar2(3000) not null,				
 	p_like 		varchar2(3000) not null,		
 	p_option	 varchar2(500),
 	p_option2	 varchar2(500),
@@ -146,6 +192,8 @@ create table do_product(
 	p_start_date 	date not null,		
 	p_end_date 		date not null		
 );
+
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1','내용123','kim','color/yellow','갤럭시',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 
 -- 카테고리 테이블
 drop sequence catseq ;
@@ -164,8 +212,6 @@ create table category(
 	code 	varchar2(20) not null,	//카테고리 코드
 	cname 	varchar2(50) not null	//케테고리 이름
 );
-
-
 
 --주문 테이블
 drop sequence seqoid ;
@@ -233,6 +279,13 @@ create table do_board(
 	--답글마다 1씩 증가
 	b_content varchar2(20) not null		//게시글 내용			
 );
+
+
+--아래 sql문은 답글까지 insert 한 것
+--insert 수정해야함	
+insert into do_board(num,writer,email,subject,passwd,reg_date,ref,re_step,re_level,content,ip)
+values(board_seq.nextval,'a1','a1','a1','1234','2015-1-1',1,0,0,'내용1','127.0.0.1');
+
 
 
 --일딴 패스
