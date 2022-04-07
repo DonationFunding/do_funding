@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@ include file="product_top.jsp" %>
 <style type="text/css">
 .area{
  	height:130px;	
 }
 h2 { margin: 20px 0} 
+=======
+<%@ include file="../common/common.jsp" %>    
+>>>>>>> refs/remotes/origin/do-hjh
 </style>
 <%-- <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.rotator.js"></script> --%>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/*"></script>
@@ -132,3 +136,9 @@ h2 { margin: 20px 0}
 
 
 <%@ include file="product_bottom.jsp" %>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> refs/remotes/origin/do_cjh
+>>>>>>> refs/remotes/origin/do-kyg
+>>>>>>> refs/remotes/origin/do-hjh

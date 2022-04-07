@@ -10,41 +10,42 @@ import org.springframework.stereotype.Component;
 
 import utility.Paging;
 
-@Component("myProductDao")
+@Component("myProductdao")
+
 public class ProductDao {
-
-	private String namespace="product.model.Product";
-
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
-
-	//상품 수
+	
+	private String namespace="product.model.Product";
+	
 	public int totalCount(Map<String, String> map) {
 		int count = sqlSessionTemplate.selectOne(namespace+".GetTotalCount",map);
 		return count;
-	}	
-	
-	//상품 리스트 정보
+	}
+
 	public List<ProductBean> productList(Paging pageInfo, Map<String, String> map) {
 		RowBounds rowBounds=new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
 		List<ProductBean> list=sqlSessionTemplate.selectList(namespace+".ProductList",map,rowBounds);
 		return list;
-	}//getProductAllInfo	
-		
-	//상품 추가
-	public int insertProduct(ProductBean bean) {
-		int cnt=-1;		
-		cnt=sqlSessionTemplate.insert(namespace+".InsertProduct", bean);				
-		System.out.println("추가 갯수:"+cnt);
-		return cnt;
-	}//insertProduct
+	}
 	
-	//상품 수정
+	public ProductBean getProduct(int p_num) {
+		ProductBean bean = sqlSessionTemplate.selectOne(namespace+".GetProduct", p_num);
+		return bean;
+
+	}
+
+	public int insertProduct(ProductBean bean) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.insert(namespace+".InsertProduct", bean);
+		return cnt;
+	}
+	
 	public int updateProduct(ProductBean bean) {
 		int cnt=-1;
 		cnt=sqlSessionTemplate.insert(namespace+".UpdateProduct", bean);				
-		System.out.println("수정성공 갯수:"+cnt);
 		return cnt;
+<<<<<<< HEAD
 	}//updateProduct
 	
 	//상품 상세정보(content용)
@@ -94,4 +95,7 @@ public class ProductDao {
 	
 	
 
+=======
+	}
+>>>>>>> refs/remotes/origin/do-hjh
 }

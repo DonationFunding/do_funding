@@ -7,7 +7,11 @@
 	<select id="GetTotalCount" resultType="int">
 		select count(*) from do_product
 		<if test="whatColumn == 'p_subject'">
+<<<<<<< HEAD
 			where p_subject like #{keyword}
+=======
+			where name like #{keyword}
+>>>>>>> refs/remotes/origin/do-hjh
 		</if>
 		<if test="whatColumn == 'p_content'">
 			where p_content like #{keyword}
@@ -18,10 +22,18 @@
 	<select id="ProductList" resultType="MyProduct">
 		select * from do_product
 		<if test="whatColumn=='p_subject'">
+<<<<<<< HEAD
 			where p_subject like #{keyword}
+=======
+			where name like #{keyword}
+>>>>>>> refs/remotes/origin/do-hjh
 		</if>
 		<if test="whatColumn=='p_content'">
+<<<<<<< HEAD
 			where p_content like #{keyword}
+=======
+			where contents like #{keyword}
+>>>>>>> refs/remotes/origin/do-hjh
 		</if>
 		order by p_num desc
 	</select>
@@ -31,11 +43,17 @@
  	</select>
 	
 	<insert id="InsertProduct">
+<<<<<<< HEAD
 		<!-- default p_readcount,p_total_price,p_point,p_reg_date  -->
  		insert into do_product(p_num,p_category_fk,p_writer,p_subject,p_image,p_content,p_like,p_option,p_option2,p_origin_price,p_total_price,p_end_price,p_start_date,p_end_date)
  		values(seqdo_product.nextval,#{p_category_fk},#{p_writer},#{p_subject},#{p_image},#{p_content},#{p_like},#{p_option},#{p_option2},#{p_origin_price},#{p_total_price},#{p_end_price},#{p_start_date},#{p_end_date})
+=======
+ 		insert into do_product(p_num,p_writer,p_subject,p_image,p_content,p_like,p_option,p_option2,p_origin_price,p_end_price,p_point,p_start_date,p_end_date)
+ 		values(seqdo_product.nextval,#{p_num},#{p_writer},#{p_subject},#{p_image},#{p_content},#{p_like},#{p_option},#{p_option2},#{p_origin_price},#{p_end_price},#{p_point},#{p_start_date},#{p_end_date})
+>>>>>>> refs/remotes/origin/do-hjh
  	</insert>
 	
+<<<<<<< HEAD
 	<update id="ReadcountUp">
 		update do_product set p_readcount=p_readcount+1 where p_num=#{p_num}	
 	</update>
@@ -46,6 +64,11 @@
 			FIND_IN_SET (p_num, ${p_num})
 		</where> 	
 	</delete>
+=======
+	<update id="updateProduct">
+	
+	</update>
+>>>>>>> refs/remotes/origin/do-hjh
 </mapper>
 
 <!-- product.xml -->
