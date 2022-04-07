@@ -19,7 +19,7 @@ public class ProductBean {
 	private String p_reg_date;
 	private String p_start_date;
 	private String p_end_date;
-	private MultipartFile upload;
+	private MultipartFile upload; 
 	
 	public int getP_num() {
 		return p_num;

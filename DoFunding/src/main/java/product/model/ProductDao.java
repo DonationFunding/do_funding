@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import utility.Paging;
 
 @Component("myProductdao")
+
 public class ProductDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
@@ -28,9 +29,8 @@ public class ProductDao {
 		return list;
 	}
 	
-	public ProductBean getProduct(int num) {
-		ProductBean bean = sqlSessionTemplate.selectOne(namespace+".GetProduct", num);
-
+	public ProductBean getProduct(int p_num) {
+		ProductBean bean = sqlSessionTemplate.selectOne(namespace+".GetProduct", p_num);
 		return bean;
 
 	}
@@ -40,5 +40,10 @@ public class ProductDao {
 		cnt = sqlSessionTemplate.insert(namespace+".InsertProduct", bean);
 		return cnt;
 	}
-
+	
+	public int updateProduct(ProductBean bean) {
+		int cnt=-1;
+		cnt=sqlSessionTemplate.insert(namespace+".UpdateProduct", bean);				
+		return cnt;
+	}
 }

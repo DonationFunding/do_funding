@@ -32,12 +32,10 @@ public class ProductInsertController {
 	@Autowired
 	ServletContext servletContext;
 	
-	// productList.jsp 추가하기 버튼, 로그인 성공
 	@RequestMapping(value=command, method = RequestMethod.GET)
 	public String doAction(HttpSession session) {
 			return getPage;
 	}
-	
 	
 	@RequestMapping(value=command, method=RequestMethod.POST) 
 	 public ModelAndView doAction(@Valid ProductBean bean, BindingResult result) {
