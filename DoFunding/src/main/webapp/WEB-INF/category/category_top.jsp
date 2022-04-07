@@ -10,10 +10,10 @@
 <table border="1" width="800" height="400">
    <tr>
     <td align="center"> 
-     <a href=" <%=request.getContextPath()%>">카테고리 등록</a>
+     <a href="insert.cat">카테고리 등록</a>
      </td>
     <td align="center"> 
-     <a href=" <%=request.getContextPath()%>">카테고리 목록</a>
+     <a href="list.cat">카테고리 목록</a>
      </td>
     <td align="center"> 
     <a href=" <%=request.getContextPath()%>">상품 등록</a>
