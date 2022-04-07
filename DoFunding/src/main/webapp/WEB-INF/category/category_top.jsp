@@ -3,17 +3,17 @@
 
 
 <font size=6>관리자용</font><br>
-<a href="main.jsp">관리자홈</a> |
+<a href="insert.cat">관리자홈</a> |
 <a href="<%=request.getContextPath()%>/main.jsp">로그인폼</a> |
 <a href="<%=request.getContextPath()%>/logout.jsp"> 로그아웃</a> <br><br>
 
 <table border="1" width="800" height="400">
    <tr>
     <td align="center"> 
-     <a href=" <%=request.getContextPath()%>">카테고리 등록</a>
+     <a href="insert.cat">카테고리 등록</a>
      </td>
     <td align="center"> 
-     <a href=" <%=request.getContextPath()%>">카테고리 목록</a>
+     <a href="list.cat">카테고리 목록</a>
      </td>
     <td align="center"> 
     <a href=" <%=request.getContextPath()%>">상품 등록</a>

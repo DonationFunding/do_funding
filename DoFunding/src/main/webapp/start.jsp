@@ -3,5 +3,5 @@
 start.jsp<br>
 
 
-<input type="button" value="메인페이지" onclick="location.href='productList.prd'">
+<input type="button" value="메인페이지" onclick="location.href='insert.cat'">
 <input type="button" value="로그인" onclick="location.href='login.mem'">

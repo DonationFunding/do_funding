@@ -9,8 +9,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
-import member.model.MemberBean;
 import utility.Paging;
 
 @Component("myCategoryDao")
@@ -22,19 +20,26 @@ public class CategoryDao {
 		private String namespace="category.model.Category";
 		
 		
-		public  int insertCategory(CategoryBean bean) {
-			int cnt = -1;
+		public int insertCategory(CategoryBean bean) {
+			int cnt= -1; 
 			cnt= sqlSessionTemplate.insert(namespace+".InsertCategory",bean);
 		    return cnt;
 		}
+		
+		public int totalCount(Map<String, String> map) {
+			int count = sqlSessionTemplate.selectOne(namespace+".TotalCount",map);
+			return count;
+		}	
    		
-		public List<CategoryBean> categoryAll(){
+		public List<CategoryBean> categoryAll(Paging pageInfo, Map<String, String> map){
 		List<CategoryBean> list = new ArrayList<CategoryBean>();
-		return list = sqlSessionTemplate.selectList(namespace+".CategoryAll");
+		RowBounds rowBounds=new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
+		list = sqlSessionTemplate.selectList(namespace+".CategoryAll",map,rowBounds);
+		return list;
 		}
 		
 				
-		public int categoryDelete(String cnum) {
+		public int categoryDelete(int cnum) {
 		int cnt = sqlSessionTemplate.delete(namespace+".CategoryDelete",cnum);
 		return cnt;
 		}

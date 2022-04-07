@@ -18,7 +18,7 @@ public class CategoryInsertController {
 
 	    
 	private final String command = "/insert.cat";
-	private String getPage = "cart_input";
+	private String getPage = "category_input";
 	private String gotoPage = "redirect:/list.cat";
 	
 		
@@ -33,7 +33,7 @@ public class CategoryInsertController {
 	}
 
 	@RequestMapping(value=command, method = RequestMethod.POST)
-	public ModelAndView doAction(@ModelAttribute("category") @Valid CategoryBean bean,BindingResult result){
+	public ModelAndView doAction(@Valid CategoryBean bean,BindingResult result){
 		
 	ModelAndView mav = new ModelAndView();	
 		
@@ -43,7 +43,7 @@ public class CategoryInsertController {
 	}	   		
 	   int cnt = cdao.insertCategory(bean);   
 	   
-	    mav.setViewName(gotoPage);
+	    mav.setViewName(getPage);
 	    return mav; 
 		}
 	}

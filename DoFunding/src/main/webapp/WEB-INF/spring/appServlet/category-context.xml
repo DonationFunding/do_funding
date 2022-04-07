@@ -17,25 +17,12 @@
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/admin/" />
+		<beans:property name="prefix" value="/WEB-INF/category/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="admin" />
-<<<<<<< HEAD
-	<context:component-scan base-package="product" />
-	<context:component-scan base-package="member" />
-	<context:component-scan base-package="mall" />
-	<context:component-scan base-package="order" />
-	<context:component-scan base-package="orderdetail" />
+	<context:component-scan base-package="category" />
 	
-=======
-    <context:component-scan base-package="product" />
-    <context:component-scan base-package="member" />
-    <context:component-scan base-package="mall" />
-    <context:component-scan base-package="order" />
-    <context:component-scan base-package="orderdetail" />
->>>>>>> refs/remotes/origin/do-khc
 	
 	
 </beans:beans>
