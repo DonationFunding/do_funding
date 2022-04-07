@@ -3,7 +3,7 @@
 
 
 <font size=6>관리자용</font><br>
-<a href="main.jsp">관리자홈</a> |
+<a href="insert.cat">관리자홈</a> |
 <a href="<%=request.getContextPath()%>/main.jsp">로그인폼</a> |
 <a href="<%=request.getContextPath()%>/logout.jsp"> 로그아웃</a> <br><br>
 

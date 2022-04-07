@@ -20,8 +20,8 @@ public class CategoryDao {
 		private String namespace="category.model.Category";
 		
 		
-		public  int insertCategory(CategoryBean bean) {
-			int cnt = -1;
+		public int insertCategory(CategoryBean bean) {
+			int cnt= -1; 
 			cnt= sqlSessionTemplate.insert(namespace+".InsertCategory",bean);
 		    return cnt;
 		}

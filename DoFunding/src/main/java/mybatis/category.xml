@@ -5,10 +5,11 @@
   
   <mapper namespace="category.model.Category">
  
-   <insert id="InsertCategory">
- 		insert into category(cnum,code,cname)
-		values(catseq.nextval,#{code},#{cname})
+    <insert id="InsertCategory">
+ 		insert into category(cnum,code,cname,c_option1,c_option2)
+		values(catseq.nextval,#{code},#{cname},#{c_option1},#{c_option2})
  	</insert>
+ 	
  
   <select id="TotalCount" resultType="int" > 
         select count(*) from category  

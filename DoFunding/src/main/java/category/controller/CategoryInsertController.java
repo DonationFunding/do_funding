@@ -33,7 +33,7 @@ public class CategoryInsertController {
 	}
 
 	@RequestMapping(value=command, method = RequestMethod.POST)
-	public ModelAndView doAction(@ModelAttribute("category") @Valid CategoryBean bean,BindingResult result){
+	public ModelAndView doAction(@Valid CategoryBean bean,BindingResult result){
 		
 	ModelAndView mav = new ModelAndView();	
 		
@@ -44,7 +44,7 @@ public class CategoryInsertController {
 	   		
 	   int cnt = cdao.insertCategory(bean);   
 	   
-	    mav.setViewName(gotoPage);
+	    mav.setViewName(getPage);
 	    return mav; 
 		}
 	}

@@ -20,6 +20,8 @@
 				<td  align="center">번호</td>
 				<td  align="center">카테고리 코드</td>
 				<td  align="center">카테고리명</td>
+				<td  align="center">옵션1</td>
+				<td  align="center">옵션2</td>
 				<td  align="center">삭제</td>	
 			</tr>
         <c:forEach var="category" items="${list}">
@@ -27,6 +29,8 @@
 						<td>${category.cnum}</td>
 						<td>${category.code}</td>
 						<td>${category.cname}</td>
+						<td>${category.c_option1}</td>
+						<td>${category.c_option2}</td>
 						<td>
 						<a href="delete.cat?num=${category.cnum}&pageNumber=${pageInfo.pageNumber}">삭제</a>
 					    </td>
