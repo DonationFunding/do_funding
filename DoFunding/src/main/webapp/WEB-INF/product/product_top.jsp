@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <table border="1" width="80%" height="100%">
 <tr>
 	<td>
@@ -12,9 +11,7 @@
 <!DOCTYPE html>
 <html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-=======
 <%@ include file="../common/common.jsp" %>
->>>>>>> refs/remotes/origin/do-kyg
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
@@ -27,7 +24,7 @@
 	<div id="top-wrap">
 		<header class="top-inner">
 			<div class="top-banner-wrap">
-				<h1 class="banner-inner">banner</h1>
+				<h1 class="banner-inner">banner ${loginInfo.id }</h1>
 			</div>
 			
 			<h1 class="logo">
@@ -51,7 +48,12 @@
 			<c:if test="${sessionScope.uid == null}">
 			<ul class="subMenu">
 				<li><a href="">회원가입</a></li>
-				<li><a href="">로그인</a></li>
+				<c:if test="${loginInfo.id != null }">
+					<li><a href="loginInfo.mem">회원정보</a></li>
+				</c:if>
+				<c:if test="${loginInfo.id eq null }">
+					<li><a href="login.mem">로그인</a></li>
+				</c:if>
 				<li><a href="">ID/비밀번호 찾기</a></li>
 				<li><a href="">비회원 펀딩조회</a></li>
 			</ul>
@@ -130,8 +132,4 @@
 		</header>
 	</div>
 </body>
-<<<<<<< HEAD
-=======
 product_top.jsp<br>
-
->>>>>>> refs/remotes/origin/do-kyg
