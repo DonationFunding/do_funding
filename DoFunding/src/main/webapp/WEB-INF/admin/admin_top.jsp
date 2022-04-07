@@ -10,16 +10,16 @@
 <table border="1" width="800" >
    <tr>
     <td align="center"> 
-     <a href="insert.cat">카테고리 등록</a>
+     <a href="admin_cate_insert.ad">카테고리 등록</a>
      </td>
     <td align="center"> 
-     <a href="list.cat">카테고리 목록</a>
+     <a href="admin_cate_list.ad">카테고리 목록</a>
      </td>
     <td align="center"> 
-    <a href=" <%=request.getContextPath()%>">상품 등록</a>
+    <a href="admin_prd_insert.ad">상품 등록</a>
     </td>
     <td align="center"> 
-    	<a href="adminlist.ad">상품 목록</a>
+    	<a href="admin_prd_list.ad">상품 목록</a>
     </td>
     <td align="center"> 
     <a href="<%=request.getContextPath()%>">쇼핑 내역</a>

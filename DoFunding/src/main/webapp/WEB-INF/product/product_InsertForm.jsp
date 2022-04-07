@@ -11,7 +11,7 @@
 productInsertForm.jsp
 <br>
 <h2>상품 추가 화면</h2>
-<form:form commandName="productBean" action="insert.prd" method="post"
+<form:form commandName="productBean" action="admin_prd_insert.ad" method="post"
 	enctype="multipart/form-data">
 	<p>
 		<label>제품 번호</label> 

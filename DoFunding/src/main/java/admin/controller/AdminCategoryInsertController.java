@@ -1,4 +1,4 @@
-package category.controller;
+package admin.controller;
 
 import javax.validation.Valid;
 
@@ -14,12 +14,12 @@ import category.model.CategoryBean;
 import category.model.CategoryDao;
 
 @Controller
-public class CategoryInsertController {
+public class AdminCategoryInsertController {
 
 	    
-	private final String command = "/insert.cat";
-	private String getPage = "category_input";
-	private String gotoPage = "redirect:/list.cat";
+	private final String command = "/admin_cate_insert.ad";
+	private String getPage = "admin_cate_input";
+	private String gotoPage = "redirect:/admin_cate_list.ad";
 	
 	@Autowired
 	private CategoryDao cdao;

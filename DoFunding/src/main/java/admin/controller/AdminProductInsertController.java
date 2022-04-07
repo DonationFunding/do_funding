@@ -1,4 +1,4 @@
-package product.controller;
+package admin.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,11 +19,11 @@ import product.model.ProductBean;
 import product.model.ProductDao;
 
 @Controller
-public class ProductInsertController {
+public class AdminProductInsertController {
 
-	private final String command = "insert.prd";
-	private String getPage = "product_InsertForm";
-	private String gotoPage="redirect:/list.prd";
+	private final String command = "admin_prd_insert.ad";
+	private String getPage = "admin_prd_InsertForm";
+	private String gotoPage="redirect:/admin_prd_list.ad";
 
 	
 	@Autowired

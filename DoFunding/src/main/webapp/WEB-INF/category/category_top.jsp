@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
 <font size=6>관리자용</font><br>
 <a href="insert.cat">관리자홈</a> |
 <a href="<%=request.getContextPath()%>/main.jsp">로그인폼</a> |

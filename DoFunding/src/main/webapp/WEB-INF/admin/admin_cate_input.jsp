@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file ="category_top.jsp" %>
 <%@include file ="../common/common.jsp" %>
+<%@include file ="admin_top.jsp" %>
  
-
 <b>카테고리등록</b>
 <form:form commandName="category"  method="post"  action="insert.cat">
 <br>
@@ -36,5 +35,4 @@
 		</tr>
  </table>
  </form:form>
-<%@include file ="category_bottom.jsp" %>
-  
+<%@include file ="admin_bottom.jsp" %>

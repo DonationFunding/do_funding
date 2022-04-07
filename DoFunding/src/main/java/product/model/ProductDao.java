@@ -10,8 +10,7 @@ import org.springframework.stereotype.Component;
 
 import utility.Paging;
 
-@Component("myProductdao")
-
+@Component("myProductDao")
 public class ProductDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
@@ -27,13 +26,7 @@ public class ProductDao {
 		RowBounds rowBounds=new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
 		List<ProductBean> list=sqlSessionTemplate.selectList(namespace+".ProductList",map,rowBounds);
 		return list;
-	}
-	
-	public ProductBean getProduct(int p_num) {
-		ProductBean bean = sqlSessionTemplate.selectOne(namespace+".GetProduct", p_num);
-		return bean;
-
-	}
+	}	
 
 	public int insertProduct(ProductBean bean) {
 		int cnt = -1;
@@ -45,7 +38,7 @@ public class ProductDao {
 		int cnt=-1;
 		cnt=sqlSessionTemplate.insert(namespace+".UpdateProduct", bean);				
 		return cnt;
-<<<<<<< HEAD
+
 	}//updateProduct
 	
 	//상품 상세정보(content용)
@@ -89,13 +82,5 @@ public class ProductDao {
 		int count=0;	
 		return count;
 	}//getProductInfoBysearchCount_admin	
-	
-	
 
-	
-	
-
-=======
-	}
->>>>>>> refs/remotes/origin/do-hjh
 }
