@@ -94,48 +94,27 @@ create sequence seqdo_product
 --3. loginInfo에서 admin 이 0인(직원or관리자) 유저만 제품등록 가능/아마도 관리자페이지에서만 등록 가능
   
 drop table do_product CASCADE CONSTRAINTS;
-create table do_product( 
-    --대분류 카테고리(카테고리 테이블 추가)
-    p_category_fk    varchar2(100)    not null    --
-	p_num 		number not null primary key,	--제품 번호()
-	p_writer 	varchar2(10) references do_members(id) on delete cascade,	--작성자는 member id
-	p_subject 	varchar2(20) not null,		--게시글 제목
-	p_readcount int default 0,				--조회수
-	p_image    	varchar2(500),				--이미지 파일
-	p_content 	varchar2(20) not null		--게시글 내용			
-	
-	--데이터 한계 돌파는 나중에
-	--찜 누른사람 아이디,아이디,아이디......
-	p_like 		varchar2(3000) not null		--게시글 찜(찜 수는 length)			
-			
-	--옵션은 옵션과 value 한쌍을 하나의 값으로 묶어서 입력 ","
-	--옵션/value 구분자: /
-	--옵션덩어리,옵션덩어리  구분자: ,
-	--옵션1(..)	selectbox(color/red), radiobox
-	
-	p_option		varchar2(500)
-	
-	--옵션2(..)
-	p_option2		varchar2(500)
-	
-	--가격
-	p_origin_price 	int default 0,			--단가	
-	p_total_price 	int default 0,			--가격(현재금액)
-	p_end_price 	int default 0,			--가격(목표금액) 157%~ 200% 있으니 자유롭게
-	
-	
-	p_point 	varchar2(20) not null		--제품포인트	
-	
-	--후기게시판(이거 테이블 따로 잡을게요) == do_p_board
---	p_ref 		number not null,			--게시글(글)
---	p_re_step 	number not null,			--한 게시글에 대한 순번(글,댓글,답글)
---	p_re_level 	number not null,			--게시글 단계(글=0,댓글=1,답글=2,답글의답글=3...)
-
-	--요일
-	p_reg_date 		default sysdate  ,	--작성일 default sysdate 넣어도 괜찮을꺼 같습니다.
-	p_start_date 	date not null,		--펀딩 시작일		
-	p_end_date 		date not null		--펀딩 마감일	마감일 되면 펀딩못하게 막고, orderdetail 성공, 실패 (진행중)
-
+create table do_product(
+	p_category_fk varchar2(100) not null ,   
+	p_num number not null primary key,	
+	p_writerv varchar2(10) references do_members(id) on delete cascade,
+	p_subject varchar2(20) not null,		
+	p_readcount int default 0,				
+	p_image varchar2(500),				
+	p_content varchar2(20) not null,					
+	p_like varchar2(3000) not null,			
+	p_option varchar2(500),
+	p_option2 varchar2(500),
+	p_origin_price int default 0,				
+	p_total_price int default 0,			
+	p_end_price int default 0,			
+	p_point varchar2(20) not null,	
+	p_ref number not null,
+	p_re_step number not null,
+	p_re_level number not null,
+	p_reg_date date default sysdate,
+	p_start_date date not null,
+	p_end_date date not null		
 );
 
 
