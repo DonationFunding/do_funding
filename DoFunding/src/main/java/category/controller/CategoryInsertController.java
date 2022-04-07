@@ -20,7 +20,6 @@ public class CategoryInsertController {
 	private final String command = "/insert.cat";
 	private String getPage = "category_input";
 	private String gotoPage = "redirect:/list.cat";
-	//予中仄予中仄予中仄中
 		
 	@Autowired
 	private CategoryDao cdao;

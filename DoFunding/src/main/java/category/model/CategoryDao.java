@@ -9,6 +9,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
 import utility.Paging;
 
 @Component("myCategoryDao")
@@ -44,6 +45,15 @@ public class CategoryDao {
 		return cnt;
 		}
 
+		public CategoryBean getCategory(int cnum) {
+			CategoryBean bean = sqlSessionTemplate.selectOne(namespace+".GetCategory",cnum);
+			return bean;
+		}
+
+		 public int updateCategory(CategoryBean category) {
+			int cnt = sqlSessionTemplate.update(namespace+".UpdateCategory",category);
+			return cnt;
+		}
 		
 
 }

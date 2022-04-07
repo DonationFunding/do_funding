@@ -35,4 +35,4 @@
 <delete id="CategoryDelete" >
    delete from category where cnum=#{cnum}
 </delete>
-  </mapper>
+</mapper>

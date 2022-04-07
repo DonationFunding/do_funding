@@ -3,6 +3,7 @@
 <%@include file="category_top.jsp"%>
 <%@ include file="../common/common.jsp" %>
 
+
   <td colspan="6" align="center">
     <h4 align="center">카테고리 목록</h4>
 	<center>
@@ -12,6 +13,7 @@
 			<option value="code">코드
 			<option value="cname">카테고리명
 		</select>
+		<input type="text" name="keyword">
 		<input type="submit" value="검색">
 	</form>
 </center>
@@ -23,6 +25,8 @@
 				<td  align="center">옵션1</td>
 				<td  align="center">옵션2</td>
 				<td  align="center">삭제</td>	
+				<td  align="center">수정</td>	
+				
 			</tr>
         <c:forEach var="category" items="${list}">
 					<tr>
@@ -32,16 +36,21 @@
 						<td>${category.c_option1}</td>
 						<td>${category.c_option2}</td>
 						<td>
-						<a href="delete.cat?num=${category.cnum}&pageNumber=${pageInfo.pageNumber}">삭제</a>
+						<a href="delete.cat?cnum=${category.cnum}&pageNumber=${pageInfo.pageNumber}">삭제</a>
 					    </td>
+					    <td>
+			            <a href="update.cat?cnum=${category.cnum}&pageNumber=${pageInfo.pageNumber}">수정</a>
+			           </td>
 					</tr>
-			</c:forEach>			
+			</c:forEach>	
+		
 		</table>
+		<center>
+	 ${pageInfo.pagingHtml}
+    </center>	
 		</td>
 		<br>
-    <center>
-	 ${pageInfo.pagingHtml}
-    </center>
+ 
 
 	<%@include file="category_bottom.jsp"%>
 	

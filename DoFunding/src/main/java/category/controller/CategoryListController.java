@@ -20,7 +20,7 @@ import utility.Paging;
 @Controller
 public class CategoryListController {
 
-	private final String command = "list.cat";
+	private final String command = "/list.cat";
 	private String getPage = "category_list"; 
 	
 	@Autowired
