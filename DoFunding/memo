@@ -157,19 +157,22 @@ create table do_product(
 	p_readcount int default 0,				
 	p_image    	varchar2(100),				
 	p_content 	varchar2(3000) not null,				
-	p_like 		varchar2(3000) not null,		
+	p_like 		varchar2(3000),		
 	p_option	 varchar2(500),
 	p_option2	 varchar2(500),
 	p_origin_price  int default 0,		
 	p_total_price   int default 0,			
 	p_end_price     int default 0,				
-	p_point 		varchar2(20) not null,	
+	p_point 		int default 0 not null,	
 	p_reg_date 		date default sysdate,	
 	p_start_date 	date not null,		
 	p_end_date 		date not null		
 );
 
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1','내용123','kim','color/yellow','갤럭시',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim','color/yellow','갤럭시',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim','color/yellow','갤럭시',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim','color/yellow','갤럭시',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim','color/yellow','갤럭시',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 
 -- 카테고리 테이블
 drop sequence catseq ;
@@ -185,8 +188,10 @@ nocache;
 drop table category cascade constraints purge ;
 create table category(
 	cnum 	number primary key,
-	code 	varchar2(20) not null,	//카테고리 코드
-	cname 	varchar2(50) not null	//케테고리 이름
+	code 	varchar2(20) not null,	//카테고리 코드 핸드폰
+	cname 	varchar2(50) not null,	//케테고리 이름
+	c_option1 varchar2(500), //key/value 기종/갤럭시노트 색상:파란색
+	c_option2 varchar2(500)	 //key/value 색상/빨간색
 );
 
 --주문 테이블

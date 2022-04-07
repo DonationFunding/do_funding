@@ -13,7 +13,7 @@ import product.model.ProductDao;
 @Controller
 public class ProductInsertController {
 	
-	private final String command = "productInsertForm.prd";
+	private final String command = "insert.prd";
 	private String getPage = "productInsertForm"; 
 	private String gotoPage = "redirect:product_list"; 
 	

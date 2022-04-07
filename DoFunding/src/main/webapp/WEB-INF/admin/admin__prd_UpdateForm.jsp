@@ -7,15 +7,14 @@
 	font-weight: bold;
 }
 </style>
-
-product\productInsertForm.jsp
+admin\admin_prd_InsertForm.jsp
 <br>
 
 <!-- insert.prd(post) => product.controller.ProductInsertController -->
 <%-- <%application.getAttribute(name); %> --%>
 
-<h2>상품 추가 화면</h2>
-<form:form commandName="productBean" action="insert.prd" method="post"
+<h2>상품 수정 화면</h2>
+<form:form commandName="productBean" action="update.prd" method="post"
 	enctype="multipart/form-data">
 	<p>
 		<label>*상품명</label> 

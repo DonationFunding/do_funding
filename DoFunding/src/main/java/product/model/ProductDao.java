@@ -52,8 +52,8 @@ public class ProductDao {
 		//조회수 증가
 		int cnt= sqlSessionTemplate.update(namespace+".ReadcountUp", p_num);
 		System.out.println("readcount+1");
-		ProductBean bean = sqlSessionTemplate.selectOne(namespace+".GetProduct", p_num);
-		return bean;
+		ProductBean p_product = sqlSessionTemplate.selectOne(namespace+".GetProduct", p_num);
+		return p_product;
 	}//getProduct
 
 	//상품 상세정보(update용)

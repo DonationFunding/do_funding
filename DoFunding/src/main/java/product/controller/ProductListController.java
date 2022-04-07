@@ -21,7 +21,7 @@ import utility.Paging;
 @Controller
 public class ProductListController {
 
-	private final String command = "productList.prd";
+	private final String command = "/list.prd";
 	private String getPage = "product_list"; // /WEB-INF/product/productList.jsp
 	
 	@Autowired
@@ -46,11 +46,11 @@ public class ProductListController {
 		System.out.println("totalCount:"+totalCount);
 		
 		String url=request.getContextPath()+command;
-		Paging pageInfo=new Paging(pageNumber, "5", totalCount, url, whatColumn, keyword);
+		Paging pageInfo=new Paging(pageNumber, null, totalCount, url, whatColumn, keyword);
 	
 		  
 		List<ProductBean> list = productDao.productList(pageInfo, map);
-	 
+		System.out.println("list.size:"+list.size());
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list",list);
 		mav.addObject("totalCount",totalCount);
