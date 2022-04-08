@@ -49,4 +49,16 @@ public class CategoryDao {
 			return null;
 		}
 
+		public int updateCategory(CategoryBean bean) {
+			int cnt= -1; 
+			System.out.println("update1");
+			cnt= sqlSessionTemplate.update(namespace+".UpdateCategory",bean);
+			return cnt;
+		}
+
+		public CategoryBean getCategory(int cnum) {
+			CategoryBean category=sqlSessionTemplate.selectOne(namespace+".GetCategory", cnum);
+			return category;
+		}
+
 }

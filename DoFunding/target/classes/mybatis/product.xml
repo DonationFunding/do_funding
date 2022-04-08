@@ -49,7 +49,7 @@
 		</where> 	
 	</delete>
 
-	<update id="updateProduct">
+	<update id="UpdateProduct">
 	
 	</update>
 </mapper>

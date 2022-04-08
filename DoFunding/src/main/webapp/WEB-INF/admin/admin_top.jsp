@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp"%>    
-<%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/admin.js"></script>
- --%>
+<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/admin.js"></script>
+
 <center>
 	<font size=6>관리자용</font><br> 
 	<a href="main.ad">관리자홈</a> | 

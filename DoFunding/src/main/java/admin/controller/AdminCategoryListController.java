@@ -20,12 +20,12 @@ import utility.Paging;
 @Controller
 public class AdminCategoryListController {
 
-	private final String command = "admin_cate_list.ad";
+	private final String command = "/admin_cate_list.ad";
 	private String getPage = "admin_cate_list"; 
-	
+
 	@Autowired
 	private CategoryDao cdao;
-	
+
 	@Autowired
 	ServletContext servletContext;	
 
@@ -36,20 +36,19 @@ public class AdminCategoryListController {
 			@RequestParam(value="pageNumber", required=false) String pageNumber,
 			HttpServletRequest request
 			) {
-		
+
 		Map<String, String> map=new HashMap<String, String>();
 		map.put("whatColumn", whatColumn);
 		map.put("keyword", "%"+keyword+"%");
-		
+
 		int totalCount=cdao.totalCount(map);
 		System.out.println("totalCount:"+totalCount);
-		
+
 		String url=request.getContextPath()+command;
 		Paging pageInfo=new Paging(pageNumber, "5", totalCount, url, whatColumn, keyword);
-	
-		  
+
 		List<CategoryBean> list = cdao.categoryAll(pageInfo, map);
-	 
+
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list",list);
 		mav.addObject("totalCount",totalCount);
@@ -57,5 +56,5 @@ public class AdminCategoryListController {
 
 		mav.setViewName(getPage);
 		return mav;		
-}
+	}
 }

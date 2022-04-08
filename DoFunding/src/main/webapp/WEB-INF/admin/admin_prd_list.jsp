@@ -11,8 +11,8 @@
 	function delelte() {
 		location.href = "insert.prd"; 
 	}
-	
 </script>
+
 <center>
 	<h2>상품 리스트 화면</h2>
 	<form action="adminlist.prd" method="get">

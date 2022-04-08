@@ -18,14 +18,14 @@ function optionAdd() {
 						$("#optionIndex").append(
 										"  <div class='form-group'><input placeholder='옵션' class='form-control input-lg' type='text' style='float:left;' name='item_option"												
 												+ "' id='item_option'>"
-												+ "<button type='button' style='float:right;' id='optionDelBtn' class='btn-btn dark'>"
-												+ "삭제" + "</button></div>"
-								);
+												+ "<input type='button' value='삭제' style='float:right;' id='optionDelBtn' class='btn-btn dark'>"
+												+  "</div>"
+						);
 					});
 
-	$(document).click("#optionDelBtn", function() {
+	$("#optionDelBtn").click( function() {
+		alert(1);
 		$(this).parent().remove();
-
 	});
 
 };
