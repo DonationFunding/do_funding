@@ -6,9 +6,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>두펀딩</title>
-	<!-- <link rel="stylesheet" href="product_bottom.css"> -->
-	<script src="js/jquery.js"></script>
-	<script src="../common/common_tb.js"></script>
+	<link rel="stylesheet" href="../../../resources/product.css">
+	<script src="../../../resources/jquery.js"></script>
+	<script src="../../../resources/common_tb.js"></script>
  </head>
  <body>
  	<div id="bottom-wrap">

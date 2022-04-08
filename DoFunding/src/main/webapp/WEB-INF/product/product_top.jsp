@@ -6,9 +6,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>두펀딩</title>
-	<!-- <link rel="stylesheet" href="product_top.css"> -->
-	<script src="js/jquery.js"></script>
-	<script src="../common/common_tb.js"></script>
+	<link rel="stylesheet" href="../../../resources/product.css">
+	<script src="../../../resources/jquery.js"></script>
+	<script src="../../../resources/common_tb.js"></script>
 </head>
 <body>
 	<div id="top-wrap">
@@ -20,20 +20,6 @@
 			<h1 class="logo">
 				<a href="<c:url value="/"/>">두펀딩</a>
 			</h1>
-			
-			<div id="search">
-				<form id="searchForm" action="searchRequest.do" method="get">
-					<select name="searchType">
-						<option value="all">전체 검색</option>
-						<option value="">카테고리</option>
-						<option value="">뭐넣을까</option>
-						<option value="">공지사항</option>
-						<option value="">커뮤니티</option>
-					</select>
-					<input type="text" size="40" placeholder="검색어를 입력하세요." name="keyword">
-					<button>검색</button>
-				</form>
-			</div>
 			
 			<c:if test="${sessionScope.uid == null}">
 			<ul class="subMenu">
