@@ -55,16 +55,31 @@ public class ProductBean {
 	
 	private int orderqty;
 	private MultipartFile upload;
+
+	//상품 옵션처리
+	private String[] item_option;	//option 갯수만큼 받음.
+//	private String option_content;	
+	private String option_item_no;
+	private int option_vol;
+	private int option_no;	
 	
 	
 	public ProductBean() {
 		super();
 	}	
 	
+
+
+	
+	public String[] getItem_option() {
+		return item_option;
+	}
+
 	public ProductBean(int p_num, String p_category_fk, String p_writer, String p_subject, int p_readcount,
 			String p_image, String p_content, String p_like, String p_option, String p_option2, int p_origin_price,
-			int p_total_price, int p_end_price, int p_point, String p_reg_date, String p_start_date,
-			String p_end_date) {
+			int p_total_price, int p_end_price, int p_point, String p_reg_date, String p_start_date, String p_end_date,
+			int orderqty, MultipartFile upload, String[] item_option, String option_item_no, int option_vol,
+			int option_no) {
 		super();
 		this.p_num = p_num;
 		this.p_category_fk = p_category_fk;
@@ -83,6 +98,44 @@ public class ProductBean {
 		this.p_reg_date = p_reg_date;
 		this.p_start_date = p_start_date;
 		this.p_end_date = p_end_date;
+		this.orderqty = orderqty;
+		this.upload = upload;
+		this.item_option = item_option;
+		this.option_item_no = option_item_no;
+		this.option_vol = option_vol;
+		this.option_no = option_no;
+	}
+
+
+
+
+
+	public void setItem_option(String[] item_option) {
+		this.item_option = item_option;
+	}
+
+	public String getOption_item_no() {
+		return option_item_no;
+	}
+
+	public void setOption_item_no(String option_item_no) {
+		this.option_item_no = option_item_no;
+	}
+
+	public int getOption_vol() {
+		return option_vol;
+	}
+
+	public void setOption_vol(int option_vol) {
+		this.option_vol = option_vol;
+	}
+
+	public int getOption_no() {
+		return option_no;
+	}
+
+	public void setOption_no(int option_no) {
+		this.option_no = option_no;
 	}
 
 	public int getOrderqty() {

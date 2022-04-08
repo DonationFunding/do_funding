@@ -11,8 +11,7 @@ public class AdminMainController {
 	private String getPage = "admin_main";
 		
 	@RequestMapping(value=command,method = RequestMethod.GET)
-	public String doAction() {
-			
+	public String doAction() {		
 		return getPage;
 	}
 		

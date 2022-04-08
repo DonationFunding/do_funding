@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 import utility.Paging;
 
-
 @Component("myCategoryDao")
 public class CategoryDao {
 	
@@ -19,7 +18,6 @@ public class CategoryDao {
 		SqlSessionTemplate sqlSessionTemplate;
 
 		private String namespace="category.model.Category";
-		
 		
 		public int insertCategory(CategoryBean bean) {
 			int cnt= -1; 
@@ -45,6 +43,10 @@ public class CategoryDao {
 		return cnt;
 		}
 
-		
+		//상품용 카테고리 가져오기
+		public List<CategoryBean> categoryAllByProduct() {
+			List<CategoryBean> list=sqlSessionTemplate.selectList(namespace+".CategoryAllByProduct");
+			return null;
+		}
 
 }

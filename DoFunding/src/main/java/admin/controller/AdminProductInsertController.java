@@ -2,6 +2,7 @@ package admin.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import category.model.CategoryBean;
+import category.model.CategoryDao;
 import product.model.ProductBean;
 import product.model.ProductDao;
 
@@ -27,14 +30,23 @@ public class AdminProductInsertController {
 
 	
 	@Autowired
-	private ProductDao pdao;
+	private ProductDao productDao;
+	
+	@Autowired
+	private CategoryDao categoryDao;
 	
 	@Autowired
 	ServletContext servletContext;
 	
 	@RequestMapping(value=command, method = RequestMethod.GET)
-	public String doAction(HttpSession session) {
-			return getPage;
+	public ModelAndView doAction(HttpSession session) {
+		
+		List<CategoryBean> list = categoryDao.categoryAllByProduct();
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("categoryList", list);
+		mav.setViewName(getPage); 
+		return mav;
 	}
 	
 	@RequestMapping(value=command, method=RequestMethod.POST) 
@@ -49,7 +61,7 @@ public class AdminProductInsertController {
 		 
 		 MultipartFile multi = bean.getUpload();
 
-		 int cnt = pdao.insertProduct(bean); 
+		 int cnt = productDao.insertProduct(bean); 
 		 if(cnt > 0) {
 			 File f = new File(uploadPath+"\\" + bean.getP_image());
 			 

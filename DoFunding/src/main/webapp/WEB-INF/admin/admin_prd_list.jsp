@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp"%>
 <%@ include file="admin_top.jsp"%>
-
-
 <script type="text/javascript">
 	function insert() {
 		location.href = "insert.prd"; 
@@ -16,9 +13,6 @@
 	}
 	
 </script>
-
-admin\productList.jsp
-
 <center>
 	<h2>상품 리스트 화면</h2>
 	<form action="adminlist.prd" method="get">
@@ -30,9 +24,14 @@ admin\productList.jsp
 		<input type="text" name="keyword"> 
 		<input type="submit" value="검색">
 	</form>
-	<table border="1">
+	<table border="1" width="800">
 		<tr>
-			<td align="right" colspan="11">
+			<td colspan="3" align="center">
+				<c:set var="now" value="<%=new java.util.Date()%>" />
+				<c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set>
+				Today : ${sysDate} 								
+			</td>
+			<td align="right" colspan="8">
 				<input type="button" value="추가하기" onclick="insert()">
 			</td>
 		</tr>
@@ -47,7 +46,7 @@ admin\productList.jsp
 			<th>펀딩금액</th>
 			<th>확정금액</th>
 			<th>진행률</th>
-			<th>마감일</th> <!-- 오늘 날짜도 기입 -->
+			<th>마감일</th> 
 			<th>수정</th>
 			<th>삭제</th>
 		</tr>
@@ -67,11 +66,7 @@ admin\productList.jsp
 				<td>${product.p_origin_price}원</td>
 				<td>${product.p_total_price}</td>
 				<td>${product.p_end_price}</td>
-				<td>${(product.p_total_price/product.p_end_price)*100} %</td>
-<%-- <!-- 현재날짜 -->
-<c:set var="now" value="<%=new java.util.Date()%>" />
-<c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set> 				
- --%>		
+				<td>${(product.p_total_price/product.p_end_price)*100} %</td>	
  				<td>
  					<fmt:parseDate value="${product.p_end_date}" var="dateValue" pattern="yyyy-MM-dd" />
  					<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
@@ -86,6 +81,6 @@ admin\productList.jsp
 		</c:forEach>
 	</table>
 	<br> ${pageInfo.pagingHtml }
-</center>
 <br>
+</center>
 <%@ include file="admin_bottom.jsp"%>

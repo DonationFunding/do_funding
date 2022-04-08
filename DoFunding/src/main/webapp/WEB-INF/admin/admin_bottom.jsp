@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-admin_bottom.jsp<br>
+<center>
+	admin_bottom.jsp<br>
+</center>
