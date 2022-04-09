@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<table border="1" width="80%" height="100%">
+<tr>
+	<td>
+		product_top.jsp<br>
+		<a href="boardList.bd">게시판</a>
+	</td>
+</tr>
+<tr>
+<!DOCTYPE html>
+<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../common/common.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -16,7 +27,7 @@
 	<div id="top-wrap">
 		<header class="top-inner">
 			<div class="top-banner-wrap">
-				<h1 class="banner-inner">banner</h1>
+				<h1 class="banner-inner">banner ${loginInfo.id }</h1>
 			</div>
 		
 			<h1 class="logo">
@@ -26,7 +37,12 @@
 			<c:if test="${sessionScope.uid == null}">
 			<ul class="subMenu">
 				<li><a href="">회원가입</a></li>
-				<li><a href="">로그인</a></li>
+				<c:if test="${loginInfo.id != null }">
+					<li><a href="loginInfo.mem">회원정보</a></li>
+				</c:if>
+				<c:if test="${loginInfo.id eq null }">
+					<li><a href="login.mem">로그인</a></li>
+				</c:if>
 				<li><a href="">ID/비밀번호 찾기</a></li>
 				<li><a href="">비회원 펀딩조회</a></li>
 			</ul>
@@ -60,6 +76,8 @@
 							<a href="#">홈</a>
 						</li>
 
+</body>
+</html>
 						<li class="m2">
 							<a href="#">두펀딩</a>
 							<ul class="secMenu secMenu1">
@@ -103,5 +121,9 @@
 		</header>
 	</div>
 </body>
+<<<<<<< HEAD
 </html>
 
+=======
+product_top.jsp<br>
+>>>>>>> refs/remotes/origin/do-pms

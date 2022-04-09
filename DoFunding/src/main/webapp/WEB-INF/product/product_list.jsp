@@ -132,4 +132,7 @@ h2 { margin: 20px 0}
 
 
 <%@ include file="product_bottom.jsp" %>
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/do-pms
