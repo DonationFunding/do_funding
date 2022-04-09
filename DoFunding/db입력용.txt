@@ -8,7 +8,7 @@ create sequence seqdo_members
 DROP TABLE members CASCADE CONSTRAINTS;
 create table do_members(
 	no number not null,			
-	admin number default 1		
+	admin number default 1	,	
 	id varchar2(10) primary key,
 	
 	password varchar2(30),		
@@ -80,8 +80,7 @@ create table do_product(
 	p_point 		int default 0 not null,	
 	p_reg_date 		date default sysdate,	
 	p_start_date 	date not null,		
-	p_end_date 		date not null	
-		
+	p_end_date 		date not null		
 );
 
 insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim','color/yellow','갤럭시',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');

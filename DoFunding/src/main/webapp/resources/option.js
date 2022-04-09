@@ -12,20 +12,16 @@ $(document).ready(function() {
 function optionAdd() {
 	console.log('optionadd');
 	var optionIndex = 1;
-	//$("#fileIndex").append("<div><input type='file' style='float:left;' name='file_"+(fileIndex++)+"'>"+"<button type='button' style='float:right;' id='fileAddBtn'>"+"추가"+"</button></div>");
 	$("#optionAdd_btn").click(function() {
 						console.log('옵션추가');
 						$("#optionIndex").append(
-										"  <div class='form-group'><input placeholder='옵션' class='form-control input-lg' type='text' style='float:left;' name='item_option"												
-												+ "' id='item_option'>"
-												+ "<input type='button' value='삭제' style='float:right;' id='optionDelBtn' class='btn-btn dark'>"
-												+  "</div>"
+												  " <td class='form-group'>"
+												+ " <input type='text' placeholder='옵션' class='form-control input-lg'  style='float:left;' name='item_option' id='item_option'>"
+												+ " <button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn' class='btn-btn dark'>삭제</button>"
+												+ " </td><br>"
 						);
 					});
-
-	$("#optionDelBtn").click( function() {
-		alert(1);
-		$(this).parent().remove();
-	});
-
-};
+}
+	function option_del(DelBtn){
+		$(DelBtn).parent().remove();
+	}
