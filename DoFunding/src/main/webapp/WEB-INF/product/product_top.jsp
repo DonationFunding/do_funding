@@ -7,15 +7,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>두펀딩</title>
-<<<<<<< HEAD
-	<!-- <link rel="stylesheet" href="product_top.css"> -->
+
 	<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
-	<%-- <script src="<%=request.getContextPath() %>/resources/common_tb.js"></script> --%>
-=======
-	<link rel="stylesheet" href="../../../resources/product.css">
-	<script src="../../../resources/jquery.js"></script>
-	<script src="../../../resources/common_tb.js"></script>
->>>>>>> refs/remotes/origin/do_cjh
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
+	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
 </head>
 <body>
 	<div id="top-wrap">
@@ -108,6 +103,5 @@
 		</header>
 	</div>
 </body>
-
 </html>
 

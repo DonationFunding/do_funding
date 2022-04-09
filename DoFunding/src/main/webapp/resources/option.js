@@ -3,8 +3,7 @@
  */
 
 $(document).ready(function() {
-	//alert(1);
-	console.log('ready');
+	//console.log('ready');
 
 	optionAdd();
 });
@@ -18,7 +17,7 @@ function optionAdd() {
 												  " <td class='form-group'>"
 												+ " <input type='text' placeholder='옵션' class='form-control input-lg'  style='float:left;' name='item_option' id='item_option'>"
 												+ " <button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn' class='btn-btn dark'>삭제</button>"
-												+ " </td><br>"
+												+ " <br></td>"
 						);
 					});
 }

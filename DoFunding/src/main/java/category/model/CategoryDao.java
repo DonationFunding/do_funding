@@ -46,7 +46,7 @@ public class CategoryDao {
 		//상품용 카테고리 가져오기
 		public List<CategoryBean> categoryAllByProduct() {
 			List<CategoryBean> list=sqlSessionTemplate.selectList(namespace+".CategoryAllByProduct");
-			return null;
+			return list;
 		}
 
 		public int updateCategory(CategoryBean bean) {

@@ -43,7 +43,6 @@ public class AdminProductInsertController {
 		
 		List<CategoryBean> list = categoryDao.categoryAllByProduct();
 		ModelAndView mav = new ModelAndView();
-		
 		mav.addObject("categoryList", list);
 		mav.setViewName(getPage); 
 		return mav;
