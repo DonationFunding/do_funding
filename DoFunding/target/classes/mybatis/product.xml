@@ -54,7 +54,7 @@
 	</delete>
 
 	<update id="UpdateProduct">
- 		update do_product set where p_category_fk=#{p_category_fk}, p_subject=#{p_subject}, p_image=#{p_image}, p_content=#{p_content}, p_origin_price=#{p_origin_price}, p_end_price=#{p_end_price}, p_point=#{p_point}, p_start_date#{p_start_date}, p_end_date=#{p_end_date}
+ 		update do_product set p_category_fk=#{p_category_fk}, p_subject=#{p_subject}, p_image=#{p_image}, p_content=#{p_content}, p_origin_price=#{p_origin_price}, p_end_price=#{p_end_price}, p_point=#{p_point}, p_start_date=#{p_start_date}, p_end_date=#{p_end_date}
  		where p_num = ${p_num}
 	</update>
 	

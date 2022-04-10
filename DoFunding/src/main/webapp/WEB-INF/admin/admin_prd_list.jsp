@@ -7,14 +7,13 @@
 	}
 	
 	function update(p_num,pageNumber){
-		alert("p_num:"+p_num);
-		alert("pageNumber:"+pageNumber);
+
 		location.href="admin_prd_update.ad?p_num="+p_num+"&pageNumber="+pageNumber; 	
 	}
 	
 </script>
 <center>
-	<h2>상품 리스트 화면</h2>
+	<h2>상품 리스트 화면(${pageInfo.pageNumber})</h2>
 	<form action="admin_prd_list.ad" method="get">
 		<select name="whatColumn">
 			<option value="">선택

@@ -51,6 +51,7 @@ public class AdminProductUpdateController {
 		int p_num=Integer.parseInt(num);
 		List<CategoryBean> c_list = categoryDao.categoryAllByProduct();
 		List<OptionBean> o_list = productDao.optionAllByProduct(p_num);
+		System.out.println(o_list.size());
 		ProductBean Bean = productDao.getupdateProduct(p_num);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("categoryList", c_list);
@@ -64,16 +65,18 @@ public class AdminProductUpdateController {
 	
 	@RequestMapping(value=command, method=RequestMethod.POST) 
 	 public ModelAndView doAction(
-			 @RequestParam(value="pageNunber", required = true) String pageNumber,
+			 @RequestParam(value="pageNunber", required = false) String pageNumber,
 			 @ModelAttribute("productBean") @Valid ProductBean Bean, 
 			 BindingResult result) {	 
 		 ModelAndView mav = new ModelAndView();
 		 mav.addObject("pageNumber", pageNumber);
 		 List<CategoryBean> list = categoryDao.categoryAllByProduct();
+		 List<OptionBean> o_list = productDao.optionAllByProduct(Bean.getP_num());
 		 
 		 if(result.hasErrors()) {
 			 System.out.println(result.getErrorCount());	//6
 			 mav.addObject("categoryList", list);
+			 mav.addObject("optionList", o_list);
 			 mav.setViewName(getPage);
 			 return mav;
 		 }
@@ -81,10 +84,9 @@ public class AdminProductUpdateController {
 		 
 		 Bean.setP_point(Math.round(Bean.getP_origin_price()/1000)*10);
 		 int cnt = productDao.updateProduct(Bean); //update끝
-
 		 if(cnt > 0) {
-
-			 
+			 int item_no=productDao.getP_num();
+			 Bean.setOption_item_no(item_no);
 			 //옵션 추가하기 전 기존 옵션 삭제
 			 productDao.itemOptionDelete(Bean.getOption_item_no());
 			 //옵션추가부분

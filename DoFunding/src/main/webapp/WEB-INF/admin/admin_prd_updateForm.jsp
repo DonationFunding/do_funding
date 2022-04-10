@@ -12,13 +12,18 @@
 <h2>제품 수정 화면(${loginInfo.id})</h2>
 <div >
 	<form:form commandName="productBean" action="admin_prd_update.ad" method="post" enctype="multipart/form-data" >
-		<input type="hidden" name="num" value="${productBean.p_num}">
+		<input type="hidden" name="p_num" value="${productBean.p_num}">
+		<input type="hidden" name="p_readcount" value="${productBean.p_readcount}">
+		<input type="hidden" name="p_like" value="${productBean.p_like}">
+		<input type="hidden" name="p_total_price" value="${productBean.p_total_price}">
+		<input type="hidden" name="p_reg_date" value="${productBean.p_reg_date}">
 		<input type="hidden" name="pageNumber" value="${pageNumber}">
+		<input type="hidden" name="option_item_no" value="${productBean.option_item_no}">
 			<table border="1" width="800">
 				<tr>
 					<th>작성자</th>
 					<td>
-						<input type="text" name="p_writer" value="${loginInfo.id}" readonly="readonly">					 
+						<input type="text" name="p_writer" value="${productBean.p_writer}" readonly="readonly">					 
 					</td>
 				</tr>
 				<tr>
@@ -76,11 +81,19 @@
 						</c:if>						
 						<form:errors cssClass="err" path="p_end_price" />
 					</td>
-				</tr>				
+				</tr>	
+<c:set var="p_start_date">
+	<fmt:parseDate value="${productBean.p_start_date}" var="dateValue" pattern="yyyy-MM-dd"/>
+	<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
+</c:set> 
+<c:set var="p_end_date">
+	<fmt:parseDate value="${productBean.p_end_date}" var="dateValue" pattern="yyyy-MM-dd"/>
+	<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
+</c:set> 							
 				<tr>
 					<th>펀딩 시작일</th>
 					<td>
-						<input type="text" name="p_start_date" value="${productBean.p_start_date}" >
+						<input type="text" name="p_start_date" value="${p_start_date}" >
 						<form:errors cssClass="err" path="p_start_date" />
 						<br><span>ex) 2022-04-21 </span>
 					</td>
@@ -88,7 +101,7 @@
 				<tr>
 					<th>펀딩 마감일</th>
 					<td>
-						<input type="text" name="p_end_date" value="${productBean.p_end_date}">
+						<input type="text" name="p_end_date" value="${p_end_date}">
 						<form:errors cssClass="err" path="p_end_date" />
 						<br><span>ex) 2022-04-21 </span>
 					</td>
@@ -104,7 +117,7 @@
 							<div id="optionIndex" >
 								<c:forEach var="option" items="${optionList}">
 									<div class='form-group' style='margin: 10px;' >
-										<input type='text' placeholder='옵션' class='form-control input-lg'  style='float:left;' name='item_option' id='item_option' value="${option_content}">
+										<input type='text' placeholder='옵션' class='form-control input-lg'  style='float:left;' name='item_option' id='item_option' value="${option.option_content}">
 										<button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn' class='btn-btn dark'>삭제</button>
 										<form:errors cssClass="err" path="item_option" />
 									<br></div>

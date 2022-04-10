@@ -94,6 +94,7 @@ public class AdminProductInsertController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			 
 			 mav.setViewName(gotoPage);
 		 }
 		 else {
