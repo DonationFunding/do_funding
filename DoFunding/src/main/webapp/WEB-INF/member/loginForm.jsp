@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../common/product_top.jsp" %>
+
 <title>login.jsp</title>
 <center>
 <form action="login.mem" method="post">
@@ -30,3 +32,4 @@
 	</table>
 </form>
 </center>
+<%@ include file="../common/product_bottom.jsp" %>

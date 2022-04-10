@@ -36,12 +36,10 @@ create table do_members(
 
 
 insert into do_members(no,admin,id,password,name,birthday,joindate,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)
-values(seqdo_members.nextval,'0','kim','1234','관리자1','2022-3-6',sysdate,'남자','010','4586','5870','서울특별시 어딘가로 123-4','펀딩아파트 205호','국민은행','123456-23442323','0');
+values(seqdo_members.nextval,'0','admin','1234','관리자1','2022-3-6',sysdate,'남자','010','4586','5870','서울특별시 어딘가로 123-4','펀딩아파트 205호','국민은행','123456-23442323','0');
 
-insert into do_members(no,id,password,name,birthday,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)values(seqdo_members.nextval,'kim','1234','김철수','2022-04-05','남자','010','2580','9876','서울시','은평구','국민은행','012345678','10000');
-
-insert into do_members(id,name,password,salary,hiredate,gender,hobby,job,zipcode)
-values(seqdo_members.nextval,'kim','김철수','1234',100,sysdate,'남자','게임','학생','123-456');
+insert into do_members(no,id,password,name,birthday,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)
+values(seqdo_members.nextval,'kim','1234','김철수','2022-04-05','남자','010','2580','9876','서울시','은평구','국민은행','012345678','10000');
 
 commit ;
 
@@ -69,12 +67,10 @@ create table do_product(
 	p_writer 	varchar2(50) references do_members(id) on delete cascade,
 	p_subject 	varchar2(100) not null,		
 	p_readcount int default 0,				
-	p_image    	varchar2(100),				
+	p_image    	varchar2(100) not null,				
 	p_content 	varchar2(3000) not null,				
 	p_like 		varchar2(3000),		
-	p_option	 varchar2(500),
-	p_option2	 varchar2(500),
-	p_origin_price  int default 0,		
+	p_origin_price  int not null,		
 	p_total_price   int default 0,			
 	p_end_price     int default 0,				
 	p_point 		int default 0 not null,	
@@ -83,10 +79,10 @@ create table do_product(
 	p_end_date 		date not null		
 );
 
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim','color/yellow','갤럭시',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim','color/yellow','갤럭시',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim','color/yellow','갤럭시',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim','color/yellow','갤럭시',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 
 --옵션 테이블
 drop sequence seqdo_option;

@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
 import utility.Paging;
 
 @Component("myProductDao")
@@ -36,7 +37,7 @@ public class ProductDao {
 	
 	public int updateProduct(ProductBean bean) {
 		int cnt=-1;
-		cnt=sqlSessionTemplate.insert(namespace+".UpdateProduct", bean);				
+		cnt=sqlSessionTemplate.update(namespace+".UpdateProduct", bean);				
 		return cnt;
 
 	}//updateProduct
@@ -65,7 +66,7 @@ public class ProductDao {
 //				sql+=" or gpnum=?";
 //				for(int i=0;i<rowcheck.length;i++) {
 //					ps.setInt(i+1,Integer.parseInt(rowcheck[i]));
-			sqlSessionTemplate.delete(namespace+".MultiDeleteProduct", rowcheck);
+			cnt=sqlSessionTemplate.delete(namespace+".MultiDeleteProduct", rowcheck);
 			return cnt;	
 	}//multiDeleteProduct		
 	
@@ -82,5 +83,28 @@ public class ProductDao {
 		int count=0;	
 		return count;
 	}//getProductInfoBysearchCount_admin	
+
+	//옵션추가용
+	public int getP_num() {
+		int p_num=sqlSessionTemplate.selectOne(namespace+".GetP_num");
+		return p_num;
+	}
+
+	//옵션테이블 옵션추가
+	public int itemOptionInsert(Map<String, Object> map) {
+		int cnt=-1;
+		cnt=sqlSessionTemplate.insert(namespace+".ItemOptionInsert", map);
+		return cnt;
+	}
+	
+	//상품 옵션 가져오기
+	public List<OptionBean> optionAllByProduct(int p_num) {
+		List<OptionBean>list=sqlSessionTemplate.selectList(namespace+".OptionAllByProduct", p_num);
+		return list;
+	}
+
+	public void itemOptionDelete(int option_item_no) {
+		sqlSessionTemplate.delete(namespace+".ItemOptionDelete", option_item_no);
+	}
 
 }

@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="product.model.Product">
+
 	<select id="GetTotalCount" resultType="int">
 		select count(*) from do_product
 		<if test="whatColumn == 'p_subject'">
@@ -30,29 +31,54 @@
  		select * from do_product where p_num=#{p_num}	
  	</select>
 	
-	<insert id="InsertProduct">
-
-		<!-- default p_readcount,p_total_price,p_point,p_reg_date  -->
- 		insert into do_product(p_num,p_category_fk,p_writer,p_subject,p_image,p_content,p_like,p_option,p_option2,p_origin_price,p_total_price,p_end_price,p_start_date,p_end_date)
- 		values(seqdo_product.nextval,#{p_category_fk},#{p_writer},#{p_subject},#{p_image},#{p_content},#{p_like},#{p_option},#{p_option2},#{p_origin_price},#{p_total_price},#{p_end_price},#{p_start_date},#{p_end_date})
-
+	<insert id="InsertProduct">	
+		<!-- default p_readcount,p_like,p_total_price,p_reg_date  -->
+ 		insert into do_product(p_num,p_category_fk,p_writer, p_subject, p_image, p_content, p_origin_price, p_end_price, p_point, p_start_date, p_end_date)
+ 		values(seqdo_product.nextval,#{p_category_fk},#{p_writer},#{p_subject},#{p_image},#{p_content},#{p_origin_price},#{p_end_price},#{p_point},#{p_start_date},#{p_end_date})
  	</insert>
-	
+
 	<update id="ReadcountUp">
 		update do_product set p_readcount=p_readcount+1 where p_num=#{p_num}	
 	</update>
 
-	<delete id="DeleteProduct">
+	<delete id="MultiDeleteProduct">
 		delete do_product  
 		<where>
 			FIND_IN_SET (p_num, ${p_num})
 		</where> 	
 	</delete>
 
+	<delete id="DeleteProduct">
+		delete do_product  
+		where p_num = ${p_num}
+	</delete>
+
 	<update id="UpdateProduct">
-	
+ 		update do_product set where p_category_fk=#{p_category_fk}, p_subject=#{p_subject}, p_image=#{p_image}, p_content=#{p_content}, p_origin_price=#{p_origin_price}, p_end_price=#{p_end_price}, p_point=#{p_point}, p_start_date#{p_start_date}, p_end_date=#{p_end_date}
+ 		where p_num = ${p_num}
 	</update>
+	
+	
+	<!-- 옵션용 -->
+	<select id="GetP_num" resultType="int">
+ 		select max(p_num) from do_product 
+ 	</select>
+
+	<select id="OptionAllByProduct" resultType="product.model.OptionBean">
+ 		select * from do_option where option_item_no=#{p_num}
+ 	</select>
+ 	
+	<insert id="ItemOptionInsert">
+		INSERT INTO do_option (option_no, option_content, option_item_no )
+		VALUES(seqdo_option.nextval , #{item_option} , #{option_item_no})	
+	</insert>
+
+	<insert id="ItemOptionDelete">
+		delete do_option where option_item_no=#{option_item_no}
+	</insert>
+
 </mapper>
+
 
 <!-- product.xml -->
 

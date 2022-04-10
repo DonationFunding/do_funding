@@ -3,19 +3,19 @@
 <%@ include file="admin_top.jsp"%>
 <script type="text/javascript">
 	function insert() {
-		location.href = "insert.prd"; 
+		location.href="admin_prd_insert.ad"; 
 	}
-	function update(p_num,pageNumber) {
-		location.href = "update.prd?p_num="+p_num+"&pageNumber="+pageNumber; 
+	
+	function update(p_num,pageNumber){
+		alert("p_num:"+p_num);
+		alert("pageNumber:"+pageNumber);
+		location.href="admin_prd_update.ad?p_num="+p_num+"&pageNumber="+pageNumber; 	
 	}
-	function delelte() {
-		location.href = "insert.prd"; 
-	}
+	
 </script>
-
 <center>
 	<h2>상품 리스트 화면</h2>
-	<form action="adminlist.prd" method="get">
+	<form action="admin_prd_list.ad" method="get">
 		<select name="whatColumn">
 			<option value="">선택
 			<option value="name">상품명
@@ -24,7 +24,7 @@
 		<input type="text" name="keyword"> 
 		<input type="submit" value="검색">
 	</form>
-	<table border="1" width="800">
+	<table border="1" width="1000">
 		<tr>
 			<td colspan="3" align="center">
 				<c:set var="now" value="<%=new java.util.Date()%>" />
@@ -57,25 +57,25 @@
 				</td>
 				<td><c:out value="${product.p_num}" /></td>
 				<td>
-					<a href="detail.prd?num=${product.p_num}&pageNumber=${pageInfo.pageNumber }">${product.p_subject}</a>
+					<a href="admin_prd_detail.ad?num=${product.p_num}&pageNumber=${pageInfo.pageNumber }">${product.p_subject}</a>
 				</td>
 				<td>
 					<img width="100" height="100" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 					src="<%=request.getContextPath() %>/resources/images/${product.p_image}"><br>
 				</td>
 				<td>${product.p_origin_price}원</td>
-				<td>${product.p_total_price}</td>
-				<td>${product.p_end_price}</td>
+				<td>${product.p_total_price}원</td>
+				<td>${product.p_end_price}원</td>
 				<td>${(product.p_total_price/product.p_end_price)*100} %</td>	
  				<td>
  					<fmt:parseDate value="${product.p_end_date}" var="dateValue" pattern="yyyy-MM-dd" />
  					<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
  				</td>
 				<td>
-					<button onclick="update('${product.p_num}','${pageInfo.pageNumber }')">수정</button>
+					<input type="button" value="수정" onclick="update('${product.p_num}','${pageInfo.pageNumber}')">				
 				</td>
 				<td>
-					<a href="delete.prd?p_num=${product.p_num}&pageNumber=${pageInfo.pageNumber }">삭제</a>
+					<a href="admin_prd_delete.ad?p_num=${product.p_num}&pageNumber=${pageInfo.pageNumber }">삭제</a>
 				</td>
 			</tr>
 		</c:forEach>

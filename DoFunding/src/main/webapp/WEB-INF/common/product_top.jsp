@@ -23,7 +23,7 @@
 				<a href="<c:url value="/"/>">두펀딩</a>
 			</h1>
 			
-			<c:if test="${sessionScope.loginInfo.id == null}">
+			<c:if test="${sessionScope.id == null}">
 			<ul class="subMenu">
 				<li><a href="insertMemberForm.mem">회원가입</a></li>
 				<li><a href="login.mem">로그인</a></li>
@@ -32,13 +32,13 @@
 			</ul>
 			</c:if>
 			
-			<c:if test="${sessionScope.loginInfo.id != null}">
+			<c:if test="${sessionScope.id != null}">
 			<ul class="subMenu">
 				<li><a href="#">찜목록</a></li>
 				<li><a href="#">펀딩내역</a></li>
 				<li><a href="#">1:1문의</a></li>
 				<li><a href="#">마이페이지</a></li>
-				<li><a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a></li>
+				<li><a href="#">로그아웃</a></li>
 			</ul>
 			</c:if>
 			
