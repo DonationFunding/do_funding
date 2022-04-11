@@ -1,27 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-<table border="1" width="80%" height="100%">
-<tr>
-	<td>
-		product_top.jsp<br>
-		<a href="boardList.bd">게시판</a>
-	</td>
-</tr>
-<tr>
+<%@ include file="../common/common.jsp" %>
 <!DOCTYPE html>
 <html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-=======
-<%@ include file="../common/common.jsp" %>
->>>>>>> refs/remotes/origin/do-kyg
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>두펀딩</title>
-	<!-- <link rel="stylesheet" href="product_top.css"> -->
+
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
 	<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
-	<%-- <script src="<%=request.getContextPath() %>/resources/common_tb.js"></script> --%>
+	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
 </head>
 <body>
 	<div id="top-wrap">
@@ -29,41 +18,27 @@
 			<div class="top-banner-wrap">
 				<h1 class="banner-inner">banner</h1>
 			</div>
-			
+		
 			<h1 class="logo">
 				<a href="<c:url value="/"/>">두펀딩</a>
 			</h1>
 			
-			<div id="search">
-				<form id="searchForm" action="searchRequest.do" method="get">
-					<select name="searchType">
-						<option value="all">전체 검색</option>
-						<option value="">카테고리</option>
-						<option value="">뭐넣을까</option>
-						<option value="">공지사항</option>
-						<option value="">커뮤니티</option>
-					</select>
-					<input type="text" size="40" placeholder="검색어를 입력하세요." name="keyword">
-					<button>검색</button>
-				</form>
-			</div>
-			
-			<c:if test="${sessionScope.uid == null}">
+			<c:if test="${sessionScope.loginInfo.id == null}">
 			<ul class="subMenu">
-				<li><a href="">회원가입</a></li>
-				<li><a href="">로그인</a></li>
+				<li><a href="insertMemberForm.mem">회원가입</a></li>
+				<li><a href="login.mem">로그인</a></li>
 				<li><a href="">ID/비밀번호 찾기</a></li>
 				<li><a href="">비회원 펀딩조회</a></li>
 			</ul>
 			</c:if>
 			
-			<c:if test="${sessionScope.uid != null}">
+			<c:if test="${sessionScope.loginInfo.id != null}">
 			<ul class="subMenu">
 				<li><a href="#">찜목록</a></li>
 				<li><a href="#">펀딩내역</a></li>
 				<li><a href="#">1:1문의</a></li>
 				<li><a href="#">마이페이지</a></li>
-				<li><a href="#">로그아웃</a></li>
+				<li><a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a></li>
 			</ul>
 			</c:if>
 			
@@ -85,8 +60,6 @@
 							<a href="#">홈</a>
 						</li>
 
-</body>
-</html>
 						<li class="m2">
 							<a href="#">두펀딩</a>
 							<ul class="secMenu secMenu1">
@@ -130,8 +103,5 @@
 		</header>
 	</div>
 </body>
-<<<<<<< HEAD
-=======
-product_top.jsp<br>
+</html>
 
->>>>>>> refs/remotes/origin/do-kyg

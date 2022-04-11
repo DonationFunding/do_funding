@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 deleteForm.jsp<br>
-<form method="post" action="deleteForm.bd">
+<form method="post" action="deleteForm.bv">
 	<input type="hidden" name="num" value="${article.num}">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
 	<table border="1" align="center">
@@ -14,7 +14,7 @@ deleteForm.jsp<br>
 		<tr>
 			<td>
 				<input type="submit" value="글삭제">
-				<input type="button" value="글목록" onclick="location.href='boardList.bd?pageNumber=${pageNumber}'">
+				<input type="button" value="글목록" onclick="location.href='boardList.bv?pageNumber=${pageNumber}'">
 			</td>
 		</tr>
 	</table>

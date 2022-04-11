@@ -5,6 +5,17 @@ public class CategoryBean {
 	private int cnum;
 	private String code;
 	private String cname;
+
+	public CategoryBean() {
+		super();
+	}
+
+	public CategoryBean(int cnum, String code, String cname) {
+		super();
+		this.cnum = cnum;
+		this.code = code;
+		this.cname = cname;
+	}
 	
 	public int getCnum() {
 		return cnum;

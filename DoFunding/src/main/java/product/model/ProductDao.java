@@ -8,43 +8,38 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
 import utility.Paging;
 
 @Component("myProductDao")
 public class ProductDao {
-
-	private String namespace="product.model.Product";
-
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
-
-	//상품 수
+	
+	private String namespace="product.model.Product";
+	
 	public int totalCount(Map<String, String> map) {
 		int count = sqlSessionTemplate.selectOne(namespace+".GetTotalCount",map);
 		return count;
-	}	
-	
-	//상품 리스트 정보
+	}
+
 	public List<ProductBean> productList(Paging pageInfo, Map<String, String> map) {
 		RowBounds rowBounds=new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
 		List<ProductBean> list=sqlSessionTemplate.selectList(namespace+".ProductList",map,rowBounds);
 		return list;
-	}//getProductAllInfo	
-		
-	//상품 추가
+	}	
+
 	public int insertProduct(ProductBean bean) {
-		int cnt=-1;		
-		cnt=sqlSessionTemplate.insert(namespace+".InsertProduct", bean);				
-		System.out.println("추가 갯수:"+cnt);
+		int cnt = -1;
+		cnt = sqlSessionTemplate.insert(namespace+".InsertProduct", bean);
 		return cnt;
-	}//insertProduct
+	}
 	
-	//상품 수정
 	public int updateProduct(ProductBean bean) {
 		int cnt=-1;
-		cnt=sqlSessionTemplate.insert(namespace+".UpdateProduct", bean);				
-		System.out.println("수정성공 갯수:"+cnt);
+		cnt=sqlSessionTemplate.update(namespace+".UpdateProduct", bean);				
 		return cnt;
+
 	}//updateProduct
 	
 	//상품 상세정보(content용)
@@ -52,8 +47,8 @@ public class ProductDao {
 		//조회수 증가
 		int cnt= sqlSessionTemplate.update(namespace+".ReadcountUp", p_num);
 		System.out.println("readcount+1");
-		ProductBean bean = sqlSessionTemplate.selectOne(namespace+".GetProduct", p_num);
-		return bean;
+		ProductBean p_product = sqlSessionTemplate.selectOne(namespace+".GetProduct", p_num);
+		return p_product;
 	}//getProduct
 
 	//상품 상세정보(update용)
@@ -71,7 +66,7 @@ public class ProductDao {
 //				sql+=" or gpnum=?";
 //				for(int i=0;i<rowcheck.length;i++) {
 //					ps.setInt(i+1,Integer.parseInt(rowcheck[i]));
-			sqlSessionTemplate.delete(namespace+".MultiDeleteProduct", rowcheck);
+			cnt=sqlSessionTemplate.delete(namespace+".MultiDeleteProduct", rowcheck);
 			return cnt;	
 	}//multiDeleteProduct		
 	
@@ -88,10 +83,28 @@ public class ProductDao {
 		int count=0;	
 		return count;
 	}//getProductInfoBysearchCount_admin	
-	
-	
 
+	//옵션추가용
+	public int getP_num() {
+		int p_num=sqlSessionTemplate.selectOne(namespace+".GetP_num");
+		return p_num;
+	}
+
+	//옵션테이블 옵션추가
+	public int itemOptionInsert(Map<String, Object> map) {
+		int cnt=-1;
+		cnt=sqlSessionTemplate.insert(namespace+".ItemOptionInsert", map);
+		return cnt;
+	}
 	
-	
+	//상품 옵션 가져오기
+	public List<OptionBean> optionAllByProduct(int p_num) {
+		List<OptionBean>list=sqlSessionTemplate.selectList(namespace+".OptionAllByProduct", p_num);
+		return list;
+	}
+
+	public void itemOptionDelete(int option_item_no) {
+		sqlSessionTemplate.delete(namespace+".ItemOptionDelete", option_item_no);
+	}
 
 }

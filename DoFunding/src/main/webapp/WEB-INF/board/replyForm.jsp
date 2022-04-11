@@ -19,7 +19,7 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
 
-<form action="replyForm.bd" method="post">
+<form action="replyForm.bv" method="post">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
 	<input type="hidden" name="ref" value="${article.ref}">
 	<input type="hidden" name="re_step" value="${article.re_step}">
@@ -27,7 +27,7 @@
 <table border="1">
 	<tr>
 		<td colspan="2" align="right">
-			<a href="boardList.bd?pageNumber=${pageNumber}">글목록</a>
+			<a href="boardList.bv?pageNumber=${pageNumber}">글목록</a>
 		</td>
 	</tr>
 	<tr>
@@ -54,7 +54,7 @@
 		<td colspan="2" align="center">
 			<input type="submit" name="" value="글쓰기" onclick="return check()">
 			<input type="reset" name="" value="다시작성">
-			<input type="button" name="" value="목록보기" onclick="location.href='boardList.bd?pageNumber=${pageNumber}'">
+			<input type="button" name="" value="목록보기" onclick="location.href='boardList.bv?pageNumber=${pageNumber}'">
 		</td>
 	</tr>
 </table>

@@ -15,7 +15,7 @@ import board.model.BoardDao;
 @Controller
 public class BoardContentController {
 
-	private final String command="/content.bd";
+	private final String command="/content.bv";
 	private String getPage="content";
 
 	@Autowired

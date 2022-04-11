@@ -19,9 +19,9 @@ import board.model.BoardDao;
 @Controller
 public class BoardUpdateController {
 
-	private final String command="/updateForm.bd";
+	private final String command="/updateForm.bv";
 	private String getPage="updateForm";
-	private String gotoPage="redirect:/content.bd";
+	private String gotoPage="redirect:/content.bv";
 	
 	@Autowired
 	private BoardDao boardDao;
