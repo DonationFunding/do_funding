@@ -11,8 +11,8 @@ import product.model.ProductBean;
 @Controller
 public class CartAddController {
 
-	private final String command="/add.mall";
-	private final String gotoPage="redirect:/list.mall"; // CartListController
+	private final String command="/add.ord";
+	private final String gotoPage="redirect:/list.ord"; // CartListController
 
 	// productDetailView.jsp에서 주문하기 클릭
 	@RequestMapping(value=command)

@@ -17,7 +17,7 @@ updateForm.jsp<br>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
 
-<form action="updateForm.bv?pageNumber=${pageNumber }" method="post" onsubmit="return check()">
+<form action="update.bd?pageNumber=${pageNumber }" method="post" onsubmit="return check()">
 <input type="hidden" name="num" value="${article.getNum()}">
 
 	<table border="1">
@@ -52,7 +52,7 @@ updateForm.jsp<br>
 			<td colspan="2" align="center">
 				<input type="submit" name="" value="수정하기" >
 				<input type="reset" name="" value="다시작성">
-				<input type="button" name="" value="목록보기" onclick="location.href='boardList.bv?pageNumber=${pageNumber}'">
+				<input type="button" name="" value="목록보기" onclick="location.href='list.bd?pageNumber=${pageNumber}'">
 			</td>
 		</tr>
 	</table>

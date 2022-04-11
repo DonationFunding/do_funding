@@ -18,9 +18,9 @@ import member.model.MemberBean;
 import member.model.MemberDao;
 @Controller
 public class MemberInsertController {
-	private final String command = "insertMemberForm.mem";
+	private final String command = "insert.mem";
 	private final String getPage = "insertMemberForm";
-	private String gotoPage = "redirect:/productList.prd";
+	private String gotoPage = "redirect:/list.prd";
 	@Autowired
 	MemberDao mdao;
 	

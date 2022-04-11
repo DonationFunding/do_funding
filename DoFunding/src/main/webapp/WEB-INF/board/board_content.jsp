@@ -49,10 +49,10 @@ content.jsp<br>
 
 	<tr height="30">
 		<td align="center" colspan="4">
-			<input type="button" name="update_btn" value="글수정" <c:if test="${sessionScope.loginInfo.id != article.writer}"> disabled </c:if>  onclick="location.href='updateForm.bv?num=${article.getNum()}&pageNumber=${pageNumber}'" >
-			<input type="button" name="delete_btn" value="글삭제" <c:if test="${sessionScope.loginInfo.id != article.writer}"> disabled </c:if> onclick="location.href='deleteForm.bv?num=${article.getNum()}&pageNumber=${pageNumber }'" >
-			<input type="button" name="reple_btn" value="답글쓰기" <c:if test="${sessionScope.loginInfo == null}"> disabled </c:if> onclick="location.href='replyForm.bv?ref=${article.getRef()}&re_step=${article.getRe_step()}&re_level=${article.getRe_level()}&pageNumber=${pageNumber}'" >
-			<input type="button" name="list_btn" value="글목록" onclick="location.href='boardList.bv?pageNumber=${pageNumber}'">
+			<input type="button" name="update_btn" value="글수정" <c:if test="${sessionScope.loginInfo.id != article.writer}"> disabled </c:if>  onclick="location.href='update.bd?num=${article.getNum()}&pageNumber=${pageNumber}'" >
+			<input type="button" name="delete_btn" value="글삭제" <c:if test="${sessionScope.loginInfo.id != article.writer}"> disabled </c:if> onclick="location.href='delete.bd?num=${article.getNum()}&pageNumber=${pageNumber }'" >
+			<input type="button" name="reple_btn" value="답글쓰기" <c:if test="${sessionScope.loginInfo == null}"> disabled </c:if> onclick="location.href='reply.bd?ref=${article.getRef()}&re_step=${article.getRe_step()}&re_level=${article.getRe_level()}&pageNumber=${pageNumber}'" >
+			<input type="button" name="list_btn" value="글목록" onclick="location.href='list.bd?pageNumber=${pageNumber}'">
 		</td>
 	</tr>		
 </table>

@@ -19,14 +19,14 @@ import board.model.BoardDao;
 @Controller
 public class BoardDeleteController {
 	
-	private final String command="/deleteForm.bv";
-	private String getPage="deleteForm";
-	private String gotoPage="redirect:/boardList.bv";
+	private final String command="/delete.bd";
+	private String getPage="board_deleteForm";
+	private String gotoPage="redirect:/list.bd";
 	
 	@Autowired
 	private BoardDao boardDao;
 
-	//content.jsp get방식 updateForm.bv
+	//content.jsp get방식 updateForm.bd
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,

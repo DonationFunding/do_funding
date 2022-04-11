@@ -14,9 +14,6 @@ h2 { margin: 20px 0}
 		$('#rotator').rotator({ms:2000});	//이미지가 3초마다 알아서 바꿔줌..너무 편하고..
 	}); //function
 	
-	function productInsert(){
-		location.href = "productInsert.prd"; // ProductInsertController
-	}
 </script>
 <head> 
     <meta charset="utf-8">
@@ -28,7 +25,7 @@ h2 { margin: 20px 0}
 <div align="center">
 	<c:if test="${loginInfo.admin == 0}"><a href="">관리자 페이지</a></c:if>
 	<h2>상품 리스트 화면</h2>
-	<form action="productList.prd" method="get">
+	<form action="list.prd" method="get">
 		<select name="whatColumn">
 			<option value="">선택
 			<option value="p_subject">상품명
@@ -51,17 +48,17 @@ h2 { margin: 20px 0}
              <!-- Carousel items  여기 foreach돌려서 최신상품 5개 정도 나오개 반복-->
              <div class="carousel-inner">
                 <div class="item active">
-                   <a href="productDetail.prd?p_num=${list.get(0).getP_num()}&pageNumber=${pageInfo.pageNumber}">
+                   <a href="detail.prd?p_num=${list.get(0).getP_num()}&pageNumber=${pageInfo.pageNumber}">
                    		<img src="<%=request.getContextPath()%>/resources/images/${list.get(0).getP_image()}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" width="300" height="150">
                    </a>        
                 </div>
                 <div class="item">
-                    <a href="productDetail.prd?p_num=${list.get(1).getP_num()}&pageNumber=${pageInfo.pageNumber}">
+                    <a href="detail.prd?p_num=${list.get(1).getP_num()}&pageNumber=${pageInfo.pageNumber}">
                    		<img src="<%=request.getContextPath()%>/resources/images/${list.get(1).getP_image()}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" width="300" height="150">
                    </a>   
                 </div>
                 <div class="item">
-                   <a href="productDetail.prd?p_num=${list.get(2).getP_num()}&pageNumber=${pageInfo.pageNumber}">
+                   <a href="detail.prd?p_num=${list.get(2).getP_num()}&pageNumber=${pageInfo.pageNumber}">
                    		<img src="<%=request.getContextPath()%>/resources/images/${list.get(2).getP_image()}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" width="300" height="150">
                    </a>                   
                 </div>
@@ -96,7 +93,7 @@ h2 { margin: 20px 0}
 					<tr>						
 						<c:forEach var="p_product" items="${list}" varStatus="status">
 							<td align="center">
-								<a href="productDetail.prd?p_num=${p_product.p_num}&pageNumber=${pageInfo.pageNumber}"> 
+								<a href="detail.prd?p_num=${p_product.p_num}&pageNumber=${pageInfo.pageNumber}"> 
 								<img width="80%"
 									alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 									src="<%=request.getContextPath() %>/resources/images/${p_product.p_image}"><br>

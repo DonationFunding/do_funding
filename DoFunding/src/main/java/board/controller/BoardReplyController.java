@@ -20,9 +20,9 @@ import board.model.BoardDao;
 @Controller
 public class BoardReplyController {
 
-	private final String command="/replyForm.bv";
-	private String getPage="replyForm";
-	private String gotoPage="redirect:/boardList.bv";
+	private final String command="/reply.bd";
+	private String getPage="board_replyForm";
+	private String gotoPage="redirect:/list.bd";
 	
 	@Autowired
 	private BoardDao boardDao;

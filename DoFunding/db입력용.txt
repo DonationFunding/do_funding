@@ -5,32 +5,23 @@ create sequence seqdo_members
 	start with 1 
 	nocache ;
 
-DROP TABLE members CASCADE CONSTRAINTS;
+DROP TABLE do_members CASCADE CONSTRAINTS;
 create table do_members(
 	no number not null,			
 	admin number default 1	,	
-	id varchar2(10) primary key,
-	
+	id varchar2(20) primary key,
 	password varchar2(30),		
-	
 	name varchar2(30),			
-	
 	birthday date not null,		
-	
 	joindate date default sysdate,	
-	
 	gender varchar2(10),		
-	
 	hp1 varchar2(10),			
 	hp2 varchar2(10),			
 	hp3 varchar2(20),			
-	
-	address1 varchar2(30),		
-	address2 varchar2(30),		
-	
-	accountbank varchar2(20),	
-	account varchar2(20),		
-	
+	address1 varchar2(100),		
+	address2 varchar2(100),		
+	accountbank varchar2(50),	
+	account varchar2(30),		
 	mpoint number default 0 	
 ) ;
 
@@ -98,6 +89,33 @@ create table do_option(
 	option_content varchar2(200),
 	option_item_no number  references do_product(p_num) on delete cascade
 );
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '캐릭터:토끼' , 1);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '캐릭터:개구리' , 1);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '캐릭터:강아지' , 1);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '캐릭터:비둘기' , 2);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '캐릭터:송아지' , 2);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '캐릭터:잠자리' , 2);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:검정' , 3);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:파랑' , 3);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:노랑' , 3);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 4);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '기종:아이폰' , 4);	
+
 
 commit;
 
