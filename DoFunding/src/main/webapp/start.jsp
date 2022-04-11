@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+start.jsp <br><br><br>
 
-</body>
-</html>
+<input type="button" value="메인페이지" onclick="location.href='list.prd'">
+<input type="button" value="관리자" onclick="location.href='main.ad'">
+<input type="button" value="로그인" onclick="location.href='login.mem'">
+
