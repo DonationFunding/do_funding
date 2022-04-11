@@ -20,7 +20,7 @@ import utility.Paging;
 public class BoardListController {
 
 	private final String command="/boardList.bv";
-	private String getPage="boardList";
+	private String getPage="board_List";
 
 	@Autowired
 	private BoardDao boardDao;

@@ -1,4 +1,4 @@
-package mall.cart;
+package order.cart;
 
 public class ShoppingInfo {
 	private int pnum;

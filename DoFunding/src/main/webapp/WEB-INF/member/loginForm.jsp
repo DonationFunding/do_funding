@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/product_top.jsp" %>
+<%@ include file="../common/common_top.jsp" %>
 
 <title>login.jsp</title>
 <center>
@@ -32,4 +32,4 @@
 	</table>
 </form>
 </center>
-<%@ include file="../common/product_bottom.jsp" %>
+<%@ include file="../common/common_bottom.jsp" %>

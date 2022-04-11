@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>  
-<%@ include file="color.jsp" %>	 
+<%@ include file="../common/common.jsp" %>  	 
 content.jsp<br>
 <style type="text/css">
 	body{
@@ -15,7 +14,7 @@ content.jsp<br>
 		margin:auto;
 	}
 </style>
-<body bgcolor="<%=bodyback_c%>">
+<body>
 <h1>글내용 보기</h1>
 <table border="1" width="500">
 	<tr align="center" >

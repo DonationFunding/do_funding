@@ -4,7 +4,7 @@
 mall\mallList.jsp
 <br>
 
-<h2 align="center">주문 내역</h2>
+<h2 align="center">주문 하기</h2>
 <table border="1" align="center">
 	<tr>
 		<td colspan="5" align="center">

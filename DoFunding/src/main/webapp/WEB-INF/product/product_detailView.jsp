@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="product_top2.jsp" %>
+<%@ include file="../common/common_top.jsp" %>      
 productDetailView.jsp<br>
 <center>
     <h3>펀딩 상세 화면(${p_product.p_num }/${pageNumber })</h3>
@@ -70,4 +70,4 @@ productDetailView.jsp<br>
     	</tr>
     </table>
     </center>
-<%@ include file="product_bottom2.jsp" %>
+<%@ include file="../common/common_bottom.jsp" %>

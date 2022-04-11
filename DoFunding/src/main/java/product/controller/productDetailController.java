@@ -15,7 +15,7 @@ import product.model.ProductDao;
 public class productDetailController {
 
 	private final String command = "/productDetail.prd";
-	private String getPage = "product_DetailView"; 
+	private String getPage = "product_detailView"; 
 	
 	@Autowired
 	@Qualifier("myProductDao")
