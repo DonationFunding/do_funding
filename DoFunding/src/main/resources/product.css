@@ -1,1 +1,231 @@
 @charset "UTF-8";
+@import url(reset.css);
+*, *:after, *:before {
+	box-sizing: border-box;  /* width=content+padding+border */
+}
+body {
+	background: #fffcf6;
+	font: 14px Malgun Ghothic,"맑은고딕",sans-serif;
+    color: #555;
+    min-width:320px;  /* 모바일 단말 크기로 폭의 최소값을 제한 */
+}
+#top-wrap {
+	margin-bottom: 20px;  /* 본문(container)과 헤더 사이의 여백 지정 */
+}
+.top-inner {
+	position: relative;  /* 자식을 절대좌표로 배치하기 위해 설정 */
+	height: 238px;  /* 52(banner)+10+32(logo)+10+17(marketing)+10+24(검색)+10+18(서브메뉴)+10+45(GNB) */
+}
+
+.top-inner, /* #메인, */ #bottom-wrap {
+	max-width: 1008px;  /* 최대로 늘어날 수 있는 값을 한정 : 1120px 이상에서는 1008px로 제한 */
+	width: 90%;  /* 브라우저의 폭이 1120px이하일 때 90%로 제한 */
+	margin: 0 auto;  /* 중앙 정렬 */
+}
+
+.top-banner-wrap {  /* 실제 배너가 주어지면 수정 가능 */
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;  /* 수직으로 중앙 정렬 */
+	width: 60%;  /* banner의 크기를 설정 */
+	margin: 10px auto;  /* margin 10px을 주고 중앙 정렬 */
+	height: 52px;
+	border: 1px solid black;
+}
+.top-banner-wrap h1 {
+	width: 100%;
+	text-align: center;  /* banner 글자를 중앙 정렬 */
+}
+.top-inner h1.logo {
+	text-align: center;
+	font-size: 1.5em;   /* 상속으로 인한 폰트 크기의 영향을 고려 */
+    font-size: 1.5rem;  /* 상속으로 인한 폰트 크기의 영향을 받지 않기 위해 사용 */
+	font-weight: bold;
+}
+.top-inner h4.marketing-msg {
+	text-align: center;
+	margin: 10px 0;
+	font-size: 0.8em;
+    font-size: 0.8rem;
+}
+
+.subMenu {
+	float: right;  /* 오른쪽으로 정렬 */
+	margin-right: 5px;
+	margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.subMenu li {
+	display: inline-block;  /* 가로로 배치 */
+	background: url(../../images/bar-util.jpg) 0 7px no-repeat;  /* 구분선 */
+	padding-left: 6px;  /* 구분선과 메뉴 콘텐트 사이의 간격 */
+}
+.subMenu li:first-child {
+	background: none;  /* 첫 번째 메뉴의 구분선을 제거 */
+}
+.subMenu li a {
+	font-size: 0.8em;  /* 서브 메뉴의 글자 크기 */
+    font-size: 0.8rem;
+}
+.blind {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0000);
+	margin: -1px;
+	width: 1px;
+	height: 1px;
+}
+.mobile-menu-open{  /* 모바일 기기의 메뉴 버튼 */
+    position: absolute;
+    right: 10px;
+    top: 0;
+    display: none;
+}    
+.mobile-menu-open button{
+    width: 40px;
+    height: 40px;
+    background:none;
+    border: none;
+}
+.mobile-menu-open button span:first-child ~ span{
+    height: 4px;
+    width:30px;
+    border-radius: 2px;
+    position: absolute;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    margin-top: -2px;
+    margin-left: -15px;
+}
+.mobile-menu-open button span:first-child + span{
+    margin-top: -13px;
+}
+.mobile-menu-open button span:first-child + span + span{
+    margin-top: 10px;
+}
+.mobile-menu-wrap {  /* GNB 메뉴 */
+	clear: both;  /* 우로 정렬을 해제 */
+}
+#gnb {
+	position: absolute;  /* 절대좌표로 배치 */
+	left: 0;
+	bottom: 0;  /* 아래에 배치 */
+	width: 100%;
+	z-index: 100;
+	background: white;
+}
+#gnb > ul > li {
+	width: 16.66%;  /* 1/6 : 메뉴 6개 */
+	float: left;  /* 가로로 배치 */
+}
+#gnb > ul > li > a {
+	font-size:1.125em;
+    font-size:1.125rem;
+	text-align: center;
+	display: block;
+	height: 45px;
+	line-height: 45px;
+}
+#gnb ul .secMenu {  /* 2단 메뉴 */
+	display: none;
+	position: absolute;  /* 절대 좌표로 배치 */
+	top: 45px;  /* 1단 메뉴 아래에 배치 */
+	background-color: #fff;
+	border: 1px solid black;
+	border-top: none;
+	border-radius: 0 0 7px 7px;
+	font-size: 0.8125em;
+    font-size: 0.8125rem;  /* 13px */
+}
+#gnb ul .secMenu1 {  /* 2단 메뉴 : 상품 */
+	left: 0;  /* 좌측에 배치 */
+	width: 100%;  /* 폭은 전체 2단 메뉴의 너비 */
+}
+#gnb ul .secMenu2 {  /* 라라마켓 1단 메뉴에 상대적인 위치 */
+	left: 42%;
+	width: 140px;  /* 1단 메뉴의 중앙에 배치 */
+	margin-left: -70px;
+}
+#gnb ul .secMenu3 {  /* 고객센터 1단 메뉴에 상대적인 위치 */
+	left: 92%;
+	width: 140px;
+	margin-left: -70px;
+}
+#gnb ul .secMenu a {
+	display: block;
+	height: 30px;
+	line-height: 30px;
+    margin-left: 10px;  /* 들여쓰기 */
+}
+/* #메인 {
+	min-height: 760px;
+} */
+#bottom-wrap {
+	display: flex;
+	flex-flow: column nowrap;
+	height: 380px;
+}
+
+#bottom-wrap {
+	clear: both;  /* 정렬 해제 */
+	display: flex;  /* 플렉서블 그리드로 배치 */
+	flex-flow: column nowrap;  /* 새로를 주축으로 배치 */
+	height: 360px;  /* 120 + 38 + 30 + 22 + 90 + 60 = 
+}
+#bottom-menu1 { 
+	height: 30px; 
+	position: relative;  /* relative로 배치 */
+	top: 38px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+#bottom-menu1 ul {  /* 메뉴를 중앙에 배치 */
+    width: 580px;
+    margin: 0 auto;
+}
+#bottom-menu1 li {  /* 메뉴를 가로로 배치 */
+    float: left;
+	padding: 5px 10px;
+}
+#bottom-menu1 li:first-child {
+	background: none;
+}
+.bottom-menu2 {
+	position: relative;
+	top: 60px;
+	width: 100%;
+	height: 90px;
+	display: flex;
+	line-height: 1.5;
+	font-size: 0.8em;
+	font-size: 0.8rem;
+	flex-direction: row;
+}
+.bottom-menu2 > div {
+	display: inline-block;
+}
+.bottom-menu2 div:nth-child(1) {
+	width: 40%;
+}
+.bottom-menu2 div:nth-child(2) {
+	width: 40%;
+}
+.bottom-1 h1 {
+	font-size: 1.6em;
+	font-size: 1.6rem;
+	font-weight: bold;
+	text-align: center;
+}
+.bottom-1 h2 {
+	font-size: 1.2em;
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-align: center;
+}
+.bottom-2 p:last-child {
+	font-size: 0.9em;
+	font-size: 0.9rem;
+	margin-top: 10px;
+}
