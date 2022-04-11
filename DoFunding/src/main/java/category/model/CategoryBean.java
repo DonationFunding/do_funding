@@ -5,7 +5,7 @@ public class CategoryBean {
 	private int cnum;
 	private String code;
 	private String cname;
-	
+
 	public int getCnum() {
 		return cnum;
 	}

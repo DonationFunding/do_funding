@@ -1,12 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	</tr>
-	<tr>
-		<td>
-			product_bottom.jsp<br>
-		</td>
-	</tr>
-</table>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../common/common.jsp" %>
 <head>
@@ -45,4 +38,8 @@
 		 </div>
  	</div>
  </body>
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/do-kyg
 product_bottom.jsp<br>

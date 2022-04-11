@@ -1,0 +1,124 @@
+-- 회원 테이블
+drop sequence seqdo_members;
+create sequence seqdo_members 
+	increment by 1 
+	start with 1 
+	nocache ;
+
+DROP TABLE members CASCADE CONSTRAINTS;
+create table do_members(
+	no number not null,			
+	admin number default 1,	
+	id varchar2(10) primary key,
+	password varchar2(30),		
+	name varchar2(30),			
+	birthday date not null,		
+	joindate date default sysdate,	
+	gender varchar2(10),		
+	hp1 varchar2(10),			
+	hp2 varchar2(10),			
+	hp3 varchar2(20),			
+	address1 varchar2(30),		
+	address2 varchar2(30),		
+	accountbank varchar2(20),	
+	account varchar2(20),		
+	mpoint number default 0 	
+) ;
+
+
+insert into do_members(no,admin,id,password,name,birthday,joindate,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)
+values(seqdo_members.nextval,'0','kim','1234','관리자1','2022-3-6',sysdate,'남자','010','4586','5870','서울특별시 어딘가로 123-4','펀딩아파트 205호','국민은행','123456-23442323','0');
+
+insert into do_members(no,id,password,name,birthday,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)values(seqdo_members.nextval,'kim','1234','김철수','2022-04-05','남자','010','2580','9876','서울시','은평구','국민은행','012345678','10000');
+
+insert into do_members(id,name,password,salary,hiredate,gender,hobby,job,zipcode)
+values(seqdo_members.nextval,'kim','김철수','1234',100,sysdate,'남자','게임','학생','123-456');
+
+commit ;
+
+col id for a6
+col password for a8
+col name for a8
+col gender for a6
+col address1 for a10
+col address2 for a10
+select * from members;
+
+--상품테이블
+drop sequence seqdo_product;
+create sequence seqdo_product
+  increment by 1
+  start with 1
+  minvalue 1
+  nocache;
+
+
+drop table do_product CASCADE CONSTRAINTS;
+create table do_product( 
+	p_num 		number  primary key,	
+	p_category_fk  varchar2(100)    not null,    
+	p_writer 	varchar2(50) references do_members(id) on delete cascade,
+	p_subject 	varchar2(100) not null,		
+	p_readcount int default 0,				
+	p_image    	varchar2(100),				
+	p_content 	varchar2(3000) not null,				
+	p_like 		varchar2(3000),		
+	p_option	 varchar2(500),
+	p_option2	 varchar2(500),
+	p_origin_price  int default 0,		
+	p_total_price   int default 0,			
+	p_end_price     int default 0,				
+	p_point 		int default 0 not null,	
+	p_reg_date 		date default sysdate,	
+	p_start_date 	date not null,		
+	p_end_date 		date not null	
+);
+
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim','color/yellow','갤럭시',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim','color/yellow','갤럭시',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim','color/yellow','갤럭시',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim','color/yellow','갤럭시',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+
+--옵션 테이블
+drop sequence seqdo_option;
+create sequence seqdo_option
+  increment by 1
+  start with 1
+  minvalue 1
+  nocache;
+
+drop table do_option CASCADE CONSTRAINTS;
+create table do_option( 
+	option_no number primary key,
+	option_content varchar2(200),
+	option_item_no number  references do_product(p_num) on delete cascade
+);
+
+commit;
+
+
+
+-- 카테고리 테이블
+drop sequence catseq ;
+
+create sequence catseq
+increment by 1
+start with 1
+minvalue 1
+nocache;
+
+drop table category cascade constraints purge ;
+create table category(
+	cnum 	number primary key,
+	code 	varchar2(20) not null,	
+	cname 	varchar2(50) not null	
+);
+
+insert into category values(catseq.nextval,'phonecase','핸드폰 케이스');
+insert into category values(catseq.nextval,'necklace','목걸이');
+insert into category values(catseq.nextval,'earring','귀걸이');
+insert into category values(catseq.nextval,'handbag','핸드백');
+insert into category values(catseq.nextval,'bracelet','팔찌');
+insert into category values(catseq.nextval,'ring','반지');
+
+commit;

@@ -12,39 +12,33 @@ import utility.Paging;
 
 @Component("myProductDao")
 public class ProductDao {
-
-	private String namespace="product.model.Product";
-
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
-
-	//상품 수
+	
+	private String namespace="product.model.Product";
+	
 	public int totalCount(Map<String, String> map) {
 		int count = sqlSessionTemplate.selectOne(namespace+".GetTotalCount",map);
 		return count;
-	}	
-	
-	//상품 리스트 정보
+	}
+
 	public List<ProductBean> productList(Paging pageInfo, Map<String, String> map) {
 		RowBounds rowBounds=new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
 		List<ProductBean> list=sqlSessionTemplate.selectList(namespace+".ProductList",map,rowBounds);
 		return list;
-	}//getProductAllInfo	
-		
-	//상품 추가
+	}	
+
 	public int insertProduct(ProductBean bean) {
-		int cnt=-1;		
-		cnt=sqlSessionTemplate.insert(namespace+".InsertProduct", bean);				
-		System.out.println("추가 갯수:"+cnt);
+		int cnt = -1;
+		cnt = sqlSessionTemplate.insert(namespace+".InsertProduct", bean);
 		return cnt;
-	}//insertProduct
+	}
 	
-	//상품 수정
 	public int updateProduct(ProductBean bean) {
 		int cnt=-1;
 		cnt=sqlSessionTemplate.insert(namespace+".UpdateProduct", bean);				
-		System.out.println("수정성공 갯수:"+cnt);
 		return cnt;
+
 	}//updateProduct
 	
 	//상품 상세정보(content용)
@@ -52,8 +46,8 @@ public class ProductDao {
 		//조회수 증가
 		int cnt= sqlSessionTemplate.update(namespace+".ReadcountUp", p_num);
 		System.out.println("readcount+1");
-		ProductBean bean = sqlSessionTemplate.selectOne(namespace+".GetProduct", p_num);
-		return bean;
+		ProductBean p_product = sqlSessionTemplate.selectOne(namespace+".GetProduct", p_num);
+		return p_product;
 	}//getProduct
 
 	//상품 상세정보(update용)
@@ -88,10 +82,5 @@ public class ProductDao {
 		int count=0;	
 		return count;
 	}//getProductInfoBysearchCount_admin	
-	
-	
-
-	
-	
 
 }

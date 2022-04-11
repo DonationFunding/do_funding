@@ -1,17 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<table border="1" width="80%" height="100%">
-<tr>
-	<td>
-		product_top.jsp<br>
-		<a href="boardList.bd">게시판</a>
-	</td>
-</tr>
-<tr>
 <!DOCTYPE html>
 <html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../common/common.jsp" %>
+<!DOCTYPE html>
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
@@ -26,7 +20,7 @@
 			<div class="top-banner-wrap">
 				<h1 class="banner-inner">banner ${loginInfo.id }</h1>
 			</div>
-			
+		
 			<h1 class="logo">
 				<a href="<c:url value="/"/>">두펀딩</a>
 			</h1>
@@ -49,7 +43,7 @@
 			<ul class="subMenu">
 				<li><a href="">회원가입</a></li>
 				<c:if test="${loginInfo.id != null }">
-					<li><a href="loginInfo.mem">회원정보</a></li>
+					<li><a href="memberInfo.mem">회원정보</a></li>
 				</c:if>
 				<c:if test="${loginInfo.id eq null }">
 					<li><a href="login.mem">로그인</a></li>
@@ -132,4 +126,3 @@
 		</header>
 	</div>
 </body>
-product_top.jsp<br>

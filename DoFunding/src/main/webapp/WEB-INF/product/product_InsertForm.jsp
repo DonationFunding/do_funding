@@ -8,44 +8,50 @@
 }
 </style>
 
-product\productInsertForm.jsp
+productInsertForm.jsp
 <br>
-
-<!-- insert.prd(post) => product.controller.ProductInsertController -->
-<%-- <%application.getAttribute(name); %> --%>
-
 <h2>상품 추가 화면</h2>
-<form:form commandName="productBean" action="insert.prd" method="post"
+<form:form commandName="productBean" action="admin_prd_insert.ad" method="post"
 	enctype="multipart/form-data">
 	<p>
-		<label>*상품명</label> 
-		<input type="text" name="name" value="${productBean.name }"> 
-		<form:errors cssClass="err" path="name" />
+		<label>제품 번호</label> 
+		<input type="text" name="p_num" value="${productBean.p_num}"> 
+		<form:errors cssClass="err" path="p_num" />
 	</p>
 	<p>
-		*제조 회사 <input type="text" name="company" value="${productBean.company }"> 
-		<form:errors cssClass="err" path="company" />
+		<label>게시글 제목</label> 
+		<input type="text" name="p_subject" value="${productBean.p_subject}"> 
+		<form:errors cssClass="err" path="p_subject" />
 	</p>
 	<p>
-		*가격 <input type="text" name="price" value="${productBean.price }"> 
-		<form:errors cssClass="err" path="price" />
+		이미지 파일 <input type="file" name="upload" value="파일선택">
+		<form:errors cssClass="err" path="p_image" />
 	</p>
 	<p>
-		재고 수량 <input type="text" name="stock" value="${productBean.stock }"> 
+		<label>게시글 내용</label> 
+		<input type="text" name="p_content" value="${productBean.p_content}"> 
+		<form:errors cssClass="err" path="p_content" />
 	</p>
 	<p>
-		적립 포인트 <input type="text" name="point" value="${productBean.point }"> 
+		<label>단가</label> 
+		<input type="text" name="p_origin_price" value="${productBean.p_origin_price}"> 
+		<form:errors cssClass="err" path="p_origin_price" />
 	</p>
 	<p>
-		설명 <input type="text" name="contents" value="${productBean.contents }"> 
+		<label>목표 금액</label> 
+		<input type="text" name="p_end_price" value="${productBean.p_end_price}"> 
+		<form:errors cssClass="err" path="p_end_price" />
 	</p>
 	<p>
-		*그림 파일 <input type="file" name="upload" value="파일선택"> <!-- upload="사이다.jpg" -->
-		<form:errors cssClass="err" path="image" />
+		<label>펀딩 시작일</label> 
+		<input type="text" name="p_start_date" value="${productBean.p_start_date}"> 
+		<form:errors cssClass="err" path="p_start_date" />
 	</p>
 	<p>
-		입고 일자 <input type="text" name="inputdate" value="${productBean.inputdate }"> <br>
-		<br>
+		<label>펀딩 마감일</label> 
+		<input type="text" name="p_end_date" value="${productBean.p_end_date}"> 
+		<form:errors cssClass="err" path="p_end_date" />
 	</p>
+	
 	<input type="submit" value="추가하기">
 </form:form>

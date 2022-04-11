@@ -34,4 +34,35 @@ function check(){
 		}
 		
 	}//check
-	
+
+function allRowCheck(allck){ 
+	var chkArr = document.getElementsByName("rowcheck");
+	var check = allck.checked;	
+	if (check) {﻿
+        for (var i=0; i<chkArr.length; i++){ //배열의 길이만큼
+        	   chkArr[i].checked = true;
+        }
+    } 
+	else {
+        for (var i=0; i<chkArr.length; i++) {
+          chkArr[i].checked = false;
+         }
+    }
+}// allRowCheck
+
+//선택삭제
+function selectDelete(){
+	//alert(1);
+	var chkArr = document.getElementsByName("rowcheck");
+	flag=false; //유효성 검사
+	for(var i=0;i<chkArr.length;i++){
+		if(chkArr[i].checked==true){
+			flag=true;
+		}
+	}
+	if(flag==false){
+		alert("삭제할 체크박스를 하나라도 선택하세요.");
+		return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
+	}
+	document.myform.submit();//submit 누른것처럼 동작해라.	
+}	

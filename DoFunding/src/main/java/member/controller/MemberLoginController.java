@@ -17,7 +17,7 @@ import member.model.MemberDao;
 public class MemberLoginController {
 	private final String command = "login.mem";
 	private final String getPage = "loginForm";
-	private String gotoPage = "redirect:/productList.prd";
+	private String gotoPage = "redirect:/list.prd";
 	@Autowired
 	MemberDao mdao;
 	
