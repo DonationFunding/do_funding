@@ -19,7 +19,7 @@ import utility.Paging;
 @Controller
 public class BoardListController {
 
-	private final String command="/boardList.bd";
+	private final String command="/boardList.bv";
 	private String getPage="boardList";
 
 	@Autowired

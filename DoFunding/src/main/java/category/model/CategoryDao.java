@@ -20,7 +20,6 @@ public class CategoryDao {
 
 		private String namespace="category.model.Category";
 		
-		
 		public int insertCategory(CategoryBean bean) {
 			int cnt= -1; 
 			cnt= sqlSessionTemplate.insert(namespace+".InsertCategory",bean);
@@ -45,6 +44,7 @@ public class CategoryDao {
 		return cnt;
 		}
 
+<<<<<<< HEAD
 		public CategoryBean getCategory(int cnum) {
 			CategoryBean bean = sqlSessionTemplate.selectOne(namespace+".GetCategory",cnum);
 			return bean;
@@ -55,5 +55,24 @@ public class CategoryDao {
 			return cnt;
 		}
 		
+=======
+		//상품용 카테고리 가져오기
+		public List<CategoryBean> categoryAllByProduct() {
+			List<CategoryBean> list=sqlSessionTemplate.selectList(namespace+".CategoryAllByProduct");
+			return list;
+		}
+
+		public int updateCategory(CategoryBean bean) {
+			int cnt= -1; 
+			System.out.println("update1");
+			cnt= sqlSessionTemplate.update(namespace+".UpdateCategory",bean);
+			return cnt;
+		}
+
+		public CategoryBean getCategory(int cnum) {
+			CategoryBean category=sqlSessionTemplate.selectOne(namespace+".GetCategory", cnum);
+			return category;
+		}
+>>>>>>> refs/heads/do-kyg
 
 }

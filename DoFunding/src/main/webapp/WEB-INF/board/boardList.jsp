@@ -12,7 +12,7 @@ list.jsp<br>
 </style>
 <center>
 <h1>글목록(전체 글:${totalCount})</h1>
-<form action="boardList.bd" method="get">
+<form action="boardList.bv" method="get">
 <p>
 	<select name="whatColumn">
 		<option value="all">선택
@@ -24,11 +24,12 @@ list.jsp<br>
 	<input type="submit" value="검색">
 	<c:if test="${sessionScope.loginInfo != null}">&emsp;<a href="logout.jsp">로그아웃</a></c:if>
 	<c:if test="${sessionScope.loginInfo == null}">&emsp;<a href="loginForm.mem">로그인</a></c:if>
+	
 </p>	
 </form>
 <table width="700" border="1">
 	<tr>
-		<td align="right"><a href="writeArticle.bd">글쓰기</a></td>
+		<td align="right"><a href="writeArticle.bv">글쓰기</a></td>
 	</tr>
 </table>
 
@@ -51,7 +52,7 @@ list.jsp<br>
 					<img src="<%=request.getContextPath() %>/resources/images/re.gif">
 				</c:if>
 
-			<a href="content.bd?num=${article.num}&pageNumber=${pageInfo.pageNumber}" > ${article.subject}</a>
+			<a href="content.bv?num=${article.num}&pageNumber=${pageInfo.pageNumber}" > ${article.subject}</a>
 				<!-- 글번호 뿐만 아니라 현재페이지도 넘겨야함! -->					
 			<c:if test="${article.readcount >=10 }">
 				<img src='<%=request.getContextPath()%>/resources/images/hot.gif' height='15'>

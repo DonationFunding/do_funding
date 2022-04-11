@@ -19,9 +19,9 @@ import board.model.BoardDao;
 @Controller
 public class BoardDeleteController {
 	
-	private final String command="/deleteForm.bd";
+	private final String command="/deleteForm.bv";
 	private String getPage="deleteForm";
-	private String gotoPage="redirect:/boardList.bd";
+	private String gotoPage="redirect:/boardList.bv";
 	
 	@Autowired
 	private BoardDao boardDao;

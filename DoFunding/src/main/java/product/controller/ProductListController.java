@@ -8,6 +8,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,15 +21,17 @@ import utility.Paging;
 @Controller
 public class ProductListController {
 
-	private final String command = "productList.prd";
+	private final String command = "/list.prd";
 	private String getPage = "product_list"; // /WEB-INF/product/productList.jsp
 	
 	@Autowired
+	@Qualifier("myProductDao")
 	private ProductDao productDao;
 	
 	@Autowired
 	ServletContext servletContext;	
-
+	
+	//일반회원용
 	@RequestMapping(command)
 	public ModelAndView doAction(
 			@RequestParam(value="whatColumn", required=false) String whatColumn,
@@ -44,11 +47,11 @@ public class ProductListController {
 		System.out.println("totalCount:"+totalCount);
 		
 		String url=request.getContextPath()+command;
-		Paging pageInfo=new Paging(pageNumber, "5", totalCount, url, whatColumn, keyword);
+		Paging pageInfo=new Paging(pageNumber, null, totalCount, url, whatColumn, keyword);
 	
 		  
 		List<ProductBean> list = productDao.productList(pageInfo, map);
-	 
+		System.out.println("list.size:"+list.size());
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("list",list);
 		mav.addObject("totalCount",totalCount);
@@ -57,5 +60,7 @@ public class ProductListController {
 		mav.setViewName(getPage);
 		return mav;		
 	}
-
+	
 }
+	
+	

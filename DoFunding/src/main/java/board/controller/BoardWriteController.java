@@ -22,9 +22,9 @@ import board.model.BoardDao;
 @Controller
 public class BoardWriteController {
 
-	private final String command="/writeArticle.bd";
+	private final String command="/writeArticle.bv";
 	private String getPage="writeForm";
-	private String gotoPage="redirect:/boardList.bd";
+	private String gotoPage="redirect:/boardList.bv";
 	
 	@Autowired
 	private BoardDao boardDao;

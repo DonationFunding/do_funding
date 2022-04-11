@@ -1,18 +1,21 @@
 package member.model;
 
+import java.sql.Date;
+
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class MemberBean {
 	private int no;
-	private int	admin;
-	@NotBlank(message = "아이디는 필수 입력입니다.")
+	private String admin;
+	@NotEmpty(message = "아이디는 필수 입력입니다.")
 	private String id;
-	@Size(min = 3,max = 12, message = "비밀번호는 3~12자리 사이로 입력하세요.")
+	@Size(min = 3,max = 8,message = "패스워드는 3~8자리 입니다")
 	private String password;
-	@NotBlank(message = "이름은 필수 입력입니다.")
-	private String name;
+	@NotEmpty(message = "이름은 필수 입력입니다.")
+	private String name; 
+	@NotEmpty(message = "생년월일은 필수 입력입니다.")
 	private String birthday;
 	private String joindate;
 	private String gender;
@@ -23,11 +26,11 @@ public class MemberBean {
 	private String address2;
 	private String accountbank;
 	private String account;
-	private int	mpoint;
+	private int mpoint;
 	public MemberBean() {
 		super();
 	}
-	public MemberBean(int no, int admin, String id, String password, String name, String birthday, String joindate,
+	public MemberBean(int no, String admin, String id, String password, String name, String birthday, String joindate,
 			String gender, String hp1, String hp2, String hp3, String address1, String address2, String accountbank,
 			String account, int mpoint) {
 		super();
@@ -54,10 +57,10 @@ public class MemberBean {
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public int getAdmin() {
+	public String getAdmin() {
 		return admin;
 	}
-	public void setAdmin(int admin) {
+	public void setAdmin(String admin) {
 		this.admin = admin;
 	}
 	public String getId() {
@@ -144,5 +147,7 @@ public class MemberBean {
 	public void setMpoint(int mpoint) {
 		this.mpoint = mpoint;
 	}
+	
+	
 	
 }

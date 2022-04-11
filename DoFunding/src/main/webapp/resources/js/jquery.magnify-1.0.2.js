@@ -27,7 +27,7 @@ param 	 options[onAfterHide]	  function				  pass in function to execute after l
 
 
 jQuery.fn.magnify = function( options ) {
-
+  
 	var settings = {
 		lensWidth: 100,
 		lensHeight: 100,

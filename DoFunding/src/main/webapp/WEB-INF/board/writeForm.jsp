@@ -13,7 +13,7 @@ writeForm.jsp<br>
 </style>
 <script type="text/javascript">
 	function boardList(){
-		location.href="boardList.bd"; // MemberListController
+		location.href="boardList.bv"; // MemberListController
 	}
 </script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/style.css">
@@ -22,11 +22,11 @@ writeForm.jsp<br>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
 <body bgcolor="<%=bodyback_c%>">
 <b>글쓰기</b>
-<form action="writeArticle.bd" method="post">
+<form action="writeArticle.bv" method="post">
 <table border="1">
 	<tr>
 		<td colspan="2" align="right">
-			<a href="boardList.bd">글목록</a>
+			<a href="boardList.bv">글목록</a>
 		</td>
 	</tr>
 	<tr>
