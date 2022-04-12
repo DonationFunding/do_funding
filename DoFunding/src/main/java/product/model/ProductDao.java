@@ -58,17 +58,17 @@ public class ProductDao {
 	}//updateProduct
 
 	
-	//상품 다중삭제 이건 혹시 모름
-	public int multiDeleteProduct(String[] rowcheck ){		//다중체크값 넘겨받아오기
-			int cnt=-1;
-//			sql="delete Products where gpnum=?";
-//			for(int i=0;i<rowcheck.length-1;i++) {
-//				sql+=" or gpnum=?";
-//				for(int i=0;i<rowcheck.length;i++) {
-//					ps.setInt(i+1,Integer.parseInt(rowcheck[i]));
-			cnt=sqlSessionTemplate.delete(namespace+".MultiDeleteProduct", rowcheck);
-			return cnt;	
-	}//multiDeleteProduct		
+//	//상품 다중삭제 이건 혹시 모름
+//	public int multiDeleteProduct(String[] rowcheck ){		//다중체크값 넘겨받아오기
+//			int cnt=-1;
+////			sql="delete Products where gpnum=?";
+////			for(int i=0;i<rowcheck.length-1;i++) {
+////				sql+=" or gpnum=?";
+////				for(int i=0;i<rowcheck.length;i++) {
+////					ps.setInt(i+1,Integer.parseInt(rowcheck[i]));
+//			cnt=sqlSessionTemplate.delete(namespace+".MultiDeleteProduct", rowcheck);
+//			return cnt;	
+//	}//multiDeleteProduct		
 	
 	//과제정보 관리자검색(부분)
 //	public ArrayList<ProductBean> getProductInfoBysearch_admin(String search_gp, String searchtext,int startRow,int endRow) {
@@ -106,5 +106,18 @@ public class ProductDao {
 	public void itemOptionDelete(int option_item_no) {
 		sqlSessionTemplate.delete(namespace+".ItemOptionDelete", option_item_no);
 	}
+	public int multiDeleteProduct(String[] rowchecks) {
+		int count = 0;
+		System.out.println("2222");
+		for(int i=0;i<rowchecks.length;i++) {
+			String rowcheck=rowchecks[i];
+			System.out.println("rowcheck:"+rowcheck);
+			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteProduct",rowcheck);
+			System.out.println("22");
 
+			count+=cnt;
+		}
+
+		return count;
+	}
 }
