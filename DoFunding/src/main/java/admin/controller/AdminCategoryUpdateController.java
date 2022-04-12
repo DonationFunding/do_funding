@@ -41,7 +41,7 @@ public class AdminCategoryUpdateController {
 
 	@RequestMapping(value=command, method = RequestMethod.POST)
 	public ModelAndView doAction(
-			@RequestParam(value="pageNunber", required = false) int pageNumber,			
+			@RequestParam(value="pageNumber", required = false) int pageNumber,			
 			@ModelAttribute("category") @Valid CategoryBean bean,
 			BindingResult result
 			){
