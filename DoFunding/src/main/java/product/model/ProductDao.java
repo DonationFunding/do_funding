@@ -1,9 +1,12 @@
 package product.model;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -58,6 +61,7 @@ public class ProductDao {
 	}//updateProduct
 
 	
+<<<<<<< HEAD
 //	//상품 다중삭제 이건 혹시 모름
 //	public int multiDeleteProduct(String[] rowcheck ){		//다중체크값 넘겨받아오기
 //			int cnt=-1;
@@ -67,6 +71,18 @@ public class ProductDao {
 ////				for(int i=0;i<rowcheck.length;i++) {
 ////					ps.setInt(i+1,Integer.parseInt(rowcheck[i]));
 //			cnt=sqlSessionTemplate.delete(namespace+".MultiDeleteProduct", rowcheck);
+=======
+	//상품 다중삭제 이건 혹시 모름
+//	public int multiDeleteProduct(p_num){		//다중체크값 넘겨받아오기			
+//		int cnt=-1;
+//		cnt = sqlSessionTemplate.delete(namespace+".ProductDelete",p_num);
+////			sql="delete Products where gpnum=?";
+////			for(int i=0;i<rowcheck.length-1;i++) {
+////				sql+=" or gpnum=?";
+////				for(int i=0;i<rowcheck.length;i++) {
+////					ps.setInt(i+1,Integer.parseInt(rowcheck[i]));
+////			cnt=sqlSessionTemplate.delete(namespace+".MultiDeleteProduct", rowcheck);
+>>>>>>> refs/heads/do-khc
 //			return cnt;	
 //	}//multiDeleteProduct		
 	
@@ -115,9 +131,42 @@ public class ProductDao {
 			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteProduct",rowcheck);
 			System.out.println("22");
 
+<<<<<<< HEAD
 			count+=cnt;
 		}
 
 		return count;
 	}
+=======
+	public int productDelete(int p_num) {
+		int cnt = sqlSessionTemplate.delete(namespace+".ProductDelete",p_num);
+		return cnt;
+	}
+
+
+	public int multiDeleteProduct(String[] rowchecks) {
+		int count = 0;
+		System.out.println("2222");
+		for(int i=0;i<rowchecks.length;i++) {
+			String rowcheck=rowchecks[i];
+			System.out.println("rowcheck:"+rowcheck);
+			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteProduct",rowcheck);
+			System.out.println("22");
+
+			count+=cnt;
+		}
+
+		return count;
+		
+		
+	}
+
+
+
+
+
+
+
+
+>>>>>>> refs/heads/do-khc
 }

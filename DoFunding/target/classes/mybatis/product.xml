@@ -45,9 +45,10 @@
 		delete from do_product where p_num = #{rowcheck}	  
 	 </delete>
 
-	<delete id="DeleteProduct">
-		delete do_product  
-		where p_num = ${p_num}
+	
+
+	<delete id="ProductDelete">
+		delete from do_product where p_num = #{p_num}
 	</delete>
 
 	<update id="UpdateProduct">

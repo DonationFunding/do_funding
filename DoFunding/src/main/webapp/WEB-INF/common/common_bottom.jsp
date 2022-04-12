@@ -6,8 +6,14 @@
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>두펀딩</title>
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
+<<<<<<< HEAD
 	
 </head>
+=======
+	<script src="<%=request.getContextPath() %>/resources/jquery.js"></script>
+	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
+ </head>
+>>>>>>> refs/heads/do-khc
  <body>
  	<div id="bottom-wrap">
  		<ul id="bottom-menu1">
