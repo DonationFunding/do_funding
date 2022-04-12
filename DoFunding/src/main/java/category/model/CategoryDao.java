@@ -44,18 +44,6 @@ public class CategoryDao {
 		return cnt;
 		}
 
-<<<<<<< HEAD
-		public CategoryBean getCategory(int cnum) {
-			CategoryBean bean = sqlSessionTemplate.selectOne(namespace+".GetCategory",cnum);
-			return bean;
-		}
-
-		 public int updateCategory(CategoryBean category) {
-			int cnt = sqlSessionTemplate.update(namespace+".UpdateCategory",category);
-			return cnt;
-		}
-		
-=======
 		//상품용 카테고리 가져오기
 		public List<CategoryBean> categoryAllByProduct() {
 			List<CategoryBean> list=sqlSessionTemplate.selectList(namespace+".CategoryAllByProduct");
@@ -73,6 +61,23 @@ public class CategoryDao {
 			CategoryBean category=sqlSessionTemplate.selectOne(namespace+".GetCategory", cnum);
 			return category;
 		}
->>>>>>> refs/heads/do-kyg
+
+		public int multiDeleteCategory(String[] rowchecks) {
+			int count = 0;
+			System.out.println("2222");
+			for(int i=0;i<rowchecks.length;i++) {
+				String rowcheck=rowchecks[i];
+				System.out.println("rowcheck:"+rowcheck);
+				int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteCategory",rowcheck);
+				System.out.println("22");
+
+				count+=cnt;
+			}
+
+			return count;
+			
+			
+		}
+
 
 }

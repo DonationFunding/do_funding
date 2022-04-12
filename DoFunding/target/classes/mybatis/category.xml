@@ -3,11 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<<<<<<< HEAD
-<delete id="CategoryDelete" >
-   delete from category where cnum=#{cnum}
-</delete>
-=======
 <mapper namespace="category.model.Category">
 
 	<insert id="InsertCategory">
@@ -54,5 +49,9 @@
 	<delete id="CategoryDelete">
 		delete from category where cnum=#{cnum}
 	</delete>
->>>>>>> refs/heads/do-kyg
+	
+		 <delete id="MultiDeleteCategory" >
+		delete from category where cnum = #{rowcheck}	  
+	 </delete>
+	
 </mapper>
