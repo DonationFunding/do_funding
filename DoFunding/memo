@@ -111,7 +111,7 @@ drop table do_product CASCADE CONSTRAINTS;
 create table do_product(
 	p_category_fk varchar2(100) not null ,   
 	p_num number not null primary key,	
-	p_writerv varchar2(10) references do_members(id) on delete cascade,
+	p_writer varchar2(10) references do_members(id) on delete cascade,
 	p_subject varchar2(20) not null,		
 	p_readcount int default 0,				
 	p_image varchar2(500),				
