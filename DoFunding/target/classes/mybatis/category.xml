@@ -46,6 +46,7 @@
 		where cnum=#{cnum} 
 	</update>
 
+
 	<delete id="CategoryDelete">
 		delete from category where cnum=#{cnum}
 	</delete>
