@@ -18,22 +18,22 @@
 			</h1>
 			
 			<c:if test="${sessionScope.loginInfo.id == null}">
-			<ul class="subMenu">
-				<li><a href="">회원가입</a></li>
-				<li><a href="">로그인</a></li>
-				<li><a href="">ID/비밀번호 찾기</a></li>
-				<li><a href="">비회원 펀딩조회</a></li>
-			</ul>
+				<ul class="subMenu">
+					<li><a href="">회원가입</a></li>
+					<li><a href="">로그인</a></li>
+					<li><a href="">ID/비밀번호 찾기</a></li>
+					<li><a href="">비회원 펀딩조회</a></li>
+				</ul>
 			</c:if>
 			
 			<c:if test="${sessionScope.loginInfo.id  != null}">
-			<ul class="subMenu">
-				<li><a href="#">찜목록</a></li>
-				<li><a href="#">펀딩내역</a></li>
-				<li><a href="#">1:1문의</a></li>
-				<li><a href="#">마이페이지</a></li>
-				<li><a href="#">로그아웃</a></li>
-			</ul>
+				<ul class="subMenu">
+					<li><a href="#">찜목록</a></li>
+					<li><a href="#">펀딩내역</a></li>
+					<li><a href="#">1:1문의</a></li>
+					<li><a href="#">마이페이지</a></li>
+					<li><a href="#">로그아웃</a></li>
+				</ul>
 			</c:if>
 			
 			<p class="mobile-menu-open">
@@ -56,14 +56,14 @@
 
 						<li class="m2">
 							<a href="#">두펀딩</a>
-							<ul class="secMenu secMenu1">
+							<ul class="secMenu secMenu2">
 								<li><a href="#">Donation Funding</a></li>
 								<li><a href="#">후원 기록</a></li>
 							</ul>
 						</li>
 						<li class="m3">
 							<a href="#">펀딩상품</a>
-							<div class="secMenu secMenu2">
+							<div class="secMenu secMenu3">
 								<ul>
 									<li><a href="#">진행중인 펀딩</a></li>
 									<li><a href="#">마감된 펀딩</a></li>
@@ -71,12 +71,18 @@
 								</ul>
 							</div>
 						</li>
-						<li class="m4 no-sub">
+<!-- 					<li class="m4 no-sub"> -->
+						<li class="m4">
 							<a href="#">커뮤니티</a>
+							<div class="secMenu secMenu4">
+								<ul>
+									<li><a href="#">게시판</a></li>
+								</ul>
+							</div>
 						</li>
 						<li class="m5">
 							<a href="#">고객센터</a>
-							<ul class="secMenu secMenu3">
+							<ul class="secMenu secMenu5">
 								<li><a href="#">공지사항</a></li>
 								<li><a href="#">FAQ</a></li>
 								<li><a href="#">QnA</a></li>

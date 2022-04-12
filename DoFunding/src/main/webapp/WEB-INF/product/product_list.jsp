@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common_top.jsp" %>
+
 <style type="text/css">
 .area{
  	height:130px;	
@@ -120,8 +121,10 @@ h2 { margin: 20px 0}
 			</div>
 		</c:if>
 	</div>
-	<div>
-		${pageInfo.pagingHtml}
+	<div class="container">
+		<ul class="pagination pagination-sm">
+			${pageInfo.pagingHtml}
+		</ul>
 	</div>
 </div>	
 
