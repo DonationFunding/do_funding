@@ -6,22 +6,7 @@
 	function update(cnum,pageNumber){
 		location.href="admin_cate_update.ad?cnum="+cnum+"&pageNumber="+pageNumber;
 	}
-<<<<<<< HEAD
-	 function selectDelete1(){
-			
-			var chkArr = document.getElementsByName("rowcheck");
 
-			flag = false;
-			for(var i=0;i<chkArr.length;i++){
-				if(chkArr[i].checked == true){
-					flag = true;
-				}
-
-			document.myform.submit();//submit 누른것처럼 동작해라.
-			}
-
-		}//selectDelete
-=======
 	  function selectDelete1(){
 			
 			var chkArr = document.getElementsByName("rowcheck");
@@ -37,7 +22,7 @@
 
 		}//selectDelete
 		
->>>>>>> refs/heads/do-khc
+
 </script>
 <center>
     <h4 align="center">카테고리 목록</h4>

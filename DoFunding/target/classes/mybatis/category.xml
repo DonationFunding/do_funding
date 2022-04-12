@@ -51,14 +51,10 @@
 		delete from category where cnum=#{cnum}
 	</delete>
 	
-<<<<<<< HEAD
-	<delete id="MultiDeleteCategory" >
-		delete from category where cnum = #{rowcheck}	  
-	 </delete>
-=======
+
 		 <delete id="MultiDeleteCategory" >
 		delete from category where cnum = #{rowcheck}	  
 	 </delete>
 	
->>>>>>> refs/heads/do-khc
+
 </mapper>
