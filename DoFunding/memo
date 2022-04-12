@@ -1,7 +1,8 @@
+d
 1.pom.xml
 	oracle, datasource, mybatis, 유효성 검사, 파일 업로드
 2.web.xml
- 
+
 3.root-context.xml
 	bean 3개 작성
 	SqlMapConfig.xml 1개 생성=> xml 3개 생성=>DOCTYPE 설정,configuration 태그 설정,mapper태그 설정
