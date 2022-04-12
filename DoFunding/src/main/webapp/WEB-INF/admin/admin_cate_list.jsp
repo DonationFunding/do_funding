@@ -6,7 +6,7 @@
 	function update(cnum,pageNumber){
 		location.href="admin_cate_update.ad?cnum="+cnum+"&pageNumber="+pageNumber;
 	}
-	 function selectDelete1(){
+	  function selectDelete1(){
 			
 			var chkArr = document.getElementsByName("rowcheck");
 
@@ -15,14 +15,12 @@
 				if(chkArr[i].checked == true){
 					flag = true;
 				}
-			if(flag==false){
-				alert("삭제할 체크박스를 하나라도 선택하세요.");
-				return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
-			}
+
 			document.myform.submit();//submit 누른것처럼 동작해라.
 			}
 
 		}//selectDelete
+		
 </script>
 <center>
     <h4 align="center">카테고리 목록</h4>
