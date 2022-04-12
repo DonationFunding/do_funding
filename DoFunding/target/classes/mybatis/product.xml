@@ -41,16 +41,14 @@
 		update do_product set p_readcount=p_readcount+1 where p_num=#{p_num}	
 	</update>
 
-	<delete id="MultiDeleteProduct">
-		delete do_product  
-		<where>
-			FIND_IN_SET (p_num, ${p_num})
-		</where> 	
-	</delete>
+	 <delete id="MultiDeleteProduct" >
+		delete from do_product where p_num = #{rowcheck}	  
+	 </delete>
 
-	<delete id="DeleteProduct">
-		delete do_product  
-		where p_num = ${p_num}
+	
+
+	<delete id="ProductDelete">
+		delete from do_product where p_num = #{p_num}
 	</delete>
 
 	<update id="UpdateProduct">

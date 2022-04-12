@@ -7,7 +7,9 @@
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>두펀딩</title>
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
-</head>
+
+ </head>
+
  <body>
  	<div id="bottom-wrap">
  		<ul id="bottom-menu1">

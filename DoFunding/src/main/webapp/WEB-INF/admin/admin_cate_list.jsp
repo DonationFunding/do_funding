@@ -6,6 +6,23 @@
 	function update(cnum,pageNumber){
 		location.href="admin_cate_update.ad?cnum="+cnum+"&pageNumber="+pageNumber;
 	}
+
+	  function selectDelete1(){
+			
+			var chkArr = document.getElementsByName("rowcheck");
+
+			flag = false;
+			for(var i=0;i<chkArr.length;i++){
+				if(chkArr[i].checked == true){
+					flag = true;
+				}
+
+			document.myform.submit();//submit 누른것처럼 동작해라.
+			}
+
+		}//selectDelete
+		
+
 </script>
 <center>
     <h4 align="center">카테고리 목록</h4>
@@ -19,6 +36,9 @@
 	</form>
 <br>
 		<table border="1"  width="500">
+			<td align="left" colspan="6">
+				<input type="button" value="삭제" onclick="selectDelete1('${pageInfo.pageNumber}')">
+			</td>
 			<tr>
 				<th  align="center">
 					<input type="checkbox" name="allcheck" onclick="allRowCheck(this)">
@@ -29,10 +49,12 @@
 				<td  align="center">삭제</td>	
 				<td  align="center">수정</td>	
 			</tr>
+		<form name="myform" action="admin_cate_multidelete.ad? method="post">
+		<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber }">
         <c:forEach var="category" items="${list}">
 					<tr>
 						<td align="center" >
-							<input type="checkbox" name="rowcheck" value="${product.p_num } %>">
+							<input type="checkbox" name="rowcheck" value="${category.cnum }">
 						</td>
 						<td>${category.cnum}</td>
 						<td>${category.code}</td>

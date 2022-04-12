@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common_top.jsp" %>
+<script src="http://code.jquery.com/jquery-latest.js"></script> 
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <style type="text/css">
 .area{
@@ -20,6 +22,7 @@ h2 { margin: 20px 0}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
+    
 </head>
 <div align="center">
 <c:if test="${requestScope.list ne null}">

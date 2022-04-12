@@ -5,7 +5,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>두펀딩</title>
+	
 </head>
+
 <body>
 	<div id="top-wrap">
 		<header class="top-inner">		
@@ -31,15 +33,8 @@
 				</ul>
 			</c:if>
 			<br><br>
-			<div class="top-banner-wrap">
-				<h1 class="banner-inner">banner</h1>
-			</div>
-			
-			<h1 class="logo">
-				<a href="<c:url value='/'/>">두펀딩</a>
-			</h1>
-			
 			<div class="mobile-menu-open">
+
 				<button>
 					<span class="blind">메뉴 열기</span>
 					<span>1</span>

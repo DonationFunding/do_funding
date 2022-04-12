@@ -11,6 +11,25 @@
 		location.href="admin_prd_update.ad?p_num="+p_num+"&pageNumber="+pageNumber; 	
 	}
 	
+    function selectDelete(){
+		
+		var chkArr = document.getElementsByName("rowcheck");
+
+		flag = false;
+		for(var i=0;i<chkArr.length;i++){
+			if(chkArr[i].checked == true){
+				flag = true;
+			}
+		if(flag==false){
+			alert("삭제할 체크박스를 하나라도 선택하세요.");
+			return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
+		}
+		document.myform.submit();//submit 누른것처럼 동작해라.
+		}
+
+	}//selectDelete
+	
+	
 </script>
 <center>
 	<h2>상품 리스트 화면(${pageInfo.pageNumber})</h2>
@@ -25,13 +44,15 @@
 	</form>
 	<table border="1" width="1000">
 		<tr>
+			<td align="left" colspan="8">
+				<input type="button" value="삭제" onclick="selectDelete('${pageInfo.pageNumber}')">
+				<input type="button" value="추가하기" onclick="insert()">
+			</td>
+			</td>
 			<td colspan="3" align="center">
 				<c:set var="now" value="<%=new java.util.Date()%>" />
 				<c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set>
 				Today : ${sysDate} 								
-			</td>
-			<td align="right" colspan="8">
-				<input type="button" value="추가하기" onclick="insert()">
 			</td>
 		</tr>
 		<tr>
@@ -49,10 +70,12 @@
 			<th>수정</th>
 			<th>삭제</th>
 		</tr>
+		<form name="myform" action="admin_prd_multidelete.ad? method="post">
+		<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber }">
 		<c:forEach var="product" items="${list}">
 			<tr>
 				<td align="center" >
-					<input type="checkbox" name="rowcheck" value="${product.p_num } %>">
+					<input type="checkbox" name="rowcheck" value="${product.p_num }">
 				</td>
 				<td><c:out value="${product.p_num}" /></td>
 				<td>
@@ -78,6 +101,7 @@
 				</td>
 			</tr>
 		</c:forEach>
+		</form>
 	</table>
 	<br> ${pageInfo.pagingHtml }
 <br>

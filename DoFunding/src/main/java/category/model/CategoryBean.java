@@ -5,6 +5,7 @@ public class CategoryBean {
 	private int cnum;
 	private String code;
 	private String cname;
+	private String rowcheck;
 
 	public CategoryBean() {
 		super();
@@ -17,6 +18,16 @@ public class CategoryBean {
 		this.cname = cname;
 	}
 	
+	
+	
+	public String getRowcheck() {
+		return rowcheck;
+	}
+
+	public void setRowcheck(String rowcheck) {
+		this.rowcheck = rowcheck;
+	}
+
 	public int getCnum() {
 		return cnum;
 	}
