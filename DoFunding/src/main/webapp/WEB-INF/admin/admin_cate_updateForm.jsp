@@ -7,6 +7,7 @@
 <b>카테고리수정</b>
 <form:form commandName="category"  method="post"  action="admin_cate_update.ad">
 	<input type="hidden" name="cnum" value="${category.cnum}">
+	<input type="hidden" name="pageNumber" value="${pageNumber}">
 <br>
 	<table border="1" height="100">
 		<tr>
