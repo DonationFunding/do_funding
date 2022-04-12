@@ -1,15 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="../common/common.jsp" %>
+<%@ include file="common.jsp" %>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>두펀딩</title>
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
-	<script src="<%=request.getContextPath() %>/resources/jquery.js"></script>
-	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
- </head>
+</head>
  <body>
  	<div id="bottom-wrap">
  		<ul id="bottom-menu1">
@@ -38,4 +35,3 @@
 		 </div>
  	</div>
  </body>
-product_bottom.jsp<br>

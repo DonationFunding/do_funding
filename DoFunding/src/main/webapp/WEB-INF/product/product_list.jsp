@@ -7,8 +7,6 @@
 }
 h2 { margin: 20px 0} 
 </style>
-<%-- <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.rotator.js"></script> --%>
-<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/*"></script>
 <script type="text/javascript">
 	$(function(){
 		$('#rotator').rotator({ms:2000});	//이미지가 3초마다 알아서 바꿔줌..너무 편하고..

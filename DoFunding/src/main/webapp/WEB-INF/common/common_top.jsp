@@ -1,16 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>
-<!DOCTYPE html>
-<html>
+<%@ include file="common.jsp" %>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>두펀딩</title>
-
-	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
-	<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
-	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
 </head>
 <body>
 	<div id="top-wrap">
@@ -18,21 +12,21 @@
 			<div class="top-banner-wrap">
 				<h1 class="banner-inner">banner</h1>
 			</div>
-		
+			
 			<h1 class="logo">
 				<a href="<c:url value="/"/>">두펀딩</a>
 			</h1>
 			
-			<c:if test="${sessionScope.id == null}">
+			<c:if test="${sessionScope.loginInfo.id == null}">
 			<ul class="subMenu">
-				<li><a href="insertMemberForm.mem">회원가입</a></li>
-				<li><a href="login.mem">로그인</a></li>
+				<li><a href="">회원가입</a></li>
+				<li><a href="">로그인</a></li>
 				<li><a href="">ID/비밀번호 찾기</a></li>
 				<li><a href="">비회원 펀딩조회</a></li>
 			</ul>
 			</c:if>
 			
-			<c:if test="${sessionScope.id != null}">
+			<c:if test="${sessionScope.loginInfo.id  != null}">
 			<ul class="subMenu">
 				<li><a href="#">찜목록</a></li>
 				<li><a href="#">펀딩내역</a></li>
@@ -103,5 +97,3 @@
 		</header>
 	</div>
 </body>
-</html>
-
