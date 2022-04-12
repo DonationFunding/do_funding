@@ -6,21 +6,21 @@
 <mapper namespace="product.model.Product">
 	<select id="GetTotalCount" resultType="int">
 		select count(*) from do_product
-		<if test="whatColumn == 'name'">
+		<if test="whatColumn == 'p_subject'">
 			where name like #{keyword}
 		</if>
-		<if test="whatColumn == 'contents'">
-			where contents like #{keyword}
+		<if test="whatColumn == 'p_content'">
+			where p_content like #{keyword}
 		</if>
 		order by p_num desc
 	</select>
 	
 	<select id="ProductList" resultType="MyProduct">
 		select * from do_product
-		<if test="whatColumn=='name'">
+		<if test="whatColumn=='p_subject'">
 			where name like #{keyword}
 		</if>
-		<if test="whatColumn=='contents'">
+		<if test="whatColumn=='p_content'">
 			where contents like #{keyword}
 		</if>
 		order by p_num desc
@@ -30,7 +30,14 @@
  		select * from do_product where p_num=#{p_num}	
  	</select>
 	
+	<insert id="InsertProduct">
+ 		insert into do_product(p_num,p_writer,p_subject,p_image,p_content,p_like,p_option,p_option2,p_origin_price,p_end_price,p_point,p_start_date,p_end_date)
+ 		values(seqdo_product.nextval,#{p_num},#{p_writer},#{p_subject},#{p_image},#{p_content},#{p_like},#{p_option},#{p_option2},#{p_origin_price},#{p_end_price},#{p_point},#{p_start_date},#{p_end_date})
+ 	</insert>
 	
+	<update id="updateProduct">
+	
+	</update>
 </mapper>
 
 <!-- product.xml -->
