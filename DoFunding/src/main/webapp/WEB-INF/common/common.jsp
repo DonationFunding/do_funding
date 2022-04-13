@@ -7,5 +7,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 
-접속자 아이디 : ${loginInfo.id }<br>
+<%-- 접속자 아이디 : ${loginInfo.id }<br> --%>
        

@@ -132,6 +132,5 @@
 		<servlet-name>product</servlet-name>
 		<url-pattern>*.prd</url-pattern>
 	</servlet-mapping>
-		
-
+	
 </web-app>
