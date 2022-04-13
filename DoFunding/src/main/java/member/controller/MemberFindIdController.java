@@ -3,6 +3,7 @@ package member.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -18,13 +19,12 @@ import member.model.MemberBean;
 import member.model.MemberDao;
 
 @Controller
-public class MemberLoginController {
-	private final String command = "login.mem";
-	private final String getPage = "member_loginForm";
-	private String gotoPage = "redirect:/list.prd";
+public class MemberFindIdController {
+	private final String command = "findid.mem";
+	private final String getPage = "member_findId";
+	private String gotoPage = "redirect:findpw.mem";
 	@Autowired
 	MemberDao mdao;
-	
 	
 	@RequestMapping(value = command,method = RequestMethod.GET)
 	public String doAction() {
@@ -32,12 +32,10 @@ public class MemberLoginController {
 	}
 	
 	@RequestMapping(value = command,method = RequestMethod.POST)
-	public String doAction(MemberBean membean,HttpSession session,HttpServletResponse response) {
-		
-		MemberBean loginInfo = mdao.getLoginInfo(membean);
-		
+	public  String doAction(MemberBean membean,HttpServletRequest request,HttpServletResponse response) {
+		MemberBean findid = mdao.findId(membean);
 		PrintWriter pw=null;
-		if(loginInfo == null) {
+		if(findid == null) {
 
 			try {
 				pw = response.getWriter();
@@ -48,31 +46,13 @@ public class MemberLoginController {
 			pw.flush();
 			return getPage;
 		}//if
-		
-		else {
-
-			if(loginInfo.getPassword().equals(membean.getPassword())) {
-				session.setAttribute("loginInfo", loginInfo);
-				
-				
-				String destination = (String)session.getAttribute("destination");
-				if(destination ==null) {
-					return gotoPage;
-				}
-				else {
-					return destination;					
-				}
-			}
-			else {
-				try {
-					pw=response.getWriter();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				pw.println("<script> alert('비밀번호가 잘못되었습니다');</script>");
-				pw.flush();
-				return getPage;
-			}
-		}
+		return gotoPage+"?id="+findid.getId();
 	}
+	
+	
+	
+	
+	
+	
+	
 }

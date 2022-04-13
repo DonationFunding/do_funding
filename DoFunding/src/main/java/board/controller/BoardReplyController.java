@@ -23,12 +23,12 @@ public class BoardReplyController {
 	private final String command="/reply.bd";
 	private String getPage="board_replyForm";
 	private String gotoPage="redirect:/list.bd";
-	
+
 	@Autowired
 	private BoardDao boardDao;
 
 	private PrintWriter pw =null;
-	
+
 	//content.jsp get방식 replyForm.bv
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
@@ -36,13 +36,24 @@ public class BoardReplyController {
 			BoardBean bdBean,
 			HttpServletRequest request,
 			HttpSession session) {
+<<<<<<< HEAD
 			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
+=======
+		request.setAttribute("article", article);
+		request.setAttribute("pageNumber", pageNumber);
+		return getPage;
+>>>>>>> refs/remotes/origin/do-pms
 
 	}
+<<<<<<< HEAD
 	
 
+=======
+
+	//replyForm.jsp post방식 replyForm.bv
+>>>>>>> refs/remotes/origin/do-pms
 	@RequestMapping(value=command,method = RequestMethod.POST)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
@@ -52,9 +63,17 @@ public class BoardReplyController {
 		//writer/subject/email/content/password/Reg_date/Ip
 		//ref/re_step/re_level
 		response.setContentType("text/html; charset=UTF-8");
+<<<<<<< HEAD
 		bdBean.setB_reg_date(new Timestamp(System.currentTimeMillis()));
 		int cnt=boardDao.replyArticle(bdBean);
 		
+=======
+		article.setReg_date(new Timestamp(System.currentTimeMillis()));
+		System.out.println(request.getRemoteAddr());
+		article.setIp(request.getRemoteAddr());
+		int cnt=boardDao.replyArticle(article);
+
+>>>>>>> refs/remotes/origin/do-pms
 		if(cnt>0){
 			return gotoPage+"?pageNumber="+pageNumber;	
 		}
@@ -70,8 +89,8 @@ public class BoardReplyController {
 			request.setAttribute("pageNumber", pageNumber);			
 			return getPage;
 		}
-		
+
 	}
-	
-	
+
+
 }

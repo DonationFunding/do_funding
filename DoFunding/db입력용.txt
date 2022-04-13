@@ -10,9 +10,22 @@ create sequence seqdo_members
 
 DROP TABLE do_members CASCADE CONSTRAINTS;
 create table do_members(
+<<<<<<< HEAD
 	no number primary key,			
+=======
+	no number not null,			
+<<<<<<< HEAD
+	admin number default 1,	
+	id varchar2(10) primary key,
+=======
+>>>>>>> refs/remotes/origin/do-pms
 	admin number default 1	,	
+<<<<<<< HEAD
 	id varchar2(20) not null,
+=======
+	id varchar2(20) primary key,
+>>>>>>> refs/heads/do-kyg
+>>>>>>> refs/remotes/origin/do-pms
 	password varchar2(30),		
 	name varchar2(30),			
 	birthday date not null,		
@@ -21,10 +34,17 @@ create table do_members(
 	hp1 varchar2(10),			
 	hp2 varchar2(10),			
 	hp3 varchar2(20),			
+<<<<<<< HEAD
+	address1 varchar2(30),		
+	address2 varchar2(30),		
+	accountbank varchar2(20),	
+	account varchar2(20),		
+=======
 	address1 varchar2(100),		
 	address2 varchar2(100),		
 	accountbank varchar2(50),	
 	account varchar2(30),		
+>>>>>>> refs/heads/do-kyg
 	mpoint number default 0 	
 ) ;
 
@@ -70,7 +90,11 @@ create table do_product(
 	p_point 		int default 0 not null,	
 	p_reg_date 		date default sysdate,	
 	p_start_date 	date not null,		
+<<<<<<< HEAD
+	p_end_date 		date not null	
+=======
 	p_end_date 		date not null		
+>>>>>>> refs/heads/do-kyg
 );
 
 insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');

@@ -19,8 +19,8 @@ import utility.Paging;
 @Controller
 public class BoardListController {
 
-	private final String command="/list.bd";
-	private String getPage="board_list";
+	private final String command="/boardList.bd";
+	private String getPage="boardList";
 
 	@Autowired
 	private BoardDao boardDao;
@@ -39,18 +39,23 @@ public class BoardListController {
 		Map<String, String> map=new HashMap<String, String>();
 		map.put("whatColumn", whatColumn);
 		map.put("keyword", "%"+keyword+"%");
-		
+
 		int totalCount= boardDao.getArticleCount(map);
 		System.out.println("totalCount:"+totalCount);
-		
-			
+
+
 		String url=request.getContextPath()+command;
 		if(pageSize==null) {
 			pageSize="10";
 		}
 		Paging pageInfo=new Paging(pageNumber,pageSize,totalCount,url,whatColumn,keyword);
+<<<<<<< HEAD
 		List<BoardBean> bdList=boardDao.getArticles(pageInfo, map);
 	
+=======
+		List<BoardBean> articleList=boardDao.getArticles(pageInfo, map);
+
+>>>>>>> refs/remotes/origin/do-pms
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("bdList", bdList);
 		mav.addObject("totalCount", totalCount);
@@ -58,6 +63,6 @@ public class BoardListController {
 		mav.setViewName(getPage);
 		return mav;
 	}
-	
+
 
 }

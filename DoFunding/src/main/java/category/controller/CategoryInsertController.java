@@ -15,38 +15,37 @@ import category.model.CategoryDao;
 
 @Controller
 public class CategoryInsertController {
-
-	    
 	private final String command = "/insert.cat";
-	private String getPage = "category_input";
+	private String getPage = "cart_input";
 	private String gotoPage = "redirect:/list.cat";
-		
+
 	@Autowired
 	private CategoryDao cdao;
-		
 
 	@RequestMapping(value=command, method = RequestMethod.GET)
 	public String doAction() {
-			
-	     return getPage; 
+
+		return getPage; 
 	}
 
 	@RequestMapping(value=command, method = RequestMethod.POST)
-	public ModelAndView doAction(@Valid CategoryBean bean,BindingResult result){
-		
-	ModelAndView mav = new ModelAndView();	
-		
-	if(result.hasErrors()) {
-	  mav.setViewName(getPage);
-	  return mav; 
-	}
-	   		
-	   int cnt = cdao.insertCategory(bean);   
-	   
-	    mav.setViewName(getPage);
-	    return mav; 
+	public ModelAndView doAction(@ModelAttribute("category") @Valid CategoryBean bean,BindingResult result){
+
+		ModelAndView mav = new ModelAndView();	
+
+		if(result.hasErrors()) {
+			mav.setViewName(getPage);
+			return mav; 
 		}
+
+		int cnt = cdao.insertCategory(bean);   
+
+		mav.setViewName(gotoPage);
+		return mav;
 	}
+
+
+}
 
 
 

@@ -28,8 +28,8 @@
 		<tr>
 			<td colspan="2">
 				<input type="submit" value="로그인">
-				<input type="button" value="아이디/비밀번호 찾기" onclick="location.href=''">
-				<input type="button" value="회원가입" onclick="location.href='insertMemberForm.mem'">
+				<input type="button" value="아이디/비밀번호 찾기" onclick="location.href='findid.mem'">
+				<input type="button" value="회원가입" onclick="location.href='insert.mem'">
 			</td>
 		</tr>
 	</table>
