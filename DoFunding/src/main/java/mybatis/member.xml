@@ -17,6 +17,9 @@
 		insert into do_members(no,id,password,name,birthday) values(seqdo_members.nextval,#{id},#{password},#{name},#{birthday})                          
 	</insert>
 	
+	<update id="UpdatePassword">
+		update do_members set password=#{password} where id=#{id}
+	</update>
 </mapper>
 <!-- member.xml -->
 

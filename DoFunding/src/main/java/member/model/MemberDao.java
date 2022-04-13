@@ -30,4 +30,16 @@ public class MemberDao {
 		return findid;
 	}
 
+	public int updatePassword(MemberBean membean) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.update(namespace+".UpdatePassword", membean);
+		if(cnt < 0) {
+			System.out.println("비밀번호 변경 실패");
+		}
+		else {
+			System.out.println("비밀번호 변경 성공 "+cnt);
+		}
+		return cnt;
+	}
+
 }

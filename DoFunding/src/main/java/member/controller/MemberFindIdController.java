@@ -22,7 +22,7 @@ import member.model.MemberDao;
 public class MemberFindIdController {
 	private final String command = "findid.mem";
 	private final String getPage = "member_findId";
-	private String gotoPage = "member_findPassword";
+	private String gotoPage = "redirect:findpw.mem";
 	@Autowired
 	MemberDao mdao;
 	
@@ -32,10 +32,21 @@ public class MemberFindIdController {
 	}
 	
 	@RequestMapping(value = command,method = RequestMethod.POST)
-	public  String doAction(@Valid MemberBean membean,BindingResult result,HttpSession session,HttpServletResponse response,HttpServletRequest request) {
+	public  String doAction(MemberBean membean,HttpServletRequest request,HttpServletResponse response) {
 		MemberBean findid = mdao.findId(membean);
-		request.setAttribute("id", findid.getId());
-		return gotoPage;
+		PrintWriter pw=null;
+		if(findid == null) {
+
+			try {
+				pw = response.getWriter();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			pw.println("<script> alert('해당 아이디가 존재하지 않습니다');</script>");
+			pw.flush();
+			return getPage;
+		}//if
+		return gotoPage+"?id="+findid.getId();
 	}
 	
 	
