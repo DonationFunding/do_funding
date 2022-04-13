@@ -11,9 +11,6 @@
 
 <body>
 	<div id="top-wrap">
-<<<<<<< HEAD
-		<header class="top-inner">
-=======
 		<header class="top-inner">		
 			<c:if test="${sessionScope.loginInfo.id == null}">
 				<ul class="subMenu">
@@ -29,6 +26,9 @@
 			<c:if test="${sessionScope.loginInfo.id  != null}">
 				<ul class="subMenu">
 					<li>
+						<c:if test="${loginInfo.admin == 0}">
+						&nbsp;<a href="main.ad">관리자 페이지</a>
+						</c:if>
 						&nbsp;<a href="login.mem">로그아웃</a>
 						&nbsp;<a href="memberInfo.mem">회원정보</a>
 						&nbsp;<a href="findid.mem">찜목록</a>
@@ -37,35 +37,7 @@
 				</ul>
 			</c:if>
 			<br><br>
-			<div class="mobile-menu-open">
->>>>>>> refs/remotes/origin/do-pms
 
-			<div>
-				<c:if test="${sessionScope.loginInfo.id == null}">
-					<ul class="subMenu">
-						<li>
-							&nbsp;<a href="login.mem">로그인</a> 
-							&nbsp;<a href="insert.mem">회원가입</a> 
-							&nbsp;<a href="findId.mem">ID/비밀번호찾기</a>
-						</li>
-					</ul>
-				</c:if>
-
-				<c:if test="${sessionScope.loginInfo.id != null}">
-					<ul class="subMenu">
-						<li>
-							<c:if test="${loginInfo.admin == 0}">
-							&nbsp;<a href="main.ad">관리자 페이지</a>
-							</c:if>
-							&nbsp;<a href="#">찜목록</a> 
-							&nbsp;<a href="#">펀딩내역</a>
-							&nbsp;<a href="#">마이페이지(수정폼)</a> 
-							&nbsp;<a href="<%=request.getContextPath() %>/logout.jsp">로그아웃</a>
-						</li>
-					</ul>
-				</c:if>
-			</div>
-			<br><br>
 			<div class="top-banner-wrap">
 				<h1 class="banner-inner">banner</h1>
 			</div>

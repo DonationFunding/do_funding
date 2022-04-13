@@ -31,6 +31,7 @@ public class MemberFindPasswordController {
 
 	@RequestMapping(value = command,method = RequestMethod.POST)
 	public String doAction(MemberBean membean ,HttpServletRequest request,HttpServletResponse response) {
+		response.setContentType("text/html; charset=UTF-8");
 		MemberBean loginInfo = mdao.getLoginInfo(membean);
 		PrintWriter pw=null;
 		if(loginInfo == null) {

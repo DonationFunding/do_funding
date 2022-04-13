@@ -33,7 +33,7 @@ public class MemberLoginController {
 	
 	@RequestMapping(value = command,method = RequestMethod.POST)
 	public String doAction(MemberBean membean,HttpSession session,HttpServletResponse response) {
-		
+		response.setContentType("text/html; charset=UTF-8");
 		MemberBean loginInfo = mdao.getLoginInfo(membean);
 		
 		PrintWriter pw=null;

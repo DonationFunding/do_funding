@@ -49,13 +49,8 @@ public class BoardListController {
 			pageSize="10";
 		}
 		Paging pageInfo=new Paging(pageNumber,pageSize,totalCount,url,whatColumn,keyword);
-<<<<<<< HEAD
 		List<BoardBean> bdList=boardDao.getArticles(pageInfo, map);
-	
-=======
-		List<BoardBean> articleList=boardDao.getArticles(pageInfo, map);
 
->>>>>>> refs/remotes/origin/do-pms
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("bdList", bdList);
 		mav.addObject("totalCount", totalCount);

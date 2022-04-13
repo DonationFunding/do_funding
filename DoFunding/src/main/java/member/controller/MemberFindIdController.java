@@ -33,6 +33,7 @@ public class MemberFindIdController {
 	
 	@RequestMapping(value = command,method = RequestMethod.POST)
 	public  String doAction(MemberBean membean,HttpServletRequest request,HttpServletResponse response) {
+		response.setContentType("text/html; charset=UTF-8");
 		MemberBean findid = mdao.findId(membean);
 		PrintWriter pw=null;
 		if(findid == null) {
