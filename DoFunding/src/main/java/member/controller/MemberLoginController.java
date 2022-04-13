@@ -20,7 +20,7 @@ import member.model.MemberDao;
 @Controller
 public class MemberLoginController {
 	private final String command = "login.mem";
-	private final String getPage = "loginForm";
+	private final String getPage = "member_loginForm";
 	private String gotoPage = "redirect:/list.prd";
 	@Autowired
 	MemberDao mdao;

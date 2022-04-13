@@ -56,11 +56,11 @@ body {
     margin-bottom: 10px;
 }
 
-.subMenu li {
-	display: inline-block;  /* 가로로 배치 */
-	background: url(../../images/bar-util.jpg) 0 7px no-repeat;  /* 구분선 */
-	padding-left: 6px;  /* 구분선과 메뉴 콘텐트 사이의 간격 */
-}
+/* .subMenu li {
+	display: inline-block;  가로로 배치
+	background: url(../../images/bar-util.jpg) 0 7px no-repeat;  구분선
+	padding-left: 6px;  구분선과 메뉴 콘텐트 사이의 간격
+} */
 .subMenu li:first-child {
 	background: none;  /* 첫 번째 메뉴의 구분선을 제거 */
 }
