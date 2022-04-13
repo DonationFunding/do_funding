@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp" %>
-<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.rotator.js">
+<%@ include file="../common/common_top.jsp" %>
+    <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
 
 </script>
 
 <title>insert.jsp</title>
-
+<center>
 <form:form commandName="memberBean" action="insert.mem" method="post"> 
 	<table border="1">
 		<tr>
@@ -32,7 +34,14 @@
 			<td align="center">이름 :</td>
 			<td>
 				<input type="text" name="name">
-				<form:errors cssClass="err" path="name"/>
+				<form:errors cssClass="err" path="birthday"/>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">생년월일 :</td>
+			<td>
+				<input type="date" name="birthday">
+				<form:errors cssClass="err" path="birthday"/>
 			</td>
 		</tr>
 		<tr>
@@ -40,3 +49,5 @@
 		</tr>
 	</table>
 </form:form>
+</center>
+<%@ include file="../common/common_bottom.jsp" %>

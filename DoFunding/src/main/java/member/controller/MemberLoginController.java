@@ -32,13 +32,12 @@ public class MemberLoginController {
 	}
 	
 	@RequestMapping(value = command,method = RequestMethod.POST)
-	public String doAction(MemberBean mb,HttpSession session,HttpServletResponse response) {
+	public String doAction(MemberBean membean,HttpSession session,HttpServletResponse response) {
 		
-		MemberBean loginInfo = mdao.getLoginInfo(mb);
+		MemberBean loginInfo = mdao.getLoginInfo(membean);
 		
-		System.out.println("loginInfo:" + loginInfo); //null or 주소
 		PrintWriter pw=null;
-		if(loginInfo == null) { // 아이디가 존재안함
+		if(loginInfo == null) {
 
 			try {
 				pw = response.getWriter();
@@ -50,21 +49,21 @@ public class MemberLoginController {
 			return getPage;
 		}//if
 		
-		else { // 아이디가 존재
+		else {
 
-			if(loginInfo.getPassword().equals(mb.getPassword())) { // 비번일치함
+			if(loginInfo.getPassword().equals(membean.getPassword())) {
 				session.setAttribute("loginInfo", loginInfo);
 				
 				
 				String destination = (String)session.getAttribute("destination");
-				if(destination ==null) {	//목적지가 없다면 메인화면으로
+				if(destination ==null) {
 					return gotoPage;
 				}
-				else {//목적지까지 가라.. 목적지가 있다면
-					return destination; //"redirect:/insert.prd"					
+				else {
+					return destination;					
 				}
 			}
-			else { // 비번일치 안함
+			else {
 				try {
 					pw=response.getWriter();
 				} catch (IOException e) {
@@ -72,8 +71,8 @@ public class MemberLoginController {
 				}
 				pw.println("<script> alert('비밀번호가 잘못되었습니다');</script>");
 				pw.flush();
+				return getPage;
 			}
-			return getPage;
 		}
 	}
 }

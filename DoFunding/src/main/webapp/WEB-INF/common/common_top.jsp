@@ -15,8 +15,8 @@
 				<ul class="subMenu">
 					<li>
 						&nbsp;<a href="login.mem">로그인</a>
-						&nbsp;<a href="">회원가입</a>
-						&nbsp;<a href="">ID/비밀번호 찾기</a>
+						&nbsp;<a href="insert.mem">회원가입</a>
+						&nbsp;<a href="findid.mem">ID/비밀번호 찾기</a>
 						&nbsp;<a href="">비회원 펀딩조회</a>
 					</li>
 				</ul>
@@ -25,10 +25,10 @@
 			<c:if test="${sessionScope.loginInfo.id  != null}">
 				<ul class="subMenu">
 					<li>
-						&nbsp;<a href="login.mem">로그인</a>
-						&nbsp;<a href="">회원가입</a>
-						&nbsp;<a href="">ID/비밀번호 찾기</a>
-						&nbsp;<a href="">비회원 펀딩조회</a>
+						&nbsp;<a href="login.mem">로그아웃</a>
+						&nbsp;<a href="insert.mem">회원정보</a>
+						&nbsp;<a href="findid.mem">찜목록</a>
+						&nbsp;<a href="">펀딩조회</a>
 					</li>
 				</ul>
 			</c:if>

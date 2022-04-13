@@ -1,17 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../common/common.jsp" %>
+<%@ include file="../common/common_top.jsp" %>
+    <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
+<center>
 findid.jsp<br>
-<form action="findidPro.jsp" method="post">
+<form:form commandName="memberBean" action="findid.mem" method="post">
 <table border="1">
 	<tr>
 		<td align="center" bgcolor="yellow">이름</td>
-		<td><input type="text" name="name"></td>
+		<td>
+			<input type="text" name="name">
+			<form:errors cssClass="err" path="name"/>
+		</td>
 	</tr>
 	<tr>
-		<td align="center" bgcolor="yellow">주민등록번호</td>
+		<td align="center" bgcolor="yellow">생년월일</td>
 		<td>
-			<input type="text" name="rrn1" maxlength="6" size="6"> - 
-			<input type="text" name="rrn2" maxlength="7" size="7">		
+			<input type="date" name="birthday">		
+			<form:errors cssClass="err" path="birthday"/>
 		</td>
 	</tr>
 	<tr>
@@ -21,4 +29,6 @@ findid.jsp<br>
 	</tr>
 </table>
 
-</form>
+</form:form>
+</center>
+<%@ include file="../common/common_bottom.jsp" %>

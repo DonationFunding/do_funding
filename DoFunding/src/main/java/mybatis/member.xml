@@ -9,6 +9,10 @@
 		select * from do_members where id=#{id}
 	</select>
 	
+	<select id="FindId" resultType="MyMember">
+		select * from do_members where name=#{name} and birthday=#{birthday}
+	</select>
+
 	<insert id="InsertMember">
 		insert into do_members(no,id,password,name,birthday) values(seqdo_members.nextval,#{id},#{password},#{name},#{birthday})                          
 	</insert>

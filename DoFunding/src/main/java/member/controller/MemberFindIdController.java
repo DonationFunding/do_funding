@@ -3,6 +3,7 @@ package member.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -16,14 +17,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
+
 @Controller
-public class MemberInsertController {
-	private final String command = "insert.mem";
-	private final String getPage = "member_insertForm";
-	private String gotoPage = "redirect:/login.mem";
+public class MemberFindIdController {
+	private final String command = "findid.mem";
+	private final String getPage = "member_findId";
+	private String gotoPage = "member_findPassword";
 	@Autowired
 	MemberDao mdao;
-	
 	
 	@RequestMapping(value = command,method = RequestMethod.GET)
 	public String doAction() {
@@ -31,21 +32,16 @@ public class MemberInsertController {
 	}
 	
 	@RequestMapping(value = command,method = RequestMethod.POST)
-	public  ModelAndView doAction(@Valid MemberBean membean,BindingResult result,HttpSession session,HttpServletResponse response) {
-		ModelAndView mav = new ModelAndView();
-		if(result.hasErrors()) {
-			mav.setViewName(getPage);
-			return mav;
-		}
-
-		int cnt = mdao.insertMember(membean);
-		if(cnt < 0) {
-			System.out.println("회원가입 실패");
-		}
-		else {
-			System.out.println("회원가입 성공");
-		}
-		mav.setViewName(gotoPage);
-		return mav;
+	public  String doAction(@Valid MemberBean membean,BindingResult result,HttpSession session,HttpServletResponse response,HttpServletRequest request) {
+		MemberBean findid = mdao.findId(membean);
+		request.setAttribute("id", findid.getId());
+		return gotoPage;
 	}
+	
+	
+	
+	
+	
+	
+	
 }
