@@ -5,16 +5,16 @@
 <center>
 <br>
 <b>카테고리등록</b>
-<form:form commandName="category"  method="post"  action="admin_cate_insert.ad">
+<form:form commandName="cateBean"  method="post"  action="admin_cate_insert.ad">
 <br>
 	<table border="1" height="100">
 		<tr>
 			<td align="center">카테고리코드</td>
-			<td><input type="text" name="code" value="${category.code}"></td>
+			<td><input type="text" name="code" value="${cateBean.code}"></td>
 		</tr>
 		<tr>
 			<td align="center">카테고리이름</td>
-			<td><input type="text" name="cname" value="${category.cname}"></td>
+			<td><input type="text" name="cname" value="${cateBean.cname}"></td>
 		</tr>
 		<tr> 
 			<td colspan="2" align="center">

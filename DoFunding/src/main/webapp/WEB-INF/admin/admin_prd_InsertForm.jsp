@@ -11,7 +11,7 @@
 <center>
 <h2>제품 추가 화면(${loginInfo.id})</h2>
 <div >
-	<form:form commandName="productBean" action="admin_prd_insert.ad" method="post" enctype="multipart/form-data" >
+	<form:form commandName="prdBean" action="admin_prd_insert.ad" method="post" enctype="multipart/form-data" >
 			<table border="1" width="800">
 				<tr>
 					<th>작성자</th>
@@ -28,8 +28,8 @@
 					<th>제품 분류</th>
 					<td>
 						<select name="p_category_fk">
-								<c:forEach var="category" items="${categoryList}" >
-									<option  value="${category.getCode()}" <c:if test="${category.code eq productBean.p_category_fk }"> selected</c:if>> ${category.getCname()}</option>
+								<c:forEach var="cateBean" items="${cateList}" >
+									<option  value="${cateBean.getCode()}" <c:if test="${cateBean.code eq prdBean.p_category_fk }"> selected</c:if>> ${cateBean.getCname()}</option>
 								</c:forEach>
 						</select>
 						<form:errors cssClass="err" path="p_category_fk" />
@@ -38,7 +38,7 @@
 				<tr>
 					<th>펀딩 제목</th>
 					<td>
-						<input type="text" name="p_subject" value="${productBean.p_subject}">
+						<input type="text" name="p_subject" value="${prdBean.p_subject}">
 						<form:errors cssClass="err" path="p_subject" />
 					</td>
 				</tr>
@@ -59,11 +59,11 @@
 				<tr>
 					<th>단가</th>
 					<td>
-						<c:if test="${productBean == null}">
+						<c:if test="${prdBean == null}">
 							<input type="text" name="p_origin_price" value="0">
 						</c:if>
-						<c:if test="${productBean != null}">
-							<input type="text" name="p_origin_price" value="${productBean.p_origin_price}">
+						<c:if test="${prdBean != null}">
+							<input type="text" name="p_origin_price" value="${prdBean.p_origin_price}">
 						</c:if>											
 						<form:errors cssClass="err" path="p_origin_price" />
 					</td>
@@ -71,11 +71,11 @@
 				<tr>
 					<th>목표 금액</th>
 					<td>
-						<c:if test="${productBean == null}">
+						<c:if test="${prdBean == null}">
 							<input type="text" name="p_end_price" value="0">
 						</c:if>
-						<c:if test="${productBean != null}">
-							<input type="text" name="p_end_price" value="${productBean.p_end_price}">
+						<c:if test="${prdBean != null}">
+							<input type="text" name="p_end_price" value="${prdBean.p_end_price}">
 						</c:if>						
 						<form:errors cssClass="err" path="p_end_price" />
 					</td>
@@ -83,7 +83,7 @@
 				<tr>
 					<th>펀딩 시작일</th>
 					<td>
-						<input type="text" name="p_start_date" value="${productBean.p_start_date}" >
+						<input type="text" name="p_start_date" value="${prdBean.p_start_date}" >
 						<form:errors cssClass="err" path="p_start_date" />
 						<br><span>ex) 2022-04-21 </span>
 					</td>
@@ -91,7 +91,7 @@
 				<tr>
 					<th>펀딩 마감일</th>
 					<td>
-						<input type="text" name="p_end_date" value="${productBean.p_end_date}">
+						<input type="text" name="p_end_date" value="${prdBean.p_end_date}">
 						<form:errors cssClass="err" path="p_end_date" />
 						<br><span>ex) 2022-04-21 </span>
 					</td>

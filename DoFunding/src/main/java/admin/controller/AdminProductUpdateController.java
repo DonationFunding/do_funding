@@ -49,14 +49,13 @@ public class AdminProductUpdateController {
 			) {
 		//pageNumber 받는데서 false랑 String으로 안받으면 에러발생함.
 		int p_num=Integer.parseInt(num);
-		List<CategoryBean> c_list = categoryDao.categoryAllByProduct();
-		List<OptionBean> o_list = productDao.optionAllByProduct(p_num);
-		System.out.println(o_list.size());
-		ProductBean Bean = productDao.getupdateProduct(p_num);
+		List<CategoryBean> cateList = categoryDao.categoryAllByProduct();
+		List<OptionBean> opList = productDao.optionAllByProduct(p_num);
+		ProductBean prdBean = productDao.getupdateProduct(p_num);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("categoryList", c_list);
-		mav.addObject("optionList", o_list);
-		mav.addObject("productBean", Bean);	
+		mav.addObject("cateList", cateList);
+		mav.addObject("opList", opList);
+		mav.addObject("prdBean", prdBean);	
 		mav.addObject("pageNumber", pageNumber);
 		mav.setViewName(getPage); 
 
@@ -66,36 +65,35 @@ public class AdminProductUpdateController {
 	@RequestMapping(value=command, method=RequestMethod.POST) 
 	 public ModelAndView doAction(
 			 @RequestParam(value="pageNunber", required = false) String pageNumber,
-			 @ModelAttribute("productBean") @Valid ProductBean Bean, 
+			 @ModelAttribute("prdBean") @Valid ProductBean prdBean, 
 			 BindingResult result) {	 
 		 ModelAndView mav = new ModelAndView();
 		 mav.addObject("pageNumber", pageNumber);
-		 List<CategoryBean> list = categoryDao.categoryAllByProduct();
-		 List<OptionBean> o_list = productDao.optionAllByProduct(Bean.getP_num());
+		 List<CategoryBean> cateList = categoryDao.categoryAllByProduct();
+		 List<OptionBean> opList = productDao.optionAllByProduct(prdBean.getP_num());
 		 
 		 if(result.hasErrors()) {
 			 System.out.println(result.getErrorCount());	//6
-			 mav.addObject("categoryList", list);
-			 mav.addObject("optionList", o_list);
+			 mav.addObject("cateList", cateList);
+			 mav.addObject("opList", opList);
 			 mav.setViewName(getPage);
 			 return mav;
 		 }
-		 
-		 
-		 Bean.setP_point(Math.round(Bean.getP_origin_price()/1000)*10);
-		 int cnt = productDao.updateProduct(Bean); //update끝
+		 		 
+		 prdBean.setP_point(Math.round(prdBean.getP_origin_price()/1000)*10);
+		 int cnt = productDao.updateProduct(prdBean); //update끝
 		 if(cnt > 0) {
 			 int item_no=productDao.getP_num();
-			 Bean.setOption_item_no(item_no);
+			 prdBean.setOption_item_no(item_no);
 			 //옵션 추가하기 전 기존 옵션 삭제
-			 productDao.itemOptionDelete(Bean.getOption_item_no());
+			 productDao.itemOptionDelete(prdBean.getOption_item_no());
 			 //옵션추가부분
-			 for (int i = 0; i < Bean.getItem_option().length; i++) {
-				 String itemOptionContent = Bean.getItem_option()[i];	//옵션 1개 값
+			 for (int i = 0; i < prdBean.getItem_option().length; i++) {
+				 String itemOptionContent = prdBean.getItem_option()[i];	//옵션 1개 값
 				 System.out.println("itemOptionContent:"+itemOptionContent);
 				 Map<String, Object> map = new HashMap<String, Object>();
 				 map.put("item_option", itemOptionContent);
-				 map.put("option_item_no", Bean.getOption_item_no());
+				 map.put("option_item_no", prdBean.getOption_item_no());
 				 productDao.itemOptionInsert(map);
 				} 
 			 
@@ -103,8 +101,8 @@ public class AdminProductUpdateController {
 			 
 			 //파일 추가 부분
 			 String uploadPath = servletContext.getRealPath("/resources/images");
-			 MultipartFile multi = Bean.getUpload();
-			 File f = new File(uploadPath+"\\" + Bean.getP_image());
+			 MultipartFile multi = prdBean.getUpload();
+			 File f = new File(uploadPath+"\\" + prdBean.getP_image());
 			 
 			 try {
 				multi.transferTo(f);
@@ -116,7 +114,8 @@ public class AdminProductUpdateController {
 			 mav.setViewName(gotoPage);
 		 }
 		 else {
-			 mav.addObject("categoryList", list);
+			 mav.addObject("cateList", cateList);
+			 mav.addObject("opList", opList);
 			 mav.setViewName(getPage);
 		 }
 				

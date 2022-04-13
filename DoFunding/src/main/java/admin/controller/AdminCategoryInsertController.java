@@ -31,7 +31,7 @@ public class AdminCategoryInsertController {
 	}
 
 	@RequestMapping(value=command, method = RequestMethod.POST)
-	public ModelAndView doAction(@ModelAttribute("category") @Valid CategoryBean bean,BindingResult result){
+	public ModelAndView doAction(@ModelAttribute("cateBean") @Valid CategoryBean bean,BindingResult result){
 		
 	ModelAndView mav = new ModelAndView();	
 		

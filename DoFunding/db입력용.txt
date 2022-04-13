@@ -1,3 +1,6 @@
+alter user jspid default tablespace users quota unlimited on users; 
+
+
 -- 회원 테이블
 drop sequence seqdo_members;
 create sequence seqdo_members 
@@ -7,9 +10,9 @@ create sequence seqdo_members
 
 DROP TABLE do_members CASCADE CONSTRAINTS;
 create table do_members(
-	no number not null,			
+	no number primary key,			
 	admin number default 1	,	
-	id varchar2(20) primary key,
+	id varchar2(20) not null,
 	password varchar2(30),		
 	name varchar2(30),			
 	birthday date not null,		
@@ -55,7 +58,7 @@ drop table do_product CASCADE CONSTRAINTS;
 create table do_product( 
 	p_num 		number  primary key,	
 	p_category_fk  varchar2(100)    not null,    
-	p_writer 	varchar2(50) references do_members(id) on delete cascade,
+	p_writer 	varchar2(50) not null,
 	p_subject 	varchar2(100) not null,		
 	p_readcount int default 0,				
 	p_image    	varchar2(100) not null,				
@@ -147,5 +150,109 @@ insert into category values(catseq.nextval,'earring','귀걸이');
 insert into category values(catseq.nextval,'handbag','핸드백');
 insert into category values(catseq.nextval,'bracelet','팔찌');
 insert into category values(catseq.nextval,'ring','반지');
+
+commit;
+
+drop sequence seqoid ;
+create sequence seqoid start with 1 increment by 1 nocache ;
+
+ DROP TABLE do_order CASCADE CONSTRAINTS;
+ 
+create table do_order(
+--주문번호
+  o_num number primary key,
+--회원번호
+  o_mnum number references do_members(no) on delete set null,,
+--상품번호
+  o_pnum number references do_product(p_num) on delete set null,,
+--주문수량
+  o_qty number not null,
+--주문일
+  o_date date default sysdate,
+--상품가격
+  o_price number not null,
+--시작일
+  o_startdate date default sysdate,
+--종료일
+  o_enddate date default sysdate,
+--상태
+  o_state varchar2(30) not null
+);
+
+
+
+
+--기본 게시판 
+drop sequence seqdo_board;
+create sequence seqdo_board
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+  
+drop table do_board CASCADE CONSTRAINTS;
+create table do_board( 
+	b_num number not null primary key,	
+	b_writer varchar2(10) not null,	
+	b_subject varchar2(20) not null,
+	b_passwd varchar2(20)not null,		
+	b_reg_date date not null,			
+	b_readcount int default 0,			
+	--re답글관련
+	b_ref number not null,				
+	b_re_step number not null,			
+	b_re_level number not null,			
+	--답글마다 1씩 증가
+	b_content varchar2(20) not null			
+);
+
+
+
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'admin','a1','1234','2015-1-1',1,0,0,'내용1');
+
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'admin','a2','1234','2015-1-1',2,0,0,'내용2');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'kim','a22','1234','2015-1-1',2,4,1,'내용21');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a22','a22','1234','2015-1-1',2,1,1,'내용22');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'kim','a221','1234','2015-1-1',2,3,2,'내용221');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a222','a222','1234','2015-1-1',2,2,2,'내용222');
+
+
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'kim','a3','1234','2015-1-1',7,0,0,'내용3');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'kim','a31','1234','2015-1-1',7,6,1,'내용31');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a311','a311','1234','2015-1-1',7,7,2,'내용311');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a32','a32','1234','2015-1-1',7,2,1,'내용32');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a321','a321','1234','2015-1-1',7,5,2,'내용321');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a322','a322','1234','2015-1-1',7,3,2,'내용322');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a3221','a3221','1234','2015-1-1',7,4,3,'내용3221');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a33','a33','1234','2015-1-1',7,1,1,'내용33');
 
 commit;

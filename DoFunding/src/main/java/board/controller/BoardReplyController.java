@@ -33,10 +33,10 @@ public class BoardReplyController {
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
-			BoardBean article,
+			BoardBean bdBean,
 			HttpServletRequest request,
 			HttpSession session) {
-			request.setAttribute("article", article);
+			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
 
@@ -46,16 +46,14 @@ public class BoardReplyController {
 	@RequestMapping(value=command,method = RequestMethod.POST)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
-			BoardBean article,
+			BoardBean bdBean,
 			HttpServletRequest request,
 			HttpServletResponse response) {	
 		//writer/subject/email/content/password/Reg_date/Ip
 		//ref/re_step/re_level
 		response.setContentType("text/html; charset=UTF-8");
-		article.setReg_date(new Timestamp(System.currentTimeMillis()));
-		System.out.println(request.getRemoteAddr());
-		article.setIp(request.getRemoteAddr());
-		int cnt=boardDao.replyArticle(article);
+		bdBean.setB_reg_date(new Timestamp(System.currentTimeMillis()));
+		int cnt=boardDao.replyArticle(bdBean);
 		
 		if(cnt>0){
 			return gotoPage+"?pageNumber="+pageNumber;	
@@ -68,7 +66,7 @@ public class BoardReplyController {
 			}
 			pw.println("<script> alert('답글 작성이 실패했습니다');</script>");
 			pw.flush();
-			request.setAttribute("article", article);
+			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);			
 			return getPage;
 		}

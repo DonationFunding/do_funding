@@ -14,7 +14,6 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="<%=request.getContextPath() %>/resources/js/bootstrap.min.js"></script>
 
-list.jsp<br>
 <style type="text/css">
 	body{
 		text-align: center;
@@ -29,9 +28,9 @@ list.jsp<br>
 <p>
 	<select name="whatColumn">
 		<option value="all">선택
-		<option value="content">내용
-		<option value="subject">제목
-		<option value="writer">글쓴이
+		<option value="b_content">내용
+		<option value="b_subject">제목
+		<option value="b_writer">글쓴이
 	</select>
 	<input type="text" name="keyword">
 	<input type="submit" value="검색">
@@ -53,30 +52,28 @@ list.jsp<br>
 		<td align="center">작성자</td>
 		<td align="center">작성일</td>
 		<td align="center">조회</td>
-		<td align="center">IP</td>
 	</tr>
-		<c:forEach var="article" items="${requestScope.articleList}" varStatus="status">
+		<c:forEach var="bdList" items="${requestScope.bdList}" varStatus="status">
 		<tr>
 			<td align="center" >${requestScope.totalCount - (requestScope.pageInfo.pageNumber-1)*requestScope.pageInfo.pageSize - status.index}</td>
 			<td>
-				<c:if test="${article.re_level>0}">
-					<c:set var="wid" value="${article.re_level*20}"/>
+				<c:if test="${bdList.b_re_level>0}">
+					<c:set var="wid" value="${bdList.b_re_level*20}"/>
 					<img src="<%=request.getContextPath() %>/resources/images/level.gif" width="${wid}" height="15">
 					<img src="<%=request.getContextPath() %>/resources/images/re.gif">
 				</c:if>
 
-			<a href="content.bd?num=${article.num}&pageNumber=${pageInfo.pageNumber}" > ${article.subject}</a>
+			<a href="content.bd?b_num=${bdList.b_num}&pageNumber=${pageInfo.pageNumber}" > ${bdList.b_subject}</a>
 				<!-- 글번호 뿐만 아니라 현재페이지도 넘겨야함! -->					
-			<c:if test="${article.readcount >=10 }">
+			<c:if test="${bdList.b_readcount >=10 }">
 				<img src='<%=request.getContextPath()%>/resources/images/hot.gif' height='15'>
 			</c:if>
 			</td>
-			<td align="center" >${article.writer}</td>
+			<td align="center" >${bdList.b_writer}</td>
 			<td align="center" >
-				<fmt:formatDate value="${article.reg_date}" pattern="yyyy-MM-dd HH:mm"/>
+				<fmt:formatDate value="${bdList.b_reg_date}" pattern="yyyy-MM-dd HH:mm"/>
 			</td>
-			<td align="center" >${article.readcount}</td>
-			<td align="center" >${article.ip}</td>
+			<td align="center" >${bdList.b_readcount}</td>
 		</tr>
 		</c:forEach>
 

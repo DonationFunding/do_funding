@@ -1,4 +1,4 @@
-package board.controller;
+package admin.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,25 +13,24 @@ import board.model.BoardBean;
 import board.model.BoardDao;
 
 @Controller
-public class BoardContentController {
+public class AdminBoardContentController {
 
-	private final String command="/content.bd";
-	private String getPage="board_content";
+	private final String command="/admin_bd_content.bd";
+	private String getPage="admin_bd_content";
 
 	@Autowired
 	private BoardDao boardDao;
 
-	//boardList.jsp get¹æ½Ä 
+	
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public ModelAndView doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
-			BoardBean article,
+			BoardBean boardBean,
 			HttpServletRequest request
 			) {
-		BoardBean detail =boardDao.getArticle(article);
-		System.out.println(detail.getB_subject()+":controller");
+		BoardBean bdBean =boardDao.getArticle(boardBean);
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("bdBean", detail);
+		mav.addObject("bdBean", bdBean);
 		mav.addObject("pageNumber", pageNumber);
 		mav.setViewName(getPage);
 		return mav;

@@ -6,143 +6,152 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class BoardBean {
 	
-	private int num;
 	private final String msg=" 입력 누락";
-	@NotBlank(message = "작성자"+msg)
-	private String writer;  
+
+	private int b_num;
 	
-	//형태로잡을뜻
-	@NotBlank(message = "이메일"+msg)
-	private String email;  
+	@NotBlank(message = "작성자"+msg)
+	private String b_writer;  
+	
+
 	
 	@NotBlank(message = "제목"+msg)
-	private String subject; 
+	private String b_subject; 
 
 	@NotBlank(message = "비번"+msg)
-	private String passwd;  
-	private Timestamp reg_date; 
-	private int readcount;		
-	private int ref;		
-	private int re_step;		
-	private int re_level;		
-	private String content;  
-	private String ip;
-
+	private String b_passwd;  
+	
+	private Timestamp b_reg_date; 
+	
+	private int b_readcount;	
+	
+	private int b_ref;		
+	private int b_re_step;		
+	private int b_re_level;	
+	
+	private String b_content;
+	
+	
 	public BoardBean() {
 		super();
 	}
 
-	public BoardBean(int num, String writer, String email, String subject, String passwd, Timestamp reg_date, int readcount,
-			int ref, int re_step, int re_level, String content, String ip) {
+
+	public BoardBean(int b_num, String b_writer, String b_subject, String b_passwd, Timestamp b_reg_date,
+			int b_readcount, int b_ref, int b_re_step, int b_re_level, String b_content) {
 		super();
-		this.num = num;
-		this.writer = writer;
-		this.email = email;
-		this.subject = subject;
-		this.passwd = passwd;
-		this.reg_date = reg_date;
-		this.readcount = readcount;
-		this.ref = ref;
-		this.re_step = re_step;
-		this.re_level = re_level;
-		this.content = content;
-		this.ip = ip;
+		this.b_num = b_num;
+		this.b_writer = b_writer;
+		this.b_subject = b_subject;
+		this.b_passwd = b_passwd;
+		this.b_reg_date = b_reg_date;
+		this.b_readcount = b_readcount;
+		this.b_ref = b_ref;
+		this.b_re_step = b_re_step;
+		this.b_re_level = b_re_level;
+		this.b_content = b_content;
 	}
 
-	public int getNum() {
-		return num;
+
+	public int getB_num() {
+		return b_num;
 	}
 
-	public void setNum(int num) {
-		this.num = num;
+
+	public void setB_num(int b_num) {
+		this.b_num = b_num;
 	}
 
-	public String getWriter() {
-		return writer;
+
+	public String getB_writer() {
+		return b_writer;
 	}
 
-	public void setWriter(String writer) {
-		this.writer = writer;
+
+	public void setB_writer(String b_writer) {
+		this.b_writer = b_writer;
 	}
 
-	public String getEmail() {
-		return email;
+
+	public String getB_subject() {
+		return b_subject;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setB_subject(String b_subject) {
+		this.b_subject = b_subject;
 	}
 
-	public String getSubject() {
-		return subject;
+
+	public String getB_passwd() {
+		return b_passwd;
 	}
 
-	public void setSubject(String subject) {
-		this.subject = subject;
+
+	public void setB_passwd(String b_passwd) {
+		this.b_passwd = b_passwd;
 	}
 
-	public String getPasswd() {
-		return passwd;
+
+	public Timestamp getB_reg_date() {
+		return b_reg_date;
 	}
 
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+
+	public void setB_reg_date(Timestamp b_reg_date) {
+		this.b_reg_date = b_reg_date;
 	}
 
-	public Timestamp getReg_date() {
-		return reg_date;
+
+	public int getB_readcount() {
+		return b_readcount;
 	}
 
-	public void setReg_date(Timestamp reg_date) {
-		this.reg_date = reg_date;
+
+	public void setB_readcount(int b_readcount) {
+		this.b_readcount = b_readcount;
 	}
 
-	public int getReadcount() {
-		return readcount;
+
+	public int getB_ref() {
+		return b_ref;
 	}
 
-	public void setReadcount(int readcount) {
-		this.readcount = readcount;
+
+	public void setB_ref(int b_ref) {
+		this.b_ref = b_ref;
 	}
 
-	public int getRef() {
-		return ref;
+
+	public int getB_re_step() {
+		return b_re_step;
 	}
 
-	public void setRef(int ref) {
-		this.ref = ref;
+
+	public void setB_re_step(int b_re_step) {
+		this.b_re_step = b_re_step;
 	}
 
-	public int getRe_step() {
-		return re_step;
+
+	public int getB_re_level() {
+		return b_re_level;
 	}
 
-	public void setRe_step(int re_step) {
-		this.re_step = re_step;
+
+	public void setB_re_level(int b_re_level) {
+		this.b_re_level = b_re_level;
 	}
 
-	public int getRe_level() {
-		return re_level;
+
+	public String getB_content() {
+		return b_content;
 	}
 
-	public void setRe_level(int re_level) {
-		this.re_level = re_level;
+
+	public void setB_content(String b_content) {
+		this.b_content = b_content;
 	}
 
-	public String getContent() {
-		return content;
-	}
 
-	public void setContent(String content) {
-		this.content = content;
-	}
 
-	public String getIp() {
-		return ip;
-	}
-
-	public void setIp(String ip) {
-		this.ip = ip;
-	}  
-			
 }

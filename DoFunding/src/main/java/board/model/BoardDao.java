@@ -28,7 +28,7 @@ public class BoardDao {
 	public int deleteArticle(BoardBean article, String passwd){
 		int cnt=-1;
 		passwd=sqlSessionTemplate.selectOne(namespace+".GetArticlePasswd", article);
-		if(passwd.equals(article.getPasswd())) {
+		if(passwd.equals(article.getB_passwd())) {
 			cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", article);			
 		}
 		else {
@@ -53,7 +53,7 @@ public class BoardDao {
 	public int updateArticle(BoardBean article){
 		int cnt=-1;
 		String passwd=sqlSessionTemplate.selectOne(namespace+".GetArticlePasswd", article);
-		if(passwd.equals(article.getPasswd())) {
+		if(passwd.equals(article.getB_passwd())) {
 			cnt=sqlSessionTemplate.update(namespace+".UpdateArticle", article);			
 		}
 		else {
@@ -91,6 +91,22 @@ public class BoardDao {
 		totalCount=sqlSessionTemplate.selectOne(namespace+".GetArticleCount", map);
 		return totalCount;
 	}//getArticleCount
+
+	
+	public int multiDeleteBoard(String[] rowchecks) {
+		int count = 0;
+		for(int i=0;i<rowchecks.length;i++) {
+			String rowcheck=rowchecks[i];
+			System.out.println("rowcheck:"+rowcheck);
+			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteBoard",rowcheck);	
+			count+=cnt;
+		}
+
+		return count;
+		
+		
+	}
+
 	
 	
 }

@@ -22,7 +22,6 @@ h2 { margin: 20px 0}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
-    
 </head>
 <div align="center">
 <c:if test="${requestScope.list ne null}">
@@ -72,7 +71,7 @@ h2 { margin: 20px 0}
       $('.carousel').carousel()  /* 1 */      
     </script>   
 </c:if>
-<c:if test="${loginInfo.admin == 0}"><a href="main.ad">관리자 페이지</a></c:if>
+
 <div>
 	<form action="list.prd" method="get">
 		<select name="whatColumn">

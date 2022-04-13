@@ -1,77 +1,96 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>
+	pageEncoding="UTF-8"%>
 <%@include file="admin_top.jsp"%>
 <script type="text/javascript">
-	function update(cnum,pageNumber){
-		location.href="admin_cate_update.ad?cnum="+cnum+"&pageNumber="+pageNumber;
+	function update(cnum, pageNumber) {
+		location.href = "admin_cate_update.ad?cnum=" + cnum + "&pageNumber="
+				+ pageNumber;
 	}
 
-	  function selectDelete1(){
-			
-			var chkArr = document.getElementsByName("rowcheck");
+	function selectDelete() {
 
-			flag = false;
-			for(var i=0;i<chkArr.length;i++){
-				if(chkArr[i].checked == true){
-					flag = true;
-				}
+		var chkArr = document.getElementsByName("rowcheck");
 
-			document.myform.submit();//submit 누른것처럼 동작해라.
+		flag = false;
+		for (var i = 0; i < chkArr.length; i++) {
+			if (chkArr[i].checked == true) {
+				flag = true;
 			}
 
-		}//selectDelete
-		
+			document.myform.submit();//submit 누른것처럼 동작해라.
+		}
 
+	}//selectDelete
 </script>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/css/kfonts2.css"
+	rel="stylesheet">
+</head>
 <center>
-    <h4 align="center">카테고리 목록</h4>
-	<form method="get" action="admin_cate_list.ad">
-		<select name="whatColumn">
-			<option value="all">전체검색
-			<option value="code">코드
-			<option value="cname">카테고리명
-		</select>
-		<input type="submit" value="검색">
-	</form>
-<br>
-		<table border="1"  width="500">
-			<td align="left" colspan="6">
-				<input type="button" value="삭제" onclick="selectDelete1('${pageInfo.pageNumber}')">
-			</td>
+	<div>
+		<h4 align="center">카테고리 목록</h4>
+		<div >
+			<form method="get" action="admin_cate_list.ad">
+				<select name="whatColumn">
+					<option value="all">전체검색
+					<option value="code">코드
+					<option value="cname">카테고리명
+				</select> 				
+				<input type="text" name="keyword" >
+				<input type="submit" value="검색">
+			</form>
+		</div>
+		<br>
+		<table border="1" width="500">
 			<tr>
-				<th  align="center">
-					<input type="checkbox" name="allcheck" onclick="allRowCheck(this)">
-			 	</th>
-				<td  align="center">번호</td>
-				<td  align="center">카테고리 코드</td>
-				<td  align="center">카테고리명</td>
-				<td  align="center">삭제</td>	
-				<td  align="center">수정</td>	
+				<td align="left" colspan="6">
+					<input type="button" value="삭제" onclick="selectDelete('${pageInfo.pageNumber}')">
+				</td>
 			</tr>
-		<form name="myform" action="admin_cate_multidelete.ad? method="post">
-		<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber }">
-        <c:forEach var="category" items="${list}">
+			<tr>
+				<th align="center">
+					<input type="checkbox" name="allcheck" onclick="allRowCheck(this)">
+				</th>
+				<th align="center">번호</th>
+				<th align="center">카테고리 코드</th>
+				<th align="center">카테고리명</th>
+				<th align="center">삭제</th>
+				<th align="center">수정</th>
+			</tr>
+			<form name="myform" action="admin_cate_multidelete.ad?" method="post">
+				<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber }">
+				<c:forEach var="cateBean" items="${cateList}">
 					<tr>
-						<td align="center" >
-							<input type="checkbox" name="rowcheck" value="${category.cnum }">
+						<td align="center"><input type="checkbox" name="rowcheck"
+							value="${cateBean.cnum }"></td>
+						<td>${cateBean.cnum}</td>
+						<td>${cateBean.code}</td>
+						<td>${cateBean.cname}</td>
+						<td><a
+							href="admin_cate_delete.ad?cnum=${cateBean.cnum}&pageNumber=${pageInfo.pageNumber}">삭제</a>
 						</td>
-						<td>${category.cnum}</td>
-						<td>${category.code}</td>
-						<td>${category.cname}</td>
-						<td>
-							<a href="admin_cate_delete.ad?cnum=${category.cnum}&pageNumber=${pageInfo.pageNumber}">삭제</a>
-					    </td>
-						<td>
-							<input type="button" value="수정" onclick="update('${category.cnum}','${pageInfo.pageNumber}')" >
-					    </td>					    
+						<td><input type="button" value="수정"
+							onclick="update('${cateBean.cnum}','${pageInfo.pageNumber}')">
+						</td>
 					</tr>
-			</c:forEach>			
-		</table>	
-<br>
-	 ${pageInfo.pagingHtml}
+				</c:forEach>
+			</form>
+		</table>
+		<br>
+		<br>
+	<div class="container">
+			<ul class="pagination pagination-sm">${pageInfo.pagingHtml}
+			</ul>
+		</div>
+	</div>
 </center>
 <%@include file="admin_bottom.jsp"%>
-	
 
-	
+
+

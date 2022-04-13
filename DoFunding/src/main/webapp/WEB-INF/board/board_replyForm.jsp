@@ -21,9 +21,9 @@
 
 <form action="reply.bd" method="post">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
-	<input type="hidden" name="ref" value="${article.ref}">
-	<input type="hidden" name="re_step" value="${article.re_step}">
-	<input type="hidden" name="re_level" value="${article.re_level}">
+	<input type="hidden" name="ref" value="${bdBean.b_ref}">
+	<input type="hidden" name="re_step" value="${bdBean.b_re_step}">
+	<input type="hidden" name="re_level" value="${bdBean.b_re_level}">
 <table border="1">
 	<tr>
 		<td colspan="2" align="right">

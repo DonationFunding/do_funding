@@ -49,9 +49,8 @@ public class BoardWriteController {
 			HttpServletResponse response) {
 		//writer/subject/email/content/password/Reg_date/Ip
 		response.setContentType("text/html; charset=UTF-8");			
-		article.setReg_date(new Timestamp(System.currentTimeMillis()));
-		System.out.println(request.getRemoteAddr());
-		article.setIp(request.getRemoteAddr());
+		article.setB_reg_date(new Timestamp(System.currentTimeMillis()));
+
 		int cnt=boardDao.insertArticle(article);
 		PrintWriter pw =null;
 		if(cnt>0){
