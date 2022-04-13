@@ -27,9 +27,6 @@
 <table border="1">
 	<tr>
 		<td colspan="2" align="right">
-	<input type="text" name="b_ref" value="${bdBean.b_ref}">
-	<input type="text" name="b_re_step" value="${bdBean.b_re_step}">
-	<input type="text" name="b_re_level" value="${bdBean.b_re_level}">
 			<a href="list.bd?pageNumber=${pageNumber}">글목록</a>
 		</td>
 	</tr>
