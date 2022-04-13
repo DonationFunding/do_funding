@@ -132,8 +132,4 @@ h2 { margin: 20px 0}
 </div>	
 
 
-<<<<<<< HEAD
-<%@ include file="product_bottom.jsp" %>
-=======
 <%@ include file="../common/common_bottom.jsp" %>
->>>>>>> refs/heads/do-kyg

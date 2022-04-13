@@ -7,7 +7,6 @@ import java.sql.Timestamp;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-<<<<<<< HEAD
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,35 +22,18 @@ import board.model.BoardDao;
 @Controller
 public class BoardWriteController {
 
-	private final String command="/writeArticle.bd";
-	private String getPage="writeForm";
-	private String gotoPage="redirect:/boardList.bd";
-=======
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import board.model.BoardBean;
-import board.model.BoardDao;
-
-@Controller
-public class BoardWriteController {
-
 	private final String command="/insert.bd";
 	private String getPage="board_writeForm";
 	private String gotoPage="redirect:/list.bd";
->>>>>>> refs/heads/do-kyg
-	
+
 	@Autowired
 	private BoardDao boardDao;
 
-	
+
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(HttpSession session) {	
 		System.out.println("loginInfo:"+session.getAttribute("loginInfo")); // null
-			
+
 		if(session.getAttribute("loginInfo") == null) { // 로그인 안한 상태
 			session.setAttribute("destination", "redirect:/login.mem");
 			return "redirect:/login.mem"; 
@@ -60,7 +42,7 @@ public class BoardWriteController {
 			return getPage;// writeForm.jsp
 		}	
 	}
-	
+
 	//writeForm.jsp post방식 writeArticle.bv
 	@RequestMapping(value=command,method = RequestMethod.POST)
 	public String doAction(
@@ -88,10 +70,10 @@ public class BoardWriteController {
 			pw.flush();
 			return getPage;
 		}
-		
+
 	}
-	
-	
-	
-	
+
+
+
+
 }

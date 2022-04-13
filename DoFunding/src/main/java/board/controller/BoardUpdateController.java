@@ -19,13 +19,8 @@ import board.model.BoardDao;
 @Controller
 public class BoardUpdateController {
 
-<<<<<<< HEAD
-	private final String command="/updateForm.bd";
-	private String getPage="updateForm";
-=======
 	private final String command="/update.bd";
 	private String getPage="board_updateForm";
->>>>>>> refs/heads/do-kyg
 	private String gotoPage="redirect:/content.bd";
 	
 	@Autowired

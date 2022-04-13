@@ -20,21 +20,15 @@ import board.model.BoardDao;
 @Controller
 public class BoardReplyController {
 
-<<<<<<< HEAD
-	private final String command="/replyForm.bd";
-	private String getPage="replyForm";
-	private String gotoPage="redirect:/boardList.bd";
-=======
 	private final String command="/reply.bd";
 	private String getPage="board_replyForm";
 	private String gotoPage="redirect:/list.bd";
->>>>>>> refs/heads/do-kyg
-	
+
 	@Autowired
 	private BoardDao boardDao;
 
 	private PrintWriter pw =null;
-	
+
 	//content.jsp get방식 replyForm.bv
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
@@ -42,12 +36,12 @@ public class BoardReplyController {
 			BoardBean article,
 			HttpServletRequest request,
 			HttpSession session) {
-			request.setAttribute("article", article);
-			request.setAttribute("pageNumber", pageNumber);
-			return getPage;
+		request.setAttribute("article", article);
+		request.setAttribute("pageNumber", pageNumber);
+		return getPage;
 
 	}
-	
+
 	//replyForm.jsp post방식 replyForm.bv
 	@RequestMapping(value=command,method = RequestMethod.POST)
 	public String doAction(
@@ -62,7 +56,7 @@ public class BoardReplyController {
 		System.out.println(request.getRemoteAddr());
 		article.setIp(request.getRemoteAddr());
 		int cnt=boardDao.replyArticle(article);
-		
+
 		if(cnt>0){
 			return gotoPage+"?pageNumber="+pageNumber;	
 		}
@@ -78,8 +72,8 @@ public class BoardReplyController {
 			request.setAttribute("pageNumber", pageNumber);			
 			return getPage;
 		}
-		
+
 	}
-	
-	
+
+
 }
