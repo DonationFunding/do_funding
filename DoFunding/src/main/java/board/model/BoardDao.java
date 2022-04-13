@@ -52,7 +52,9 @@ public class BoardDao {
 	
 	public int updateArticle(BoardBean article){
 		int cnt=-1;
+		System.out.println(article.getB_passwd());
 		String passwd=sqlSessionTemplate.selectOne(namespace+".GetArticlePasswd", article);
+		System.out.println("passwd:"+passwd);
 		if(passwd.equals(article.getB_passwd())) {
 			cnt=sqlSessionTemplate.update(namespace+".UpdateArticle", article);			
 		}
@@ -69,7 +71,7 @@ public class BoardDao {
 		//조회수
 		sqlSessionTemplate.update(namespace+".UpdateReadCount", article);
 		//content내용
-		detail=oneSelect(article);
+		detail=sqlSessionTemplate.selectOne(namespace+".GetArticle", article);
 		return detail;
 	}//getArticle	
 	

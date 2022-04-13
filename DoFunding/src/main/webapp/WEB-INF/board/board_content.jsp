@@ -49,9 +49,9 @@ content.jsp<br>
 
 	<tr height="30">
 		<td align="center" colspan="4">
-			<input type="button" name="update_btn" value="글수정" <c:if test="${sessionScope.loginInfo.id != bdBean.b_writer}"> disabled </c:if>  onclick="location.href='update.bd?b_num=${bdBean.getB_num()}&pageb_number=${pageNumber}'" >
-			<input type="button" name="delete_btn" value="글삭제" <c:if test="${sessionScope.loginInfo.id != bdBean.b_writer}"> disabled </c:if> onclick="location.href='delete.bd?b_num=${bdBean.getB_num()}&pageb_number=${pageNumber }'" >
-			<input type="button" name="reple_btn" value="답글쓰기" <c:if test="${sessionScope.loginInfo == null}"> disabled </c:if> onclick="location.href='reply.bd?ref=${bdBean.getB_ref()}&re_step=${bdBean.getB_re_step()}&re_level=${bdBean.getB_re_level()}&pageNumber=${pageNumber}'" >
+			<input type="button" name="update_btn" value="글수정" <c:if test="${sessionScope.loginInfo.id != bdBean.b_writer}"> disabled </c:if>  onclick="location.href='update.bd?b_num=${bdBean.getB_num()}&pageNumber=${pageNumber}'" >
+			<input type="button" name="delete_btn" value="글삭제" <c:if test="${sessionScope.loginInfo.id != bdBean.b_writer}"> disabled </c:if> onclick="location.href='delete.bd?b_num=${bdBean.getB_num()}&pageNumber=${pageNumber }'" >
+			<input type="button" name="reple_btn" value="답글쓰기" <c:if test="${sessionScope.loginInfo == null}"> disabled </c:if> onclick="location.href='reply.bd?b_ref=${bdBean.getB_ref()}&b_re_step=${bdBean.getB_re_step()}&b_re_level=${bdBean.getB_re_level()}&pageNumber=${pageNumber}'" >
 			<input type="button" name="list_btn" value="글목록" onclick="location.href='list.bd?pageNumber=${pageNumber}'">
 		</td>
 	</tr>		

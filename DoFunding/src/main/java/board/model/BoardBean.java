@@ -13,8 +13,6 @@ public class BoardBean {
 	@NotBlank(message = "작성자"+msg)
 	private String b_writer;  
 	
-
-	
 	@NotBlank(message = "제목"+msg)
 	private String b_subject; 
 

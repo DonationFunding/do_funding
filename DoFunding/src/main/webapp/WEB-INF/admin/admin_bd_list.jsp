@@ -92,9 +92,9 @@ table {
 							width="${wid}" height="15">
 						<img src="<%=request.getContextPath()%>/resources/images/re.gif">
 					</c:if> <a
-					href="admin_bd_content.bd?b_num=${bdBean.b_num}&pageNumber=${pageInfo.pageNumber}">
-						${bdBean.b_subject}</a> <!-- 글번호 뿐만 아니라 현재페이지도 넘겨야함! --> <c:if
-						test="${bdBean.b_readcount >=10 }">
+					href="admin_bd_content.ad?b_num=${bdBean.b_num}&pageNumber=${pageInfo.pageNumber}">
+						${bdBean.b_subject}</a> <!-- 글번호 뿐만 아니라 현재페이지도 넘겨야함! --> 
+						<c:if test="${bdBean.b_readcount >=10 }">
 						<img src='<%=request.getContextPath()%>/resources/images/hot.gif'
 							height='15'>
 					</c:if></td>
