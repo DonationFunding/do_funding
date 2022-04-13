@@ -16,9 +16,13 @@
 			if (chkArr[i].checked == true) {
 				flag = true;
 			}
-
-			document.myform.submit();//submit 누른것처럼 동작해라.
 		}
+		if (flag == false) {
+			alert("삭제할 체크박스를 하나라도 선택하세요.");
+			return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
+		}
+		
+		document.myform.submit();//submit 누른것처럼 동작해라.
 
 	}//selectDelete
 </script>
@@ -50,7 +54,7 @@
 		<table border="1" width="500">
 			<tr>
 				<td align="left" colspan="6">
-					<input type="button" value="삭제" onclick="selectDelete('${pageInfo.pageNumber}')">
+					<input type="button" value="삭제" onclick="selectDelete()">
 				</td>
 			</tr>
 			<tr>

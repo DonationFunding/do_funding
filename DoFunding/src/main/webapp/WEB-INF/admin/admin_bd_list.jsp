@@ -1,15 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="admin_top.jsp"%>
-<style type="text/css">
-body {
-	text-align: center;
-}
+<script type="text/javascript">
+	function selectDelete() {
 
-table {
-	margin: auto;
-}
-</style>
+		var chkArr = document.getElementsByName("rowcheck");
+
+		var flag = false;
+		for (var i = 0; i < chkArr.length; i++) {
+			if (chkArr[i].checked == true) {
+				flag = true;
+			}
+		}
+		if (flag == false) {
+			alert("삭제할 체크박스를 하나라도 선택하세요.");
+			return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
+		}
+			document.myform.submit();//submit 누른것처럼 동작해라.
+
+	}//selectDelete
+</script>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,45 +34,25 @@ table {
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script
-	src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	function selectDelete() {
-
-		var chkArr = document.getElementsByName("rowcheck");
-
-		flag = false;
-		for (var i = 0; i < chkArr.length; i++) {
-			if (chkArr[i].checked == true) {
-				flag = true;
-			}
-			if (flag == false) {
-				alert("삭제할 체크박스를 하나라도 선택하세요.");
-				return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
-			}
-			document.myform.submit();//submit 누른것처럼 동작해라.
-		}
-
-	}//selectDelete
-</script>
+<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 <center>
 	<h1>글목록(전체 글:${totalCount})</h1>
 	<form action="admin_bd_list.ad" method="get">
 		<p>
 			<select name="whatColumn">
 				<option value="all">선택
-				<option value="content">내용
-				<option value="subject">제목
-				<option value="writer">글쓴이
-			</select> <input type="text" name="keyword"> <input type="submit"
-				value="검색">
+				<option value="b_content">내용
+				<option value="b_subject">제목
+				<option value="b_writer">글쓴이
+			</select> 
+			<input type="text" name="keyword"> <input type="submit" value="검색">
 		</p>
 	</form>
 
 	<table width="700" border="1">
 		<tr>
 			<td align="left" colspan="7">
-				<input type="button" value="삭제" onclick="selectDelete('${pageInfo.pageNumber}')">
+				<input type="button" value="삭제" onclick="selectDelete()">
 			</td>
 		</tr>	
 		<tr>
@@ -78,8 +68,7 @@ table {
 		</tr>
 		<form name="myform" action="admin_bd_multidelete.ad?" method="post">
 		<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber }">
-		<c:forEach var="bdBean" items="${requestScope.bdList}"
-			varStatus="status">
+		<c:forEach var="bdBean" items="${requestScope.bdList}" varStatus="status">
 			<tr>
 				<td align="center">
 					<input type="checkbox" name="rowcheck" value="${bdBean.b_num}">
