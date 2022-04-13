@@ -14,7 +14,7 @@ import member.model.MemberDao;
 @Controller
 public class MemberInfoController {
 	private final String command = "memberInfo.mem";
-	private final String getPage = "member_DetailView";
+	private final String getPage = "member_detailView";
 	private String gotoPage = "redirect:/list.prd";
 	
 	@Autowired

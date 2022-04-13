@@ -26,7 +26,7 @@
 				<ul class="subMenu">
 					<li>
 						&nbsp;<a href="login.mem">로그아웃</a>
-						&nbsp;<a href="insert.mem">회원정보</a>
+						&nbsp;<a href="memberInfo.mem">회원정보</a>
 						&nbsp;<a href="findid.mem">찜목록</a>
 						&nbsp;<a href="">펀딩조회</a>
 					</li>

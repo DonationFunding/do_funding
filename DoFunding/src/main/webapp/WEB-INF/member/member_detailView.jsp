@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-member_DetailView.jsp<br>
+<%@ include file="../common/common.jsp" %>
+<%@ include file="../common/common_top.jsp" %>
+    <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
+<center>
+member_detailView.jsp<br>
 
 <table border="1">
 	<tr>
@@ -92,6 +97,8 @@ member_DetailView.jsp<br>
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2"><input type="button" value="정보수정" onclick="location.href=''"></td>
+		<td colspan="2" align="center"><input type="button" value="정보수정" onclick="location.href=''"></td>
 	</tr>
 </table>
+</center>
+<%@ include file="../common/common_bottom.jsp" %>
