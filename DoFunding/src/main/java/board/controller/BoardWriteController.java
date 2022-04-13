@@ -32,8 +32,8 @@ public class BoardWriteController {
 		System.out.println("loginInfo:"+session.getAttribute("loginInfo")); // null
 			
 		if(session.getAttribute("loginInfo") == null) { // 로그인 안한 상태
-			session.setAttribute("destination", "redirect:/writeArticle.bv");
-			return "redirect:/loginForm.mem"; // MemberLoginController 
+			session.setAttribute("destination", "redirect:/login.mem");
+			return "redirect:/login.mem"; // MemberLoginController 
 		}
 		else {// 로그인 한 상태
 			return getPage;// writeForm.jsp

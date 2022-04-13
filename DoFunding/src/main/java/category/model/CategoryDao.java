@@ -62,7 +62,7 @@ public class CategoryDao {
 			return category;
 		}
 		
-		public int multiDeleteCategory(String[] rowchecks) {
+		public int multiDeleteCategory(String[] rowchecks) {    
 			int count = 0;
 			System.out.println("2222");
 			for(int i=0;i<rowchecks.length;i++) {
