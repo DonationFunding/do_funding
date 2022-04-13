@@ -42,7 +42,7 @@ public class BoardReplyController {
 
 	}
 	
-	//replyForm.jsp post¹æ½Ä replyForm.bv
+
 	@RequestMapping(value=command,method = RequestMethod.POST)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,

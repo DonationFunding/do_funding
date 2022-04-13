@@ -34,9 +34,6 @@
 	</select>
 	<input type="text" name="keyword">
 	<input type="submit" value="검색">
-	<c:if test="${sessionScope.loginInfo != null}">&emsp;<a href="logout.jsp">로그아웃</a></c:if>
-	<c:if test="${sessionScope.loginInfo == null}">&emsp;<a href="loginForm.mem">로그인</a></c:if>
-	
 </p>	
 </form>
 <table width="700" border="1">

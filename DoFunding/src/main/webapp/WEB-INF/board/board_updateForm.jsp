@@ -19,12 +19,12 @@ updateForm.jsp<br>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
 
 <form action="update.bd?pageNumber=${pageNumber }" method="post" onsubmit="return check()">
-<input type="hidden" name="num" value="${bdBean.getB_num()}">
+<input type="hidden" name="b_num" value="${bdBean.getB_num()}">
 
 	<table border="1">
 		<tr>
 			<td colspan="2" align="right">
-				<a href="boardList.bv">글목록</a>
+				<a href="list.bd">글목록</a>
 			</td>
 		</tr>
 		<tr>
@@ -38,7 +38,7 @@ updateForm.jsp<br>
 		<tr>
 			<td align="center">내용</td>
 			<td>
-				<textarea name="content" rows="15" cols="50">${bdBean.getB_content()}</textarea>
+				<textarea name="b_content" rows="15" cols="50">${bdBean.getB_content()}</textarea>
 			</td>
 		</tr>
 		<tr>

@@ -1,7 +1,5 @@
 package admin.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +13,7 @@ import board.model.BoardDao;
 @Controller
 public class AdminBoardContentController {
 
-	private final String command="/admin_bd_content.bd";
+	private final String command="/admin_bd_content.ad";
 	private String getPage="admin_bd_content";
 
 	@Autowired
@@ -25,10 +23,10 @@ public class AdminBoardContentController {
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public ModelAndView doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
-			BoardBean boardBean,
-			HttpServletRequest request
+			BoardBean boardBean
 			) {
-		BoardBean bdBean =boardDao.getArticle(boardBean);
+		BoardBean bdBean =boardDao.oneSelect(boardBean);
+		System.out.println("B_writer"+bdBean.getB_writer());
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("bdBean", bdBean);
 		mav.addObject("pageNumber", pageNumber);
