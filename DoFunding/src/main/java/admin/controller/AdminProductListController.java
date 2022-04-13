@@ -49,10 +49,9 @@ public class AdminProductListController {
 		Paging pageInfo=new Paging(pageNumber, null, totalCount, url, whatColumn, keyword);
 	
 		  
-		List<ProductBean> list = productDao.productList(pageInfo, map);
-		System.out.println("list.size:"+list.size());
+		List<ProductBean> prdList = productDao.productList(pageInfo, map);
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("list",list);
+		mav.addObject("prdList",prdList);
 		mav.addObject("totalCount",totalCount);
 		mav.addObject("pageInfo",pageInfo);
 

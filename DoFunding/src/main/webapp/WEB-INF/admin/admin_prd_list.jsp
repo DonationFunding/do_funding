@@ -28,15 +28,24 @@
 		}
 
 	}//selectDelete
-	
-	
+		
 </script>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/resources/css/kfonts2.css"
+	rel="stylesheet">
+</head>
 <center>
-	<h2>상품 리스트 화면(${pageInfo.pageNumber})</h2>
+	<h2>펀딩 목록(${pageInfo.pageNumber})</h2>
 	<form action="admin_prd_list.ad" method="get">
 		<select name="whatColumn">
 			<option value="">선택
-			<option value="name">상품명
+			<option value="name">펀딩명
 			<option value="contents">설명
 		</select> 
 		<input type="text" name="keyword"> 
@@ -59,8 +68,8 @@
 			<th  align="center">
 				<input type="checkbox" name="allcheck" onclick="allRowCheck(this)">
 			</th>
-			<th>상품번호</th>
-			<th>상품명</th>
+			<th>펀딩번호</th>
+			<th>펀딩명</th>
 			<th>image</th>
 			<th>가격</th>
 			<th>펀딩금액</th>
@@ -72,38 +81,43 @@
 		</tr>
 		<form name="myform" action="admin_prd_multidelete.ad? method="post">
 		<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber }">
-		<c:forEach var="product" items="${list}">
+		<c:forEach var="prdBean" items="${prdList}">
 			<tr>
 				<td align="center" >
-					<input type="checkbox" name="rowcheck" value="${product.p_num }">
+					<input type="checkbox" name="rowcheck" value="${prdBean.p_num }">
 				</td>
-				<td><c:out value="${product.p_num}" /></td>
+				<td><c:out value="${prdBean.p_num}" /></td>
 				<td>
-					<a href="admin_prd_detail.ad?num=${product.p_num}&pageNumber=${pageInfo.pageNumber }">${product.p_subject}</a>
+					<a href="admin_prd_detail.ad?num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber }">${prdBean.p_subject}</a>
 				</td>
 				<td>
 					<img width="100" height="100" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-					src="<%=request.getContextPath() %>/resources/images/${product.p_image}"><br>
+					src="<%=request.getContextPath() %>/resources/images/${prdBean.p_image}"><br>
 				</td>
-				<td>${product.p_origin_price}원</td>
-				<td>${product.p_total_price}원</td>
-				<td>${product.p_end_price}원</td>
-				<td>${(product.p_total_price/product.p_end_price)*100} %</td>	
+				<td>${prdBean.p_origin_price}원</td>
+				<td>${prdBean.p_total_price}원</td>
+				<td>${prdBean.p_end_price}원</td>
+				<td>${(prdBean.p_total_price/prdBean.p_end_price)*100} %</td>	
  				<td>
- 					<fmt:parseDate value="${product.p_end_date}" var="dateValue" pattern="yyyy-MM-dd" />
+ 					<fmt:parseDate value="${prdBean.p_end_date}" var="dateValue" pattern="yyyy-MM-dd" />
  					<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
  				</td>
 				<td>
-					<input type="button" value="수정" onclick="update('${product.p_num}','${pageInfo.pageNumber}')">				
+					<input type="button" value="수정" onclick="update('${prdBean.p_num}','${pageInfo.pageNumber}')">				
 				</td>
 				<td>
-					<a href="admin_prd_delete.ad?p_num=${product.p_num}&pageNumber=${pageInfo.pageNumber }">삭제</a>
+					<a href="admin_prd_delete.ad?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber }">삭제</a>
 				</td>
 			</tr>
 		</c:forEach>
 		</form>
 	</table>
-	<br> ${pageInfo.pagingHtml }
-<br>
+		<br>
+		<br>
+	<div class="container">
+			<ul class="pagination pagination-sm">
+				${pageInfo.pagingHtml}
+			</ul>
+	</div>
 </center>
 <%@ include file="admin_bottom.jsp"%>

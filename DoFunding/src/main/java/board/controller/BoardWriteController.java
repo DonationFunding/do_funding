@@ -26,14 +26,16 @@ public class BoardWriteController {
 	@Autowired
 	private BoardDao boardDao;
 
-	//boardList.jsp get방식 writeArticle.bv
+	
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(HttpSession session) {	
 		System.out.println("loginInfo:"+session.getAttribute("loginInfo")); // null
 			
 		if(session.getAttribute("loginInfo") == null) { // 로그인 안한 상태
 			session.setAttribute("destination", "redirect:/login.mem");
-			return "redirect:/login.mem"; // MemberLoginController 
+
+			return "redirect:/login.mem"; 
+
 		}
 		else {// 로그인 한 상태
 			return getPage;// writeForm.jsp
@@ -49,9 +51,8 @@ public class BoardWriteController {
 			HttpServletResponse response) {
 		//writer/subject/email/content/password/Reg_date/Ip
 		response.setContentType("text/html; charset=UTF-8");			
-		article.setReg_date(new Timestamp(System.currentTimeMillis()));
-		System.out.println(request.getRemoteAddr());
-		article.setIp(request.getRemoteAddr());
+		article.setB_reg_date(new Timestamp(System.currentTimeMillis()));
+
 		int cnt=boardDao.insertArticle(article);
 		PrintWriter pw =null;
 		if(cnt>0){

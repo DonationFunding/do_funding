@@ -8,25 +8,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import product.model.ProductDao;
+import board.model.BoardDao;
+import category.model.CategoryDao;
+
+
 
 @Controller
-public class AdminProductMultiDeleteController {
-	
-	private final String command = "admin_prd_multidelete.ad";
-	private String gotoPage = "redirect:/admin_prd_list.ad";
+public class AdminBoardMultiDeleteController {
+
+	private final String command = "admin_bd_multidelete.ad";
+	private String gotoPage = "redirect:/admin_bd_list.ad";
 	
 	@Autowired
-	private ProductDao productDao;
+	private BoardDao boardDao;
 	
 	@RequestMapping(command)
 	public String doAction(
 			@RequestParam(value="pageNumber",required = true) int pageNumber,
 			HttpServletRequest request) {
-		//System.out.println(productBean.getRowcheck());
 		String[] rowcheck=request.getParameterValues("rowcheck");
 		
-		int cnt = productDao.multiDeleteProduct(rowcheck);   
+		int cnt = boardDao.multiDeleteBoard(rowcheck);   
 
 		return gotoPage + "?pageNumber="+pageNumber;
 

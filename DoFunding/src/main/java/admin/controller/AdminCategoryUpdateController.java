@@ -31,9 +31,9 @@ public class AdminCategoryUpdateController {
 			@RequestParam(value="pageNumber", required = false) String pageNumber
 			) {	
 		
-		 CategoryBean category = cdao.getCategory(Integer.parseInt(cnum)); 
+		 CategoryBean cateBean = cdao.getCategory(Integer.parseInt(cnum)); 
 		 ModelAndView mav = new ModelAndView();
-		 mav.addObject("category", category);
+		 mav.addObject("cateBean", cateBean);
 		 mav.addObject("pageNumber", pageNumber);
 		 mav.setViewName(getPage);
 	     return mav;
@@ -42,7 +42,7 @@ public class AdminCategoryUpdateController {
 	@RequestMapping(value=command, method = RequestMethod.POST)
 	public ModelAndView doAction(
 			@RequestParam(value="pageNumber", required = false) int pageNumber,			
-			@ModelAttribute("category") @Valid CategoryBean bean,
+			@ModelAttribute("cateBean") @Valid CategoryBean bean,
 			BindingResult result
 			){
 		

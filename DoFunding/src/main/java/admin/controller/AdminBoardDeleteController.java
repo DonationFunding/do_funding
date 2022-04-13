@@ -1,4 +1,4 @@
-package board.controller;
+package admin.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,36 +9,22 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import board.model.BoardBean;
 import board.model.BoardDao;
 
 @Controller
-public class BoardDeleteController {
+public class AdminBoardDeleteController {
 	
-	private final String command="/delete.bd";
-	private String getPage="board_deleteForm";
-	private String gotoPage="redirect:/list.bd";
+	private final String command="/admin_bd_delete.ad";
+	private String getPage="admin_bd_deleteForm";
+	private String gotoPage="redirect:/admin_bd_list.ad";
 	
 	@Autowired
 	private BoardDao boardDao;
 
-	//content.jsp get방식 updateForm.bd
-	@RequestMapping(value=command,method = RequestMethod.GET)
-	public String doAction(
-			@RequestParam(value="pageNumber")String pageNumber,
-			BoardBean bdBean,
-			HttpServletRequest request
-			) {	
-		request.setAttribute("bdBean", bdBean);
-		request.setAttribute("pageNumber", pageNumber);
-		return getPage;
-	}	
-
-	//boardList.jsp get방식 writeArticle.bv
-	@RequestMapping(value=command,method = RequestMethod.POST)
+	@RequestMapping(value=command)
 	public String doAction(
 			@RequestParam(value="pageNumber") String pageNumber,
 			BoardBean bdBean,

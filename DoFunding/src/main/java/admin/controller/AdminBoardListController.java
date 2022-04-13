@@ -1,4 +1,4 @@
-package board.controller;
+package admin.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,10 +17,10 @@ import board.model.BoardDao;
 import utility.Paging;
 
 @Controller
-public class BoardListController {
+public class AdminBoardListController {
 
-	private final String command="/list.bd";
-	private String getPage="board_list";
+	private final String command="/admin_bd_list.ad";
+	private String getPage="admin_bd_list";
 
 	@Autowired
 	private BoardDao boardDao;

@@ -13,7 +13,7 @@ writeForm.jsp<br>
 </style>
 <script type="text/javascript">
 	function list(){
-		location.href="list.bd"; // MemberListController
+		location.href="list.bd"; 
 	}
 </script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/style.css">
@@ -31,23 +31,19 @@ writeForm.jsp<br>
 	</tr>
 	<tr>
 		<td align="center" >이름</td>
-		<td><input type="text" name="writer" value="${sessionScope.loginInfo.id}" readonly></td>
+		<td><input type="text" name="b_writer" value="${sessionScope.loginInfo.id}" readonly></td>
 	</tr>
 	<tr>
 		<td align="center" >제목</td>
-		<td><input type="text" name="subject" value="제목"></td>
-	</tr>
-	<tr>
-		<td align="center" >Email</td>
-		<td><input type="text" name="email" value="aa@xx.com"></td>
+		<td><input type="text" name="b_subject" value="제목"></td>
 	</tr>
 	<tr>
 		<td align="center" >내용</td>
-		<td><textarea name="content" rows="15" cols="50">호호호</textarea></td>
+		<td><textarea name="b_content" rows="15" cols="50">호호호</textarea></td>
 	</tr>
 	<tr>
 		<td align="center" >비밀번호</td>
-		<td><input type="password" name="passwd" value="1234" ></td>
+		<td><input type="password" name="b_passwd" value="1234" ></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
