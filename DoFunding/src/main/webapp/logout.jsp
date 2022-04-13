@@ -5,5 +5,4 @@ logout.jsp<br>
 <%
 	session.invalidate();
 	response.sendRedirect("start.jsp");
-
 %>

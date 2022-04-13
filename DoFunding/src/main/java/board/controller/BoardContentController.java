@@ -16,7 +16,11 @@ import board.model.BoardDao;
 public class BoardContentController {
 
 	private final String command="/content.bd";
+<<<<<<< HEAD
 	private String getPage="content";
+=======
+	private String getPage="board_content";
+>>>>>>> refs/heads/do-kyg
 
 	@Autowired
 	private BoardDao boardDao;

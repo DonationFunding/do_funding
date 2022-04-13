@@ -9,6 +9,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
 import utility.Paging;
 
 @Component("myCategoryDao")
@@ -46,7 +47,7 @@ public class CategoryDao {
 		//상품용 카테고리 가져오기
 		public List<CategoryBean> categoryAllByProduct() {
 			List<CategoryBean> list=sqlSessionTemplate.selectList(namespace+".CategoryAllByProduct");
-			return null;
+			return list;
 		}
 
 		public int updateCategory(CategoryBean bean) {
@@ -60,5 +61,24 @@ public class CategoryDao {
 			CategoryBean category=sqlSessionTemplate.selectOne(namespace+".GetCategory", cnum);
 			return category;
 		}
+		
+		public int multiDeleteCategory(String[] rowchecks) {
+			int count = 0;
+			System.out.println("2222");
+			for(int i=0;i<rowchecks.length;i++) {
+				String rowcheck=rowchecks[i];
+				System.out.println("rowcheck:"+rowcheck);
+				int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteCategory",rowcheck);
+				System.out.println("22");
+
+				count+=cnt;
+			}
+
+			return count;
+			
+			
+		}
+
+
 
 }

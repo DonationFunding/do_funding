@@ -1,5 +1,7 @@
 package product.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -8,14 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import product.model.OptionBean;
 import product.model.ProductBean;
 import product.model.ProductDao;
 
 @Controller
 public class productDetailController {
 
-	private final String command = "/productDetail.prd";
-	private String getPage = "product_DetailView"; 
+	private final String command = "/detail.prd";
+	private String getPage = "product_detailView"; 
 	
 	@Autowired
 	@Qualifier("myProductDao")
@@ -28,7 +31,9 @@ public class productDetailController {
 			Model model) {
 		
 		ProductBean p_product = productDao.getProduct(p_num);
-		model.addAttribute("p_product", p_product);
+		List<OptionBean> o_list = productDao.optionAllByProduct(p_num);
+		model.addAttribute("optionList", o_list);
+		model.addAttribute("productBean", p_product);
 		model.addAttribute("pageNumber", pageNumber);
 		return getPage;
 	}

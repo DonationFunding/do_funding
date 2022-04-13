@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+<<<<<<< HEAD
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,23 @@ public class BoardWriteController {
 	private final String command="/writeArticle.bd";
 	private String getPage="writeForm";
 	private String gotoPage="redirect:/boardList.bd";
+=======
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import board.model.BoardBean;
+import board.model.BoardDao;
+
+@Controller
+public class BoardWriteController {
+
+	private final String command="/insert.bd";
+	private String getPage="board_writeForm";
+	private String gotoPage="redirect:/list.bd";
+>>>>>>> refs/heads/do-kyg
 	
 	@Autowired
 	private BoardDao boardDao;

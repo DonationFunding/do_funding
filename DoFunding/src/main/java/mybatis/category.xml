@@ -11,7 +11,7 @@
 	</insert>
 
 	<!--상품 추가용  -->
-	<select id="CategoryAllByProduct" resultType="product.model.OptionBean">
+	<select id="CategoryAllByProduct" resultType="MyCategory">
 		select *  from category order by cnum
 	</select>
 
@@ -46,7 +46,15 @@
 		where cnum=#{cnum} 
 	</update>
 
+
 	<delete id="CategoryDelete">
 		delete from category where cnum=#{cnum}
 	</delete>
+	
+
+		 <delete id="MultiDeleteCategory" >
+		delete from category where cnum = #{rowcheck}	  
+	 </delete>
+	
+
 </mapper>

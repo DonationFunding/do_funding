@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,29 @@ public class BoardDeleteController {
 	private BoardDao boardDao;
 
 	//content.jsp get방식 updateForm.bv
+=======
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import board.model.BoardBean;
+import board.model.BoardDao;
+
+@Controller
+public class BoardDeleteController {
+	
+	private final String command="/delete.bd";
+	private String getPage="board_deleteForm";
+	private String gotoPage="redirect:/list.bd";
+	
+	@Autowired
+	private BoardDao boardDao;
+
+	//content.jsp get방식 updateForm.bd
+>>>>>>> refs/heads/do-kyg
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,

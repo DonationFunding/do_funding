@@ -19,7 +19,6 @@
 -상품 테이블
 -
 
-
 DB 
 
 -- 회원 테이블
@@ -176,11 +175,15 @@ create table do_product(
 
 
 >>>>>>> refs/remotes/origin/do-kyg
+<<<<<<< HEAD
 =======
 	p_reg_date 		default sysdate  ,	//작성일 default sysdate 넣어도 괜찮을꺼 같습니다.
 	p_start_date 	date not null,		//펀딩 시작일		
 	p_end_date 		date not null		//펀딩 마감일	마감일 되면 펀딩못하게 막고, orderdetail 성공, 실패 (진행중)
 >>>>>>> refs/remotes/origin/do-kyg
+=======
+>>>>>>> refs/remotes/origin/do-pms
+>>>>>>> refs/heads/do-kyg
 );
 
 --옵션 테이블
@@ -228,13 +231,19 @@ create sequence seqoid start with 1 increment by 1 nocache ;
  
 create table orders(
 --주문번호
-  oid number primary key,
+  o_num number primary key,
 --주문자
-  mno number references do_members(no) on delete set null,
+  o_mnum number references do_members(no) on delete set null,
 --상품번호
-  p_num number references do_product(p_num) on delete set null,
+  o_pnum number references do_product(p_num) on delete set null,
+--주문수량
+  o_qty number,
 --주문일	 
-  orderdate date default sysdate 
+  o_date date default sysdate ,
+--펀딩 마감일
+  p_end_date 		date not null,			//펀딩 마감일
+--펀딩 시작일
+  p_ing_state		varchar2(30) not null,	//펀딩 상태(if()걸기 :성공, 실패, 진행중)
 );
 
 -- 주문 상세 테이블
