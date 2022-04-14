@@ -1,35 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="admin_top.jsp"%>
-<script type="text/javascript">
-	function selectDelete() {
 
-		var chkArr = document.getElementsByName("rowcheck");
-
-		var flag = false;
-		for (var i = 0; i < chkArr.length; i++) {
-			if (chkArr[i].checked == true) {
-				flag = true;
-			}
-		}
-		if (flag == false) {
-			alert("삭제할 체크박스를 하나라도 선택하세요.");
-			return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
-		}
-			document.myform.submit();//submit 누른것처럼 동작해라.
-
-	}//selectDelete
-</script>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/resources/css/kfonts2.css"
-	rel="stylesheet">
-</head>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -80,8 +52,7 @@
 							src="<%=request.getContextPath() %>/resources/images/level.gif"
 							width="${wid}" height="15">
 						<img src="<%=request.getContextPath()%>/resources/images/re.gif">
-					</c:if> <a
-					href="admin_bd_content.ad?b_num=${bdBean.b_num}&pageNumber=${pageInfo.pageNumber}">
+					</c:if> <a href="admin_bd_content.ad?b_num=${bdBean.b_num}&pageNumber=${pageInfo.pageNumber}">
 						${bdBean.b_subject}</a> <!-- 글번호 뿐만 아니라 현재페이지도 넘겨야함! --> 
 						<c:if test="${bdBean.b_readcount >=10 }">
 						<img src='<%=request.getContextPath()%>/resources/images/hot.gif'
@@ -91,8 +62,8 @@
 				<td align="center"><fmt:formatDate
 						value="${bdBean.b_reg_date}" pattern="yyyy-MM-dd" /></td>
 				<td align="center">${bdBean.b_readcount}</td>
-				<td><a
-					href="admin_bd_delete.ad?b_num=${bdBean.b_num}&pageNumber=${pageInfo.pageNumber}">삭제</a>
+				<td>
+					<input type="button" value="삭제" onclick="deleteBd('${bdBean.b_num}','${pageInfo.pageNumber}')">
 				</td>
 			</tr>
 		</c:forEach>

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="style.css">
-<%@ include file="../common/common.jsp" %>	
+<%@ include file="../common/common_top.jsp" %>  
 <style type="text/css">
 	body{
 		text-align: center;
@@ -54,5 +53,5 @@
 		</td>
 	</tr>
 </table>
-
 </form>
+<%@ include file="../common/common_bottom.jsp" %>  

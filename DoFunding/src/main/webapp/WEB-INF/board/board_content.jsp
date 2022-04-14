@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>  	 
+<%@ include file="../common/common_top.jsp" %>	 
 content.jsp<br>
 <style type="text/css">
 	body{
@@ -57,3 +57,4 @@ content.jsp<br>
 	</tr>		
 </table>
 </body> 
+<%@ include file="../common/common_bottom.jsp" %>	

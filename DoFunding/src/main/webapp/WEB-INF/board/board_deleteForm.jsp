@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-deleteForm.jsp<br>
+<%@ include file="../common/common_top.jsp" %>	
 <form method="post" action="delete.bd">
 	<input type="hidden" name="b_num" value="${bdBean.b_num}">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
@@ -19,3 +19,5 @@ deleteForm.jsp<br>
 		</tr>
 	</table>
 </form>
+
+<%@ include file="../common/common_bottom.jsp" %>

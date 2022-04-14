@@ -3,7 +3,6 @@
 <%@ include file="../common/common_top.jsp" %>
 <script src="http://code.jquery.com/jquery-latest.js"></script> 
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-
 <style type="text/css">
 .area{
  	height:130px;	
@@ -12,8 +11,8 @@ h2 { margin: 20px 0}
 </style>
 <script type="text/javascript">
 	$(function(){
-		$('#rotator').rotator({ms:2000});	//이미지가 3초마다 알아서 바꿔줌..너무 편하고..
-	}); //function
+		$('#rotator').rotator({ms:1000});	
+	}); //function	
 	
 </script>
 <head> 

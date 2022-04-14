@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>    
+    pageEncoding="UTF-8"%> 
 <%@ include file="../common/common_top.jsp" %>    
 <head> 
     <meta charset="utf-8">

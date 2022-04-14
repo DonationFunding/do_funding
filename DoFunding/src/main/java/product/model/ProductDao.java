@@ -96,12 +96,10 @@ public class ProductDao {
 
 	public int multiDeleteProduct(String[] rowchecks) {
 		int count = 0;
-		System.out.println("2222");
 		for(int i=0;i<rowchecks.length;i++) {
 			String rowcheck=rowchecks[i];
 			System.out.println("rowcheck:"+rowcheck);
 			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteProduct",rowcheck);
-			System.out.println("22");
 
 			count+=cnt;
 		}

@@ -1,35 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="admin_top.jsp"%>
-<script type="text/javascript">
-	function insert() {
-		location.href="admin_prd_insert.ad"; 
-	}
-	
-	function update(p_num,pageNumber){
-
-		location.href="admin_prd_update.ad?p_num="+p_num+"&pageNumber="+pageNumber; 	
-	}
-	
-    function selectDelete(){
-		
-		var chkArr = document.getElementsByName("rowcheck");
-
-		flag = false;
-		for(var i=0;i<chkArr.length;i++){
-			if(chkArr[i].checked == true){
-				flag = true;
-			}
-		}
-		if(flag==false){
-			alert("삭제할 체크박스를 하나라도 선택하세요.");
-			return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
-		}
-		document.myform.submit();//submit 누른것처럼 동작해라.
-
-	}//selectDelete
-		
-</script>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,8 +25,8 @@
 	<table border="1" width="1000">
 		<tr>
 			<td align="left" colspan="8">
-				<input type="button" value="삭제" onclick="selectDelete('${pageInfo.pageNumber}')">
-				<input type="button" value="추가하기" onclick="insert()">
+				<input type="button" value="삭제" onclick="selectDelete()">
+				<input type="button" value="추가하기" onclick="insertPrd()">
 			</td>
 			</td>
 			<td colspan="3" align="center">
@@ -88,7 +59,7 @@
 				</td>
 				<td><c:out value="${prdBean.p_num}" /></td>
 				<td>
-					<a href="admin_prd_detail.ad?num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber }">${prdBean.p_subject}</a>
+					${prdBean.p_subject}
 				</td>
 				<td>
 					<img width="100" height="100" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
@@ -103,10 +74,10 @@
  					<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
  				</td>
 				<td>
-					<input type="button" value="수정" onclick="update('${prdBean.p_num}','${pageInfo.pageNumber}')">				
+					<input type="button" value="수정" onclick="updatePrd('${prdBean.p_num}','${pageInfo.pageNumber}')">				
 				</td>
 				<td>
-					<a href="admin_prd_delete.ad?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber }">삭제</a>
+					<input type="button" value="삭제" onclick="deletePrd('${prdBean.p_num}','${pageInfo.pageNumber}')">				
 				</td>
 			</tr>
 		</c:forEach>

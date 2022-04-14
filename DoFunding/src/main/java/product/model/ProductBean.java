@@ -1,5 +1,8 @@
 package product.model;
 
+import java.sql.Timestamp;
+
+import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 
@@ -49,15 +52,11 @@ public class ProductBean {
 	
 	private int p_point; 	
 	
-	private String p_reg_date; 	
+	private Timestamp p_reg_date; 	
 	
-	@NotEmpty(message = "펀딩 시작일"+common)
-	@Pattern(regexp = "^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))$", message = "펀딩 시작일 입력 형식에 맞지 않습니다.")
-	private String p_start_date; 		
+	private Timestamp p_start_date; 		
 
-	@NotEmpty(message = "펀딩 마감일"+common)
-	@Pattern(regexp = "^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))$", message = "펀딩 마감일 입력 형식에 맞지 않습니다.")
-	private String p_end_date;
+	private Timestamp p_end_date;
 	
 	private int orderqty;
 	
@@ -79,7 +78,7 @@ public class ProductBean {
 	
 	public ProductBean(int p_num, String p_category_fk, String p_writer, String p_subject, int p_readcount,
 			String p_image, String p_content, String p_like, int p_origin_price,
-			int p_total_price, int p_end_price, int p_point, String p_reg_date, String p_start_date, String p_end_date,
+			int p_total_price, int p_end_price, int p_point, Timestamp p_reg_date, Timestamp p_start_date, Timestamp p_end_date,
 			int orderqty, MultipartFile upload, String[] item_option, int option_item_no, 
 			int option_no) {
 		super();
@@ -238,22 +237,22 @@ public class ProductBean {
 	public void setP_point(int p_point) {
 		this.p_point = p_point;
 	}
-	public String getP_reg_date() {
+	public Timestamp getP_reg_date() {
 		return p_reg_date;
 	}
-	public void setP_reg_date(String p_reg_date) {
+	public void setP_reg_date(Timestamp p_reg_date) {
 		this.p_reg_date = p_reg_date;
 	}
-	public String getP_start_date() {
+	public Timestamp getP_start_date() {
 		return p_start_date;
 	}
-	public void setP_start_date(String p_start_date) {
+	public void setP_start_date(Timestamp p_start_date) {
 		this.p_start_date = p_start_date;
 	}
-	public String getP_end_date() {
+	public Timestamp getP_end_date() {
 		return p_end_date;
 	}
-	public void setP_end_date(String p_end_date) {
+	public void setP_end_date(Timestamp p_end_date) {
 		this.p_end_date = p_end_date;
 	}
 

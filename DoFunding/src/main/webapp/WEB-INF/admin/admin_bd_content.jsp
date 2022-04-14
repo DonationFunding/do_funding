@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>  	 
-content.jsp<br>
+<%@ include file="admin_top.jsp"%>
 <style type="text/css">
 	body{
 		text-align: center;
@@ -37,11 +36,6 @@ content.jsp<br>
 	</tr>
 	<tr height="50">
 		<td align="center" >글내용</td>
-<%-- 		
-		<td colspan="3" >
-			<textarea name=content rows="2"  readonly="readonly" >${bdBean.getContent() }</textarea>
-		</td> 
---%>
  		<td colspan="3" >
 			${bdBean.b_content}
 		</td>
@@ -49,11 +43,11 @@ content.jsp<br>
 
 	<tr height="30">
 		<td align="center" colspan="4">
-			<input type="button" name="update_btn" value="글수정" <c:if test="${sessionScope.loginInfo.id != bdBean.b_writer}"> disabled </c:if>  onclick="location.href='update.bd?b_num=${bdBean.getB_num()}&pageNumber=${pageNumber}'" >
-			<input type="button" name="delete_btn" value="글삭제" <c:if test="${sessionScope.loginInfo.id != bdBean.b_writer}"> disabled </c:if> onclick="location.href='delete.bd?b_num=${bdBean.getB_num()}&pageNumber=${pageNumber }'" >
-			<input type="button" name="reple_btn" value="답글쓰기" <c:if test="${sessionScope.loginInfo == null}"> disabled </c:if> onclick="location.href='reply.bd?b_ref=${bdBean.b_ref}&b_re_step=${bdBean.b_re_step}&b_re_level=${bdBean.b_re_level}&pageNumber=${pageNumber}'" >
-			<input type="button" name="list_btn" value="글목록" onclick="location.href='list.bd?pageNumber=${pageNumber}'">
+			<input type="button" name="delete_btn" value="글삭제"  onclick="location.href='admin_bd_delete.ad?b_num=${bdBean.getB_num()}&pageNumber=${pageNumber }'" >
+			<input type="button" name="reple_btn" value="답글쓰기"  onclick="location.href='reply.bd?b_ref=${bdBean.b_ref}&b_re_step=${bdBean.b_re_step}&b_re_level=${bdBean.b_re_level}&pageNumber=${pageNumber}'" >
+			<input type="button" name="list_btn" value="글목록" onclick="location.href='admin_bd_list.ad?pageNumber=${pageNumber}'">
 		</td>
 	</tr>		
 </table>
 </body> 
+<%@include file="admin_bottom.jsp"%>

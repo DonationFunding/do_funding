@@ -182,7 +182,7 @@ body {
 	border-bottom: 1px solid black;
 }
 #bottom-menu1 ul {  /* 메뉴를 중앙에 배치 */
-    width: 580px;
+    width: 600px;
     margin: 0 auto;
 }
 #bottom-menu1 li {  /* 메뉴를 가로로 배치 */
