@@ -9,44 +9,16 @@
 	function update(p_num,pageNumber){
 
 		location.href="admin_prd_update.ad?p_num="+p_num+"&pageNumber="+pageNumber; 	
-	}
-	
-    function selectDelete(){
-		
-		var chkArr = document.getElementsByName("rowcheck");
-
-		flag = false;
-		for(var i=0;i<chkArr.length;i++){
-			if(chkArr[i].checked == true){
-				flag = true;
-			}
-		if(flag==false){
-			alert("삭제할 체크박스를 하나라도 선택하세요.");
-			return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
-		}
-		document.myform.submit();//submit 누른것처럼 동작해라.
-		}
-
-	}//selectDelete
-		
+	}	
 </script>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/resources/css/kfonts2.css"
-	rel="stylesheet">
-</head>
+
 <center>
 	<h2>펀딩 목록(${pageInfo.pageNumber})</h2>
 	<form action="admin_prd_list.ad" method="get">
 		<select name="whatColumn">
-			<option value="">선택
-			<option value="name">펀딩명
-			<option value="contents">설명
+			<option value="all">선택</option>
+			<option value="p_subject">상품명</option>
+			<option value="p_content">설명</option>
 		</select> 
 		<input type="text" name="keyword"> 
 		<input type="submit" value="검색">
@@ -54,14 +26,16 @@
 	<table border="1" width="1000">
 		<tr>
 			<td align="left" colspan="8">
-				<input type="button" value="삭제" onclick="selectDelete('${pageInfo.pageNumber}')">
-				<input type="button" value="추가하기" onclick="insert()">
-			</td>
+				<input type="button" value="삭제" onclick="selectDelete()">
+				<input type="button" value="추가하기" onclick="insertPrd()">
 			</td>
 			<td colspan="3" align="center">
 				<c:set var="now" value="<%=new java.util.Date()%>" />
 				<c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set>
 				Today : ${sysDate} 								
+			</td>
+			<td align="right" colspan="8">
+				<input type="button" value="추가하기" onclick="insert()">
 			</td>
 		</tr>
 		<tr>
@@ -88,7 +62,7 @@
 				</td>
 				<td><c:out value="${prdBean.p_num}" /></td>
 				<td>
-					<a href="admin_prd_detail.ad?num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber }">${prdBean.p_subject}</a>
+					${prdBean.p_subject}
 				</td>
 				<td>
 					<img width="100" height="100" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
@@ -103,14 +77,13 @@
  					<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
  				</td>
 				<td>
-					<input type="button" value="수정" onclick="update('${prdBean.p_num}','${pageInfo.pageNumber}')">				
+					<input type="button" value="수정" onclick="updatePrd('${prdBean.p_num}','${pageInfo.pageNumber}')">				
 				</td>
 				<td>
-					<a href="admin_prd_delete.ad?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber }">삭제</a>
+					<input type="button" value="삭제" onclick="deletePrd('${prdBean.p_num}','${pageInfo.pageNumber}')">				
 				</td>
 			</tr>
 		</c:forEach>
-		</form>
 	</table>
 		<br>
 		<br>

@@ -1,6 +1,5 @@
 package product.model;
 
-
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +31,7 @@ public class ProductDao {
 
 	public int insertProduct(ProductBean bean) {
 		int cnt = -1;
+		System.out.println(1111111);
 		cnt = sqlSessionTemplate.insert(namespace+".InsertProduct", bean);
 		return cnt;
 	}
@@ -58,8 +58,6 @@ public class ProductDao {
 		return bean;
 	}//updateProduct
 
-
-	//과제정보 부분검색 count (관리자용)
 	public int getProductInfoBysearchCount_admin(String search_gp, String searchtext) {
 		int count=0;	
 		return count;
@@ -88,6 +86,7 @@ public class ProductDao {
 		sqlSessionTemplate.delete(namespace+".ItemOptionDelete", option_item_no);
 	}
 
+
 	public int productDelete(int p_num) {
 		int cnt = sqlSessionTemplate.delete(namespace+".ProductDelete",p_num);
 		return cnt;
@@ -96,12 +95,10 @@ public class ProductDao {
 
 	public int multiDeleteProduct(String[] rowchecks) {
 		int count = 0;
-		System.out.println("2222");
 		for(int i=0;i<rowchecks.length;i++) {
 			String rowcheck=rowchecks[i];
 			System.out.println("rowcheck:"+rowcheck);
 			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteProduct",rowcheck);
-			System.out.println("22");
 
 			count+=cnt;
 		}
@@ -109,6 +106,11 @@ public class ProductDao {
 		return count;
 		
 		
+	}
+
+	public List<ProductBean> rotatorList() {
+		List<ProductBean> list=sqlSessionTemplate.selectList(namespace+".RotatorList");
+		return list;
 	}
 
 

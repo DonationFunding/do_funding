@@ -65,21 +65,13 @@ public class AdminProductUpdateController {
 	@RequestMapping(value=command, method=RequestMethod.POST) 
 	 public ModelAndView doAction(
 			 @RequestParam(value="pageNunber", required = false) String pageNumber,
-			 @ModelAttribute("prdBean") @Valid ProductBean prdBean, 
-			 BindingResult result) {	 
+			 @ModelAttribute("prdBean") ProductBean prdBean 
+			 ) {	 
 		 ModelAndView mav = new ModelAndView();
 		 mav.addObject("pageNumber", pageNumber);
 		 List<CategoryBean> cateList = categoryDao.categoryAllByProduct();
 		 List<OptionBean> opList = productDao.optionAllByProduct(prdBean.getP_num());
 		 
-		 if(result.hasErrors()) {
-			 System.out.println(result.getErrorCount());	//6
-			 mav.addObject("cateList", cateList);
-			 mav.addObject("opList", opList);
-			 mav.setViewName(getPage);
-			 return mav;
-		 }
-		 		 
 		 prdBean.setP_point(Math.round(prdBean.getP_origin_price()/1000)*10);
 		 int cnt = productDao.updateProduct(prdBean); //update³¡
 		 if(cnt > 0) {

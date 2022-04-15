@@ -5,7 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import order.cart.MyCartList;
+import order.cart.MyOrderList;
 import product.model.ProductBean;
 
 @Controller
@@ -25,9 +25,9 @@ public class CartAddController {
 			return "redirect:/loginForm.mem"; // MemberLoginController
 		}
 		else { // 로그인 했으면 
-			MyCartList mycart = (MyCartList)session.getAttribute("mycart");
+			MyOrderList mycart = (MyOrderList)session.getAttribute("mycart");
 			if(mycart == null) {
-				mycart = new MyCartList();
+				mycart = new MyOrderList();
 			}
 			mycart.addOrder(p_product.getP_num(),p_product.getOrderqty());
 			

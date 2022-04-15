@@ -104,9 +104,14 @@ public class BoardDao {
 			count+=cnt;
 		}
 
-		return count;
-		
-		
+		return count;	
+	}
+	
+	public int adminDeleteArticle(BoardBean bdBean) {
+		int cnt=-1;
+			cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", bdBean);			
+		System.out.println(cnt);
+		return cnt;		
 	}
 
 	

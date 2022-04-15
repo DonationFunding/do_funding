@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "UTF-8";
 /* @import url(reset.css); */
 *, *:after, *:before {
@@ -5,41 +6,41 @@
 }
 body {
 	background: #fffcf6;
-	font: 14px Malgun Ghothic,"맑은고딕",sans-serif;
+	font: 14px Malgun Ghothic,"留묒�怨좊뵓",sans-serif;
     color: #555;
-    min-width:320px;  /* 모바일 단말 크기로 폭의 최소값을 제한 */
+    min-width:320px;  /* 紐⑤컮�씪 �떒留� �겕湲곕줈 �룺�쓽 理쒖냼媛믪쓣 �젣�븳 */
 }
 #top-wrap {
-	margin-bottom: 20px;  /* 본문(container)과 헤더 사이의 여백 지정 */
+	margin-bottom: 20px;  /* 蹂몃Ц(container)怨� �뿤�뜑 �궗�씠�쓽 �뿬諛� 吏��젙 */
 }
 .top-inner {
-	position: relative;  /* 자식을 절대좌표로 배치하기 위해 설정 */
-	height: 238px;  /* 52(banner)+10+32(logo)+10+17(marketing)+10+24(검색)+10+18(서브메뉴)+10+45(GNB) */
+	position: relative;  /* �옄�떇�쓣 �젅��醫뚰몴濡� 諛곗튂�븯湲� �쐞�빐 �꽕�젙 */
+	height: 238px;  /* 52(banner)+10+32(logo)+10+17(marketing)+10+24(寃��깋)+10+18(�꽌釉뚮찓�돱)+10+45(GNB) */
 }
 
-.top-inner, /* #메인, */ #bottom-wrap {
-	max-width: 1008px;  /* 최대로 늘어날 수 있는 값을 한정 : 1120px 이상에서는 1008px로 제한 */
-	width: 90%;  /* 브라우저의 폭이 1120px이하일 때 90%로 제한 */
-	margin: 0 auto;  /* 중앙 정렬 */
+.top-inner, /* #硫붿씤, */ #bottom-wrap {
+	max-width: 1008px;  /* 理쒕�濡� �뒛�뼱�궇 �닔 �엳�뒗 媛믪쓣 �븳�젙 : 1120px �씠�긽�뿉�꽌�뒗 1008px濡� �젣�븳 */
+	width: 90%;  /* 釉뚮씪�슦���쓽 �룺�씠 1120px�씠�븯�씪 �븣 90%濡� �젣�븳 */
+	margin: 0 auto;  /* 以묒븰 �젙�젹 */
 }
 
-.top-banner-wrap {  /* 실제 배너가 주어지면 수정 가능 */
+.top-banner-wrap {  /* �떎�젣 諛곕꼫媛� 二쇱뼱吏�硫� �닔�젙 媛��뒫 */
 	display: flex;
 	flex-flow: row nowrap;
-	align-items: center;  /* 수직으로 중앙 정렬 */
-	width: 60%;  /* banner의 크기를 설정 */
-	margin: 10px auto;  /* margin 10px을 주고 중앙 정렬 */
+	align-items: center;  /* �닔吏곸쑝濡� 以묒븰 �젙�젹 */
+	width: 60%;  /* banner�쓽 �겕湲곕�� �꽕�젙 */
+	margin: 10px auto;  /* margin 10px�쓣 二쇨퀬 以묒븰 �젙�젹 */
 	height: 52px;
 	border: 1px solid black;
 }
 .top-banner-wrap h1 {
 	width: 100%;
-	text-align: center;  /* banner 글자를 중앙 정렬 */
+	text-align: center;  /* banner 湲��옄瑜� 以묒븰 �젙�젹 */
 }
 .top-inner h1.logo {
 	text-align: center;
-	font-size: 1.5em;   /* 상속으로 인한 폰트 크기의 영향을 고려 */
-    font-size: 1.5rem;  /* 상속으로 인한 폰트 크기의 영향을 받지 않기 위해 사용 */
+	font-size: 1.5em;   /* �긽�냽�쑝濡� �씤�븳 �룿�듃 �겕湲곗쓽 �쁺�뼢�쓣 怨좊젮 */
+    font-size: 1.5rem;  /* �긽�냽�쑝濡� �씤�븳 �룿�듃 �겕湲곗쓽 �쁺�뼢�쓣 諛쏆� �븡湲� �쐞�빐 �궗�슜 */
 	font-weight: bold;
 }
 .top-inner h4.marketing-msg {
@@ -50,22 +51,22 @@ body {
 }
 
 .subMenu {
-	float: right;  /* 오른쪽으로 정렬 */
+	float: right;  /* �삤瑜몄そ�쑝濡� �젙�젹 */
 	margin-right: 5px;
 	margin-top: 10px;
     margin-bottom: 10px;
 }
 
 /* .subMenu li {
-	display: inline-block;  가로로 배치
-	background: url(../../images/bar-util.jpg) 0 7px no-repeat;  구분선
-	padding-left: 6px;  구분선과 메뉴 콘텐트 사이의 간격
+	display: inline-block;  媛�濡쒕줈 諛곗튂
+	background: url(../../images/bar-util.jpg) 0 7px no-repeat;  援щ텇�꽑
+	padding-left: 6px;  援щ텇�꽑怨� 硫붾돱 肄섑뀗�듃 �궗�씠�쓽 媛꾧꺽
 } */
 .subMenu li:first-child {
-	background: none;  /* 첫 번째 메뉴의 구분선을 제거 */
+	background: none;  /* 泥� 踰덉㎏ 硫붾돱�쓽 援щ텇�꽑�쓣 �젣嫄� */
 }
 .subMenu li a {
-	font-size: 0.8em;  /* 서브 메뉴의 글자 크기 */
+	font-size: 0.8em;  /* �꽌釉� 硫붾돱�쓽 湲��옄 �겕湲� */
     font-size: 0.8rem;
 }
 .blind {
@@ -76,7 +77,7 @@ body {
 	width: 1px;
 	height: 1px;
 }
-.mobile-menu-open{  /* 모바일 기기의 메뉴 버튼 */
+.mobile-menu-open{  /* 紐⑤컮�씪 湲곌린�쓽 硫붾돱 踰꾪듉 */
     position: absolute;
     right: 10px;
     top: 0;
@@ -105,20 +106,20 @@ body {
 .mobile-menu-open button span:first-child + span + span{
     margin-top: 10px;
 }
-.mobile-menu-wrap {  /* GNB 메뉴 */
-	clear: both;  /* 우로 정렬을 해제 */
+.mobile-menu-wrap {  /* GNB 硫붾돱 */
+	clear: both;  /* �슦濡� �젙�젹�쓣 �빐�젣 */
 }
 #gnb {
-	position: absolute;  /* 절대좌표로 배치 */
+	position: absolute;  /* �젅��醫뚰몴濡� 諛곗튂 */
 	left: 0;
-	bottom: 0;  /* 아래에 배치 */
+	bottom: 0;  /* �븘�옒�뿉 諛곗튂 */
 	width: 100%;
 	z-index: 100;
 	background: white;
 }
 #gnb > ul > li {
-	width: 16.66%;  /* 1/6 : 메뉴 6개 */
-	float: left;  /* 가로로 배치 */
+	width: 16.66%;  /* 1/6 : 硫붾돱 6媛� */
+	float: left;  /* 媛�濡쒕줈 諛곗튂 */
 }
 #gnb > ul > li > a {
 	font-size:1.125em;
@@ -128,10 +129,10 @@ body {
 	height: 45px;
 	line-height: 45px;
 }
-#gnb ul .secMenu {  /* 2단 메뉴 */
+#gnb ul .secMenu {  /* 2�떒 硫붾돱 */
 	display: none;
-	position: absolute;  /* 절대 좌표로 배치 */
-	top: 45px;  /* 1단 메뉴 아래에 배치 */
+	position: absolute;  /* �젅�� 醫뚰몴濡� 諛곗튂 */
+	top: 45px;  /* 1�떒 硫붾돱 �븘�옒�뿉 諛곗튂 */
 	background-color: #fff;
 	border: 1px solid black;
 	border-top: none;
@@ -139,16 +140,16 @@ body {
 	font-size: 0.8125em;
     font-size: 0.8125rem;  /* 13px */
 }
-#gnb ul .secMenu1 {  /* 2단 메뉴 : 상품 */
-	left: 0;  /* 좌측에 배치 */
-	width: 100%;  /* 폭은 전체 2단 메뉴의 너비 */
+#gnb ul .secMenu1 {  /* 2�떒 硫붾돱 : �긽�뭹 */
+	left: 0;  /* 醫뚯륫�뿉 諛곗튂 */
+	width: 100%;  /* �룺�� �쟾泥� 2�떒 硫붾돱�쓽 �꼫鍮� */
 }
-#gnb ul .secMenu2 {  /* 라라마켓 1단 메뉴에 상대적인 위치 */
+#gnb ul .secMenu2 {  /* �씪�씪留덉폆 1�떒 硫붾돱�뿉 �긽���쟻�씤 �쐞移� */
 	left: 42%;
-	width: 140px;  /* 1단 메뉴의 중앙에 배치 */
+	width: 140px;  /* 1�떒 硫붾돱�쓽 以묒븰�뿉 諛곗튂 */
 	margin-left: -70px;
 }
-#gnb ul .secMenu3 {  /* 고객센터 1단 메뉴에 상대적인 위치 */
+#gnb ul .secMenu3 {  /* 怨좉컼�꽱�꽣 1�떒 硫붾돱�뿉 �긽���쟻�씤 �쐞移� */
 	left: 92%;
 	width: 140px;
 	margin-left: -70px;
@@ -157,9 +158,9 @@ body {
 	display: block;
 	height: 30px;
 	line-height: 30px;
-    margin-left: 10px;  /* 들여쓰기 */
+    margin-left: 10px;  /* �뱾�뿬�벐湲� */
 }
-/* #메인 {
+/* #硫붿씤 {
 	min-height: 760px;
 } */
 #bottom-wrap {
@@ -169,24 +170,24 @@ body {
 }
 
 #bottom-wrap {
-	clear: both;  /* 정렬 해제 */
-	display: flex;  /* 플렉서블 그리드로 배치 */
-	flex-flow: column nowrap;  /* 새로를 주축으로 배치 */
+	clear: both;  /* �젙�젹 �빐�젣 */
+	display: flex;  /* �뵆�젆�꽌釉� 洹몃━�뱶濡� 諛곗튂 */
+	flex-flow: column nowrap;  /* �깉濡쒕�� 二쇱텞�쑝濡� 諛곗튂 */
 	height: 360px;  /* 120 + 38 + 30 + 22 + 90 + 60 = */
 }
 #bottom-menu1 { 
 	height: 30px; 
-	position: relative;  /* relative로 배치 */
+	position: relative;  /* relative濡� 諛곗튂 */
 	top: 38px;
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 }
-#bottom-menu1 ul {  /* 메뉴를 중앙에 배치 */
-    width: 580px;
+#bottom-menu1 ul {  /* 硫붾돱瑜� 以묒븰�뿉 諛곗튂 */
+    width: 600px;
     margin: 0 auto;
 }
-#bottom-menu1 li {  /* 메뉴를 가로로 배치 */
-    float: left;
+#bottom-menu1 li {  /* 硫붾돱瑜� 媛�濡쒕줈 諛곗튂 */
+    float: center;
 	padding: 5px 10px;
 }
 #bottom-menu1 li:first-child {
@@ -229,3 +230,6 @@ body {
 	font-size: 0.9rem;
 	margin-top: 10px;
 }
+=======
+@charset "UTF-8";
+>>>>>>> refs/remotes/origin/do-hjh
