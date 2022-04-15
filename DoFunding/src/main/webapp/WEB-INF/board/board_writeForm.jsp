@@ -11,6 +11,10 @@ writeForm.jsp<br>
 		margin: auto;
 	}
 </style>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head>
 <script type="text/javascript">
 	function list(){
 		location.href="list.bd"; 
@@ -23,27 +27,23 @@ writeForm.jsp<br>
 <body>
 <b>글쓰기</b>
 <form action="insert.bd" method="post">
-<table border="1">
-	<tr>
-		<td colspan="2" align="right">
-			<a href="boardList.bv">글목록</a>
-		</td>
-	</tr>
+<div class="container">
+<table class="table" class="text-center">
 	<tr>
 		<td align="center" >이름</td>
 		<td><input type="text" name="b_writer" value="${sessionScope.loginInfo.id}" readonly></td>
 	</tr>
 	<tr>
 		<td align="center" >제목</td>
-		<td><input type="text" name="b_subject" value="제목"></td>
+		<td><input type="text" name="b_subject"></td>
 	</tr>
 	<tr>
 		<td align="center" >내용</td>
-		<td><textarea name="b_content" rows="15" cols="50">호호호</textarea></td>
+		<td><textarea name="b_content" rows="10" cols="50"></textarea></td>
 	</tr>
 	<tr>
 		<td align="center" >비밀번호</td>
-		<td><input type="password" name="b_passwd" value="1234" ></td>
+		<td><input type="password" name="b_passwd" ></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
@@ -53,6 +53,7 @@ writeForm.jsp<br>
 		</td>
 	</tr>
 </table>
+</div>
 </form>
 </body>
 <%@ include file="../common/common_bottom.jsp" %>

@@ -44,11 +44,8 @@
 		insert into do_board
 		(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
 		values
-<<<<<<< HEAD
-		(seqdo_board.nextval,#{b_writer},#{b_subject},#{b_passwd},#{b_reg_date},do_board_seq.currval,0,0,#{b_content})
-=======
 		(seqdo_board.nextval,#{b_writer},#{b_subject},#{b_passwd},#{b_reg_date},seqdo_board.currval,0,0,#{b_content})
->>>>>>> refs/remotes/origin/do-kyg
+
 	</insert>
 
 

@@ -24,32 +24,19 @@
 </style>
 <center>
 <h1>글목록(전체 글:${totalCount})</h1>
-<form action="list.bd" method="get">
-<p>
-	<select name="whatColumn">
-		<option value="all">선택
-		<option value="b_content">내용
-		<option value="b_subject">제목
-		<option value="b_writer">글쓴이
-	</select>
-	<input type="text" name="keyword">
-	<input type="submit" value="검색">
-</p>	
-</form>
-<table width="700" border="1">
-	<tr>
-		<td align="right"><a href="insert.bd">글쓰기</a></td>
-	</tr>
-</table>
 
-<table width="700" border="1">
+
+<div class="container">
+<table class="table table-hover table-sm" class="text-center" style = "bgcolor:">
+	
 	<tr>
-		<td align="center">번호</td>
-		<td align="center">제목</td>
-		<td align="center">작성자</td>
-		<td align="center">작성일</td>
-		<td align="center">조회</td>
+		<th class="text-center">번호</th>
+		<th>제목</th>
+		<th class="text-center">작성자</th>
+		<th class="text-center">작성일</th>
+		<th class="text-center">조회</th>
 	</tr>
+	
 		<c:forEach var="bdList" items="${requestScope.bdList}" varStatus="status">
 		<tr>
 			<td align="center" >${requestScope.totalCount - (requestScope.pageInfo.pageNumber-1)*requestScope.pageInfo.pageSize - status.index}</td>
@@ -57,13 +44,13 @@
 				<c:if test="${bdList.b_re_level>0}">
 					<c:set var="wid" value="${bdList.b_re_level*20}"/>
 					<img src="<%=request.getContextPath() %>/resources/images/level.gif" width="${wid}" height="15">
-					<img src="<%=request.getContextPath() %>/resources/images/re.gif">
+					<img src="<%=request.getContextPath() %>/resources/images/화살표2.png" height="15">
 				</c:if>
 
 			<a href="content.bd?b_num=${bdList.b_num}&pageNumber=${pageInfo.pageNumber}" > ${bdList.b_subject}</a>
 				<!-- 글번호 뿐만 아니라 현재페이지도 넘겨야함! -->					
 			<c:if test="${bdList.b_readcount >=10 }">
-				<img src='<%=request.getContextPath()%>/resources/images/hot.gif' height='15'>
+				<img src='<%=request.getContextPath()%>/resources/images/best2.png' height='20'>
 			</c:if>
 			</td>
 			<td align="center" >${bdList.b_writer}</td>
@@ -78,8 +65,22 @@
 <br><br>
 	<div class="container">
 		<ul class="pagination pagination-sm">
-			${pageInfo.pagingHtml}
+			${pageInfo.pagingHtml}		
 		</ul>
+<a href="insert.bd" class="btn btn-default btn-sm pull-right">글쓰기</a>	
 	</div>
 </center>
+
+<form action="list.bd" method="get" class="row g-3">
+<p>
+	<select name="whatColumn">
+		<option value="all">선택
+		<option value="b_content">내용
+		<option value="b_subject">제목
+		<option value="b_writer">글쓴이
+	</select>
+	<input type="text" name="keyword">
+	<input type="submit" value="검색">
+</p>	
+</form>
 <%@ include file="../common/common_bottom.jsp" %>  

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="style.css">
 <%@ include file="../common/common.jsp" %>	
+<%@ include file="../common/common_top.jsp" %>	  
 <style type="text/css">
 	body{
 		text-align: center;
@@ -14,22 +15,24 @@
 		margin:auto;
 	}
 </style>
-<br>replyForm.jsp<br>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head>
+
 <b>답글쓰기</b>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
-
+<body>
 <form action="reply.bd" method="post">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
 	<input type="hidden" name="b_ref" value="${bdBean.b_ref}">
 	<input type="hidden" name="b_re_step" value="${bdBean.b_re_step}">
 	<input type="hidden" name="b_re_level" value="${bdBean.b_re_level}">
-<table border="1">
+<div class="container">
+<table class="table" class="text-center">
 	<tr>
 		<td colspan="2" align="right">
-	<input type="text" name="b_ref" value="${bdBean.b_ref}">
-	<input type="text" name="b_re_step" value="${bdBean.b_re_step}">
-	<input type="text" name="b_re_level" value="${bdBean.b_re_level}">
 			<a href="list.bd?pageNumber=${pageNumber}">글목록</a>
 		</td>
 	</tr>
@@ -43,7 +46,7 @@
 	</tr>
 	<tr>
 		<td align="center">내용</td>
-		<td><textarea name="b_content" rows="15" cols="50">호호호</textarea></td>
+		<td><textarea name="b_content" rows="10" cols="50"></textarea></td>
 	</tr>
 	<tr>
 		<td align="center">비밀번호</td>
@@ -57,5 +60,8 @@
 		</td>
 	</tr>
 </table>
-
+</div>
 </form>
+</body>
+
+<%@ include file="../common/common_bottom.jsp" %>
