@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp"%>
 <%@ include file="./admin_top.jsp"%>
+    <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
 <center>
 	<img  src="<%=request.getContextPath() %>/resources/images/위안부소녀상.jpg" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg">
 </center>
