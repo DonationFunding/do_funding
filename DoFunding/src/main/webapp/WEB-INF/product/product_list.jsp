@@ -5,14 +5,14 @@
 .area{
  	height:130px;	
 }
-h2 { margin: 20px 0} 
+
 </style>
 <%-- <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.rotator.js"></script> --%>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/*"></script>
 <script type="text/javascript">
 	$(function(){
-		$('#rotator').rotator({ms:2000});	//이미지가 3초마다 알아서 바꿔줌..너무 편하고..
-	}); //function
+		$('#rotator').rotator({ms:1000});	
+	}); //function	
 	
 </script>
 <head> 
@@ -23,17 +23,6 @@ h2 { margin: 20px 0}
     <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
 </head>
 <div align="center">
-	<c:if test="${loginInfo.admin == 0}"><a href="">관리자 페이지</a></c:if>
-	<h2>상품 리스트 화면</h2>
-	<form action="list.prd" method="get">
-		<select name="whatColumn">
-			<option value="">선택
-			<option value="p_subject">상품명
-			<option value="p_content">설명
-		</select>
-		<input type="text" name="keyword">
-		<input type="submit" value="검색">
-	</form>	
 <c:if test="${requestScope.list ne null}">
  <div class="container" > 
    <!--  <h2>캐러셀 슬라이드 효과  </h2> -->		
@@ -44,15 +33,24 @@ h2 { margin: 20px 0}
               <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
               <li data-target="#carousel-example-generic" data-slide-to="1"></li>
               <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="4"></li>
             </ol>
              <!-- Carousel items  여기 foreach돌려서 최신상품 5개 정도 나오개 반복-->
              <div class="carousel-inner">
                 <div class="item active">
-                   <a href="detail.prd?p_num=${list.get(0).getP_num()}&pageNumber=${pageInfo.pageNumber}">
-                   		<img src="<%=request.getContextPath()%>/resources/images/${list.get(0).getP_image()}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" width="300" height="150">
+                   <a href="detail.prd?p_num=${rotatorlist.get(0).p_num}&pageNumber=${pageInfo.pageNumber}">
+                   		<img src="<%=request.getContextPath()%>/resources/images/${rotatorlist.get(0).getP_image()}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" width="300" height="150">
                    </a>        
                 </div>
+             <c:forEach var="rota_list" items="${rotatorlist}" begin="1">
                 <div class="item">
+                   <a href="detail.prd?p_num=${rota_list.p_num}&pageNumber=${pageInfo.pageNumber}">
+                   		<img src="<%=request.getContextPath()%>/resources/images/${rota_list.getP_image()}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" width="300" height="150">
+                   </a>        
+                </div>
+            </c:forEach>    
+         <%--        <div class="item">
                     <a href="detail.prd?p_num=${list.get(1).getP_num()}&pageNumber=${pageInfo.pageNumber}">
                    		<img src="<%=request.getContextPath()%>/resources/images/${list.get(1).getP_image()}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" width="300" height="150">
                    </a>   
@@ -61,7 +59,7 @@ h2 { margin: 20px 0}
                    <a href="detail.prd?p_num=${list.get(2).getP_num()}&pageNumber=${pageInfo.pageNumber}">
                    		<img src="<%=request.getContextPath()%>/resources/images/${list.get(2).getP_image()}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" width="300" height="150">
                    </a>                   
-                </div>
+                </div> --%>
              </div>
             <!-- Controls -->
               <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -82,12 +80,24 @@ h2 { margin: 20px 0}
     </script>   
 </c:if>
 
+
+<div>
+	<form action="list.prd" method="get">
+		<select name="whatColumn">
+			<option value="all">선택</option>
+			<option value="p_subject">상품명</option>
+			<option value="p_content">설명</option>
+		</select>
+		<input type="text" name="keyword">
+		<input type="submit" value="검색">
+	</form>	
+</div>
 	<div class="container">
 		<c:if test="${list.size() == 0}">
 					<img  src="<%=request.getContextPath() %>/resources/images/no_image.jpg"><br>
-					올리신 상품이 없습니다.			
+					검색된 상품이 없습니다.			
 		</c:if>
-		<c:if test="${requestScope.list ne null}">
+		<c:if test="${list ne null}">
 			<div>
 				<table border="1" width="80%" >
 					<tr>						
@@ -98,22 +108,33 @@ h2 { margin: 20px 0}
 									alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 									src="<%=request.getContextPath() %>/resources/images/${p_product.p_image}"><br>
 									${p_product.p_subject}<br> 
-								</a>	
-									${p_product.p_content}<br>
-									진행중: ${p_product.p_total_price}/${p_product.p_end_price}원<br>
-									${(p_product.p_total_price/p_product.p_end_price)*100} %<br>
-									<input type="range" width="80%" name="userRange" min="1" max="${p_product.p_end_price}" step="${p_product.p_end_price/100}" value="${p_product.p_total_price}" disabled="disabled" />
-									<c:if test="${fn:contains(p_product.p_like,sessionScope.loginInfo.id)}">
-										<img 
+								</a>
+								 <c:set var="p_start_date">
+									<fmt:parseDate value="${p_product.p_start_date}"
+										var="dateValue" pattern="yyyy-MM-dd" />
+									<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
+								</c:set> <c:set var="p_end_date">
+									<fmt:parseDate value="${p_product.p_end_date}"
+										var="dateValue" pattern="yyyy-MM-dd" />
+									<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
+								</c:set> 
+								${p_start_date} ~ ${p_end_date}<br> 
+								상태: ${p_product.p_total_price}/${p_product.p_end_price}원<br>
+								${(p_product.p_total_price/p_product.p_end_price)*100} %<br> <input
+								type="range" width="80%" name="userRange" min="1"
+								max="${p_product.p_end_price}"
+								step="${p_product.p_end_price/100}"
+								value="${p_product.p_total_price}" disabled="disabled" /> <c:if
+									test="${fn:contains(p_product.p_like,sessionScope.loginInfo.id)}">
+									<img
 										alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 										src="<%=request.getContextPath() %>/resources/images/hot.gif">
-									</c:if>
-									<c:if test="${!fn:contains(p_product.p_like,sessionScope.loginInfo.id)}">
-										<img 
+								</c:if> <c:if
+									test="${!fn:contains(p_product.p_like,sessionScope.loginInfo.id)}">
+									<img
 										alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 										src="<%=request.getContextPath() %>/resources/images/re.gif">
-									</c:if>
-								<br>
+								</c:if> <br>
 							</td>
 							<c:if test="${status.count%3 == 0 }"></tr><tr></c:if>
 						</c:forEach>
@@ -126,6 +147,4 @@ h2 { margin: 20px 0}
 		${pageInfo.pagingHtml}
 	</div>
 </div>	
-
-
 <%@ include file="../common/common_bottom.jsp" %>

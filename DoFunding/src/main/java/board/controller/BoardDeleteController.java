@@ -30,10 +30,10 @@ public class BoardDeleteController {
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
-			BoardBean article,
+			BoardBean bdBean,
 			HttpServletRequest request
 			) {	
-		request.setAttribute("article", article);
+		request.setAttribute("bdBean", bdBean);
 		request.setAttribute("pageNumber", pageNumber);
 		return getPage;
 	}	
@@ -42,11 +42,11 @@ public class BoardDeleteController {
 	@RequestMapping(value=command,method = RequestMethod.POST)
 	public String doAction(
 			@RequestParam(value="pageNumber") String pageNumber,
-			BoardBean article,
+			BoardBean bdBean,
 			HttpServletRequest request,
 			HttpServletResponse response
 			) {	
-		String passwd=article.getPasswd();
+		String passwd=bdBean.getB_passwd();
 		response.setContentType("text/html; charset=UTF-8");
 		
 		PrintWriter pw =null;	
@@ -59,13 +59,13 @@ public class BoardDeleteController {
 			}
 			pw.println("<script> alert('비밀번호 입력 누락');</script>");
 			pw.flush();
-			request.setAttribute("article", article);
+			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
 		}
 		else
 		{
-			int cnt=boardDao.deleteArticle(article,passwd);			
+			int cnt=boardDao.deleteArticle(bdBean,passwd);			
 			try {
 				pw=response.getWriter();
 			} catch (IOException e) {
@@ -83,7 +83,7 @@ public class BoardDeleteController {
 				pw.println("<script> alert('글 수정이 실패했습니다');</script>");
 				pw.flush();
 			}	
-			request.setAttribute("article", article);
+			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
 		}

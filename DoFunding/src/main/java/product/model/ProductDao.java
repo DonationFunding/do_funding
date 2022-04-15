@@ -31,6 +31,7 @@ public class ProductDao {
 
 	public int insertProduct(ProductBean bean) {
 		int cnt = -1;
+		System.out.println(1111111);
 		cnt = sqlSessionTemplate.insert(namespace+".InsertProduct", bean);
 		return cnt;
 	}
@@ -57,28 +58,6 @@ public class ProductDao {
 		return bean;
 	}//updateProduct
 
-	
-	//상품 다중삭제 이건 혹시 모름
-	public int multiDeleteProduct(String[] rowcheck ){		//다중체크값 넘겨받아오기
-			int cnt=-1;
-//			sql="delete Products where gpnum=?";
-//			for(int i=0;i<rowcheck.length-1;i++) {
-//				sql+=" or gpnum=?";
-//				for(int i=0;i<rowcheck.length;i++) {
-//					ps.setInt(i+1,Integer.parseInt(rowcheck[i]));
-			cnt=sqlSessionTemplate.delete(namespace+".MultiDeleteProduct", rowcheck);
-			return cnt;	
-	}//multiDeleteProduct		
-	
-	//과제정보 관리자검색(부분)
-//	public ArrayList<ProductBean> getProductInfoBysearch_admin(String search_gp, String searchtext,int startRow,int endRow) {
-//		ArrayList<ProductBean> list=new ArrayList<ProductBean>();	
-//			ps.setString(1, "%"+searchtext+"%");									
-//				list.add(pdto);
-//		return list;
-//	}//getProductInfoBysearch_admin
-
-	//과제정보 부분검색 count (관리자용)
 	public int getProductInfoBysearchCount_admin(String search_gp, String searchtext) {
 		int count=0;	
 		return count;
@@ -106,5 +85,33 @@ public class ProductDao {
 	public void itemOptionDelete(int option_item_no) {
 		sqlSessionTemplate.delete(namespace+".ItemOptionDelete", option_item_no);
 	}
+
+
+	public int productDelete(int p_num) {
+		int cnt = sqlSessionTemplate.delete(namespace+".ProductDelete",p_num);
+		return cnt;
+	}
+
+
+	public int multiDeleteProduct(String[] rowchecks) {
+		int count = 0;
+		for(int i=0;i<rowchecks.length;i++) {
+			String rowcheck=rowchecks[i];
+			System.out.println("rowcheck:"+rowcheck);
+			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteProduct",rowcheck);
+
+			count+=cnt;
+		}
+
+		return count;
+		
+		
+	}
+
+	public List<ProductBean> rotatorList() {
+		List<ProductBean> list=sqlSessionTemplate.selectList(namespace+".RotatorList");
+		return list;
+	}
+
 
 }

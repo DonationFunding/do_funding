@@ -47,10 +47,10 @@ public class AdminCategoryListController {
 		String url=request.getContextPath()+command;
 		Paging pageInfo=new Paging(pageNumber, "5", totalCount, url, whatColumn, keyword);
 
-		List<CategoryBean> list = cdao.categoryAll(pageInfo, map);
+		List<CategoryBean> cateList = cdao.categoryAll(pageInfo, map);
 
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("list",list);
+		mav.addObject("cateList",cateList);
 		mav.addObject("totalCount",totalCount);
 		mav.addObject("pageInfo",pageInfo);
 

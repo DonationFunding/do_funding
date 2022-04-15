@@ -3,11 +3,11 @@ package order.cart;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyCartList { // 장바구니
+public class MyOrderList { // 장바구니
 	// key(상품번호), value(주문수량) 
 	private Map<Integer, Integer> orderlists = null;
 
-	public MyCartList() {
+	public MyOrderList() {
 		orderlists = new HashMap<Integer, Integer>();
 	}
 
