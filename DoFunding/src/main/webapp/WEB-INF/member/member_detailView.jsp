@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>
 <%@ include file="../common/common_top.jsp" %>
-    <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
 <center>
 member_detailView.jsp<br>
 
@@ -97,11 +94,9 @@ member_detailView.jsp<br>
 		</td>
 	</tr>
 	<tr>
-<<<<<<< HEAD
-		<td colspan="2" align="center"><input type="button" value="정보수정" onclick="location.href=''"></td>
-=======
-		<td colspan="2" align="center"><input type="button" value="정보수정" onclick="location.href='update.mem'"></td>
->>>>>>> refs/remotes/origin/do-kyg1
+		<td colspan="2" align="center">
+			<input type="button" value="정보수정" onclick="location.href='update.mem'">
+		</td>
 	</tr>
 </table>
 </center>

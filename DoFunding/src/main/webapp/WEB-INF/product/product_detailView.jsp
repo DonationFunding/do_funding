@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp"%>
 <%@ include file="../common/common_top.jsp"%>
-<link
-	href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="<%=request.getContextPath() %>/resources/css/kfonts2.css"
-	rel="stylesheet">
 <style type="text/css">
 a:hover {
 	color: #ff3;
@@ -22,7 +16,6 @@ a:hover {
 
 </script>
 productDetailView.jsp<br>
-
 <center>
     <h3>펀딩 상세 화면(${productBean.p_num }/${pageNumber })</h3>
     <table border="1" width="600" style="margin: 15px; padding: 15px;">
