@@ -20,12 +20,17 @@ public class MemberUpdateController {
 	private final String command = "update.mem";
 	private final String getPage = "member_updateForm";
 	private String gotoPage = "member_loginForm";
+	
 	@Autowired
 	MemberDao mdao;
 	
 	@RequestMapping(value = command , method = RequestMethod.GET)
-	public String doAction() {
-		return getPage;
+	public ModelAndView doAction(MemberBean membean) {
+		MemberBean loginInfo = mdao.getLoginInfo(membean);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("loginInfo", loginInfo);
+		mav.setViewName(getPage);
+		return mav;
 	}
 
 	@RequestMapping(value = command , method = RequestMethod.POST)
@@ -33,7 +38,7 @@ public class MemberUpdateController {
 		response.setContentType("text/html; charset=UTF-8");
 		//int cnt = mdao.updateMember(membean);
 		int cnt=-1;
-		
+
 		PrintWriter pw=null;
 		if(cnt > 0) {
 			try {

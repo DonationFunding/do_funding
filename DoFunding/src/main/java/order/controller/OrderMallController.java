@@ -33,6 +33,7 @@ public class OrderMallController {
 
 	@Autowired
 	private OrderDao orderDao;
+	
 	@Autowired
 	private ProductDao productDao;
 

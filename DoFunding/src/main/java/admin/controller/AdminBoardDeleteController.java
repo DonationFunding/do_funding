@@ -31,11 +31,26 @@ public class AdminBoardDeleteController {
 			HttpServletRequest request,
 			HttpServletResponse response
 			) {	
+		String passwd=bdBean.getB_passwd();
 		response.setContentType("text/html; charset=UTF-8");
 		
 		PrintWriter pw =null;	
 		
-			int cnt=boardDao.adminDeleteArticle(bdBean);			
+		if(passwd.equals("")){	//입력 누락
+			try {
+				pw=response.getWriter();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			pw.println("<script> alert('비밀번호 입력 누락');</script>");
+			pw.flush();
+			request.setAttribute("bdBean", bdBean);
+			request.setAttribute("pageNumber", pageNumber);
+			return getPage;
+		}
+		else
+		{
+			int cnt=boardDao.deleteArticle(bdBean,passwd);			
 			try {
 				pw=response.getWriter();
 			} catch (IOException e) {
@@ -44,6 +59,11 @@ public class AdminBoardDeleteController {
 			if(cnt>0) {		//삭제성공
 				return gotoPage+"?pageNumber="+pageNumber;
 			}
+			
+			if(cnt == -2) {	//비밀번호가 일치 않하면
+				pw.println("<script> alert('작성글의 비밀번호와 일치하지 않습니다.');</script>");
+				pw.flush();
+			}
 			else {
 				pw.println("<script> alert('글 수정이 실패했습니다');</script>");
 				pw.flush();
@@ -51,7 +71,11 @@ public class AdminBoardDeleteController {
 			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
-	}
-				
+		}
+			
+
+	}	
+	
+
 	
 }

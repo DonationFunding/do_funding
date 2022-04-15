@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp"%>
 <%@ include file="../common/common_top.jsp"%>
 <style type="text/css">
-
-div2 {
+.div2 {
 	position: fixed;
 	top: 250px;
 	right: 30px;
@@ -23,11 +21,9 @@ div2 {
 		
 
 OrderMallController => order_order.jsp
-<br>
-<br>
+<br><br>
 
-
-<div1>
+<div>
 <h2>주문 및 결제</h2>
 <h3>주문 정보</h3>
 <ol>
@@ -103,10 +99,10 @@ OrderMallController => order_order.jsp
 						<br>
 						<br>
 						<br>
-</div1>
+</div>
 
-<div2>
-<h3>결제금액</h3>
+<div class="div2">
+	<h3>결제금액</h3>
 <tr>
 	<td>상품금액</td>
 	<br>
@@ -122,6 +118,6 @@ OrderMallController => order_order.jsp
 <br>
 <br>
 <a href="calculate.mall">결제하기</a> <!-- calculate.mall=>CartCalculateController -->
-</div2>
+</div>
 
 <%@ include file="../common/common_bottom.jsp"%>

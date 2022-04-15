@@ -143,8 +143,10 @@
 			</div>
 		</c:if>
 	</div>
-	<div>
-		${pageInfo.pagingHtml}
+	<div class="container">
+		<ul class="pagination pagination-sm">
+			${pageInfo.pagingHtml}		
+		</ul>
 	</div>
 </div>	
 <%@ include file="../common/common_bottom.jsp" %>

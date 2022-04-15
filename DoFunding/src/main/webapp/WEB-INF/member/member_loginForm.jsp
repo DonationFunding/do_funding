@@ -1,17 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common_top.jsp" %>
-<<<<<<< HEAD
-=======
-<br><br>
-    <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
-<head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-</head>
->>>>>>> refs/remotes/origin/do-khc
-
 <title>login.jsp</title>
 <center>
 <form action="login.mem" method="post">

@@ -6,6 +6,7 @@
 <configuration>
 	
 	<typeAliases>
+		<typeAlias type="dip.model.DipBean" alias="MyDip"/>
 		<typeAlias type="board.model.BoardBean" alias="MyBoard"/>
 		<typeAlias type="product.model.ProductBean" alias="MyProduct"/>
 		<typeAlias type="member.model.MemberBean" alias="MyMember"/>
