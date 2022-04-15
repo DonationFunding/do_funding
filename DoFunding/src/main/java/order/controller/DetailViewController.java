@@ -23,7 +23,7 @@ public class DetailViewController {
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public ModelAndView doAction(@RequestParam("od_no") int od_no) { 
 		ModelAndView mav = new ModelAndView();
-		List<OrderDetailBean> detailList = CompositeDao.detailList(o_no);
+		List<OrderDetailBean> detailList = CompositeDao.detailList(od_no);
 		
 		System.out.println(detailList.get(0).getOd_pnum());
 		System.out.println(detailList.get(0).getOd_pname());
