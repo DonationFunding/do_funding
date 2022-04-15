@@ -1,16 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="admin_top.jsp"%>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/resources/css/kfonts2.css"
-	rel="stylesheet">
-</head>
+
 <center>
 	<div>
 		<h4 align="center">카테고리 목록</h4>
@@ -55,6 +46,8 @@
 						<td>
 							<input type="button" value="삭제"
 							onclick="deleteCate('${cateBean.cnum}','${pageInfo.pageNumber}')">
+						<td align="center" >
+							<input type="checkbox" name="rowcheck" value="${product.p_num } %>">
 						</td>
 						<td><input type="button" value="수정"
 							onclick="updateCate'${cateBean.cnum}','${pageInfo.pageNumber}')">
@@ -65,13 +58,10 @@
 		</table>
 		<br>
 		<br>
-	<div class="container">
+		<div class="container">
 			<ul class="pagination pagination-sm">${pageInfo.pagingHtml}
 			</ul>
 		</div>
 	</div>
 </center>
 <%@include file="admin_bottom.jsp"%>
-
-
-

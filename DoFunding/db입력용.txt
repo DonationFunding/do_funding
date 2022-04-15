@@ -74,12 +74,8 @@ create table do_product(
 );
 
 insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-10');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-13');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-15');
 insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-25');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-15');
 insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-10');
@@ -266,18 +262,41 @@ commit;
 
 
 -- 찜 테이블
-drop sequence catseq ;
+drop sequence dipseq ;
 
-create sequence catseq
+create sequence dipseq
 increment by 1
 start with 1
 minvalue 1
 nocache;
 
-drop table category cascade constraints purge ;
-create table category(
-	cnum 	number primary key,
-	code 	varchar2(20) not null,	
-	cname 	varchar2(50) not null	
+drop table dipstate cascade constraints purge ;
+create table dipstate (
+	d_num 	number primary key,
+	m_no 	number references do_members(no) on delete cascade,	
+	p_num 	number  references do_product(p_num) on delete cascade,
+	d_check  number 
 );
+
+insert into dipstate(d_num,m_no ,p_num,d_check ) values(dipseq.nextval,1,8,1);
+commit;
+
+drop sequence seqod ;
+create sequence seqod start with 1 increment by 1 nocache ;
+
+ DROP TABLE do_orderdetail CASCADE CONSTRAINTS;
+ 
+create table do_orderdetail(
+  od_no number references do_order(o_num) on delete set null primary key,
+  od_id number references do_members(id) on delete set null,
+  od_pnum number references do_product(p_num) on delete set null,
+  od_qty number not null,
+  od_price number not null,
+  od_amount number not null,
+  od_option varchar2(30) not null
+  od_deliver varchar2(30) not null
+);
+
+commit;
+
 

@@ -1,6 +1,5 @@
 package product.model;
 
-
 import java.util.List;
 import java.util.Map;
 
@@ -59,8 +58,6 @@ public class ProductDao {
 		return bean;
 	}//updateProduct
 
-
-	//과제정보 부분검색 count (관리자용)
 	public int getProductInfoBysearchCount_admin(String search_gp, String searchtext) {
 		int count=0;	
 		return count;
@@ -88,6 +85,7 @@ public class ProductDao {
 	public void itemOptionDelete(int option_item_no) {
 		sqlSessionTemplate.delete(namespace+".ItemOptionDelete", option_item_no);
 	}
+
 
 	public int productDelete(int p_num) {
 		int cnt = sqlSessionTemplate.delete(namespace+".ProductDelete",p_num);

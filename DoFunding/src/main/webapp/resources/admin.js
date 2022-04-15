@@ -99,7 +99,22 @@ function deleteMem(gnum){
 	}
 }//deleteMem
 
-
+//선택삭제
+function selectDelete(){
+	//alert(1);
+	var chkArr = document.getElementsByName("rowcheck");
+	flag=false; //유효성 검사
+	for(var i=0;i<chkArr.length;i++){
+		if(chkArr[i].checked==true){
+			flag=true;
+		}
+	}
+	if(flag==false){
+		alert("삭제할 체크박스를 하나라도 선택하세요.");
+		return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
+	}
+	document.myform.submit();//submit 누른것처럼 동작해라.	
+}
 
 function allRowCheck(allck){ 
 	var chkArr = document.getElementsByName("rowcheck");

@@ -1,37 +1,38 @@
 package order.controller;
-/*
- * package mall.controller;
- * 
- * import java.util.List;
- * 
- * import javax.servlet.http.HttpSession;
- * 
- * import org.springframework.beans.factory.annotation.Autowired; import
- * org.springframework.stereotype.Controller; import
- * org.springframework.ui.Model; import
- * org.springframework.web.bind.annotation.RequestMapping; import
- * org.springframework.web.bind.annotation.RequestMethod; import
- * org.springframework.web.bind.annotation.RequestParam;
- * 
- * import mall.cart.ShoppingInfo; import product.model.CompositeDao;
- * 
- * @Controller public class DetailViewController {
- * 
- * private final String command="/detailView.mall"; private final String
- * getPage="shopDetailView";
- * 
- * @Autowired private CompositeDao compositeDao;
- * 
- * //shopList.jsp에서 상세보기
- * 
- * @RequestMapping(value=command, method=RequestMethod.GET) public String
- * doAction(
- * 
- * @RequestParam("oid") int oid, HttpSession session, Model model) { //주문 상세 보기
- * List<ShoppingInfo> detailList=compositeDao.detailList(oid); for(ShoppingInfo
- * sh:detailList) { System.out.println("controll:"+sh.getPnum());
- * System.out.println("controll:"+sh.getPname()); } model.addAttribute("oid",
- * oid); model.addAttribute("detailList", detailList); return getPage; }
- * 
- * }
- */
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import orderdetail.model.OrderDetailBean;
+import orderdetail.model.CompositeDao;
+
+@Controller
+public class DetailViewController {
+	private final String command = "detailView.ord";
+	private final String getPage = "order_detailView";
+
+	@Autowired
+	private CompositeDao CompositeDao;
+	
+	@RequestMapping(value=command, method=RequestMethod.GET)
+	public ModelAndView doAction(@RequestParam("od_no") int od_no) { 
+		ModelAndView mav = new ModelAndView();
+		List<OrderDetailBean> detailList = CompositeDao.detailList(od_no);
+		
+		System.out.println(detailList.get(0).getOd_pnum());
+		System.out.println(detailList.get(0).getOd_pname());
+		
+		mav.addObject("detailList", detailList);
+		mav.addObject("od_no", od_no);
+		mav.setViewName(getPage);
+		
+		return mav;
+	}
+
+}

@@ -97,7 +97,7 @@ member_detailView.jsp<br>
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="button" value="정보수정" onclick="location.href=''"></td>
+		<td colspan="2" align="center"><input type="button" value="정보수정" onclick="location.href='update.mem'"></td>
 	</tr>
 </table>
 </center>

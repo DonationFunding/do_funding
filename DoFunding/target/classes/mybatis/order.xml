@@ -5,12 +5,12 @@
 
 <mapper namespace="order.model.Order">
 	<insert id="InsertOrder">
-		insert into orders(oid, mid, orderdate) 
-		values(seqoid.nextval, #{mid}, sysdate)
+		insert into do_order(o_num, o_mnum, o_qty, o_date) 
+		values(seqoid.nextval, #{o_mnum}, #{o_qty}, sysdate)
 	</insert>
 	
-	<select id="GetMaxOid" resultType="int">
-		select max(oid) from orders
+	<select id="getMaxO_num" resultType="int">
+		select max(o_num) from do_order
 	</select>
 
 <!-- 	
@@ -20,7 +20,7 @@
 	</select>
  -->
  	<select id="OrderList" resultType="MyOrder">
- 		select * from orders where mid = #{mid} order by oid desc
+ 		select * from do_order where o_mnum = #{o_mnum} order by o_num desc
  	</select>
 </mapper>
 

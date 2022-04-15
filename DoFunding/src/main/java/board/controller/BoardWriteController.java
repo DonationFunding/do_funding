@@ -29,13 +29,13 @@ public class BoardWriteController {
 	@Autowired
 	private BoardDao boardDao;
 
-
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(HttpSession session) {	
 		System.out.println("loginInfo:"+session.getAttribute("loginInfo")); // null
 
 		if(session.getAttribute("loginInfo") == null) { // 로그인 안한 상태
-			session.setAttribute("destination", "redirect:/login.mem");
+			session.setAttribute("destination", "redirect:/insert.bd");
+
 			return "redirect:/login.mem"; 
 		}
 		else {// 로그인 한 상태
