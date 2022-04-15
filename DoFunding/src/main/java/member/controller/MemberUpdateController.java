@@ -31,8 +31,8 @@ public class MemberUpdateController {
 	@RequestMapping(value = command , method = RequestMethod.POST)
 	public String doAction(MemberBean membean,HttpServletRequest request,HttpServletResponse response) {
 		response.setContentType("text/html; charset=UTF-8");
-		int cnt = mdao.updateMember(membean);
-		
+		//int cnt = mdao.updateMember(membean);
+		int cnt=-1;
 		
 		PrintWriter pw=null;
 		if(cnt > 0) {
