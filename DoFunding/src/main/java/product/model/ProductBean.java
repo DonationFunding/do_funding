@@ -55,8 +55,7 @@ public class ProductBean {
 	private String option_content;	//option1°³ °ª
 	private int option_item_no;
 	private int option_no;	
-
-	private String rowcheck;
+	
 	
 	public ProductBean() {
 		super();
@@ -91,18 +90,7 @@ public class ProductBean {
 	}
 
 
-	public String getRowcheck() {
-		return rowcheck;
-	}
-
-	public void setRowcheck(String rowcheck) {
-		this.rowcheck = rowcheck;
-	}
-
-	public String getCommon() {
-		return common;
-	}
-
+	
 	public String getOption_content() {
 		return option_content;
 	}

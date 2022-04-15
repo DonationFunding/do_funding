@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+<<<<<<< HEAD
     pageEncoding="UTF-8"%> 
 <%@ include file="../common/common_top.jsp" %>    
 <head> 
@@ -13,6 +14,11 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="<%=request.getContextPath() %>/resources/js/bootstrap.min.js"></script>
 
+=======
+    pageEncoding="UTF-8"%>
+<%@ include file="../common/common.jsp" %>    
+list.jsp<br>
+>>>>>>> refs/remotes/origin/do-hjh
 <style type="text/css">
 	body{
 		text-align: center;
@@ -49,9 +55,13 @@
 		<td align="center">작성일</td>
 		<td align="center">조회</td>
 	</tr>
+<<<<<<< HEAD
 		<c:forEach var="bdList" items="${requestScope.bdList}" varStatus="status">
+=======
+		<c:forEach var="article" items="${requestScope.articleList}">
+>>>>>>> refs/remotes/origin/do-hjh
 		<tr>
-			<td align="center" >${requestScope.totalCount - (requestScope.pageInfo.pageNumber-1)*requestScope.pageInfo.pageSize - status.index}</td>
+			<td align="center" >${requestScope.totalCount - (requestScope.pageInfo.pageNumber-1)*requestScope.pageInfo.pageSize}</td>
 			<td>
 				<c:if test="${bdList.b_re_level>0}">
 					<c:set var="wid" value="${bdList.b_re_level*20}"/>
@@ -75,10 +85,6 @@
 
 </table>
 <br><br>
-	<div class="container">
-		<ul class="pagination pagination-sm">
-			${pageInfo.pagingHtml}
-		</ul>
-	</div>
+${pageInfo.pagingHtml}
 </center>
-<%@ include file="../common/common_bottom.jsp" %>  
+

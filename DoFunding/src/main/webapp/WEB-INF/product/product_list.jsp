@@ -1,21 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common_top.jsp" %>
+<<<<<<< HEAD
 <script src="http://code.jquery.com/jquery-latest.js"></script> 
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+=======
+>>>>>>> refs/remotes/origin/do-hjh
 <style type="text/css">
 .area{
  	height:130px;	
 }
 
 </style>
+<%-- <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.rotator.js"></script> --%>
+<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/*"></script>
 <script type="text/javascript">
 	$(function(){
 		$('#rotator').rotator({ms:1000});	
 	}); //function	
 	
 </script>
+<<<<<<< HEAD
+=======
+<head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
+</head>
+>>>>>>> refs/remotes/origin/do-hjh
 <div align="center">
+	<c:if test="${loginInfo.admin == 0}"><a href="">관리자 페이지</a></c:if>
+	<h2>상품 리스트 화면</h2>
+	<form action="list.prd" method="get">
+		<select name="whatColumn">
+			<option value="">선택
+			<option value="p_subject">상품명
+			<option value="p_content">설명
+		</select>
+		<input type="text" name="keyword">
+		<input type="submit" value="검색">
+	</form>	
 <c:if test="${requestScope.list ne null}">
  <div class="container" > 
    <!--  <h2>캐러셀 슬라이드 효과  </h2> -->		
@@ -73,6 +99,7 @@
     </script>   
 </c:if>
 
+<<<<<<< HEAD
 <div>
 	<form action="list.prd" method="get">
 		<select name="whatColumn">
@@ -84,6 +111,8 @@
 		<input type="submit" value="검색">
 	</form>	
 </div>
+=======
+>>>>>>> refs/remotes/origin/do-hjh
 	<div class="container">
 		<c:if test="${list.size() == 0}">
 					<img  src="<%=request.getContextPath() %>/resources/images/no_image.jpg"><br>
@@ -94,7 +123,7 @@
 				<table border="1" width="80%" >
 					<tr>						
 						<c:forEach var="p_product" items="${list}" varStatus="status">
-							<td align="center" style="margin: 10px; padding: 10px;">
+							<td align="center">
 								<a href="detail.prd?p_num=${p_product.p_num}&pageNumber=${pageInfo.pageNumber}"> 
 								<img width="80%"
 									alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
@@ -135,10 +164,8 @@
 			</div>
 		</c:if>
 	</div>
-	<div class="container">
-		<ul class="pagination pagination-sm">
-			${pageInfo.pagingHtml}
-		</ul>
+	<div>
+		${pageInfo.pagingHtml}
 	</div>
 </div>	
 

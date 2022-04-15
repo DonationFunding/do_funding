@@ -29,14 +29,18 @@ public class BoardWriteController {
 	@Autowired
 	private BoardDao boardDao;
 
+<<<<<<< HEAD
 
+=======
+	//boardList.jsp get방식 writeArticle.bv
+>>>>>>> refs/remotes/origin/do-hjh
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(HttpSession session) {	
 		System.out.println("loginInfo:"+session.getAttribute("loginInfo")); // null
 
 		if(session.getAttribute("loginInfo") == null) { // 로그인 안한 상태
-			session.setAttribute("destination", "redirect:/login.mem");
-			return "redirect:/login.mem"; 
+			session.setAttribute("destination", "redirect:/writeArticle.bv");
+			return "redirect:/loginForm.mem"; // MemberLoginController 
 		}
 		else {// 로그인 한 상태
 			return getPage;// writeForm.jsp

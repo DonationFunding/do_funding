@@ -21,7 +21,7 @@ import utility.Paging;
 @Controller
 public class ProductListController {
 
-	private final String command = "/list.prd";
+	private final String command = "/prd_list.prd";
 	private String getPage = "product_list"; // /WEB-INF/product/productList.jsp
 	
 	@Autowired

@@ -8,7 +8,7 @@ public class Paging {
 	private int pageSize = 0 ; //한 페이지에 보여줄 건수
 	private int beginRow = 0 ; //현재 페이지의 시작 행
 	private int endRow = 0 ; //현재 페이지의 끝 행
-	private int pageCount = 5 ; // 한 화면에 보여줄 페이지 링크 수 (페이지 갯수)=> 레코드 갯수 아님 
+	private int pageCount = 3 ; // 한 화면에 보여줄 페이지 링크 수 (페이지 갯수)=> 레코드 갯수 아님 
 	private int beginPage = 0 ; //페이징 처리 시작 페이지 번호
 	private int endPage = 0 ; //페이징 처리 끝 페이지 번호
 	private int offset = 0 ;
@@ -234,23 +234,23 @@ public class Paging {
 		String added_param = "&whatColumn=" + whatColumn + "&keyword=" + keyword ; // &whatColumn=singer&keyword=아
 		
 		if (this.beginPage != 1) { // 앞쪽, pageSize:한 화면에 보이는 레코드 수
-			result += "&nbsp;<li><a href='" + url  
+			result += "&nbsp;<a href='" + url  
 					+ "?pageNumber=" + ( 1 ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'><span><<</span></a></li>&nbsp;" ;
-			result += "&nbsp;<li><a href='" + url 
+					+ added_param + "'>맨 처음</a>&nbsp;" ;
+			result += "&nbsp;<a href='" + url 
 					+ "?pageNumber=" + (this.beginPage - 1 ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'><span><</span></a></li>&nbsp;" ;
+					+ added_param + "'>이전</a>&nbsp;" ;
 		}
 		
 		//가운데
 		for (int i = this.beginPage; i <= this.endPage ; i++) {
 			if ( i == this.pageNumber ) {
-				result += "&nbsp;<li><span><font color='red'>" + i + "</font></span></li>&nbsp;"	;
+				result += "&nbsp;<font color='red'>" + i + "</font>&nbsp;"	;
 						
 			} else {
-				result += "&nbsp;<li><a href='" + url   
+				result += "&nbsp;<a href='" + url   
 						+ "?pageNumber=" + i + "&pageSize=" + this.pageSize 
-						+ added_param + "'>" + i + "</a></li>&nbsp;" ;
+						+ added_param + "'>" + i + "</a>&nbsp;" ;
 				
 			}
 		}
@@ -259,13 +259,13 @@ public class Paging {
 		
 		if ( this.endPage != this.totalPage) { // 뒤쪽
 			
-			result += "&nbsp;<li><a href='" + url  
+			result += "&nbsp;<a href='" + url  
 					+ "?pageNumber=" + (this.endPage + 1 ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'><span>></span></a></li>&nbsp;" ;
+					+ added_param + "'>다음</a>&nbsp;" ;
 			
-			result += "&nbsp;<li><a href='" + url  
+			result += "&nbsp;<a href='" + url  
 					+ "?pageNumber=" + (this.totalPage ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'><span>>></span></a></li>&nbsp;" ;
+					+ added_param + "'>맨 끝</a>&nbsp;" ;
 		}		
 		System.out.println("result2:"+result);
 		

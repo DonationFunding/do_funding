@@ -5,9 +5,14 @@
 <center>
 <br>
 <b>카테고리수정</b>
+<<<<<<< HEAD
 <form:form commandName="cateBean"  method="post"  action="admin_cate_update.ad">
 	<input type="hidden" name="cnum" value="${cateBean.cnum}">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
+=======
+<form:form commandName="category"  method="post"  action="admin_cate_update.ad">
+	<input type="hidden" name="cnum" value="${category.cnum}">
+>>>>>>> refs/remotes/origin/do-hjh
 <br>
 	<table border="1" height="100">
 		<tr>

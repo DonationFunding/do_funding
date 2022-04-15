@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>
 <%@ include file="../common/common_top.jsp" %>
-    <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
 
 <title>login.jsp</title>
 <center>

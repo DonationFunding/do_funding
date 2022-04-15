@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="admin_top.jsp"%>
+<<<<<<< HEAD
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,19 @@
 <link href="<%=request.getContextPath()%>/resources/css/kfonts2.css"
 	rel="stylesheet">
 </head>
+=======
+<script type="text/javascript">
+	function insert() {
+		location.href="admin_prd_insert.ad"; 
+	}
+	
+	function update(p_num,pageNumber){
+
+		location.href="admin_prd_update.ad?p_num="+p_num+"&pageNumber="+pageNumber; 	
+	}
+	
+</script>
+>>>>>>> refs/remotes/origin/do-hjh
 <center>
 	<h2>펀딩 목록(${pageInfo.pageNumber})</h2>
 	<form action="admin_prd_list.ad" method="get">
@@ -24,15 +38,21 @@
 	</form>
 	<table border="1" width="1000">
 		<tr>
+<<<<<<< HEAD
 			<td align="left" colspan="8">
 				<input type="button" value="삭제" onclick="selectDelete()">
 				<input type="button" value="추가하기" onclick="insertPrd()">
 			</td>
 			</td>
+=======
+>>>>>>> refs/remotes/origin/do-hjh
 			<td colspan="3" align="center">
 				<c:set var="now" value="<%=new java.util.Date()%>" />
 				<c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set>
 				Today : ${sysDate} 								
+			</td>
+			<td align="right" colspan="8">
+				<input type="button" value="추가하기" onclick="insert()">
 			</td>
 		</tr>
 		<tr>
@@ -50,12 +70,20 @@
 			<th>수정</th>
 			<th>삭제</th>
 		</tr>
+<<<<<<< HEAD
 		<form name="myform" action="admin_prd_multidelete.ad? method="post">
 		<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber }">
 		<c:forEach var="prdBean" items="${prdList}">
+=======
+		<c:forEach var="product" items="${list}">
+>>>>>>> refs/remotes/origin/do-hjh
 			<tr>
 				<td align="center" >
+<<<<<<< HEAD
 					<input type="checkbox" name="rowcheck" value="${prdBean.p_num }">
+=======
+					<input type="checkbox" name="rowcheck" value="${product.p_num } %>">
+>>>>>>> refs/remotes/origin/do-hjh
 				</td>
 				<td><c:out value="${prdBean.p_num}" /></td>
 				<td>
@@ -81,7 +109,6 @@
 				</td>
 			</tr>
 		</c:forEach>
-		</form>
 	</table>
 		<br>
 		<br>
