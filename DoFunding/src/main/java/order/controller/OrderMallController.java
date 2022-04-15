@@ -40,7 +40,10 @@ public class OrderMallController {
 	// start.jsp에서 나의 주문 내역 클릭
 	@RequestMapping(value=command)
 	public String doAction(
-			ProductBean prdbean,OrderBean opbean,HttpSession session,Model model) {
+			ProductBean prdbean,
+			OrderBean opbean,
+			HttpSession session,
+			Model model) {
 		System.out.println("p_num="+prdbean.getP_num());
 		System.out.println("orderqty="+opbean.getO_qty());
 		System.out.println("상품명="+prdbean.getP_subject());

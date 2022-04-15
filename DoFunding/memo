@@ -75,7 +75,6 @@ insert into do_members(id,name,password,salary,hiredate,gender,hobby,job,zipcode
 values(seqdo_members.nextval,'kim','김철수','1234',100,sysdate,'남자','게임','학생','123-456');
 
 commit ;
-ㅁㄴㅇㄹ
 col id for a6
 col password for a8
 col name for a8
@@ -108,29 +107,6 @@ create sequence seqdo_product
 3. loginInfo에서 admin 이 0인(직원or관리자) 유저만 제품등록 가능/아마도 관리자페이지에서만 등록 가능
   
 drop table do_product CASCADE CONSTRAINTS;
-<<<<<<< HEAD
-create table do_product(
-	p_category_fk varchar2(100) not null ,   
-	p_num number not null primary key,	
-	p_writer varchar2(10) references do_members(id) on delete cascade,
-	p_subject varchar2(20) not null,		
-	p_readcount int default 0,				
-	p_image varchar2(500),				
-	p_content varchar2(20) not null,					
-	p_like varchar2(3000) not null,			
-	p_option varchar2(500),
-	p_option2 varchar2(500),
-	p_origin_price int default 0,				
-	p_total_price int default 0,			
-	p_end_price int default 0,			
-	p_point varchar2(20) not null,	
-	p_ref number not null,
-	p_re_step number not null,
-	p_re_level number not null,
-	p_reg_date date default sysdate,
-	p_start_date date not null,
-	p_end_date date not null		
-=======
 create table do_product( 
 	p_num 		number  primary key,	//제품 번호()
 	p_writer 	varchar2(10) not null,	//작성자는 member id
@@ -168,29 +144,9 @@ create table do_product(
 --	p_re_level 	number not null,			//게시글 단계(글=0,댓글=1,답글=2,답글의답글=3...)
 
 	--요일
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> refs/remotes/origin/do-pms
-
-	p_reg_date 		default sysdate  ,	--작성일 default sysdate 넣어도 괜찮을꺼 같습니다.
-	p_start_date 	date not null,		--펀딩 시작일		
-	p_end_date 		date not null		--펀딩 마감일	마감일 되면 펀딩못하게 막고, orderdetail 성공, 실패 (진행중)
-
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/do-kyg
-<<<<<<< HEAD
-=======
 	p_reg_date 		default sysdate  ,	//작성일 default sysdate 넣어도 괜찮을꺼 같습니다.
 	p_start_date 	date not null,		//펀딩 시작일		
 	p_end_date 		date not null		//펀딩 마감일	마감일 되면 펀딩못하게 막고, orderdetail 성공, 실패 (진행중)
->>>>>>> refs/remotes/origin/do-kyg
-=======
->>>>>>> refs/remotes/origin/do-pms
->>>>>>> refs/heads/do-kyg
->>>>>>> refs/remotes/origin/do-pms
 );
 
 --옵션 테이블
