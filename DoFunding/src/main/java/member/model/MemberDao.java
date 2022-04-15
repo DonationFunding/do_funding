@@ -42,4 +42,8 @@ public class MemberDao {
 		return cnt;
 	}
 
+	public int updateMember(MemberBean membean) {
+		return 0;
+	}
+
 }
