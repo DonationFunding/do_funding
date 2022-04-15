@@ -31,7 +31,6 @@ public class AdminBoardDeleteController {
 			HttpServletRequest request,
 			HttpServletResponse response
 			) {	
-<<<<<<< HEAD
 		String passwd=bdBean.getB_passwd();
 		response.setContentType("text/html; charset=UTF-8");
 		
@@ -77,29 +76,6 @@ public class AdminBoardDeleteController {
 
 	}	
 	
-=======
-		response.setContentType("text/html; charset=UTF-8");
-		
-		PrintWriter pw =null;	
-		
-			int cnt=boardDao.adminDeleteArticle(bdBean);			
-			try {
-				pw=response.getWriter();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			if(cnt>0) {		//삭제성공
-				return gotoPage+"?pageNumber="+pageNumber;
-			}
-			else {
-				pw.println("<script> alert('글 수정이 실패했습니다');</script>");
-				pw.flush();
-			}	
-			request.setAttribute("bdBean", bdBean);
-			request.setAttribute("pageNumber", pageNumber);
-			return getPage;
-	}
-				
->>>>>>> refs/remotes/origin/do-kyg1
+
 	
 }
