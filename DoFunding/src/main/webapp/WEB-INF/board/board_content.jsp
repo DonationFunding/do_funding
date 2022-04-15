@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@ include file="../common/common_top.jsp" %>	 
 content.jsp<br>
+=======
+<%@ include file="../common/common.jsp" %>  
+<%@ include file="../common/common_top.jsp" %>	 
+<br><br>
+>>>>>>> refs/remotes/origin/do-khc
 <style type="text/css">
 	body{
 		text-align: center;
@@ -14,23 +20,29 @@ content.jsp<br>
 		margin:auto;
 	}
 </style>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head>
 <body>
 <h1>글내용 보기</h1>
-<table border="1" width="500">
-	<tr align="center" >
-		<td >글번호</td>
-		<td>${bdBean.b_num}</td>
-		<td >조회수</td>
-		<td>${bdBean.b_readcount}</td>
-	</tr>
+<div class="container">
+<table class="table" class="text-center">
 	<tr align="center">
-		<td >작성자</td>
-		<td>${bdBean.b_writer}</td>
-		<td >작성일</td>
-		<td>
+		<th class="text-center">제목</th>
+		<td colspan="5" align="left">${bdBean.b_subject}</td>
+	</tr>
+	<tr>
+		<th class="text-center" width="100">작성자</th>
+		<td width="250">${bdBean.b_writer}</td>
+		<th class="text-center" width="100">작성일</th>
+		<td width="350">
 			<fmt:formatDate value="${bdBean.b_reg_date}" pattern="yyyy-MM-dd HH:mm"/>
 		</td>
+		<th class="text-center" width="100">조회수</th>
+		<td>${bdBean.b_readcount}</td>
 	</tr>
+<<<<<<< HEAD
 	<tr align="center">
 		<td >글제목</td>
 		<td colspan="3">${bdBean.b_subject}</td>
@@ -38,12 +50,24 @@ content.jsp<br>
 	<tr height="50">
 		<td align="center" >글내용</td>
  		<td colspan="3" >
+=======
+	
+	<tr height="200">
+	     <th class="text-center">글내용</th>
+	
+<%-- 		
+		<td colspan="3" >
+			<textarea name=content rows="2"  readonly="readonly" >${bdBean.getContent() }</textarea>
+		</td> 
+--%>
+ 		<td colspan="6" >
+>>>>>>> refs/remotes/origin/do-khc
 			${bdBean.getB_content() }
 		</td>
 	</tr>
 
 	<tr height="30">
-		<td align="center" colspan="4">
+		<td align="center" colspan="6">
 			<input type="button" name="update_btn" value="글수정" <c:if test="${sessionScope.loginInfo.id != bdBean.b_writer}"> disabled </c:if>  onclick="location.href='update.bd?b_num=${bdBean.getB_num()}&pageNumber=${pageNumber}'" >
 			<input type="button" name="delete_btn" value="글삭제" <c:if test="${sessionScope.loginInfo.id != bdBean.b_writer}"> disabled </c:if> onclick="location.href='delete.bd?b_num=${bdBean.getB_num()}&pageNumber=${pageNumber }'" >
 			<input type="button" name="reple_btn" value="답글쓰기" <c:if test="${sessionScope.loginInfo == null}"> disabled </c:if> onclick="location.href='reply.bd?b_ref=${bdBean.getB_ref()}&b_re_step=${bdBean.getB_re_step()}&b_re_level=${bdBean.getB_re_level()}&pageNumber=${pageNumber}'" >
@@ -51,5 +75,14 @@ content.jsp<br>
 		</td>
 	</tr>		
 </table>
+<<<<<<< HEAD
 </body> 
 <%@ include file="../common/common_bottom.jsp" %>	
+=======
+</div>
+</body> 
+
+<br><br>
+<%@ include file="../common/common_bottom.jsp" %>
+
+>>>>>>> refs/remotes/origin/do-khc

@@ -15,9 +15,10 @@
  		<div id="bottom-menu1">
 	 		<ul >
 	 			<li><a href="">회사소개</a></li>
-	 			<li><a href="">이용약관</a></li>
+	 			<li><a href="tos.bot">이용약관</a></li>
 	 			<li><a href="">공지사항</a></li>
 	 			<li><a href="">고객센터</a></li>
+	 			<li><a href="map.bot">오시는 길</a></li>
 	 		</ul>
  		</div>
 	 	<div class="bottom-menu2">

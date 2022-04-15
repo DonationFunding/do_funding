@@ -43,7 +43,7 @@
 						</c:if>
 						&nbsp;<a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a>
 						&nbsp;<a href="memberInfo.mem">회원정보</a>
-						&nbsp;<a href="findid.mem">찜목록</a>
+						&nbsp;<a href="list.dip?no=${loginInfo.no}">찜목록</a>
 						&nbsp;<a href="">펀딩조회</a>
 					</li>
 				</ul>

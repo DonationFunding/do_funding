@@ -19,6 +19,7 @@
 		<mapper resource="mybatis/member.xml"/>
 		<mapper resource="mybatis/order.xml"/>
 		<mapper resource="mybatis/category.xml"/>
+		<mapper resource="mybatis/dip.xml"/>
 	</mappers>
 </configuration>
 

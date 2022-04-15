@@ -45,6 +45,7 @@
 		(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
 		values
 		(seqdo_board.nextval,#{b_writer},#{b_subject},#{b_passwd},#{b_reg_date},seqdo_board.currval,0,0,#{b_content})
+
 	</insert>
 
 
@@ -79,11 +80,11 @@
 		where b_ref= #{b_ref} and b_re_step > #{b_re_step}
 	</update>
 	<insert id="ReplyArticle">
-		insert into do_board
-		(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-		values
-		(seqdo_board.nextval,#{b_writer},#{b_subject},#{b_passwd},#{b_reg_date},#{b_ref},#{b_re_step}+1,#{b_re_level}+1,#{b_content})
-	</insert>
+        insert into do_board
+        (b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+        values
+        (seqdo_board.nextval,#{b_writer},#{b_subject},#{b_passwd},#{b_reg_date},#{b_ref},#{b_re_step}+1,#{b_re_level}+1,#{b_content})
+    </insert>
 
 	<delete id="MultiDeleteBoard">
 		delete from do_board where b_num = #{rowcheck}
