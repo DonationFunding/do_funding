@@ -125,6 +125,44 @@ VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 4);
 INSERT INTO do_option (option_no, option_content, option_item_no )
 VALUES(seqdo_option.nextval , '기종:아이폰' , 4);	
 
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '캐릭터:토끼' , 5);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '캐릭터:개구리' , 5);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '캐릭터:강아지' , 5);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '캐릭터:비둘기' , 6);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '캐릭터:송아지' , 6);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '캐릭터:잠자리' , 6);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:검정' , 7);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:파랑' , 7);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:노랑' , 7);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 8);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '기종:아이폰' , 8);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:검정' , 9);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:파랑' , 9);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:노랑' , 9);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 10);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '기종:아이폰' , 10);	
+
 
 commit;
 
@@ -293,7 +331,7 @@ create table do_orderdetail(
   od_qty number not null,
   od_price number not null,
   od_amount number not null,
-  od_option varchar2(30) not null
+  od_option varchar2(30) not null,
   od_deliver varchar2(30) not null
 );
 
