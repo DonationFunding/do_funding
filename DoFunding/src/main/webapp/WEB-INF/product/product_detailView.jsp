@@ -12,10 +12,6 @@ a:hover {
 	color: #ff3;
 }
 </style>
-<<<<<<< HEAD
-productDetailView.jsp
-<br>
-=======
 <script type="text/javascript">
 	function insert(){
 		location.href = "insert.prd"; // ProductInsertController
@@ -23,9 +19,7 @@ productDetailView.jsp
 </script>
 productDetailView.jsp<br>
 
->>>>>>> refs/remotes/origin/do-hjh
 <center>
-<<<<<<< HEAD
 	<h3>펀딩 상세 화면(${productBean.p_num }/${pageNumber })</h3>
 	<table border="1" width="600" style="margin: 15px; padding: 15px;">
 		<tr>
@@ -48,8 +42,7 @@ productDetailView.jsp<br>
 			<td>${productBean.p_content }</td>
 		</tr>
 		<c:set var="p_start_date">
-			<fmt:parseDate value="${productBean.p_start_date}" var="dateValue"
-				pattern="yyyy-MM-dd" />
+			<fmt:parseDate value="${productBean.p_start_date}" var="dateValue" pattern="yyyy-MM-dd" />
 			<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
 		</c:set>
 		<c:set var="p_end_date">

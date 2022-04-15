@@ -1,24 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
-    pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ include file="../common/common_top.jsp" %>    
-<head> 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
-</head>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="<%=request.getContextPath() %>/resources/js/bootstrap.min.js"></script>
-
-=======
-    pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>    
-list.jsp<br>
->>>>>>> refs/remotes/origin/do-hjh
 <style type="text/css">
 	body{
 		text-align: center;
@@ -55,11 +36,7 @@ list.jsp<br>
 		<td align="center">작성일</td>
 		<td align="center">조회</td>
 	</tr>
-<<<<<<< HEAD
 		<c:forEach var="bdList" items="${requestScope.bdList}" varStatus="status">
-=======
-		<c:forEach var="article" items="${requestScope.articleList}">
->>>>>>> refs/remotes/origin/do-hjh
 		<tr>
 			<td align="center" >${requestScope.totalCount - (requestScope.pageInfo.pageNumber-1)*requestScope.pageInfo.pageSize}</td>
 			<td>
