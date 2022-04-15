@@ -22,27 +22,27 @@ import board.model.BoardDao;
 @Controller
 public class BoardWriteController {
 
-	private final String command="/writeArticle.bv";
-	private String getPage="writeForm";
-	private String gotoPage="redirect:/boardList.bv";
-	
+	private final String command="/insert.bd";
+	private String getPage="board_writeForm";
+	private String gotoPage="redirect:/list.bd";
+
 	@Autowired
 	private BoardDao boardDao;
 
-	//boardList.jsp get방식 writeArticle.bv
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(HttpSession session) {	
 		System.out.println("loginInfo:"+session.getAttribute("loginInfo")); // null
-			
+
 		if(session.getAttribute("loginInfo") == null) { // 로그인 안한 상태
-			session.setAttribute("destination", "redirect:/writeArticle.bv");
-			return "redirect:/loginForm.mem"; // MemberLoginController 
+			session.setAttribute("destination", "redirect:/insert.bd");
+
+			return "redirect:/login.mem"; 
 		}
 		else {// 로그인 한 상태
 			return getPage;// writeForm.jsp
 		}	
 	}
-	
+
 	//writeForm.jsp post방식 writeArticle.bv
 	@RequestMapping(value=command,method = RequestMethod.POST)
 	public String doAction(
@@ -52,9 +52,8 @@ public class BoardWriteController {
 			HttpServletResponse response) {
 		//writer/subject/email/content/password/Reg_date/Ip
 		response.setContentType("text/html; charset=UTF-8");			
-		article.setReg_date(new Timestamp(System.currentTimeMillis()));
-		System.out.println(request.getRemoteAddr());
-		article.setIp(request.getRemoteAddr());
+		article.setB_reg_date(new Timestamp(System.currentTimeMillis()));
+
 		int cnt=boardDao.insertArticle(article);
 		PrintWriter pw =null;
 		if(cnt>0){
@@ -70,10 +69,10 @@ public class BoardWriteController {
 			pw.flush();
 			return getPage;
 		}
-		
+
 	}
-	
-	
-	
-	
+
+
+
+
 }

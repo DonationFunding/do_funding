@@ -15,8 +15,8 @@ import board.model.BoardDao;
 @Controller
 public class BoardContentController {
 
-	private final String command="/content.bv";
-	private String getPage="content";
+	private final String command="/content.bd";
+	private String getPage="board_content";
 
 	@Autowired
 	private BoardDao boardDao;
@@ -29,9 +29,9 @@ public class BoardContentController {
 			HttpServletRequest request
 			) {
 		BoardBean detail =boardDao.getArticle(article);
-		System.out.println(detail.getSubject()+":controller");
+		System.out.println(detail.getB_subject()+":controller");
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("article", detail);
+		mav.addObject("bdBean", detail);
 		mav.addObject("pageNumber", pageNumber);
 		mav.setViewName(getPage);
 		return mav;

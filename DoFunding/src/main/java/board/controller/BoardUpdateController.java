@@ -19,9 +19,9 @@ import board.model.BoardDao;
 @Controller
 public class BoardUpdateController {
 
-	private final String command="/updateForm.bv";
-	private String getPage="updateForm";
-	private String gotoPage="redirect:/content.bv";
+	private final String command="/update.bd";
+	private String getPage="board_updateForm";
+	private String gotoPage="redirect:/content.bd";
 	
 	@Autowired
 	private BoardDao boardDao;
@@ -30,12 +30,12 @@ public class BoardUpdateController {
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
-			BoardBean article,
+			BoardBean bdBean,
 			HttpServletRequest request
 			) {	
-		BoardBean detail=boardDao.oneSelect(article);
-		System.out.println(detail.getSubject()+"controller");
-		request.setAttribute("article", detail);
+		BoardBean detail=boardDao.oneSelect(bdBean);
+		System.out.println(detail.getB_subject()+"controller");
+		request.setAttribute("bdBean", detail);
 		request.setAttribute("pageNumber", pageNumber);
 		return getPage;
 	}	
@@ -45,16 +45,16 @@ public class BoardUpdateController {
 	public String doAction(
 			// @ModelAttribute("article") @Valid 스크립트로 빼냇음 
 			@RequestParam(value="pageNumber") String pageNumber,
-			BoardBean article,
+			BoardBean bdBean,
 			HttpServletRequest request,
 			HttpServletResponse response,
 			HttpSession session
 			) {	
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter pw =null;	
-		int cnt=boardDao.updateArticle(article);
+		int cnt=boardDao.updateArticle(bdBean);
 		if(cnt>0){	//업데이트 성공
-			return gotoPage+"?pageNumber="+pageNumber+"&num="+article.getNum();
+			return gotoPage+"?pageNumber="+pageNumber+"&b_num="+bdBean.getB_num();
 		}
 		else
 		{
@@ -71,7 +71,7 @@ public class BoardUpdateController {
 				pw.println("<script> alert('글 수정이 실패했습니다');</script>");
 				pw.flush();
 			}	
-			request.setAttribute("article", article);
+			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
 		}

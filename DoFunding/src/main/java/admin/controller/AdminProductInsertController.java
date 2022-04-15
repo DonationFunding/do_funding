@@ -42,50 +42,40 @@ public class AdminProductInsertController {
 	
 	@RequestMapping(value=command, method = RequestMethod.GET)
 	public ModelAndView doAction() {
-		List<CategoryBean> list = categoryDao.categoryAllByProduct();
+		List<CategoryBean> cateList = categoryDao.categoryAllByProduct();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("categoryList", list);
+		mav.addObject("cateList", cateList);
 		mav.setViewName(getPage); 
 		return mav;
 	}
 	
 	@RequestMapping(value=command, method=RequestMethod.POST) 
 	 public ModelAndView doAction(
-			 @ModelAttribute("productBean") @Valid ProductBean Bean, 
-			 BindingResult result) {	 
+			 @ModelAttribute("prdBean") ProductBean prdBean
+			) {	 
 		 ModelAndView mav = new ModelAndView();
-
 		 
-		 if(result.hasErrors()) {
-			 System.out.println(result.getErrorCount());	//6
-			 List<CategoryBean> list = categoryDao.categoryAllByProduct();
-			 mav.addObject("categoryList", list);
-			 mav.setViewName(getPage);
-			 return mav;
-		 }
-		 
-		 
-		 Bean.setP_point(Math.round(Bean.getP_origin_price()/1000)*10);
-		 int cnt = productDao.insertProduct(Bean); 
+		 prdBean.setP_point(Math.round(prdBean.getP_origin_price()/1000)*10);
+		 int cnt = productDao.insertProduct(prdBean); 
 
 		 if(cnt > 0) {
-
-			 //옵션추가부분
+			 //옵션추가부분 최근 가입시킨 제품번호 가져오기
 			 int item_no=productDao.getP_num();
-			 Bean.setOption_item_no(item_no);
-			 for (int i = 0; i < Bean.getItem_option().length; i++) {
-				 String itemOptionContent = Bean.getItem_option()[i];	//옵션 1개 값
+			 System.out.println("item_no:"+item_no);
+			 prdBean.setOption_item_no(item_no);
+			 for (int i = 0; i < prdBean.getItem_option().length; i++) {
+				 String itemOptionContent = prdBean.getItem_option()[i];	//옵션 1개 값
 				 System.out.println("itemOptionContent:"+itemOptionContent);
 				 Map<String, Object> map = new HashMap<String, Object>();
 				 map.put("item_option", itemOptionContent);
-				 map.put("option_item_no", Bean.getOption_item_no());
+				 map.put("option_item_no", prdBean.getOption_item_no());
 				 productDao.itemOptionInsert(map);
 				} 
 			 
 			 //파일 추가 부분
 			 String uploadPath = servletContext.getRealPath("/resources/images");
-			 MultipartFile multi = Bean.getUpload();
-			 File f = new File(uploadPath+"\\" + Bean.getP_image());
+			 MultipartFile multi = prdBean.getUpload();
+			 File f = new File(uploadPath+"\\" + prdBean.getP_image());
 			 
 			 try {
 				multi.transferTo(f);
