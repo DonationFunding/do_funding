@@ -19,8 +19,8 @@ import utility.Paging;
 @Controller
 public class BoardListController {
 
-	private final String command="/boardList.bd";
-	private String getPage="boardList";
+	private final String command="/list.bd";
+	private String getPage="board_list";
 
 	@Autowired
 	private BoardDao boardDao;

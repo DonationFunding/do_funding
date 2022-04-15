@@ -12,10 +12,10 @@
 	<form action="admin_bd_list.ad" method="get">
 		<p>
 			<select name="whatColumn">
-				<option value="all">선택
-				<option value="b_content">내용
-				<option value="b_subject">제목
-				<option value="b_writer">글쓴이
+				<option value="all">선택</option>
+				<option value="b_content">내용</option>
+				<option value="b_subject">제목</option>
+				<option value="b_writer">글쓴이</option>
 			</select> 
 			<input type="text" name="keyword"> <input type="submit" value="검색">
 		</p>

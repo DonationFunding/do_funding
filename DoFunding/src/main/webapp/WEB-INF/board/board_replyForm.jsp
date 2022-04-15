@@ -31,7 +31,14 @@
 	</tr>
 	<tr>
 		<td align="center">이름</td>
-		<td><input type="text" name="b_writer" value="${sessionScope.loginInfo.id}" readonly></td>
+		<td>
+			<c:if test="${loginInfo.admin ==1}">
+				<input type="text" name="b_writer" value="${sessionScope.loginInfo.id}" readonly>
+			</c:if>
+			<c:if test="${loginInfo.admin ==0}">
+				<input type="text" name="b_writer" value="관리자" >
+			</c:if>
+		</td>
 	</tr>
 	<tr>
 		<td align="center">제목</td>

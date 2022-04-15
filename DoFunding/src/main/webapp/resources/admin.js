@@ -98,28 +98,6 @@ function deleteMem(gnum){
 		location.href="mem_delete_proc.jsp?gnum="+gnum;
 	}
 }//deleteMem
-//카테고리 삭제
-function deleteCate(cnum,pageNumber){
-	var dep = confirm("정말 삭제하시겠습니까?");
-	//prompt : 값을 입력 받을 수 있는 창 (제목, 초기값) 확인/취소 버튼이 있음.
-	//comfirm : YES/NO t/f
-	//alert(dep);
-	if(dep){
-		location.href="admin_cate_delete.ad?cnum="+cnum+"&pageNumber="+ pageNumber;
-	}
-}//deleteCate
-//카테고리 삭제
-function deleteCate(cnum,pageNumber){
-	var dep = confirm("정말 삭제하시겠습니까?");
-	//prompt : 값을 입력 받을 수 있는 창 (제목, 초기값) 확인/취소 버튼이 있음.
-	//comfirm : YES/NO t/f
-	//alert(dep);
-	if(dep){
-		location.href="admin_cate_delete.ad?cnum="+cnum+"&pageNumber="+ pageNumber;
-	}
-}//deleteCate
-
-
 
 
 
@@ -138,66 +116,88 @@ function allRowCheck(allck){
     }
 }// allRowCheck
 
+
 function prdcheck(){
-	//alert(1);
-	if($('input[name=gpsubject]').val()==""){
-		alert('지원사업명이 누락됐습니다.');
-		$('input[name=gpsubject]').focus();
+	alert(1);
+
+	if($('input[name=p_subject]').val()==""){
+		alert('제목 입력 누락');
+		$('input[name=p_subject]').focus();
 		return false;
 	}	
-	if($('input[name=gpqty_full]').val()==""){
-		alert('모집정원 입력란이 누락됐습니다.');
-		$('input[name=gpqty_full]').focus();
+	if($('input[name=upload]').val()==""){
+		alert('이미지 입력 누락');
+		$('input[name=upload]').focus();
 		return false;
 	}	
-	if($('input[name=gpprice]').val()==""){
-		alert('지원사업규모 입력란이 누락됐습니다.');
-		$('input[name=gpprice]').focus();
+	if($('input[name=p_origin_price]').val()==""){
+		alert('단가 입력 누락');
+		$('input[name=p_origin_price]').focus();
 		return false;
 	}	
-	if($('textarea[name=pcontents]').val()==""){
-		alert('지원사업소개가 누락됐습니다.');
-		$('textarea[name=pcontents]').focus();
+	if($('input[name=p_end_price]').val()==""){
+		alert('목표가 입력 누락');
+		$('input[name=p_end_price]').focus();
+		return false;
+	}		
+	var p_origin_price=Number($('input[name=p_origin_price]').val());
+	alert(2);
+	if(p_origin_price<1000){
+		alert('단가는 최소 1,000원  이상입니다.');
+		$('input[name=p_origin_price]').focus();
 		return false;
 	}	
-	if($('input[name=gpstartdate]').val()==""){
+	var p_end_price=Number($('input[name=p_end_price]').val());
+	if(p_end_price<100000){
+		alert('목표 금액은 최소 100,000원 이상입니다.');
+		$('input[name=p_end_price]').focus();
+		return false;
+	}	
+	if($('input[name=p_start_date]').val()==""){
 		alert('모집기간값이 누락됐습니다.');
-		$('input[name=gpstartdate]').focus();
+		$('input[name=p_start_date]').focus();
 		return false;
 	}	
-	if($('input[name=gpenddate]').val()==""){
+	if($('input[name=p_end_date]').val()==""){
 		alert('모집기간값이 누락됐습니다.');
-		$('input[name=gpenddate]').focus();
+		$('input[name=p_end_date]').focus();
 		return false;
 	}
 	
 	var sysday=new Date();	
-	var endday=new Date($('input[name=gpenddate]').val());	
-	if(sysday>=endday){
-		alert('모집마감일이 현재보다 과거일 수 없습니다.');
-		$('input[name=gpenddate]').focus();
+	var startday=new Date($('input[name="p_start_date"]').val());	
+	var endday=new Date($('input[name="p_end_date"]').val());	
+	if(sysday>startday){
+		alert('모집시작일이 현재보다 과거일 수 없습니다.');
+		$('input[name="p_start_date"]').focus();
 		return false;
 	}		
-	if($('textarea[name=pcontents]').val().length<20){
-		//alert($('textarea[name=pcontents]').val());
-		alert('지원사업소개는 최소 20자 이상 입력해야 합니다.');
-		$('textarea[name=pcontents]').focus();
-		return false;
-	}
-	return true;
-}
-
-//모집마감일자 작성시 날짜체크
-function enddate_check(){
-	//alert($('input[name=gpenddate]').val());
-	var sysday=new Date();	
-	var endday=new Date($('input[name=gpenddate]').val());
-	if(sysday>endday){
+	
+	if(sysday>=endday){
 		alert('모집마감일이 현재보다 과거일 수 없습니다.');
-		$('input[name=gpenddate]').focus();
+		$('input[name="p_end_date"]').focus();
 		return false;
 	}	
+		
+	if(startday>=endday){
+		alert('모집마감일이 모집시작일보다 과거일 수 없습니다.');
+		$('input[name="p_end_date"]').focus();
+		return false;
+	}		
+	
+	if($('textarea[name=p_content]').val().length<20){
+		//alert($('textarea[name=pcontents]').val());
+		alert('지원사업소개는 최소 20자 이상 입력해야 합니다.');
+		$('textarea[name=p_content]').focus();
+		return false;
+	}
 
+	if($('input[name=item_option]').val()==""){
+		alert('옵셥이 누락됐습니다.');
+		$('input[name=item_option]').focus();
+		return false;
+	}			
+	return true;
 }
 
 //지원내역승인체크

@@ -17,9 +17,9 @@
 		<div >
 			<form method="get" action="admin_cate_list.ad">
 				<select name="whatColumn">
-					<option value="all">전체검색
-					<option value="code">코드
-					<option value="cname">카테고리명
+					<option value="all">전체검색</option>
+					<option value="code">코드</option>
+					<option value="cname">카테고리명</option>
 				</select> 				
 				<input type="text" name="keyword" >
 				<input type="submit" value="검색">

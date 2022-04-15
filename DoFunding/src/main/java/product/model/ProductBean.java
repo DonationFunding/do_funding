@@ -1,12 +1,5 @@
 package product.model;
 
-import java.sql.Timestamp;
-
-import javax.validation.constraints.Future;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Pattern;
-
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,42 +14,35 @@ public class ProductBean {
 	private String p_category_fk;   
 		
 	private String p_writer; 	
-	
-	@NotEmpty(message = "제목"+common)
+
 	private String p_subject; 	
 	
 	//default
 	private int p_readcount;
 	
-	@NotEmpty(message = "사진"+common)
 	private String p_image;    				
 	
-
-	@Length(min = 10, max = 500, message = "10~500 자리로 입력하세요.")
 	private String p_content; 	
 	
 	
 	private String p_like; 	
 	
 
-	//@NotEmpty(message = "단가"+common)
-	@Min(value = 1,message = "단가"+common)
 	private int p_origin_price;  	
 	
 	private int p_total_price; 	
-	
-	
-	//@NotEmpty(message = "목표가"+common)
-	@Min(value = 100,message = "목표가"+common)
+			
 	private int p_end_price;  
 	
 	private int p_point; 	
 	
-	private Timestamp p_reg_date; 	
+	private String p_reg_date; 	
 	
-	private Timestamp p_start_date; 		
+	//스크립트로 처리
+	private String p_start_date; 		
 
-	private Timestamp p_end_date;
+	//스크립트로 처리
+	private String p_end_date;
 	
 	private int orderqty;
 	
@@ -78,7 +64,7 @@ public class ProductBean {
 	
 	public ProductBean(int p_num, String p_category_fk, String p_writer, String p_subject, int p_readcount,
 			String p_image, String p_content, String p_like, int p_origin_price,
-			int p_total_price, int p_end_price, int p_point, Timestamp p_reg_date, Timestamp p_start_date, Timestamp p_end_date,
+			int p_total_price, int p_end_price, int p_point, String p_reg_date, String p_start_date, String p_end_date,
 			int orderqty, MultipartFile upload, String[] item_option, int option_item_no, 
 			int option_no) {
 		super();
@@ -237,22 +223,22 @@ public class ProductBean {
 	public void setP_point(int p_point) {
 		this.p_point = p_point;
 	}
-	public Timestamp getP_reg_date() {
+	public String getP_reg_date() {
 		return p_reg_date;
 	}
-	public void setP_reg_date(Timestamp p_reg_date) {
+	public void setP_reg_date(String p_reg_date) {
 		this.p_reg_date = p_reg_date;
 	}
-	public Timestamp getP_start_date() {
+	public String getP_start_date() {
 		return p_start_date;
 	}
-	public void setP_start_date(Timestamp p_start_date) {
+	public void setP_start_date(String p_start_date) {
 		this.p_start_date = p_start_date;
 	}
-	public Timestamp getP_end_date() {
+	public String getP_end_date() {
 		return p_end_date;
 	}
-	public void setP_end_date(Timestamp p_end_date) {
+	public void setP_end_date(String p_end_date) {
 		this.p_end_date = p_end_date;
 	}
 
