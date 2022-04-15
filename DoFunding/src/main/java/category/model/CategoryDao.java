@@ -60,8 +60,7 @@ public class CategoryDao {
 			CategoryBean category=sqlSessionTemplate.selectOne(namespace+".GetCategory", cnum);
 			return category;
 		}
-<<<<<<< HEAD
-=======
+
 		
 		public int multiDeleteCategory(String[] rowchecks) {    
 			int count = 0;
@@ -79,8 +78,5 @@ public class CategoryDao {
 			
 			
 		}
-
-
->>>>>>> refs/remotes/origin/do-khc
 
 }

@@ -46,23 +46,19 @@
 			<td align="center" >${bdList.b_readcount}</td>
 		</tr>
 		</c:forEach>
-
 </table>
 <br><br>
-<<<<<<< HEAD
-${pageInfo.pagingHtml}
-=======
+
+	<div>
+		<a href="insert.bd" class="btn btn-default btn-sm pull-right">글쓰기</a>	
+	</div>
 	<div class="container">
 		<ul class="pagination pagination-sm">
 			${pageInfo.pagingHtml}		
 		</ul>
-<a href="insert.bd" class="btn btn-default btn-sm pull-right">글쓰기</a>	
 	</div>
->>>>>>> refs/remotes/origin/do-khc
 </center>
 
-<<<<<<< HEAD
-=======
 <form action="list.bd" method="get" class="row g-3">
 <p>
 	<select name="whatColumn">
@@ -76,4 +72,4 @@ ${pageInfo.pagingHtml}
 </p>	
 </form>
 <%@ include file="../common/common_bottom.jsp" %>  
->>>>>>> refs/remotes/origin/do-khc
+

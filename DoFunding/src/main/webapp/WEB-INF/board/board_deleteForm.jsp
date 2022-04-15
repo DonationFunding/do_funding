@@ -1,15 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
+
 <%@ include file="../common/common_top.jsp" %>	
-=======
-    <%@ include file="../common/common.jsp" %>
-<%@ include file="../common/common_top.jsp" %>	
+
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 </head>
->>>>>>> refs/remotes/origin/do-khc
 <form method="post" action="delete.bd">
 	<input type="hidden" name="b_num" value="${bdBean.b_num}">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
@@ -28,11 +25,7 @@
 			</td>
 		</tr>
 	</table>
-<<<<<<< HEAD
-</form>
-
-=======
 	</div>
 </form>
->>>>>>> refs/remotes/origin/do-khc
+
 <%@ include file="../common/common_bottom.jsp" %>

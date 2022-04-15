@@ -236,14 +236,12 @@ create sequence seqoid start with 1 increment by 1 nocache ;
 
  DROP TABLE do_order CASCADE CONSTRAINTS;
  
-<<<<<<< HEAD
+
 drop sequence seqoid ;
 create sequence seqoid start with 1 increment by 1 nocache ;
 
  DROP TABLE do_order CASCADE CONSTRAINTS;
- 
-=======
->>>>>>> refs/remotes/origin/do-hjh
+
 create table do_order(
 --주문번호
   o_num number primary key,

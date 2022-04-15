@@ -31,7 +31,8 @@ public class productDetailController {
 	@Qualifier("myProductDao")
 	private ProductDao productDao;	
 		
-	@Autowired
+	@Autowired	
+	@Qualifier("myDipDao")
 	private DipDao dipDao; 
 	
 	@RequestMapping(value = command ,method = RequestMethod.GET)

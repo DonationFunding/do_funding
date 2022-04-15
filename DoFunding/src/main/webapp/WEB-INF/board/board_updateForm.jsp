@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-<%@ include file="../common/common_top.jsp" %>    
-updateForm.jsp<br>
-=======
-<%@ include file="../common/common.jsp" %>  
-<%@ include file="../common/common_top.jsp" %>	    
 
->>>>>>> refs/remotes/origin/do-khc
+<%@ include file="../common/common_top.jsp" %>    
+
 <style type="text/css">
 	body{
 		text-align: center;
@@ -64,9 +59,6 @@ updateForm.jsp<br>
 		</tr>
 	</table>
 </form>
-<<<<<<< HEAD
-<%@ include file="../common/common_bottom.jsp" %>  
-=======
 
 <%@ include file="../common/common_bottom.jsp" %>
->>>>>>> refs/remotes/origin/do-khc
+

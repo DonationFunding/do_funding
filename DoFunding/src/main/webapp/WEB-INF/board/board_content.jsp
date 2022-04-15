@@ -1,13 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <%@ include file="../common/common_top.jsp" %>	 
-content.jsp<br>
-=======
-<%@ include file="../common/common.jsp" %>  
-<%@ include file="../common/common_top.jsp" %>	 
-<br><br>
->>>>>>> refs/remotes/origin/do-khc
+
 <style type="text/css">
 	body{
 		text-align: center;
@@ -42,15 +36,7 @@ content.jsp<br>
 		<th class="text-center" width="100">조회수</th>
 		<td>${bdBean.b_readcount}</td>
 	</tr>
-<<<<<<< HEAD
-	<tr align="center">
-		<td >글제목</td>
-		<td colspan="3">${bdBean.b_subject}</td>
-	</tr>
-	<tr height="50">
-		<td align="center" >글내용</td>
- 		<td colspan="3" >
-=======
+
 	
 	<tr height="200">
 	     <th class="text-center">글내용</th>
@@ -61,7 +47,6 @@ content.jsp<br>
 		</td> 
 --%>
  		<td colspan="6" >
->>>>>>> refs/remotes/origin/do-khc
 			${bdBean.getB_content() }
 		</td>
 	</tr>
@@ -75,14 +60,10 @@ content.jsp<br>
 		</td>
 	</tr>		
 </table>
-<<<<<<< HEAD
-</body> 
-<%@ include file="../common/common_bottom.jsp" %>	
-=======
 </div>
 </body> 
 
 <br><br>
 <%@ include file="../common/common_bottom.jsp" %>
 
->>>>>>> refs/remotes/origin/do-khc
+

@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
+
 <%@ include file="../common/common_top.jsp" %>  
-=======
-<link rel="stylesheet" href="style.css">
-<%@ include file="../common/common.jsp" %>	
-<%@ include file="../common/common_top.jsp" %>	  
->>>>>>> refs/remotes/origin/do-khc
+
 <style type="text/css">
 	body{
 		text-align: center;
@@ -71,13 +67,9 @@
 		</td>
 	</tr>
 </table>
-<<<<<<< HEAD
-</form>
-<%@ include file="../common/common_bottom.jsp" %>  
-=======
 </div>
 </form>
 </body>
 
 <%@ include file="../common/common_bottom.jsp" %>
->>>>>>> refs/remotes/origin/do-khc
+

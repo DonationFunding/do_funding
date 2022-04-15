@@ -52,6 +52,7 @@ public class MemberLoginController {
 		else {
 
 			if(loginInfo.getPassword().equals(membean.getPassword())) {
+				
 				session.setAttribute("loginInfo", loginInfo);
 				
 				
@@ -60,6 +61,7 @@ public class MemberLoginController {
 					return gotoPage;
 				}
 				else {
+					
 					return destination;					
 				}
 			}
