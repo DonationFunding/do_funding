@@ -22,6 +22,14 @@
  	<select id="OrderList" resultType="MyOrder">
  		select * from do_order where o_mnum = #{o_mnum} order by o_num desc
  	</select>
+ 	
+ 	
+ 	<select id="DetailList" resultType="MyOrder">
+ 		select * from do_order where o_mnum = #{o_mnum} order by o_num desc
+ 	</select>
+ 	
+ 	
+ 	
 </mapper>
 
 <!-- order.xml -->

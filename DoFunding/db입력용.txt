@@ -326,13 +326,13 @@ create sequence seqod start with 1 increment by 1 nocache ;
  
 create table do_orderdetail(
   od_no number references do_order(o_num) on delete set null primary key,
-  od_id number references do_members(id) on delete set null,
-  od_pnum number references do_product(p_num) on delete set null,
+  od_m_no number references do_members(no) on delete set null,
+  od_p_num number references do_product(p_num) on delete set null,
   od_qty number not null,
   od_price number not null,
   od_amount number not null,
-  od_option varchar2(30) not null,
-  od_deliver varchar2(30) not null
+  od_option varchar2(100) not null,	
+  od_deliver varchar2(30) not null	
 );
 
 commit;
