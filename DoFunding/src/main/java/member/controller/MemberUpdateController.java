@@ -37,11 +37,16 @@ public class MemberUpdateController {
 	public String doAction(MemberBean membean,HttpServletRequest request,HttpServletResponse response) {
 		response.setContentType("text/html; charset=UTF-8");
 <<<<<<< do-kyg
+<<<<<<< do-kyg
 		//int cnt = mdao.updateMember(membean);
 		int cnt=-1;
 
 =======
 		int cnt = mdao.updateMember(membean);
+=======
+		int cnt = mdao.updateMember(membean);
+		
+>>>>>>> 2b8b68b dd
 		
 		
 >>>>>>> 2b8b68b dd
