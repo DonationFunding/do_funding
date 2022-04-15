@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import dip.model.DipBean;
-import dip.model.DipDao;
 import member.model.MemberBean;
 import product.model.OptionBean;
 import product.model.ProductBean;
@@ -31,9 +29,6 @@ public class productDetailController {
 	@Qualifier("myProductDao")
 	private ProductDao productDao;	
 		
-	@Autowired	
-	@Qualifier("myDipDao")
-	private DipDao dipDao; 
 	
 	@RequestMapping(value = command ,method = RequestMethod.GET)
 	public String doAction(

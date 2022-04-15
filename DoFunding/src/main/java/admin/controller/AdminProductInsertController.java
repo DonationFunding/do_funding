@@ -51,17 +51,27 @@ public class AdminProductInsertController {
 	
 	@RequestMapping(value=command, method=RequestMethod.POST) 
 	 public ModelAndView doAction(
-			 @ModelAttribute("prdBean") ProductBean prdBean
-			) {	 
+			 @ModelAttribute("prdBean") @Valid ProductBean prdBean, 
+			 BindingResult result) {	 
 		 ModelAndView mav = new ModelAndView();
+
+		 
+		 if(result.hasErrors()) {
+			 System.out.println(result.getErrorCount());	//6
+			 List<CategoryBean> cateList = categoryDao.categoryAllByProduct();
+			 mav.addObject("cateList", cateList);
+			 mav.setViewName(getPage);
+			 return mav;
+		 }
+		 
 		 
 		 prdBean.setP_point(Math.round(prdBean.getP_origin_price()/1000)*10);
 		 int cnt = productDao.insertProduct(prdBean); 
 
 		 if(cnt > 0) {
-			 //옵션추가부분 최근 가입시킨 제품번호 가져오기
+
+			 //옵션추가부분
 			 int item_no=productDao.getP_num();
-			 System.out.println("item_no:"+item_no);
 			 prdBean.setOption_item_no(item_no);
 			 for (int i = 0; i < prdBean.getItem_option().length; i++) {
 				 String itemOptionContent = prdBean.getItem_option()[i];	//옵션 1개 값

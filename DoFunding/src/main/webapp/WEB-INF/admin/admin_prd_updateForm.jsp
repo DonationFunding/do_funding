@@ -199,14 +199,12 @@ $(document).ready(function(){
 						<form:errors cssClass="err" path="p_end_price" />
 					</td>
 				</tr>	
-		<c:set var="p_start_date">
-			<fmt:parseDate value="${prdBean.p_start_date}" var="dateValue" pattern="yyyy-MM-dd" />
-			<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />	
-		</c:set> 
-		<c:set var="p_end_date">
-			<fmt:parseDate value="${prdBean.p_end_date}" var="dateValue" pattern="yyyy-MM-dd" />
-			<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />	
-		</c:set> 							
+<c:set var="p_start_date">
+	<fmt:formatDate value="${prdBean.p_start_date}" pattern="yyyy-MM-dd" />
+</c:set> 
+<c:set var="p_end_date">
+	<fmt:formatDate value="${prdBean.p_end_date}" pattern="yyyy-MM-dd" />
+</c:set> 							
 				<tr>
 					<th>펀딩 시작일</th>
 					<td>
@@ -251,7 +249,7 @@ $(document).ready(function(){
 				</div>
 			</div>
 			<div>
-				<input type="submit" value="상품수정하기" onclick="return prdcheck()">
+				<input type="submit" value="상품수정하기">
 			</div>
 		</form:form>	
 	</div>

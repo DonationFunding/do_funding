@@ -13,15 +13,6 @@
 		<if test="whatColumn == 'p_content'">
 			where p_content like #{keyword}
 		</if>
-		<if test="whatColumn == 'p_ing'">
-			where p_end_date > sysdate and sysdate > p_start_date 
-		</if>
-		<if test="whatColumn == 'p_end'">
-			where sysdate > p_end_date
-		</if>
-		<if test="whatColumn == 'p_future'">
-			where  p_start_date > sysdate 
-		</if>	
 		order by p_num desc
 	</select>
 	
@@ -33,24 +24,9 @@
 		<if test="whatColumn=='p_content'">
 			where p_content like #{keyword}
 		</if>
-		<if test="whatColumn == 'p_ing'">
-			where p_end_date > sysdate and sysdate > p_start_date 
-		</if>
-		<if test="whatColumn == 'p_end'">
-			where sysdate > p_end_date
-		</if>
-		<if test="whatColumn == 'p_future'">
-			where  p_start_date > sysdate 
-		</if>		
 		order by p_num desc
 	</select>
 	
-	<select id="RotatorList" resultType="MyProduct">
-		
- 		select * from do_product  where p_readcount between (select max(p_readcount) from do_product)-3
- 		 and (select max(p_readcount) from do_product) 	
- 	</select>
- 	
 	<select id="GetProduct" resultType="MyProduct">
  		select * from do_product where p_num=#{p_num}	
  	</select>
@@ -78,10 +54,7 @@
 	</delete>
 
 	<update id="UpdateProduct">
- 		update do_product set p_category_fk=#{p_category_fk}, p_subject=#{p_subject}, 
- 		p_image=#{p_image}, p_content=#{p_content}, p_origin_price=#{p_origin_price}, 
- 		p_end_price=#{p_end_price}, p_point=#{p_point}, p_start_date=#{p_start_date}, 
- 		p_end_date=#{p_end_date}
+ 		update do_product set p_category_fk=#{p_category_fk}, p_subject=#{p_subject}, p_image=#{p_image}, p_content=#{p_content}, p_origin_price=#{p_origin_price}, p_end_price=#{p_end_price}, p_point=#{p_point}, p_start_date=#{p_start_date}, p_end_date=#{p_end_date}
  		where p_num = ${p_num}
 	</update>
 	

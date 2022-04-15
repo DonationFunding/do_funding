@@ -55,7 +55,7 @@
 				<h1 class="banner-inner">banner</h1>
 			</div>
 			<h1 class="logo">
-				<a href="<c:url value="list.prd"/>">두펀딩</a>
+				<a href="<c:url value="/"/>">두펀딩</a>
 			</h1>
 
 			<div class="mobile-menu-wrap">
@@ -76,9 +76,9 @@
 							<li class="m3"><a href="#">펀딩상품</a>
 								<div class="secMenu secMenu1" align="center">
 									<ul>
-										<li><a href="list.prd?whatColumn=p_ing">진행중인 펀딩</a></li>
-										<li><a href="list.prd?whatColumn=p_end">마감된 펀딩</a></li>
-										<li><a href="list.prd?whatColumn=p_future">공개 예정</a></li>
+										<li><a href="#">진행중인 펀딩</a></li>
+										<li><a href="#">마감된 펀딩</a></li>
+										<li><a href="#">공개 예정</a></li>
 									</ul>
 								</div></li>
 							<!-- 					<li class="m4 no-sub"> -->

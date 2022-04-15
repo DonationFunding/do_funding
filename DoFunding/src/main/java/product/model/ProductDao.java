@@ -31,7 +31,6 @@ public class ProductDao {
 
 	public int insertProduct(ProductBean bean) {
 		int cnt = -1;
-		System.out.println(1111111);
 		cnt = sqlSessionTemplate.insert(namespace+".InsertProduct", bean);
 		return cnt;
 	}
@@ -106,11 +105,6 @@ public class ProductDao {
 		return count;
 		
 		
-	}
-
-	public List<ProductBean> rotatorList() {
-		List<ProductBean> list=sqlSessionTemplate.selectList(namespace+".RotatorList");
-		return list;
 	}
 
 

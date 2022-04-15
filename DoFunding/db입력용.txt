@@ -77,12 +77,6 @@ insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할�
 insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-15');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-10');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-8');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-4-30','2022-5-22');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-5-1','2022-5-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-5-15','2022-5-19');
 
 --옵션 테이블
 drop sequence seqdo_option;

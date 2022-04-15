@@ -147,13 +147,14 @@ $(document).ready(function(){
 									<option  value="${cateBean.getCode()}" <c:if test="${cateBean.code eq prdBean.p_category_fk }"> selected</c:if>> ${cateBean.getCname()}</option>
 								</c:forEach>
 						</select>
-	
+						<form:errors cssClass="err" path="p_category_fk" />
 					</td>
 				</tr>
 				<tr>
 					<th>펀딩 제목</th>
 					<td>
 						<input type="text" name="p_subject" value="${prdBean.p_subject}">
+						<form:errors cssClass="err" path="p_subject" />
 					</td>
 				</tr>
 				<tr>
@@ -165,9 +166,10 @@ $(document).ready(function(){
 					</td>
 				</tr>
 				<tr>
-					<th>펀딩 내용</th>
+					<th>게시글 내용</th>
 					<td>
 						<textarea name="p_content" rows="15" cols="50" style="resize: none;">${productBean.p_content}</textarea>
+						<form:errors cssClass="err" path="p_content" />
 					</td>
 				</tr>
 				<tr>
@@ -179,6 +181,7 @@ $(document).ready(function(){
 						<c:if test="${prdBean != null}">
 							<input type="text" name="p_origin_price" value="${prdBean.p_origin_price}">
 						</c:if>											
+						<form:errors cssClass="err" path="p_origin_price" />
 					</td>
 				</tr>
 				<tr>
@@ -189,7 +192,8 @@ $(document).ready(function(){
 						</c:if>
 						<c:if test="${prdBean != null}">
 							<input type="text" name="p_end_price" value="${prdBean.p_end_price}">
-						</c:if>				
+						</c:if>						
+						<form:errors cssClass="err" path="p_end_price" />
 					</td>
 				</tr>				
 				<tr>
@@ -224,7 +228,7 @@ $(document).ready(function(){
 <!-- 								<input type='text' placeholder='옵션' class='form-control input-lg'  style='float:left;' name='item_option' id='item_option'>-->									
 									<input type='text' placeholder='옵션'  style='float:left;' name='item_option' id='item_option'>
 									<button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn' class='btn-btn dark'>삭제</button>
-
+									<form:errors cssClass="err" path="item_option" />
 								<br></div>
 							</div>
 						</div>
@@ -235,7 +239,7 @@ $(document).ready(function(){
 				</div>
 			</div>
 			<div>
-				<input type="submit" value="상품추가하기" onclick="return prdcheck()">
+				<input type="submit" value="상품추가하기">
 			</div>
 		</form:form>	
 	</div>
