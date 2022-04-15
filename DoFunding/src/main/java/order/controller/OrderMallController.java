@@ -33,6 +33,7 @@ public class OrderMallController {
 
 	@Autowired
 	private OrderDao orderDao;
+	@Autowired
 	private ProductDao productDao;
 
 	// start.jsp에서 나의 주문 내역 클릭
