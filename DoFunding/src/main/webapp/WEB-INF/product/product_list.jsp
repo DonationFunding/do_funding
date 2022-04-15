@@ -99,16 +99,21 @@
 		</c:if>
 		<c:if test="${list ne null}">
 			<div>
-				<table border="1" width="80%" >
+				<table border="1" width="800" >
 					<tr>						
 						<c:forEach var="p_product" items="${list}" varStatus="status">
-							<td align="center">
-								<a href="detail.prd?p_num=${p_product.p_num}&pageNumber=${pageInfo.pageNumber}"> 
-								<img width="80%"
-									alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-									src="<%=request.getContextPath() %>/resources/images/${p_product.p_image}"><br>
-									${p_product.p_subject}<br> 
-								</a>
+							<td align="center" width="250px">
+								<table style="text-align: center;">
+									<tr>
+										<td>
+											<a href="detail.prd?p_num=${p_product.p_num}&pageNumber=${pageInfo.pageNumber}"> 
+											<img width="250px" height="250px"
+												alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
+												src="<%=request.getContextPath() %>/resources/images/${p_product.p_image}"><br>
+												${p_product.p_subject}<br> 
+											</a>
+										</td>
+									</tr>
 								 <c:set var="p_start_date">
 									<fmt:parseDate value="${p_product.p_start_date}"
 										var="dateValue" pattern="yyyy-MM-dd" />
@@ -118,23 +123,39 @@
 										var="dateValue" pattern="yyyy-MM-dd" />
 									<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
 								</c:set> 
-								${p_start_date} ~ ${p_end_date}<br> 
-								상태: ${p_product.p_total_price}/${p_product.p_end_price}원<br>
-								${(p_product.p_total_price/p_product.p_end_price)*100} %<br> <input
-								type="range" width="80%" name="userRange" min="1"
-								max="${p_product.p_end_price}"
-								step="${p_product.p_end_price/100}"
-								value="${p_product.p_total_price}" disabled="disabled" /> <c:if
-									test="${fn:contains(p_product.p_like,sessionScope.loginInfo.id)}">
-									<img
-										alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-										src="<%=request.getContextPath() %>/resources/images/hot.gif">
-								</c:if> <c:if
-									test="${!fn:contains(p_product.p_like,sessionScope.loginInfo.id)}">
-									<img
-										alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-										src="<%=request.getContextPath() %>/resources/images/re.gif">
-								</c:if> <br>
+									<tr>
+										<td>
+										${p_start_date} ~ ${p_end_date}
+										</td>
+									</tr>	 
+									<tr>
+										<td>
+										상태: ${p_product.p_total_price}/${p_product.p_end_price}원
+										</td>
+									</tr>
+									<tr>
+										<td>
+										${(p_product.p_total_price/p_product.p_end_price)*100} %<br>
+										</td>
+									</tr>	 
+									<tr>
+										<td>
+								 			<input type="range" width="80%" name="userRange" min="1" max="${p_product.p_end_price}" step="${p_product.p_end_price/100}" value="${p_product.p_total_price}" disabled="disabled" /> 
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<c:if test="${fn:contains(p_product.p_like,sessionScope.loginInfo.id)}">
+											<img alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
+												src="<%=request.getContextPath() %>/resources/images/hot.gif">
+										</c:if> 
+										<c:if test="${!fn:contains(p_product.p_like,sessionScope.loginInfo.id)}">
+											<img alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
+												src="<%=request.getContextPath() %>/resources/images/re.gif">
+										</c:if> 
+										</td>
+									</tr>	
+								</table>
 							</td>
 							<c:if test="${status.count%3 == 0 }"></tr><tr></c:if>
 						</c:forEach>
