@@ -41,13 +41,8 @@ public class AdminCategoryUpdateController {
 
 	@RequestMapping(value=command, method = RequestMethod.POST)
 	public ModelAndView doAction(
-<<<<<<< HEAD
 			@RequestParam(value="pageNumber", required = false) int pageNumber,			
 			@ModelAttribute("cateBean") @Valid CategoryBean bean,
-=======
-			@RequestParam(value="pageNunber", required = false) int pageNumber,			
-			@ModelAttribute("category") @Valid CategoryBean bean,
->>>>>>> refs/remotes/origin/do-hjh
 			BindingResult result
 			){
 		

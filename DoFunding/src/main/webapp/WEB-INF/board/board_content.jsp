@@ -37,11 +37,6 @@ content.jsp<br>
 	</tr>
 	<tr height="50">
 		<td align="center" >글내용</td>
-<%-- 		
-		<td colspan="3" >
-			<textarea name=content rows="2"  readonly="readonly" >${bdBean.getContent() }</textarea>
-		</td> 
---%>
  		<td colspan="3" >
 			${bdBean.getB_content() }
 		</td>

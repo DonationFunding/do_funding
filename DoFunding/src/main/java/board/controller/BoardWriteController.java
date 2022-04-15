@@ -29,11 +29,6 @@ public class BoardWriteController {
 	@Autowired
 	private BoardDao boardDao;
 
-<<<<<<< HEAD
-
-=======
-	//boardList.jsp get¹æ½Ä writeArticle.bv
->>>>>>> refs/remotes/origin/do-hjh
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(HttpSession session) {	
 		System.out.println("loginInfo:"+session.getAttribute("loginInfo")); // null
