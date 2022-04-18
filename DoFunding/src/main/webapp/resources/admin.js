@@ -2,151 +2,89 @@
  *  admin.js
  */
 
-var using_dep; //부서번호 중복체크용
-var isCheck; //부서번호 중복체크 버튼 클릭t/f
+//다중 삭제
+function selectDelete() {
 
-$(function(){ //ready
-	$('input[name=dcode]').keydown(function(){
-		$('#depmessage').css('display','none');
-		isCheck =false;
-		using_dep="impossible";
-	});	
-});//ready
+	var chkArr = document.getElementsByName("rowcheck");
 
-//부서 중복체크
-function duplicate(){
-	isCheck=true;
-	$.ajax({
-			url :"dep_check_proc.jsp" ,
-			data:({
-				dep_code: $('input[name="dcode"]').val()
-			}),
-			success: function(data){
-				if($('input[name=dcode]').val()==""){
-					$('#depmessage').html("<font color=red>부서번호 입력 누락</font>");
-					$('#depmessage').show();	
-					using_dep="impossible";
-				}
-				else if($.trim(data)=="YES"){ //가능
-					$('#depmessage').html("<font color=red>사용 가능한 부서번호 입니다.</font>");
-					$('#depmessage').show();
-					using_dep="possible";
-				}
-				else{
-					$('#depmessage').html("<font color=red>이미 사용중인 부서번호 입니다.</font>");
-					$('#depmessage').show();
-					using_dep="impossible";
-				}
-			}//success			
-	});//ajax
-}//duplicate
-
-//부서입력 submit
-function DepWrite(){
-
-	if($('input[name=dcode]').val()==""){
-		alert('부서코드를 입력해주세요.');
-		$('input[name=dcode]').focus();
-		return false;
-	}	
-	if(isCheck ==false ){
-		alert("중복체크 먼저 하세요.");
-		return false;
+	flag = false;
+	for (var i = 0; i < chkArr.length; i++) {
+		if (chkArr[i].checked == true) {
+			flag = true;
+		}
 	}
-	if(using_dep=="impossible"){	
-		alert("이미 사용중인 부서코드입니다.");
-		$('input[name=dcode]').select();
-		return false;
+	if (flag == false) {
+		alert("삭제할 체크박스를 하나라도 선택하세요.");
+		return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
 	}
-	
-	if($('input[name=dname]').val()==""){
-		alert('부서이름을 입력해주세요.');
-		return false;
-	}	
-	if($('input[name=dhp1]').val()==""){
-		alert('부서연락망 값이 누락되었습니다.');
-		$('input[name=dhp1]').focus();
-		return false;
-	}	
-	if(isNaN($('input[name=dhp1]').val())){
-		alert('부서연락망 값은 숫자만 입력 가능합니다.');
-		$('input[name=dhp1]').focus();
-		return false;
-	}	
-	if($('input[name=dhp2]').val()==""){
-	alert('부서연락망 값이 누락되었습니다.');
-		$('input[name=dhp2]').focus();
-		return false;
+	var dep = confirm("정말 삭제하시겠습니까?");
+	if(dep){
+		document.myform.submit();//submit 누른것처럼 동작해라.
 	}
-	if(isNaN($('input[name=dhp2]').val())){
-		alert('부서연락망 값은 숫자만 입력 가능합니다.');
-		$('input[name=dhp2]').focus();
-		return false;
-	}		
-	if($('input[name=dhp3]').val()==""){
-		alert('부서연락망 값이 누락되었습니다.');
-		$('input[name=dhp3]').focus();
-		return false;
-	}	
-	if(isNaN($('input[name=dhp3]').val())){
-		alert('부서연락망 값은 숫자만 입력 가능합니다.');
-		$('input[name=dhp3]').focus();
-		return false;
-	}		
-			
-}//Depwrite
-
-//부서수정 submit	
-function DepUpdate(){
-	if($('input[name=dname]').val()==""){
-		alert('부서이름을 입력해주세요.');
-		return false;
-	}	
-	if($('input[name=dhp1]').val()==""){
-		alert('부서연락망 값이 누락되었습니다.');
-		$('input[name=dhp1]').focus();
-		return false;
-	}	
-	if(isNaN($('input[name=dhp1]').val())){
-		alert('부서연락망 값은 숫자만 입력 가능합니다.');
-		$('input[name=dhp1]').focus();
-		return false;
-	}	
-	if($('input[name=dhp2]').val()==""){
-	alert('부서연락망 값이 누락되었습니다.');
-		$('input[name=dhp2]').focus();
-		return false;
-	}
-	if(isNaN($('input[name=dhp2]').val())){
-		alert('부서연락망 값은 숫자만 입력 가능합니다.');
-		$('input[name=dhp2]').focus();
-		return false;
-	}		
-	if($('input[name=dhp3]').val()==""){
-		alert('부서연락망 값이 누락되었습니다.');
-		$('input[name=dhp3]').focus();
-		return false;
-	}	
-	if(isNaN($('input[name=dhp3]').val())){
-		alert('부서연락망 값은 숫자만 입력 가능합니다.');
-		$('input[name=dhp3]').focus();
-		return false;
-	}				
-}//Depwrite
+}//selectDelete
 
 
-//부서삭제
-function deleteDep(dnum){
-	//alert(dnum);	부서번호
-	//var contextPath= getContextPath();
+//카테고리 추가
+function inserCate() {
+	location.href="admin_cate_insert.ad"; 
+}
+//카테고리 수정
+function updateCate(cnum, pageNumber) {
+	location.href = "admin_cate_update.ad?cnum=" + cnum + "&pageNumber="
+			+ pageNumber;
+}
+//카테고리 삭제
+function deleteCate(cnum,pageNumber){
 	var dep = confirm("정말 삭제하시겠습니까?");
 	//prompt : 값을 입력 받을 수 있는 창 (제목, 초기값) 확인/취소 버튼이 있음.
 	//comfirm : YES/NO t/f
 	//alert(dep);
 	if(dep){
-		location.href="dep_delete_proc.jsp?dnum="+dnum;
+		location.href="admin_cate_delete.ad?cnum="+cnum+"&pageNumber="+ pageNumber;
 	}
-}//deleteDep
+}//deleteCate
+
+
+//펀딩 추가
+function insertPrd() {
+	location.href="admin_prd_insert.ad"; 
+}
+//펀딩 수정
+function updatePrd(p_num,pageNumber){
+	location.href = "admin_prd_update.ad?p_num=" + p_num + "&pageNumber="+ pageNumber;
+}//updatePrd
+//펀딩 삭제
+function deletePrd(p_num,pageNumber){
+	var dep = confirm("정말 삭제하시겠습니까?");
+	//prompt : 값을 입력 받을 수 있는 창 (제목, 초기값) 확인/취소 버튼이 있음.
+	//comfirm : YES/NO t/f
+	//alert(dep);
+	if(dep){
+		location.href="admin_prd_delete.ad?p_num="+p_num+"&pageNumber="+ pageNumber;
+	}
+}//deletePrd
+
+
+//게시글 추가
+/*function insertPrd() {
+	location.href="admin_prd_insert.ad"; 
+}*/
+//게시글 수정
+/*function updatePrd(b_num,pageNumber){
+	location.href = "admin_prd_update.ad?b_num=" + b_num + "&pageNumber="+ pageNumber;
+}//updatePrd*/
+//게시글 삭제
+function deleteBd(b_num,pageNumber){
+	var dep = confirm("정말 삭제하시겠습니까?");
+	//prompt : 값을 입력 받을 수 있는 창 (제목, 초기값) 확인/취소 버튼이 있음.
+	//comfirm : YES/NO t/f
+	//alert(dep);
+	if(dep){
+		location.href="admin_bd_delete.ad?b_num="+b_num+"&pageNumber="+ pageNumber;
+	}
+}//deletePrd
+
+
 
 //회원정보삭제
 function deleteMem(gnum){
@@ -161,7 +99,22 @@ function deleteMem(gnum){
 	}
 }//deleteMem
 
-
+//선택삭제
+function selectDelete(){
+	//alert(1);
+	var chkArr = document.getElementsByName("rowcheck");
+	flag=false; //유효성 검사
+	for(var i=0;i<chkArr.length;i++){
+		if(chkArr[i].checked==true){
+			flag=true;
+		}
+	}
+	if(flag==false){
+		alert("삭제할 체크박스를 하나라도 선택하세요.");
+		return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
+	}
+	document.myform.submit();//submit 누른것처럼 동작해라.	
+}
 
 function allRowCheck(allck){ 
 	var chkArr = document.getElementsByName("rowcheck");
@@ -178,67 +131,88 @@ function allRowCheck(allck){
     }
 }// allRowCheck
 
-//국가지원사업 수정용
-function check(){
-	//alert(1);
-	if($('input[name=gpsubject]').val()==""){
-		alert('지원사업명이 누락됐습니다.');
-		$('input[name=gpsubject]').focus();
+
+function prdcheck(){
+	alert(1);
+
+	if($('input[name=p_subject]').val()==""){
+		alert('제목 입력 누락');
+		$('input[name=p_subject]').focus();
 		return false;
 	}	
-	if($('input[name=gpqty_full]').val()==""){
-		alert('모집정원 입력란이 누락됐습니다.');
-		$('input[name=gpqty_full]').focus();
+	if($('input[name=upload]').val()==""){
+		alert('이미지 입력 누락');
+		$('input[name=upload]').focus();
 		return false;
 	}	
-	if($('input[name=gpprice]').val()==""){
-		alert('지원사업규모 입력란이 누락됐습니다.');
-		$('input[name=gpprice]').focus();
+	if($('input[name=p_origin_price]').val()==""){
+		alert('단가 입력 누락');
+		$('input[name=p_origin_price]').focus();
 		return false;
 	}	
-	if($('textarea[name=pcontents]').val()==""){
-		alert('지원사업소개가 누락됐습니다.');
-		$('textarea[name=pcontents]').focus();
+	if($('input[name=p_end_price]').val()==""){
+		alert('목표가 입력 누락');
+		$('input[name=p_end_price]').focus();
+		return false;
+	}		
+	var p_origin_price=Number($('input[name=p_origin_price]').val());
+	alert(2);
+	if(p_origin_price<1000){
+		alert('단가는 최소 1,000원  이상입니다.');
+		$('input[name=p_origin_price]').focus();
 		return false;
 	}	
-	if($('input[name=gpstartdate]').val()==""){
+	var p_end_price=Number($('input[name=p_end_price]').val());
+	if(p_end_price<100000){
+		alert('목표 금액은 최소 100,000원 이상입니다.');
+		$('input[name=p_end_price]').focus();
+		return false;
+	}	
+	if($('input[name=p_start_date]').val()==""){
 		alert('모집기간값이 누락됐습니다.');
-		$('input[name=gpstartdate]').focus();
+		$('input[name=p_start_date]').focus();
 		return false;
 	}	
-	if($('input[name=gpenddate]').val()==""){
+	if($('input[name=p_end_date]').val()==""){
 		alert('모집기간값이 누락됐습니다.');
-		$('input[name=gpenddate]').focus();
+		$('input[name=p_end_date]').focus();
 		return false;
 	}
 	
 	var sysday=new Date();	
-	var endday=new Date($('input[name=gpenddate]').val());	
-	if(sysday>=endday){
-		alert('모집마감일이 현재보다 과거일 수 없습니다.');
-		$('input[name=gpenddate]').focus();
+	var startday=new Date($('input[name="p_start_date"]').val());	
+	var endday=new Date($('input[name="p_end_date"]').val());	
+	if(sysday>startday){
+		alert('모집시작일이 현재보다 과거일 수 없습니다.');
+		$('input[name="p_start_date"]').focus();
 		return false;
 	}		
-	if($('textarea[name=pcontents]').val().length<20){
-		//alert($('textarea[name=pcontents]').val());
-		alert('지원사업소개는 최소 20자 이상 입력해야 합니다.');
-		$('textarea[name=pcontents]').focus();
-		return false;
-	}
-	return true;
-}
-
-//모집마감일자 작성시 날짜체크
-function enddate_check(){
-	//alert($('input[name=gpenddate]').val());
-	var sysday=new Date();	
-	var endday=new Date($('input[name=gpenddate]').val());
-	if(sysday>endday){
+	
+	if(sysday>=endday){
 		alert('모집마감일이 현재보다 과거일 수 없습니다.');
-		$('input[name=gpenddate]').focus();
+		$('input[name="p_end_date"]').focus();
 		return false;
 	}	
+		
+	if(startday>=endday){
+		alert('모집마감일이 모집시작일보다 과거일 수 없습니다.');
+		$('input[name="p_end_date"]').focus();
+		return false;
+	}		
+	
+	if($('textarea[name=p_content]').val().length<20){
+		//alert($('textarea[name=pcontents]').val());
+		alert('지원사업소개는 최소 20자 이상 입력해야 합니다.');
+		$('textarea[name=p_content]').focus();
+		return false;
+	}
 
+	if($('input[name=item_option]').val()==""){
+		alert('옵셥이 누락됐습니다.');
+		$('input[name=item_option]').focus();
+		return false;
+	}			
+	return true;
 }
 
 //지원내역승인체크

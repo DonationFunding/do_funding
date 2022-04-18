@@ -1,19 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>    
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ include file="../common/common_top.jsp" %>    
-<head> 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
-</head>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="<%=request.getContextPath() %>/resources/js/bootstrap.min.js"></script>
-
 <style type="text/css">
 	body{
 		text-align: center;
@@ -39,7 +25,7 @@
 	
 		<c:forEach var="bdList" items="${requestScope.bdList}" varStatus="status">
 		<tr>
-			<td align="center" >${requestScope.totalCount - (requestScope.pageInfo.pageNumber-1)*requestScope.pageInfo.pageSize - status.index}</td>
+			<td align="center" >${requestScope.totalCount - (requestScope.pageInfo.pageNumber-1)*requestScope.pageInfo.pageSize}</td>
 			<td>
 				<c:if test="${bdList.b_re_level>0}">
 					<c:set var="wid" value="${bdList.b_re_level*20}"/>
@@ -60,14 +46,16 @@
 			<td align="center" >${bdList.b_readcount}</td>
 		</tr>
 		</c:forEach>
-
 </table>
 <br><br>
+
+	<div>
+		<a href="insert.bd" class="btn btn-default btn-sm pull-right">글쓰기</a>	
+	</div>
 	<div class="container">
 		<ul class="pagination pagination-sm">
 			${pageInfo.pagingHtml}		
 		</ul>
-<a href="insert.bd" class="btn btn-default btn-sm pull-right">글쓰기</a>	
 	</div>
 </center>
 
@@ -84,3 +72,4 @@
 </p>	
 </form>
 <%@ include file="../common/common_bottom.jsp" %>  
+

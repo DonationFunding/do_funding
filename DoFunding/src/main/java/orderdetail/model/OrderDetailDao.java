@@ -10,14 +10,18 @@ public class OrderDetailDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	private String namespace="orderdetail.model.OrderDetail";
+	private String namespace = "orderdetail.model.OrderDetail";
 
-	public int insertOrderDetail(OrderDetailBean odBean) {
-		System.out.println(odBean.getOid());
-		System.out.println(odBean.getPnum());
-		System.out.println(odBean.getQty());
-		int cnt=sqlSessionTemplate.insert(namespace+".InsertOrderDetail", odBean);
-		return cnt;
+	public void insertOrderDetail(OrderDetailBean odBean) {
+		System.out.println(odBean.getOd_id());
+		System.out.println(odBean.getOd_pnum());
+		System.out.println(odBean.getOd_pname());
+		System.out.println(odBean.getOd_price());
+		System.out.println(odBean.getOd_qty());
+		System.out.println(odBean.getOd_option());
+		System.out.println(odBean.getOd_amount());
+		System.out.println(odBean.getOd_deliver());
+		sqlSessionTemplate.insert(namespace + ".InsertOrderDetail", odBean);
 	}
 	
 }

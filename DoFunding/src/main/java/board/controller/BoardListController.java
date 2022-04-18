@@ -39,18 +39,18 @@ public class BoardListController {
 		Map<String, String> map=new HashMap<String, String>();
 		map.put("whatColumn", whatColumn);
 		map.put("keyword", "%"+keyword+"%");
-		
+
 		int totalCount= boardDao.getArticleCount(map);
 		System.out.println("totalCount:"+totalCount);
-		
-			
+
+
 		String url=request.getContextPath()+command;
 		if(pageSize==null) {
 			pageSize="10";
 		}
 		Paging pageInfo=new Paging(pageNumber,pageSize,totalCount,url,whatColumn,keyword);
 		List<BoardBean> bdList=boardDao.getArticles(pageInfo, map);
-	
+
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("bdList", bdList);
 		mav.addObject("totalCount", totalCount);
@@ -58,6 +58,6 @@ public class BoardListController {
 		mav.setViewName(getPage);
 		return mav;
 	}
-	
+
 
 }

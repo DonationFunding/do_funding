@@ -1,6 +1,5 @@
 package member.model;
 
-import java.sql.Date;
 
 import javax.validation.constraints.Size;
 

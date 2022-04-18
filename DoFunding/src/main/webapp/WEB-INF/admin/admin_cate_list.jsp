@@ -1,46 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="admin_top.jsp"%>
-<script type="text/javascript">
-	function update(cnum, pageNumber) {
-		location.href = "admin_cate_update.ad?cnum=" + cnum + "&pageNumber="
-				+ pageNumber;
-	}
 
-	function selectDelete() {
-
-		var chkArr = document.getElementsByName("rowcheck");
-
-		flag = false;
-		for (var i = 0; i < chkArr.length; i++) {
-			if (chkArr[i].checked == true) {
-				flag = true;
-			}
-
-			document.myform.submit();//submit 누른것처럼 동작해라.
-		}
-
-	}//selectDelete
-</script>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/resources/css/kfonts2.css"
-	rel="stylesheet">
-</head>
 <center>
 	<div>
 		<h4 align="center">카테고리 목록</h4>
 		<div >
 			<form method="get" action="admin_cate_list.ad">
 				<select name="whatColumn">
-					<option value="all">전체검색
-					<option value="code">코드
-					<option value="cname">카테고리명
+					<option value="all">전체검색</option>
+					<option value="code">코드</option>
+					<option value="cname">카테고리명</option>
 				</select> 				
 				<input type="text" name="keyword" >
 				<input type="submit" value="검색">
@@ -50,7 +20,8 @@
 		<table border="1" width="500">
 			<tr>
 				<td align="left" colspan="6">
-					<input type="button" value="삭제" onclick="selectDelete('${pageInfo.pageNumber}')">
+					<input type="button" value="삭제" onclick="selectDelete()">
+					<input type="button" value="추가" onclick="inserCate()">
 				</td>
 			</tr>
 			<tr>
@@ -72,11 +43,14 @@
 						<td>${cateBean.cnum}</td>
 						<td>${cateBean.code}</td>
 						<td>${cateBean.cname}</td>
-						<td><a
-							href="admin_cate_delete.ad?cnum=${cateBean.cnum}&pageNumber=${pageInfo.pageNumber}">삭제</a>
+						<td>
+							<input type="button" value="삭제"
+							onclick="deleteCate('${cateBean.cnum}','${pageInfo.pageNumber}')">
+						<td align="center" >
+							<input type="checkbox" name="rowcheck" value="${product.p_num } %>">
 						</td>
 						<td><input type="button" value="수정"
-							onclick="update('${cateBean.cnum}','${pageInfo.pageNumber}')">
+							onclick="updateCate'${cateBean.cnum}','${pageInfo.pageNumber}')">
 						</td>
 					</tr>
 				</c:forEach>
@@ -84,13 +58,10 @@
 		</table>
 		<br>
 		<br>
-	<div class="container">
+		<div class="container">
 			<ul class="pagination pagination-sm">${pageInfo.pagingHtml}
 			</ul>
 		</div>
 	</div>
 </center>
 <%@include file="admin_bottom.jsp"%>
-
-
-

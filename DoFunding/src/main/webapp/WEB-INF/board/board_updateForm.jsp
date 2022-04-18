@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>  
-<%@ include file="../common/common_top.jsp" %>	    
+
+<%@ include file="../common/common_top.jsp" %>    
 
 <style type="text/css">
 	body{
@@ -61,3 +61,4 @@
 </form>
 
 <%@ include file="../common/common_bottom.jsp" %>
+

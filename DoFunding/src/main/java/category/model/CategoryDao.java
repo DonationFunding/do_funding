@@ -9,7 +9,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
 import utility.Paging;
 
 @Component("myCategoryDao")
@@ -61,6 +60,7 @@ public class CategoryDao {
 			CategoryBean category=sqlSessionTemplate.selectOne(namespace+".GetCategory", cnum);
 			return category;
 		}
+
 		
 		public int multiDeleteCategory(String[] rowchecks) {    
 			int count = 0;
@@ -78,7 +78,5 @@ public class CategoryDao {
 			
 			
 		}
-
-
 
 }

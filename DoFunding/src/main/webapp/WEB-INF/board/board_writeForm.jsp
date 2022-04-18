@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>
-<%@ include file="../common/common_top.jsp" %>	   	
-writeForm.jsp<br>
+
+<%@ include file="../common/common_top.jsp" %>  
+
 <style type="text/css">
 	body{
 		text-align: center;
@@ -20,7 +20,6 @@ writeForm.jsp<br>
 		location.href="list.bd"; 
 	}
 </script>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/style.css">
 
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
@@ -49,11 +48,13 @@ writeForm.jsp<br>
 		<td colspan="2" align="center">
 			<input type="submit" name="" value="글쓰기" onclick="return check()">
 			<input type="reset" name="" value="다시작성">
-			<input type="button" name="" value="목록보기" onclick="list()">
+			<input type="button" name="" value="목록보기" onclick="location.href='list.bd'">
 		</td>
 	</tr>
 </table>
 </div>
 </form>
 </body>
+
 <%@ include file="../common/common_bottom.jsp" %>
+

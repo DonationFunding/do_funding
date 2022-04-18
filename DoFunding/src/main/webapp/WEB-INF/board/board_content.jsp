@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>  
 <%@ include file="../common/common_top.jsp" %>	 
-<br><br>
+
 <style type="text/css">
 	body{
 		text-align: center;
@@ -37,6 +36,7 @@
 		<th class="text-center" width="100">조회수</th>
 		<td>${bdBean.b_readcount}</td>
 	</tr>
+
 	
 	<tr height="200">
 	     <th class="text-center">글내용</th>
@@ -65,4 +65,5 @@
 
 <br><br>
 <%@ include file="../common/common_bottom.jsp" %>
+
 

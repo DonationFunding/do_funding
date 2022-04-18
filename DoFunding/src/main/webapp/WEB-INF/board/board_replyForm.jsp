@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="style.css">
-<%@ include file="../common/common.jsp" %>	
-<%@ include file="../common/common_top.jsp" %>	  
+
+<%@ include file="../common/common_top.jsp" %>  
+
 <style type="text/css">
 	body{
 		text-align: center;
@@ -38,7 +38,14 @@
 	</tr>
 	<tr>
 		<td align="center">이름</td>
-		<td><input type="text" name="b_writer" value="${sessionScope.loginInfo.id}" readonly></td>
+		<td>
+			<c:if test="${loginInfo.admin ==1}">
+				<input type="text" name="b_writer" value="${sessionScope.loginInfo.id}" readonly>
+			</c:if>
+			<c:if test="${loginInfo.admin ==0}">
+				<input type="text" name="b_writer" value="관리자" >
+			</c:if>
+		</td>
 	</tr>
 	<tr>
 		<td align="center">제목</td>
@@ -65,3 +72,4 @@
 </body>
 
 <%@ include file="../common/common_bottom.jsp" %>
+

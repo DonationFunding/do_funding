@@ -1,15 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>
 <%@ include file="../common/common_top.jsp" %>
-<br><br>
-    <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
-<head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-</head>
-
 <title>login.jsp</title>
 <center>
 <form action="login.mem" method="post">
@@ -30,8 +21,8 @@
 		<tr>
 			<td colspan="2" align="center">
 				<input type="submit" value="로그인">
-				<input type="button" value="아이디/비밀번호 찾기" onclick="location.href=''">
-				<input type="button" value="회원가입" onclick="location.href='insertMemberForm.mem'">
+				<input type="button" value="아이디/비밀번호 찾기" onclick="location.href='findid.mem'">
+				<input type="button" value="회원가입" onclick="location.href='insert.mem'">
 			</td>
 		</tr>
 	</table>

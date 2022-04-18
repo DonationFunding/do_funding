@@ -23,12 +23,12 @@ public class BoardReplyController {
 	private final String command="/reply.bd";
 	private String getPage="board_replyForm";
 	private String gotoPage="redirect:/list.bd";
-	
+
 	@Autowired
 	private BoardDao boardDao;
 
 	private PrintWriter pw =null;
-	
+
 	//content.jsp get¹æ½Ä replyForm.bv
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
@@ -36,12 +36,12 @@ public class BoardReplyController {
 			BoardBean bdBean,
 			HttpServletRequest request,
 			HttpSession session) {
+
 			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
 
 	}
-	
 
 	@RequestMapping(value=command,method = RequestMethod.POST)
 	public String doAction(
@@ -70,8 +70,8 @@ public class BoardReplyController {
 			request.setAttribute("pageNumber", pageNumber);			
 			return getPage;
 		}
-		
+
 	}
-	
-	
+
+
 }
