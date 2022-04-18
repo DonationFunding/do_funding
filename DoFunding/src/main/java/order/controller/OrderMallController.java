@@ -1,10 +1,7 @@
 package order.controller;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,12 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import member.model.MemberBean;
 import order.cart.MyOrderList;
-import order.cart.ShoppingInfo;
 import order.model.OrderBean;
 import order.model.OrderDao;
 import product.model.OptionBean;
@@ -36,24 +30,12 @@ public class OrderMallController {
 	@Autowired
 	private ProductDao productDao;
 
-	// start.jsp¿¡¼­ ³ªÀÇ ÁÖ¹® ³»¿ª Å¬¸¯
 	@RequestMapping(value=command)
 	public String doAction(
 			ProductBean prdbean,
-<<<<<<< HEAD
-			OrderBean opbean,
-			HttpSession session,
-			Model model) {
-		System.out.println("p_num="+prdbean.getP_num());
-		System.out.println("orderqty="+opbean.getO_qty());
-		System.out.println("»óÇ°¸í="+prdbean.getP_subject());
-		System.out.println("´Ü°¡="+prdbean.getP_origin_price());
-=======
 			OrderBean ordbean,
 			OptionBean opbean,
 			HttpSession session,Model model) {
->>>>>>> refs/remotes/origin/do-hjh
-		
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
 		
 //		ProductBean p_product = productDao.getProduct(p_num);
@@ -62,16 +44,14 @@ public class OrderMallController {
 //		model.addAttribute("optionList", o_list);
 //		model.addAttribute("productBean", p_product);
 		
-		System.out.println("¿É¼Ç="+opbean.getOption_content());
-		System.out.println("¿É¼Ç="+opbean.getOption_item_no());
-		System.out.println("¿É¼Ç="+opbean.getOption_no());
-		if(loginInfo==null) { // ·Î±×ÀÎ ¾ÈÇßÀ¸¸é
+		System.out.println("ï¿½É¼ï¿½="+opbean.getOption_content());
+		System.out.println("ï¿½É¼ï¿½="+opbean.getOption_item_no());
+		System.out.println("ï¿½É¼ï¿½="+opbean.getOption_no());
+		if(loginInfo==null) { // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			session.setAttribute("destination", "redirect:/order.ord");
 			return "redirect:/login.mem"; // MemberLoginController
-
 		}
-		else { // ·Î±×ÀÎ ÇßÀ¸¸é 
-
+		else { 
 			MyOrderList myorder=(MyOrderList) session.getAttribute("myorder");
 			myorder=new MyOrderList();
 			session.setAttribute("myorder", myorder);
