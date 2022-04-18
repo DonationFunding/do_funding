@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component("myCompositeDao")
 public class CompositeDao {
 	
-	private String namespace="orderdetail.model.Orderdetail";
+	private String namespace="order.orderdetail.Composite";
 
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;

@@ -107,13 +107,26 @@ create sequence seqdo_product
 3. loginInfoì—ì„œ admin ì´ 0ì¸(ì§ì›orê´€ë¦¬ì) ìœ ì €ë§Œ ì œí’ˆë“±ë¡ ê°€ëŠ¥/ì•„ë§ˆë„ ê´€ë¦¬ìí˜ì´ì§€ì—ì„œë§Œ ë“±ë¡ ê°€ëŠ¥
   
 drop table do_product CASCADE CONSTRAINTS;
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/do-hjh
 create table do_product( 
+<<<<<<< HEAD
 	p_num 		number  primary key,	//ì œí’ˆ ë²ˆí˜¸()
 	p_writer 	varchar2(10) not null,	//ì‘ì„±ìëŠ” member id
 	p_subject 	varchar2(20) not null,		//ê²Œì‹œê¸€ ì œëª©
 	p_readcount int default 0,				//ì¡°íšŒìˆ˜
 	p_image    	varchar2(500),				//ì´ë¯¸ì§€ íŒŒì¼
 	p_content 	varchar2(20) not null		//ê²Œì‹œê¸€ ë‚´ìš©			
+=======
+	p_num 		number  primary key,	//Á¦Ç° ¹øÈ£()
+	p_writer 	not null,	//ÀÛ¼ºÀÚ´Â member id
+	p_subject 	varchar2(20) not null,		//°Ô½Ã±Û Á¦¸ñ
+	p_readcount int default 0,				//Á¶È¸¼ö
+	p_image    	varchar2(500),				//ÀÌ¹ÌÁö ÆÄÀÏ
+	p_content 	varchar2(20) not null		//°Ô½Ã±Û ³»¿ë			
+>>>>>>> refs/remotes/origin/do-hjh
 	
 	--ë°ì´í„° í•œê³„ ëŒíŒŒëŠ” ë‚˜ì¤‘ì—
 	--ì°œ ëˆ„ë¥¸ì‚¬ëŒ ì•„ì´ë””,ì•„ì´ë””,ì•„ì´ë””......
@@ -143,10 +156,25 @@ create table do_product(
 --	p_re_step 	number not null,			//í•œ ê²Œì‹œê¸€ì— ëŒ€í•œ ìˆœë²ˆ(ê¸€,ëŒ“ê¸€,ë‹µê¸€)
 --	p_re_level 	number not null,			//ê²Œì‹œê¸€ ë‹¨ê³„(ê¸€=0,ëŒ“ê¸€=1,ë‹µê¸€=2,ë‹µê¸€ì˜ë‹µê¸€=3...)
 
+<<<<<<< HEAD
 	--ìš”ì¼
 	p_reg_date 		default sysdate  ,	//ì‘ì„±ì¼ default sysdate ë„£ì–´ë„ ê´œì°®ì„êº¼ ê°™ìŠµë‹ˆë‹¤.
 	p_start_date 	date not null,		//í€ë”© ì‹œì‘ì¼		
 	p_end_date 		date not null		//í€ë”© ë§ˆê°ì¼	ë§ˆê°ì¼ ë˜ë©´ í€ë”©ëª»í•˜ê²Œ ë§‰ê³ , orderdetail ì„±ê³µ, ì‹¤íŒ¨ (ì§„í–‰ì¤‘)
+=======
+	--¿äÀÏ
+<<<<<<< HEAD
+	p_reg_date 		default sysdate  ,	//ÀÛ¼ºÀÏ default sysdate ³Ö¾îµµ ±¦ÂúÀ»²¨ °°½À´Ï´Ù.
+	p_start_date 	date not null,		//Æİµù ½ÃÀÛÀÏ		
+	p_end_date 		date not null		//Æİµù ¸¶°¨ÀÏ	¸¶°¨ÀÏ µÇ¸é Æİµù¸øÇÏ°Ô ¸·°í, orderdetail ¼º°ø, ½ÇÆĞ (ÁøÇàÁß)
+=======
+
+	p_reg_date 		default sysdate  ,	--ÀÛ¼ºÀÏ default sysdate ³Ö¾îµµ ±¦ÂúÀ»²¨ °°½À´Ï´Ù.
+	p_start_date 	date not null,		--Æİµù ½ÃÀÛÀÏ		
+	p_end_date 		date not null		--Æİµù ¸¶°¨ÀÏ	¸¶°¨ÀÏ µÇ¸é Æİµù¸øÇÏ°Ô ¸·°í, orderdetail ¼º°ø, ½ÇÆĞ (ÁøÇàÁß)
+
+
+>>>>>>> refs/remotes/origin/do-hjh
 );
 
 --ì˜µì…˜ í…Œì´ë¸”
