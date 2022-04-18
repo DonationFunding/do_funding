@@ -62,26 +62,12 @@
  		}
 	}
 </script>
-
+<body>
 OrderMallController => order_order.jsp
 <br><br>
 
 <div>
-<h2>주문 및 결제</h2>
-<h3>주문 정보</h3>
-<ol>
-	주문자명
-	<td>${loginInfo.name}(${loginInfo.id})</td>
-	<br>
-	<td>휴대폰 번호</td>
-	<td>${loginInfo.hp1}-${loginInfo.hp2}-${loginInfo.hp3}</td>
-	<br>
-</ol>
-
-<form name="myform">
-<h3>배송정보</h3>
-		
-=======
+	<form name="myform" action=""><!-- action -->
 	<h2>주문 및 결제</h2>
 	<h3>주문 정보</h3>
 	<ol>
@@ -92,11 +78,7 @@ OrderMallController => order_order.jsp
 		${loginInfo.hp1}-${loginInfo.hp2}-${loginInfo.hp3}
 		<br>
 	</ol>
-
-	<body>
-		<form name="myform" action=""><!-- action -->
 			<h3>배송정보</h3>
->>>>>>> refs/remotes/origin/do-hjh
 			<ol>
 				<p>받는 분<br> 
 					<input type="text" name=name value="${loginInfo.name}"><br> 
@@ -111,9 +93,7 @@ OrderMallController => order_order.jsp
 				<p>
 					배송 요청사항(선택)<br> <input type="text" placeholder="배송 요청사항을 입력하세요" size="40">
 				</p><br>
-		</ol>
-		
-	
+		</ol>	
 	<h3>주문 요청사항(선택)</h3>
 	<ol>
 		<input type="text" placeholder="주문 요청사항을 입력하세요" size="40"><br>
@@ -143,44 +123,16 @@ OrderMallController => order_order.jsp
 					</tr>
 				</table>
 			</ol><br>
-
-<<<<<<< HEAD
-						<h4>배송 안내사항</h4>
-						주문 확인 후 입금 계좌를 개별 안내드리며, 미입금 시 주문이 취소될 수 있습니다. <br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-=======
 			<h4>배송 안내사항</h4>
 			<ol>
 				기본 배송비는 3000원이면 30000원 이상 주문 시 무료배송입니다.<br>
 				주문 확인 후 입금 계좌를 개별 안내드리며, 미입금 시 주문이 취소될 수 있습니다. <br> <br> <br> <br> <br> <br> <br>
 			</ol>
->>>>>>> refs/remotes/origin/do-hjh
 </div>
 
 <div class="div2">
 	<h3>결제금액</h3>
-<<<<<<< HEAD
-<tr>
-	<td>상품금액</td>
-	<br>
-</tr>
-<tr>
-	<td>배송비</td>
-	<br>
-	<br>
-</tr>
-<tr>
-	<td>총 금액: ${totalAmount }</td>
-</tr>
-<br>
-<br>
-<a href="calculate.mall">결제하기</a> <!-- calculate.mall=>CartCalculateController -->
-=======
+
 	<tr>
 		<td>상품금액</td>
 		<td>${productBean.p_origin_price*param.o_qty }</td>
@@ -216,9 +168,7 @@ OrderMallController => order_order.jsp
 		</td>
 	</tr>
 	<br> <br> <input type="submit" name="btn1" value="결제하기" onclick="return check()">
-	</form>
-	</body>
->>>>>>> refs/remotes/origin/do-hjh
+	</form>	
 </div>
-
+</body>
 <%@ include file="../common/common_bottom.jsp"%>
