@@ -2,7 +2,7 @@ package dip.model;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("myDipDao")
 public class DipDao {
 
 	public int checkDip(DipBean diBean) {
