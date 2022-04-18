@@ -35,6 +35,4 @@
 			</div>
 			</c:forEach>
 			
-			
-
 <%@ include file="../common/common_bottom.jsp" %>  

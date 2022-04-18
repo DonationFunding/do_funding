@@ -11,8 +11,7 @@ public class DipDao {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
-	
-	
+		
 	public int checkDip(DipBean diBean) {	
 		int cnt= -1;		
 		DipBean ck = sqlSessionTemplate.selectOne(namespace +".CheckDip", diBean);
@@ -20,7 +19,7 @@ public class DipDao {
 			cnt = sqlSessionTemplate.selectOne(namespace +".SelectDip", diBean);	
 		}
 		
-		//sqlSessionTemplate.insert(namespace + ".insertDip", map); //���̺� ���ƿ� x 
+		//sqlSessionTemplate.insert(namespace + ".insertDip", map); 
 		
 		//if(cnt == null) 
 		return cnt;	

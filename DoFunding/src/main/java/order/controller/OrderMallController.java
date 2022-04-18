@@ -21,7 +21,7 @@ import product.model.ProductDao;
 @Controller
 public class OrderMallController {
 
-	private final String command = "order.ord";
+	private final String command = "/order.ord";
 	private String getPage = "order_order";
 
 	@Autowired

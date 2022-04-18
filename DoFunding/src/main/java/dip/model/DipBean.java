@@ -1,6 +1,5 @@
 package dip.model;
 
-
 public class DipBean {
 	private int d_num;
 	private int m_no;
@@ -9,7 +8,6 @@ public class DipBean {
 
 	public DipBean() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public DipBean(int d_num, int m_no, int p_num, int d_check) {
