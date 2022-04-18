@@ -15,7 +15,6 @@ a:hover {
 	}
 
 </script>
-productDetailView.jsp<br>
 <center>
     <h3>펀딩 상세 화면(${productBean.p_num }/${pageNumber })</h3>
     <table border="1" width="600" style="margin: 15px; padding: 15px;">
