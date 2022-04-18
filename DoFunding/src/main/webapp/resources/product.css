@@ -9,8 +9,6 @@ body {
 	font: 14px Malgun Ghothic,"맑은고딕",sans-serif;
     color: #555;
     min-width:320px;  /* 모바일 단말 크기로 폭의 최소값을 제한 */
-<<<<<<< HEAD
-=======
 }
 ul,  li, a {
 	list-style: none;
@@ -18,49 +16,28 @@ ul,  li, a {
 	padding: 0;
 	text-decoration: none;
 	color: #555;
->>>>>>> refs/remotes/origin/do_cjh
 }
 #top-wrap {
-<<<<<<< HEAD
-	margin-bottom: 20px;  /* 본문(container)과 헤더 사이의 여백 지정 */
-=======
 	margin-bottom: 20px;  /* 본문과 헤더 사이의 여백 지정 */
->>>>>>> refs/remotes/origin/do_cjh
+
 }
 .top-inner {
 	position: relative;  /* 자식을 절대좌표로 배치하기 위해 설정 */
-<<<<<<< HEAD
-	height: 238px;  /* 52(banner)+10+32(logo)+10+17(marketing)+10+24(검색)+10+18(서브메뉴)+10+45(GNB) */
-=======
 	height: 221px;  /* 52(banner)+10+32(logo)+10+18(서브메뉴)+10+45(GNB) */
->>>>>>> refs/remotes/origin/do_cjh
 }
-
-<<<<<<< HEAD
-.top-inner, /* #메인, */ #bottom-wrap {
-=======
 .top-inner, .container, #bottom-wrap {
->>>>>>> refs/remotes/origin/do_cjh
 	max-width: 1008px;  /* 최대로 늘어날 수 있는 값을 한정 : 1120px 이상에서는 1008px로 제한 */
 	width: 90%;  /* 브라우저의 폭이 1120px이하일 때 90%로 제한 */
 	margin: 0 auto;  /* 중앙 정렬 */
 }
-
 .top-banner-wrap {  /* 실제 배너가 주어지면 수정 가능 */
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;  /* 수직으로 중앙 정렬 */
-<<<<<<< HEAD
-	width: 60%;  /* banner의 크기를 설정 */
-	margin: 10px auto;  /* margin 10px을 주고 중앙 정렬 */
-	height: 52px;
-	border: 1px solid black;
-=======
 	width: 100%;  /* banner의 크기를 설정 */
 	margin: 10px auto;  /* margin 10px을 주고 중앙 정렬 */
 	height: 100px;
 	border: 1px solid #555;
->>>>>>> refs/remotes/origin/do_cjh
 }
 .top-banner-wrap h1 {
 	width: 100%;
@@ -70,33 +47,20 @@ ul,  li, a {
 	text-align: center;
 	font-size: 1.5em;   /* 상속으로 인한 폰트 크기의 영향을 고려 */
     font-size: 1.5rem;  /* 상속으로 인한 폰트 크기의 영향을 받지 않기 위해 사용 */
-<<<<<<< HEAD
-=======
     font-size: 25;
->>>>>>> refs/remotes/origin/do_cjh
 	font-weight: bold;
 }
-
 .subMenu {
 	float: right;  /* 오른쪽으로 정렬 */
 	margin-right: 5px;
 	margin-top: 10px;
     margin-bottom: 10px;
 }
-
-<<<<<<< HEAD
-/* .subMenu li {
-	display: inline-block;  가로로 배치
-	background: url(../../images/bar-util.jpg) 0 7px no-repeat;  구분선
-	padding-left: 6px;  구분선과 메뉴 콘텐트 사이의 간격
-} */
-=======
 .subMenu li {
 	display: inline-block;  /* 가로로 배치 */
 	/* background: url(/images/bar-util.jpg) 0 7px no-repeat;  구분선 */
 	padding-left: 6px;  /* 구분선과 메뉴 콘텐트 사이의 간격 */
 }
->>>>>>> refs/remotes/origin/do_cjh
 .subMenu li:first-child {
 	background: none;  /* 첫 번째 메뉴의 구분선을 제거 */
 }
@@ -153,12 +117,6 @@ ul,  li, a {
 	z-index: 100;
 	background: white;
 }
-<<<<<<< HEAD
-#gnb > ul > li {
-	width: 16.66%;  /* 1/6 : 메뉴 6개 */
-	float: left;  /* 가로로 배치 */
-=======
-
 a:hover {
 	text-decoration: underline;
 	font-weight: bold;
@@ -174,7 +132,6 @@ a:hover {
 }
 #gnb ul.secMenu > li:hover {
 	background: #FFF29E;
->>>>>>> refs/remotes/origin/do_cjh
 }
 #gnb > ul > li > a {
 	font-size: 1.125em; /* 18px */
@@ -185,61 +142,26 @@ a:hover {
 	height: 45px;
 	line-height: 45px;
 }
-<<<<<<< HEAD
-#gnb ul .secMenu {  /* 2단 메뉴 */
-=======
 
 #gnb ul.secMenu > li ul.sec {  /* 2단 메뉴 */
->>>>>>> refs/remotes/origin/do_cjh
 	display: none;
 	position: absolute;  /* 절대 좌표로 배치 */
 	top: 45px;  /* 1단 메뉴 아래에 배치 */
-<<<<<<< HEAD
-	background-color: #fff;
-	border: 1px solid black;
-=======
 	background: rgba(255, 255, 255, 1);
 	border: 1px solid #555;
->>>>>>> refs/remotes/origin/do_cjh
 	border-top: none;
 	border-radius: 0 0 7px 7px;
 	font-size: 0.938em;
     font-size: 0.938rem;  /* 15px */
     font-size: 15px; 
 }
-<<<<<<< HEAD
-#gnb ul .secMenu1 {  /* 2단 메뉴 : 상품 */
-	left: 0;  /* 좌측에 배치 */
-	width: 100%;  /* 폭은 전체 2단 메뉴의 너비 */
-}
-#gnb ul .secMenu2 {  /* 라라마켓 1단 메뉴에 상대적인 위치 */
-	left: 42%;
-	width: 140px;  /* 1단 메뉴의 중앙에 배치 */
-	margin-left: -70px;
-}
-#gnb ul .secMenu3 {  /* 고객센터 1단 메뉴에 상대적인 위치 */
-	left: 92%;
-	width: 140px;
-	margin-left: -70px;
-}
-#gnb ul .secMenu a {
-=======
+
 #gnb ul.secMenu > li:hover ul.sec {
->>>>>>> refs/remotes/origin/do_cjh
 	display: block;
-<<<<<<< HEAD
 	height: 30px;
 	line-height: 30px;
     margin-left: 10px;  /* 들여쓰기 */
-=======
->>>>>>> refs/remotes/origin/do_cjh
 }
-<<<<<<< HEAD
-/* #메인 {
-	min-height: 760px;
-} */
-=======
-
 #gnb ul .m2_Menu { 
 	left: 0;  /* 좌측에 배치 */
 	width: 100%;  /* 폭은 전체 2단 메뉴의 너비 */
@@ -253,8 +175,6 @@ a:hover {
 #gnb ul .m5_Menu {  
 	width: 100%;
 }
-
->>>>>>> refs/remotes/origin/do_cjh
 #bottom-wrap {
 	display: flex;
 	flex-flow: column nowrap;
@@ -265,13 +185,9 @@ a:hover {
 	clear: both;  /* 정렬 해제 */
 	display: flex;  /* 플렉서블 그리드로 배치 */
 	flex-flow: column nowrap;  /* 새로를 주축으로 배치 */
-<<<<<<< HEAD
 	height: 360px;  /* 120 + 38 + 30 + 22 + 90 + 60 = */
-=======
-	height: 360px;  /* 120 + 38 + 30 + 22 + 90 + 60 = 
->>>>>>> refs/remotes/origin/do_cjh
 }
-#bottom-menu1 {  \
+#bottom-menu1 {  
 	height: 30px; 
 	position: relative;  /* relative로 배치 */
 	top: 38px;
@@ -280,24 +196,16 @@ a:hover {
 	
 }
 #bottom-menu1 ul {  /* 메뉴를 중앙에 배치 */
-<<<<<<< HEAD
-    width: 580px;
-=======
     width: 500px;
->>>>>>> refs/remotes/origin/do_cjh
     margin: 0 auto;
 }
 #bottom-menu1 li {  /* 메뉴를 가로로 배치 */
     float: left;
-<<<<<<< HEAD
-	padding: 5px 10px;
-=======
 	padding: 5px 20px;
 	list-style: none;
 	line-height: 100px;
 	vertical-align: middle;
 	text-align: center;
->>>>>>> refs/remotes/origin/do_cjh
 }
 #bottom-menu1 li:first-child {
 	background: none;
