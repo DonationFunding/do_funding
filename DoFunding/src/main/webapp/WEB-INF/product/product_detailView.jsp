@@ -1,21 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>      
-<%@ include file="../common/common_top.jsp" %>      
-<link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
+	pageEncoding="UTF-8"%>
+<%@ include file="../common/common_top.jsp"%>
 <style type="text/css">
-	a:hover {
-				color:#ff3;
-			}
+a:hover {
+	color: #ff3;
+}
 </style>
 <script type="text/javascript">
 	function insert(){
 		location.href = "insert.prd"; // ProductInsertController
 	}
+	function likedip(){
+		document.dipform.submit();
+	}
+
 </script>
 productDetailView.jsp<br>
-
 <center>
     <h3>펀딩 상세 화면(${productBean.p_num }/${pageNumber })</h3>
     <table border="1" width="600" style="margin: 15px; padding: 15px;">
@@ -71,7 +71,10 @@ productDetailView.jsp<br>
     		<th>주문수량</th>
     		<td colspan="2">
     				<input type="hidden" name="p_num" value="${productBean.p_num }">
-    				<input type="hidden" name="p_origin_price" value="${productBean.p_origin_price  }">
+    				<input type="hidden" name="p_subject" value="${productBean.p_subject }">
+    				<input type="hidden" name="p_origin_price" value="${productBean.p_origin_price }">
+    				<input type="hidden" name="option_content" value="${productBean.option_content}">
+    				<input type="hidden" name="option_content" value="${productBean.option_no}">
 	    			<input type="text" name="o_qty">
 <!-- 현재날짜 -->
 <c:set var="now" value="<%=new java.util.Date()%>" />
@@ -80,13 +83,35 @@ productDetailView.jsp<br>
 	    			<input type="submit" value="주문1" <c:if test="${sysDate>productBean.p_end_date}"></c:if>>
     		</td>   		
     	</tr>
-    	    </form>	
+ </form>	
     	<tr>
     		<td colspan="3">
     			<a href="list.prd?pageNumber=${pageNumber }">상품 리스트</a>
     		</td>
     	</tr>
+    	<tr>
+			<td colspan="3">
+				<form name="dipform" action="detail.prd" method="post"> <!-- form  -->
+					<input type="hidden" name= "p_num" value="${productBean.p_num}"/>
+					<input type="hidden" name= "cnt" value="${cnt}"/>
+					<input type="hidden" name= "pageNumber" value="${pageNumber}"/>
+				
+				<c:if test = "${loginInfo != null}">
+					<c:if test="${cnt == 1}">
+						<input type="image"
+							src="<%=request.getContextPath()%>/resources/images/heart_2.png" width="20px" height="20px"
+							onclick="likedip()">
+					</c:if>
+					<c:if test="${cnt == 0}">
+						<input type="image"
+							src="<%=request.getContextPath()%>/resources/images/heart_1.png" width="20px" height="20px"
+							onclick="likedip()">
+					</c:if>
+				</c:if>
+				</form>
+			</td>
+		</tr>
     </table>
-    </center>
+  </center>
 
 <%@ include file="../common/common_bottom.jsp" %>
