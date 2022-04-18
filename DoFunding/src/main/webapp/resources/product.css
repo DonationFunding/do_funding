@@ -19,17 +19,19 @@ ul,  li, a {
 }
 #top-wrap {
 	margin-bottom: 20px;  /* 본문과 헤더 사이의 여백 지정 */
-
 }
 .top-inner {
 	position: relative;  /* 자식을 절대좌표로 배치하기 위해 설정 */
 	height: 221px;  /* 52(banner)+10+32(logo)+10+18(서브메뉴)+10+45(GNB) */
 }
+
+
 .top-inner, .container, #bottom-wrap {
 	max-width: 1008px;  /* 최대로 늘어날 수 있는 값을 한정 : 1120px 이상에서는 1008px로 제한 */
 	width: 90%;  /* 브라우저의 폭이 1120px이하일 때 90%로 제한 */
 	margin: 0 auto;  /* 중앙 정렬 */
 }
+
 .top-banner-wrap {  /* 실제 배너가 주어지면 수정 가능 */
 	display: flex;
 	flex-flow: row nowrap;
@@ -56,6 +58,7 @@ ul,  li, a {
 	margin-top: 10px;
     margin-bottom: 10px;
 }
+
 .subMenu li {
 	display: inline-block;  /* 가로로 배치 */
 	/* background: url(/images/bar-util.jpg) 0 7px no-repeat;  구분선 */
@@ -142,7 +145,6 @@ a:hover {
 	height: 45px;
 	line-height: 45px;
 }
-
 #gnb ul.secMenu > li ul.sec {  /* 2단 메뉴 */
 	display: none;
 	position: absolute;  /* 절대 좌표로 배치 */
@@ -158,9 +160,6 @@ a:hover {
 
 #gnb ul.secMenu > li:hover ul.sec {
 	display: block;
-	height: 30px;
-	line-height: 30px;
-    margin-left: 10px;  /* 들여쓰기 */
 }
 #gnb ul .m2_Menu { 
 	left: 0;  /* 좌측에 배치 */
@@ -187,13 +186,12 @@ a:hover {
 	flex-flow: column nowrap;  /* 새로를 주축으로 배치 */
 	height: 360px;  /* 120 + 38 + 30 + 22 + 90 + 60 = */
 }
-#bottom-menu1 {  
+#bottom-menu1 { 
 	height: 30px; 
 	position: relative;  /* relative로 배치 */
 	top: 38px;
 	border-top: 1px solid #555;
 	border-bottom: 1px solid #555;
-	
 }
 #bottom-menu1 ul {  /* 메뉴를 중앙에 배치 */
     width: 500px;
