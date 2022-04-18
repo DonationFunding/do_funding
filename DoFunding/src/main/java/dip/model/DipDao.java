@@ -1,29 +1,11 @@
 package dip.model;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/do_cjh
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("myDipDao")
 public class DipDao {
-<<<<<<< HEAD
-
-	@Autowired
-	SqlSessionTemplate sqlSessionTemplate;
-	
-	private String namespace="dip.model.Dip";	
-	
-	
-	public int checkDip(DipBean diBean) {
-		return 0;
-	}
-
-	public void insertDip(DipBean diBean) {
-=======
 	
 	private String namespace="dip.model.Dip";
 	
@@ -31,20 +13,17 @@ public class DipDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 	
 	
-	
 	public int checkDip(DipBean diBean) {	
-		int cnt= -1;
->>>>>>> refs/remotes/origin/do_cjh
-		
+		int cnt= -1;		
 		DipBean ck = sqlSessionTemplate.selectOne(namespace +".CheckDip", diBean);
 		if(ck != null) {
 			cnt = sqlSessionTemplate.selectOne(namespace +".SelectDip", diBean);	
 		}
 		
-		//sqlSessionTemplate.insert(namespace + ".insertDip", map); //Å×ÀÌºí¿£ ÁÁ¾Æ¿ä x 
+		//sqlSessionTemplate.insert(namespace + ".insertDip", map); //ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½ x 
 		
 		//if(cnt == null) 
-	return cnt;	
+		return cnt;	
 	}
 
 	public int updateDip(DipBean diBean) {
