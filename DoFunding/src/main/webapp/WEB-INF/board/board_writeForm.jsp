@@ -38,7 +38,7 @@
 	</tr>
 	<tr>
 		<th class="text-center">내용</th>
-		<td><textarea name="b_content" rows="10" cols="50"></textarea></td>
+		<td><textarea name="b_content" rows="10" cols="50" style="resize: none;"></textarea></td>
 	</tr>
 	<tr>
 		<th class="text-center">비밀번호</th>

@@ -45,6 +45,35 @@ col address1 for a10
 col address2 for a10
 select * from do_members;
 
+
+-- 카테고리 테이블
+drop sequence catseq ;
+
+create sequence catseq
+increment by 1
+start with 1
+minvalue 1
+nocache;
+
+drop table category cascade constraints purge ;
+create table category(
+	cnum 	number primary key,
+	code 	varchar2(20) not null,	
+	cname 	varchar2(50) not null	
+);
+
+insert into category values(catseq.nextval,'handkerchief','손수건');
+insert into category values(catseq.nextval,'phonecase','핸드폰 케이스');
+insert into category values(catseq.nextval,'necklace','목걸이');
+insert into category values(catseq.nextval,'earring','귀걸이');
+insert into category values(catseq.nextval,'handbag','핸드백');
+insert into category values(catseq.nextval,'bag','가방');
+insert into category values(catseq.nextval,'bracelet','팔찌');
+insert into category values(catseq.nextval,'ring','반지');
+
+commit;
+
+
 --상품테이블
 drop sequence seqdo_product;
 create sequence seqdo_product
@@ -73,18 +102,19 @@ create table do_product(
 	p_end_date 		date not null		
 );
 
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-15');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-10');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-8');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-4-30','2022-5-22');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-5-1','2022-5-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-5-15','2022-5-19');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-4-18','2022-5-30');
-insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-4-15','2022-5-19');
+insert into do_product values(seqdo_product.nextval,'phonecase','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'phonecase','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'handkerchief','kim','xxx할머님 손수건',5,'위안부 손수건.jpg','내용123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'ring','kim','xxx할머님 반지',5,'반지.jpg','내용123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'necklace','kim','xxx할머님 목걸이',5,'목걸이.jpg','내용123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-15');
+insert into do_product values(seqdo_product.nextval,'earring','kim','xxx할머님 귀걸이',5,'귀걸이2.jpg','내용123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-10');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxx할머님 팔찌',5,'팔찌2.jpg','내용123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-8');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxx할머님 팔찌',5,'팔찌.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-4-30','2022-5-22');
+insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 가방',5,'가방3.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-5-1','2022-5-30');
+insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 가방',5,'가방.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-5-15','2022-5-19');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxx할머님 팔찌',5,'팔찌2.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-4-18','2022-5-30');
+insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 가방',5,'가방2.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-4-15','2022-5-19');
+
 
 --옵션 테이블
 drop sequence seqdo_option;
@@ -102,44 +132,42 @@ create table do_option(
 );
 
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '캐릭터:토끼' , 1);	
+VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 1);	
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '캐릭터:개구리' , 1);	
+VALUES(seqdo_option.nextval , '기종:아이폰' , 1);	
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '캐릭터:강아지' , 1);	
+VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 2);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '기종:아이폰' , 2);	
 
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '캐릭터:비둘기' , 2);	
+VALUES(seqdo_option.nextval , '색상:흰색' , 3);	
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '캐릭터:송아지' , 2);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '캐릭터:잠자리' , 2);	
-
+VALUES(seqdo_option.nextval , '색상:군청색' , 3);	
 INSERT INTO do_option (option_no, option_content, option_item_no )
 VALUES(seqdo_option.nextval , '색상:검정' , 3);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '색상:파랑' , 3);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '색상:노랑' , 3);	
 
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 4);	
+VALUES(seqdo_option.nextval , '디자인:나비' , 4);	
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '기종:아이폰' , 4);	
+VALUES(seqdo_option.nextval , '디자인:나비2' , 4);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '디자인:나비3' , 4);	
 
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '캐릭터:토끼' , 5);	
+VALUES(seqdo_option.nextval , '색상:보라' , 5);	
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '캐릭터:개구리' , 5);	
+VALUES(seqdo_option.nextval , '색상:파랑' , 5);	
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '캐릭터:강아지' , 5);	
+VALUES(seqdo_option.nextval , '색상:노랑' , 5);	
+
 
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '캐릭터:비둘기' , 6);	
+VALUES(seqdo_option.nextval , '디자인:민들레' , 6);	
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '캐릭터:송아지' , 6);	
+VALUES(seqdo_option.nextval , '디자인:국화' , 6);	
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '캐릭터:잠자리' , 6);	
+VALUES(seqdo_option.nextval , '디자인:무궁화' , 6);	
 
 INSERT INTO do_option (option_no, option_content, option_item_no )
 VALUES(seqdo_option.nextval , '색상:검정' , 7);	
@@ -149,58 +177,41 @@ INSERT INTO do_option (option_no, option_content, option_item_no )
 VALUES(seqdo_option.nextval , '색상:노랑' , 7);	
 
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 8);	
+VALUES(seqdo_option.nextval , '색상:검정' , 8);	
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '기종:아이폰' , 8);	
+VALUES(seqdo_option.nextval , '색상:파랑' , 8);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:노랑' , 8);	
 
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '색상:검정' , 9);	
+VALUES(seqdo_option.nextval , '색상:블랙' , 9);	
 INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '색상:파랑' , 9);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '색상:노랑' , 9);	
-
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 10);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '기종:아이폰' , 10);	
-
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 11);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '기종:아이폰' , 11);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 12);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '기종:아이폰' , 12);	
+VALUES(seqdo_option.nextval , '색상:화이트' , 9);	
 
 
-commit;
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '디자인:1' , 10);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '디자인:2' , 10);	
 
--- 카테고리 테이블
-drop sequence catseq ;
+	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:검정' , 11);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:빨강' , 11);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:노랑' , 11);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:분홍' , 11);	
 
-create sequence catseq
-increment by 1
-start with 1
-minvalue 1
-nocache;
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:빨강' , 12);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '색상:파랑' , 12);	
 
-drop table category cascade constraints purge ;
-create table category(
-	cnum 	number primary key,
-	code 	varchar2(20) not null,	
-	cname 	varchar2(50) not null	
-);
-
-insert into category values(catseq.nextval,'phonecase','핸드폰 케이스');
-insert into category values(catseq.nextval,'necklace','목걸이');
-insert into category values(catseq.nextval,'earring','귀걸이');
-insert into category values(catseq.nextval,'handbag','핸드백');
-insert into category values(catseq.nextval,'bracelet','팔찌');
-insert into category values(catseq.nextval,'ring','반지');
 
 commit;
+
 
 drop sequence seqoid ;
 create sequence seqoid start with 1 increment by 1 nocache ;
