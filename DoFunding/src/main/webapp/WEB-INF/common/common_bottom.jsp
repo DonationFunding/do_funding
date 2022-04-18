@@ -18,13 +18,13 @@
 	 			<li><a href="tos.bot">이용약관</a></li>
 	 			<li><a href="">공지사항</a></li>
 	 			<li><a href="">고객센터</a></li>
-	 			<li><a href="map.bot">오시는 길</a></li>
+	 			<li><a href="map.bot">오시는길</a></li>
 	 		</ul>
  		</div>
 	 	<div class="bottom-menu2">
 		 	<div class="bottom-1">
 		 		<h1><a href="<c:url value="/"/>">두  펀  딩</a></h1>
-		 		<h2><a href="<c:url value="/"/>">DOOFUNDING</a></h2>
+		 		<h2><a href="<c:url value="/"/>">DO_FUNDING</a></h2>
 		 	</div>
 		 	<div class="bottom-2">
 		 		<p>| 두펀딩(주)</p>
@@ -35,10 +35,9 @@
 		 	<div class="bottom-3">
 		 		<p>| (12345)서울특별시 마포구 신촌로 176</p>
 		 		<p>| Tel 070-123-4567 | Fax (02)123-4567</p>
-		 		<p>| doo@donationfunding.co.kr</p>
-		 		<p>| doofunding Co., Ltd</p>
+		 		<p>| do@donationfunding.co.kr</p>
+		 		<p>| do_funding Co., Ltd</p>
 		 	</div>
 		 </div>
  	</div>
  </body>
-product_bottom.jsp<br>
