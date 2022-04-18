@@ -50,16 +50,6 @@
                    </a>        
                 </div>
             </c:forEach>    
-         <%--        <div class="item">
-                    <a href="detail.prd?p_num=${list.get(1).getP_num()}&pageNumber=${pageInfo.pageNumber}">
-                   		<img src="<%=request.getContextPath()%>/resources/images/${list.get(1).getP_image()}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" width="300" height="150">
-                   </a>   
-                </div>
-                <div class="item">
-                   <a href="detail.prd?p_num=${list.get(2).getP_num()}&pageNumber=${pageInfo.pageNumber}">
-                   		<img src="<%=request.getContextPath()%>/resources/images/${list.get(2).getP_image()}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" width="300" height="150">
-                   </a>                   
-                </div> --%>
              </div>
             <!-- Controls -->
               <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -93,36 +83,52 @@
 	</form>	
 </div>
 	<div class="container">
-		<c:if test="${list.size() == 0}">
+		<c:if test="${prdList.size() == 0}">
 					<img  src="<%=request.getContextPath() %>/resources/images/no_image.jpg"><br>
 					검색된 상품이 없습니다.			
 		</c:if>
-		<c:if test="${list ne null}">
+		<c:if test="${prdList ne null}">
+			
+			<fmt:parseDate value="${p_product.p_start_date}"  var="sValue" pattern="yyyy-MM-dd" />
+			<fmt:parseNumber value="${sValue.time / (1000*60*60*24)}" integerOnly="true" var="s_Date"></fmt:parseNumber>
+			<c:set var="p_start_date"><fmt:formatDate value="${sValue}" pattern="yyyy-MM-dd" /></c:set>
+				
+			<fmt:parseDate value="${p_product.p_end_date}" var="eValue" pattern="yyyy-MM-dd" />
+			<fmt:parseNumber value="${eValue.time / (1000*60*60*24)}" integerOnly="true" var="e_Date"></fmt:parseNumber>
+			<c:set var="p_end_date"><fmt:formatDate value="${eValue}" pattern="yyyy-MM-dd" /></c:set>
+					
+			<c:set var="today" value="<%=new java.util.Date()%>" />
+			<fmt:parseNumber value="${today.time / (1000*60*60*24)}" integerOnly="true" var="t_Date"></fmt:parseNumber>
+			<c:set var="p_sysdate"><fmt:formatDate value="${today}" pattern="yyyy-MM-dd" /></c:set>
+				
 			<div>
 				<table border="1" width="800" >
 					<tr>						
-						<c:forEach var="p_product" items="${list}" varStatus="status">
+						<c:forEach var="p_product" items="${prdList}" varStatus="status">
 							<td align="center" width="250px">
 								<table style="text-align: center;">
 									<tr>
 										<td>
-											<a href="detail.prd?p_num=${p_product.p_num}&pageNumber=${pageInfo.pageNumber}"> 
-											<img width="250px" height="250px"
-												alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-												src="<%=request.getContextPath() %>/resources/images/${p_product.p_image}"><br>
-												${p_product.p_subject}<br> 
-											</a>
+											<c:choose>
+												<c:when test="${0>(t_Date-s_Date)}">			
+													<a href="detail.prd?p_num=${p_product.p_num}&pageNumber=${pageInfo.pageNumber}"> 
+													<img width="250px" height="250px"
+														alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
+														src="<%=request.getContextPath() %>/resources/images/comingsoon1.png"><br> 
+													</a>
+												</c:when>
+												<c:otherwise>			
+													<a href="detail.prd?p_num=${p_product.p_num}&pageNumber=${pageInfo.pageNumber}"> 
+													<img width="250px" height="250px"
+														alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
+														src="<%=request.getContextPath() %>/resources/images/${p_product.p_image}"><br>
+														${p_product.p_subject}<br> 
+													</a>
+												</c:otherwise>
+											</c:choose>
 										</td>
 									</tr>
-								 <c:set var="p_start_date">
-									<fmt:parseDate value="${p_product.p_start_date}"
-										var="dateValue" pattern="yyyy-MM-dd" />
-									<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
-								</c:set> <c:set var="p_end_date">
-									<fmt:parseDate value="${p_product.p_end_date}"
-										var="dateValue" pattern="yyyy-MM-dd" />
-									<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
-								</c:set> 
+
 									<tr>
 										<td>
 										${p_start_date} ~ ${p_end_date}
@@ -145,14 +151,26 @@
 									</tr>
 									<tr>
 										<td>
-										<c:if test="${fn:contains(p_product.p_like,sessionScope.loginInfo.id)}">
-											<img alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-												src="<%=request.getContextPath() %>/resources/images/hot.gif">
-										</c:if> 
-										<c:if test="${!fn:contains(p_product.p_like,sessionScope.loginInfo.id)}">
-											<img alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-												src="<%=request.getContextPath() %>/resources/images/re.gif">
-										</c:if> 
+											<c:choose>							
+												<c:when test="${0>(t_Date-s_Date)}">
+													<img width="25px" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
+													src="<%=request.getContextPath() %>/resources/images/re.gif">
+												</c:when>
+												<c:otherwise>
+													<c:choose>
+														<c:when test="${7 <=(t_Date-s_Date)}">
+															<img width="25px" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
+															src="<%=request.getContextPath() %>/resources/images/new-animation.gif">
+														</c:when>
+														<c:otherwise>													
+															<c:when test="${p_product.p_readcount>10}">
+																<img width="25px" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
+																src="<%=request.getContextPath() %>/resources/images/hot.gif">
+															</c:when>
+														</c:otherwise>																											
+													</c:choose>
+												</c:otherwise>
+											</c:choose>	
 										</td>
 									</tr>	
 								</table>

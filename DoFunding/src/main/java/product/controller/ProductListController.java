@@ -55,7 +55,7 @@ public class ProductListController {
 		System.out.println("list.size:"+list.size());
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("rotatorlist",rotatorlist);
-		mav.addObject("list",list);
+		mav.addObject("prdList",list);
 		mav.addObject("totalCount",totalCount);
 		mav.addObject("pageInfo",pageInfo);
 
