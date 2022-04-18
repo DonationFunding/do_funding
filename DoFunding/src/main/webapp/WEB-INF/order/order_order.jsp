@@ -66,7 +66,7 @@
 OrderMallController => order_order.jsp
 <br><br>
 
-<div>
+<div align="center"> 
 	<form name="myform" action=""><!-- action -->
 	<h2>주문 및 결제</h2>
 	<h3>주문 정보</h3>
