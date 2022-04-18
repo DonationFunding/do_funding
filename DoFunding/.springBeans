@@ -7,9 +7,17 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
-		<config>src/main/webapp/WEB-INF/spring/appServlet/dip-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/like-context.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/bot-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/admin-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/member-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/order-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/product-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/board-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

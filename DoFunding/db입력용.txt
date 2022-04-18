@@ -300,23 +300,23 @@ commit;
 
 
 -- Âò Å×ÀÌºí
-drop sequence dipseq ;
+drop sequence likseq ;
 
-create sequence dipseq
+create sequence likseq
 increment by 1
 start with 1
 minvalue 1
 nocache;
 
-drop table dipstate cascade constraints purge ;
-create table dipstate (
-	d_num 	number primary key,
+drop table like cascade constraints purge ;
+create table like (
+	l_num 	number primary key,
 	m_no 	number references do_members(no) on delete cascade,	
 	p_num 	number  references do_product(p_num) on delete cascade,
-	d_check  number 
+	l_check  number 
 );
 
-insert into dipstate(d_num,m_no ,p_num,d_check ) values(dipseq.nextval,1,8,1);
+insert into like(l_num,m_no ,p_num,l_check ) values(likseq.nextval,1,8,1);
 commit;
 
 drop sequence seqod ;
