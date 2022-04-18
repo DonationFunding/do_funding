@@ -104,7 +104,7 @@
 							<c:set var="p_end_date"><fmt:formatDate value="${eValue}" pattern="yyyy-MM-dd" /></c:set>
 
 							<td align="center" width="250px">
-								<table style="text-align: center;">
+								<table style="text-align: center; margin:20px;">
 									<tr>
 										<td>
 											<c:choose>

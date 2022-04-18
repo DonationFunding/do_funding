@@ -83,6 +83,8 @@ insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','
 insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-4-30','2022-5-22');
 insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-5-1','2022-5-30');
 insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-5-15','2022-5-19');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-4-18','2022-5-30');
+insert into do_product values(seqdo_product.nextval,'핸드폰케이스','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-4-15','2022-5-19');
 
 --옵션 테이블
 drop sequence seqdo_option;
@@ -163,10 +165,17 @@ VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 10);
 INSERT INTO do_option (option_no, option_content, option_item_no )
 VALUES(seqdo_option.nextval , '기종:아이폰' , 10);	
 
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 11);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '기종:아이폰' , 11);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '기종:갤럭시 노트' , 12);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , '기종:아이폰' , 12);	
+
 
 commit;
-
-
 
 -- 카테고리 테이블
 drop sequence catseq ;
@@ -296,7 +305,6 @@ insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_ste
 values(seqdo_board.nextval,'a33','a33','1234','2015-1-1',7,1,1,'내용33');
 
 commit;
-
 
 
 -- 찜 테이블
