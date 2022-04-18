@@ -5,41 +5,41 @@
 }
 body {
 	background: #fffcf6;
-	font: 14px Malgun Ghothic,"筌띾쵐占썸�⑥쥓逾�",sans-serif;
+	font: 14px Malgun Ghothic,"맑은고딕",sans-serif;
     color: #555;
-    min-width:320px;  /* 筌뤴뫀而�占쎌뵬 占쎈뼊筌랃옙 占쎄쾿疫꿸퀡以� 占쎈：占쎌벥 筌ㅼ뮇�꺖揶쏅�れ뱽 占쎌젫占쎈립 */
+    min-width:320px;  /* 모바일 단말 크기로 폭의 최소값을 제한 */
 }
 #top-wrap {
-	margin-bottom: 20px;  /* 癰귣챶揆(container)�⑨옙 占쎈엘占쎈쐭 占쎄텢占쎌뵠占쎌벥 占쎈연獄쏉옙 筌욑옙占쎌젟 */
+	margin-bottom: 20px;  /* 본문(container)과 헤더 사이의 여백 지정 */
 }
 .top-inner {
-	position: relative;  /* 占쎌쁽占쎈뻼占쎌뱽 占쎌쟿占쏙옙�넫�슦紐닸에占� 獄쏄퀣�뒄占쎈릭疫뀐옙 占쎌맄占쎈퉸 占쎄퐬占쎌젟 */
-	height: 238px;  /* 52(banner)+10+32(logo)+10+17(marketing)+10+24(野껓옙占쎄퉳)+10+18(占쎄퐣�뇡�슢李볩옙�뤀)+10+45(GNB) */
+	position: relative;  /* 자식을 절대좌표로 배치하기 위해 설정 */
+	height: 238px;  /* 52(banner)+10+32(logo)+10+17(marketing)+10+24(검색)+10+18(서브메뉴)+10+45(GNB) */
 }
 
-.top-inner, /* #筌롫뗄�뵥, */ #bottom-wrap {
-	max-width: 1008px;  /* 筌ㅼ뮆占썸에占� 占쎈뮎占쎈선占쎄텊 占쎈땾 占쎌뿳占쎈뮉 揶쏅�れ뱽 占쎈립占쎌젟 : 1120px 占쎌뵠占쎄맒占쎈퓠占쎄퐣占쎈뮉 1008px嚥∽옙 占쎌젫占쎈립 */
-	width: 90%;  /* �뇡�슢�뵬占쎌뒭占쏙옙占쎌벥 占쎈：占쎌뵠 1120px占쎌뵠占쎈릭占쎌뵬 占쎈르 90%嚥∽옙 占쎌젫占쎈립 */
-	margin: 0 auto;  /* 餓λ쵐釉� 占쎌젟占쎌졊 */
+.top-inner, /* #메인, */ #bottom-wrap {
+	max-width: 1008px;  /* 최대로 늘어날 수 있는 값을 한정 : 1120px 이상에서는 1008px로 제한 */
+	width: 90%;  /* 브라우저의 폭이 1120px이하일 때 90%로 제한 */
+	margin: 0 auto;  /* 중앙 정렬 */
 }
 
-.top-banner-wrap {  /* 占쎈뼄占쎌젫 獄쏄퀡瑗ュ첎占� 雅뚯눘堉깍쭪占쏙쭖占� 占쎈땾占쎌젟 揶쏉옙占쎈뮟 */
+.top-banner-wrap {  /* 실제 배너가 주어지면 수정 가능 */
 	display: flex;
 	flex-flow: row nowrap;
-	align-items: center;  /* 占쎈땾筌욊낯�몵嚥∽옙 餓λ쵐釉� 占쎌젟占쎌졊 */
-	width: 60%;  /* banner占쎌벥 占쎄쾿疫꿸퀡占쏙옙 占쎄퐬占쎌젟 */
-	margin: 10px auto;  /* margin 10px占쎌뱽 雅뚯눊�� 餓λ쵐釉� 占쎌젟占쎌졊 */
+	align-items: center;  /* 수직으로 중앙 정렬 */
+	width: 60%;  /* banner의 크기를 설정 */
+	margin: 10px auto;  /* margin 10px을 주고 중앙 정렬 */
 	height: 52px;
 	border: 1px solid black;
 }
 .top-banner-wrap h1 {
 	width: 100%;
-	text-align: center;  /* banner 疫뀐옙占쎌쁽�몴占� 餓λ쵐釉� 占쎌젟占쎌졊 */
+	text-align: center;  /* banner 글자를 중앙 정렬 */
 }
 .top-inner h1.logo {
 	text-align: center;
-	font-size: 1.5em;   /* 占쎄맒占쎈꺗占쎌몵嚥∽옙 占쎌뵥占쎈립 占쎈？占쎈뱜 占쎄쾿疫꿸퀣�벥 占쎌겫占쎈샨占쎌뱽 �⑥쥓�젻 */
-    font-size: 1.5rem;  /* 占쎄맒占쎈꺗占쎌몵嚥∽옙 占쎌뵥占쎈립 占쎈？占쎈뱜 占쎄쾿疫꿸퀣�벥 占쎌겫占쎈샨占쎌뱽 獄쏆룇占� 占쎈륫疫뀐옙 占쎌맄占쎈퉸 占쎄텢占쎌뒠 */
+	font-size: 1.5em;   /* 상속으로 인한 폰트 크기의 영향을 고려 */
+    font-size: 1.5rem;  /* 상속으로 인한 폰트 크기의 영향을 받지 않기 위해 사용 */
 	font-weight: bold;
 }
 .top-inner h4.marketing-msg {
@@ -50,22 +50,22 @@ body {
 }
 
 .subMenu {
-	float: right;  /* 占쎌궎�몴紐꾠걹占쎌몵嚥∽옙 占쎌젟占쎌졊 */
+	float: right;  /* 오른쪽으로 정렬 */
 	margin-right: 5px;
 	margin-top: 10px;
     margin-bottom: 10px;
 }
 
 /* .subMenu li {
-	display: inline-block;  揶쏉옙嚥≪뮆以� 獄쏄퀣�뒄
-	background: url(../../images/bar-util.jpg) 0 7px no-repeat;  �뤃�됲뀋占쎄퐨
-	padding-left: 6px;  �뤃�됲뀋占쎄퐨�⑨옙 筌롫뗀�뤀 �굜�꼹�쀯옙�뱜 占쎄텢占쎌뵠占쎌벥 揶쏄쑨爰�
+	display: inline-block;  가로로 배치
+	background: url(../../images/bar-util.jpg) 0 7px no-repeat;  구분선
+	padding-left: 6px;  구분선과 메뉴 콘텐트 사이의 간격
 } */
 .subMenu li:first-child {
-	background: none;  /* 筌ｏ옙 甕곕뜆�럮 筌롫뗀�뤀占쎌벥 �뤃�됲뀋占쎄퐨占쎌뱽 占쎌젫椰꾬옙 */
+	background: none;  /* 첫 번째 메뉴의 구분선을 제거 */
 }
 .subMenu li a {
-	font-size: 0.8em;  /* 占쎄퐣�뇡占� 筌롫뗀�뤀占쎌벥 疫뀐옙占쎌쁽 占쎄쾿疫뀐옙 */
+	font-size: 0.8em;  /* 서브 메뉴의 글자 크기 */
     font-size: 0.8rem;
 }
 .blind {
@@ -76,7 +76,7 @@ body {
 	width: 1px;
 	height: 1px;
 }
-.mobile-menu-open{  /* 筌뤴뫀而�占쎌뵬 疫꿸퀗由곤옙�벥 筌롫뗀�뤀 甕곌쑵�뱣 */
+.mobile-menu-open{  /* 모바일 기기의 메뉴 버튼 */
     position: absolute;
     right: 10px;
     top: 0;
@@ -105,20 +105,20 @@ body {
 .mobile-menu-open button span:first-child + span + span{
     margin-top: 10px;
 }
-.mobile-menu-wrap {  /* GNB 筌롫뗀�뤀 */
-	clear: both;  /* 占쎌뒭嚥∽옙 占쎌젟占쎌졊占쎌뱽 占쎈퉸占쎌젫 */
+.mobile-menu-wrap {  /* GNB 메뉴 */
+	clear: both;  /* 우로 정렬을 해제 */
 }
 #gnb {
-	position: absolute;  /* 占쎌쟿占쏙옙�넫�슦紐닸에占� 獄쏄퀣�뒄 */
+	position: absolute;  /* 절대좌표로 배치 */
 	left: 0;
-	bottom: 0;  /* 占쎈툡占쎌삋占쎈퓠 獄쏄퀣�뒄 */
+	bottom: 0;  /* 아래에 배치 */
 	width: 100%;
 	z-index: 100;
 	background: white;
 }
 #gnb > ul > li {
-	width: 16.66%;  /* 1/6 : 筌롫뗀�뤀 6揶쏉옙 */
-	float: left;  /* 揶쏉옙嚥≪뮆以� 獄쏄퀣�뒄 */
+	width: 16.66%;  /* 1/6 : 메뉴 6개 */
+	float: left;  /* 가로로 배치 */
 }
 #gnb > ul > li > a {
 	font-size:1.125em;
@@ -128,10 +128,10 @@ body {
 	height: 45px;
 	line-height: 45px;
 }
-#gnb ul .secMenu {  /* 2占쎈뼊 筌롫뗀�뤀 */
+#gnb ul .secMenu {  /* 2단 메뉴 */
 	display: none;
-	position: absolute;  /* 占쎌쟿占쏙옙 �넫�슦紐닸에占� 獄쏄퀣�뒄 */
-	top: 45px;  /* 1占쎈뼊 筌롫뗀�뤀 占쎈툡占쎌삋占쎈퓠 獄쏄퀣�뒄 */
+	position: absolute;  /* 절대 좌표로 배치 */
+	top: 45px;  /* 1단 메뉴 아래에 배치 */
 	background-color: #fff;
 	border: 1px solid black;
 	border-top: none;
@@ -139,16 +139,16 @@ body {
 	font-size: 0.8125em;
     font-size: 0.8125rem;  /* 13px */
 }
-#gnb ul .secMenu1 {  /* 2占쎈뼊 筌롫뗀�뤀 : 占쎄맒占쎈�� */
-	left: 0;  /* �넫�슣瑜ワ옙肉� 獄쏄퀣�뒄 */
-	width: 100%;  /* 占쎈：占쏙옙 占쎌읈筌ｏ옙 2占쎈뼊 筌롫뗀�뤀占쎌벥 占쎄섐�뜮占� */
+#gnb ul .secMenu1 {  /* 2단 메뉴 : 상품 */
+	left: 0;  /* 좌측에 배치 */
+	width: 100%;  /* 폭은 전체 2단 메뉴의 너비 */
 }
-#gnb ul .secMenu2 {  /* 占쎌뵬占쎌뵬筌띾뜆�룇 1占쎈뼊 筌롫뗀�뤀占쎈퓠 占쎄맒占쏙옙占쎌읅占쎌뵥 占쎌맄燁삼옙 */
+#gnb ul .secMenu2 {  /* 라라마켓 1단 메뉴에 상대적인 위치 */
 	left: 42%;
-	width: 140px;  /* 1占쎈뼊 筌롫뗀�뤀占쎌벥 餓λ쵐釉곤옙肉� 獄쏄퀣�뒄 */
+	width: 140px;  /* 1단 메뉴의 중앙에 배치 */
 	margin-left: -70px;
 }
-#gnb ul .secMenu3 {  /* �⑥쥒而쇽옙苑깍옙苑� 1占쎈뼊 筌롫뗀�뤀占쎈퓠 占쎄맒占쏙옙占쎌읅占쎌뵥 占쎌맄燁삼옙 */
+#gnb ul .secMenu3 {  /* 고객센터 1단 메뉴에 상대적인 위치 */
 	left: 92%;
 	width: 140px;
 	margin-left: -70px;
@@ -157,9 +157,9 @@ body {
 	display: block;
 	height: 30px;
 	line-height: 30px;
-    margin-left: 10px;  /* 占쎈굶占쎈연占쎈쾺疫뀐옙 */
+    margin-left: 10px;  /* 들여쓰기 */
 }
-/* #筌롫뗄�뵥 {
+/* #메인 {
 	min-height: 760px;
 } */
 #bottom-wrap {
@@ -169,24 +169,24 @@ body {
 }
 
 #bottom-wrap {
-	clear: both;  /* 占쎌젟占쎌졊 占쎈퉸占쎌젫 */
-	display: flex;  /* 占쎈탣占쎌젂占쎄퐣�뇡占� 域밸챶�봺占쎈굡嚥∽옙 獄쏄퀣�뒄 */
-	flex-flow: column nowrap;  /* 占쎄퉱嚥≪뮆占쏙옙 雅뚯눘�뀧占쎌몵嚥∽옙 獄쏄퀣�뒄 */
+	clear: both;  /* 정렬 해제 */
+	display: flex;  /* 플렉서블 그리드로 배치 */
+	flex-flow: column nowrap;  /* 새로를 주축으로 배치 */
 	height: 360px;  /* 120 + 38 + 30 + 22 + 90 + 60 = */
 }
 #bottom-menu1 { 
 	height: 30px; 
-	position: relative;  /* relative嚥∽옙 獄쏄퀣�뒄 */
+	position: relative;  /* relative로 배치 */
 	top: 38px;
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 }
-#bottom-menu1 ul {  /* 筌롫뗀�뤀�몴占� 餓λ쵐釉곤옙肉� 獄쏄퀣�뒄 */
-    width: 600px;
+#bottom-menu1 ul {  /* 메뉴를 중앙에 배치 */
+    width: 580px;
     margin: 0 auto;
 }
-#bottom-menu1 li {  /* 筌롫뗀�뤀�몴占� 揶쏉옙嚥≪뮆以� 獄쏄퀣�뒄 */
-    float: center;
+#bottom-menu1 li {  /* 메뉴를 가로로 배치 */
+    float: left;
 	padding: 5px 10px;
 }
 #bottom-menu1 li:first-child {
@@ -229,4 +229,3 @@ body {
 	font-size: 0.9rem;
 	margin-top: 10px;
 }
-

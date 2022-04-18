@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
 	<script src="<%=request.getContextPath() %>/resources/jquery.js"></script>
 	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
+
 <script>
 $(window).scroll(function(){
 	if ($(this).scrollTop() > 300){
@@ -61,4 +62,3 @@ $('.btn_gotop').click(function(){
 		 </div>
  	</div>
  </body>
-product_bottom.jsp<br>
