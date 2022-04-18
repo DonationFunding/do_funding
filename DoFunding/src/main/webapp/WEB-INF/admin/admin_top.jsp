@@ -45,48 +45,38 @@
 				<div>
 					<nav id="gnb">
 						<h2 class="blind">메인 메뉴</h2>
-						<ul>
+						<ul class="secMenu">
 							<li class="m1 no-sub"><a href="main.ad">홈</a></li>
 							<li class="m2"><a href="admin_cate_list.ad">카테고리</a>
-								<div class="secMenu secMenu1" align="center">
-									<ul>
-										<li><a href="admin_cate_list.ad">카테고리 목록</a></li>
-										<li><a href="admin_cate_insert.ad">카테고리 등록</a></li>		
-									</ul>
-								</div>
+								<ul class="sec m2_Menu" align="center">
+									<li><a href="admin_cate_list.ad">카테고리 목록</a></li>
+									<li><a href="admin_cate_insert.ad">카테고리 등록</a></li>		
+								</ul>
 							</li>
-							<li class="m2"><a href="admin_prd_list.ad">펀딩</a>
-								<div class="secMenu secMenu1" align="center">
-									<ul>
-										<li><a href="admin_prd_list.ad">펀딩 목록</a></li>
-										<li><a href="admin_prd_insert.ad">펀딩 추가</a></li>
-										<li><a href="list.prd">사용자 홈</a></li>
-									</ul>
-								</div>
+							<li class="m3"><a href="admin_prd_list.ad">펀딩</a>
+								<ul class="sec m3_Menu" align="center">
+									<li><a href="admin_prd_list.ad">펀딩 목록</a></li>
+									<li><a href="admin_prd_insert.ad">펀딩 추가</a></li>
+									<li><a href="list.prd">사용자 홈</a></li>
+								</ul>
 							</li>
 							<!-- 					<li class="m4 no-sub"> -->
-							<li class="m2"><a href="#">회원관리</a>
-								<div class="secMenu secMenu1" align="center">
-									<ul>
-<!-- 										<li><a href="admin_mem_list.ad">회원 목록</a></li>
- -->									<li><a href="admin_mem_list.ad">회원 목록</a></li>
-									</ul>
-								</div>
+							<li class="m4"><a href="#">회원관리</a>
+								<ul class="sec m4_Menu" align="center">
+<!-- 								<li><a href="admin_mem_list.ad">회원 목록</a></li>
+ -->								<li><a href="admin_mem_list.ad">회원 목록</a></li>
+								</ul>
 							</li>
-							<li class="m2"><a href="admin_bd_list.ad">게시판</a>
-								<div class="secMenu secMenu1" align="center">
-									<ul>
-										<li><a href="admin_bd_list.ad">게시판 목록</a></li>
-									</ul>
-								</div>
+							<li class="m5"><a href="admin_bd_list.ad">게시판</a>
+								<ul class="sec m5_Menu" align="center">
+									<li><a href="admin_bd_list.ad">게시판 목록</a></li>
+								</ul>
 							</li>
-							<li class="m2"><a href="#">주문내역</a>
-								<div class="secMenu secMenu1" align="center">
-									<ul>
- 										<li><a href="#">주문 내역</a></li>
-										<li><a href="#">매출통계?</a></li>
-									</ul>
-								</div>
+							<li class="m6"><a href="#">주문내역</a>
+								<ul class="sec m6_Menu" align="center">
+ 									<li><a href="#">주문 내역</a></li>
+									<li><a href="#">매출통계?</a></li>
+								</ul>
 							</li>
 						</ul>
 					</nav>

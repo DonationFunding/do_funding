@@ -45,10 +45,8 @@
 		order by p_num desc
 	</select>
 	
-	<select id="RotatorList" resultType="MyProduct">
-		
- 		select * from do_product  where p_readcount between (select max(p_readcount) from do_product)-3
- 		 and (select max(p_readcount) from do_product) 	
+	<select id="RotatorList" resultType="MyProduct">		
+ 		select p_num,p_image from (select p_num,p_image, p_readcount, row_number() over (order by p_readcount desc) as rank  from do_product) where rank between 1 and 5
  	</select>
  	
 	<select id="GetProduct" resultType="MyProduct">

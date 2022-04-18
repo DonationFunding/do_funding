@@ -10,7 +10,7 @@ public class OrderDetailDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	private String namespace = "orderdetail.model.OrderDetailDao";
+	private String namespace = "orderdetail.model.OrderDetail";
 
 	public void insertOrderDetail(OrderDetailBean odBean) {
 		System.out.println(odBean.getOd_id());

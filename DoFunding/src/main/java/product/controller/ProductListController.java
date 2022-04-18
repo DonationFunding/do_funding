@@ -31,7 +31,6 @@ public class ProductListController {
 	@Autowired
 	ServletContext servletContext;	
 	
-	//일반회원용
 	@RequestMapping(command)
 	public ModelAndView doAction(
 			@RequestParam(value="whatColumn", required=false) String whatColumn,
@@ -52,10 +51,11 @@ public class ProductListController {
 		  
 		List<ProductBean> rotatorlist = productDao.rotatorList();
 		List<ProductBean> list = productDao.productList(pageInfo, map);
+		System.out.println("rotatorlist.size:"+rotatorlist.size());
 		System.out.println("list.size:"+list.size());
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("rotatorlist",rotatorlist);
-		mav.addObject("list",list);
+		mav.addObject("prdList",list);
 		mav.addObject("totalCount",totalCount);
 		mav.addObject("pageInfo",pageInfo);
 

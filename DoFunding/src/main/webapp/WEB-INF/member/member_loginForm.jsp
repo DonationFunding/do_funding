@@ -8,21 +8,21 @@
 <table class="table" class="text-center">
         <h4>로그인</h4>
 		<tr align="center">
-			<td>
+			<th class="text-center">
 				아이디 : 	<input type="text" name="id">
-			</td>
+			</th>
 
 		</tr>
 		<tr  align="center">
-			<td>
+			<th class="text-center">
 				패스워드 : <input type="password" name="password">
-			</td>
+			</th>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				<input type="submit" value="로그인">
-				<input type="button" value="아이디/비밀번호 찾기" onclick="location.href='findid.mem'">
-				<input type="button" value="회원가입" onclick="location.href='insert.mem'">
+				<input type="submit" value="로그인"  class="btn btn-default btn-sm">
+				<input type="button" value="아이디/비밀번호 찾기"  class="btn btn-default btn-sm" onclick="location.href='findid.mem'">
+				<input type="button" value="회원가입"  class="btn btn-default btn-sm" onclick="location.href='insert.mem'">
 			</td>
 		</tr>
 	</table>

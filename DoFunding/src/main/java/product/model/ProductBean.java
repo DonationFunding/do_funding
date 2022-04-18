@@ -5,7 +5,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ProductBean {
 
-	 //default p_readcount,p_total_price,p_reg_date  
+	//default p_readcount,p_total_price,p_reg_date  
+	//스크립트로 처리
 	
 	private final String common=" 입력 누락";
 		
@@ -38,10 +39,8 @@ public class ProductBean {
 	
 	private String p_reg_date; 	
 	
-	//스크립트로 처리
 	private String p_start_date; 		
 
-	//스크립트로 처리
 	private String p_end_date;
 	
 	private int orderqty;
