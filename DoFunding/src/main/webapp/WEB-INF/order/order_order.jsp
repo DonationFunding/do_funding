@@ -63,7 +63,7 @@
 	}
 </script>
 <body>
-OrderMallController => order_order.jsp
+<!-- OrderMallController => order_order.jsp -->
 <br><br>
 
 <div align="center"> 

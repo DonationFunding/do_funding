@@ -8,10 +8,18 @@
 		margin: auto;
 	}
 </style>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="<%=request.getContextPath() %>/resources/css/kfonts2.css"
+	rel="stylesheet">
+</head>
 <center>
 <h1>글목록(전체 글:${totalCount})</h1>
-
-
 <div class="container">
 <table class="table table-hover table-sm" class="text-center">
 	
