@@ -7,8 +7,27 @@
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>두펀딩</title>
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
-
+<script>
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 300){
+			$('.btn_gotop').show();
+		} else{
+			$('.btn_gotop').hide();
+		}
+	});
+	$('.btn_gotop').click(function(){
+		$('html, body').animate({scrollTop:0},400);
+		return false;
+	});
+</script>
  </head>
+ 
+
+<div style="position:fixed; bottom:35px; right:30px; z-index:99;"> 
+	<a href="#"  class="btn_gotop">
+	  <img src="<%=request.getContextPath()%>/resources/images/탑버튼.png" style="width:50px"> 
+	</a>
+</div>
 
  <body>
  	<div id="bottom-wrap">

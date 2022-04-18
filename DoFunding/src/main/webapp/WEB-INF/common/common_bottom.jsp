@@ -9,7 +9,28 @@
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
 	<script src="<%=request.getContextPath() %>/resources/jquery.js"></script>
 	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
+
+<script>
+$(window).scroll(function(){
+	if ($(this).scrollTop() > 300){
+		$('.btn_gotop').show();
+	} else{
+		$('.btn_gotop').hide();
+	}
+});
+$('.btn_gotop').click(function(){
+	$('html, body').animate({scrollTop:0},400);
+	return false;
+});
+</script>
  </head>
+ 
+
+<div style="position:fixed; bottom:35px; right:30px; z-index:99;"> 
+	<a href="#"  class="btn_gotop">
+	  <img src="<%=request.getContextPath()%>/resources/images/탑버튼.png" style="width:50px"> 
+	</a>
+</div>
  <body>
  	<div id="bottom-wrap">
  		<div id="bottom-menu1">
@@ -41,4 +62,3 @@
 		 </div>
  	</div>
  </body>
-product_bottom.jsp<br>
