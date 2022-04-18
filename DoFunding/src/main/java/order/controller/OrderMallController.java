@@ -28,7 +28,6 @@ import product.model.ProductDao;
 public class OrderMallController {
 
 	private final String command = "order.ord";
-	private final String gotoPage="redirect:/order2.ord";
 	private String getPage = "order_order";
 
 	@Autowired
@@ -41,6 +40,7 @@ public class OrderMallController {
 	@RequestMapping(value=command)
 	public String doAction(
 			ProductBean prdbean,
+<<<<<<< HEAD
 			OrderBean opbean,
 			HttpSession session,
 			Model model) {
@@ -48,6 +48,11 @@ public class OrderMallController {
 		System.out.println("orderqty="+opbean.getO_qty());
 		System.out.println("상품명="+prdbean.getP_subject());
 		System.out.println("단가="+prdbean.getP_origin_price());
+=======
+			OrderBean ordbean,
+			OptionBean opbean,
+			HttpSession session,Model model) {
+>>>>>>> refs/remotes/origin/do-hjh
 		
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
 		
@@ -57,6 +62,9 @@ public class OrderMallController {
 //		model.addAttribute("optionList", o_list);
 //		model.addAttribute("productBean", p_product);
 		
+		System.out.println("옵션="+opbean.getOption_content());
+		System.out.println("옵션="+opbean.getOption_item_no());
+		System.out.println("옵션="+opbean.getOption_no());
 		if(loginInfo==null) { // 로그인 안했으면
 			session.setAttribute("destination", "redirect:/order.ord");
 			return "redirect:/login.mem"; // MemberLoginController
@@ -74,7 +82,7 @@ public class OrderMallController {
 			//session.setAttribute("orderList", orderList);
 			model.addAttribute("orderList", orderList);
 		
-			return gotoPage; // shopList.jsp 
+			return getPage; // shopList.jsp 
 		}
 	}
 
