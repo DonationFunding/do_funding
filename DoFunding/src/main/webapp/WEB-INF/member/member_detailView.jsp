@@ -11,6 +11,7 @@ member_detailView.jsp<br>
 		</td>
 		<td>
 			${loginInfo.no }
+			
 		</td>
 	</tr>
 	<tr>
@@ -33,16 +34,24 @@ member_detailView.jsp<br>
 		<td>
 			생년월일
 		</td>
+		<c:set var="birthday">
+			<fmt:parseDate value="${loginInfo.birthday}" var="dateValue" pattern="yyyy-MM-dd" />
+			<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />	
+		</c:set> 
 		<td>
-			${loginInfo.birthday }
+			${birthday }
 		</td>
 	</tr>
 	<tr>
 		<td>
 			가입일
 		</td>
+		<c:set var="joindate">
+			<fmt:parseDate value="${loginInfo.joindate}" var="dateValue" pattern="yyyy-MM-dd" />
+			<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />	
+		</c:set> 
 		<td>
-			${loginInfo.joindate }
+			${joindate }
 		</td>
 	</tr>
 	<tr>
@@ -95,7 +104,7 @@ member_detailView.jsp<br>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="button" value="정보수정" onclick="location.href='update.mem'">
+			<input type="button" value="정보수정" onclick="location.href='update.mem?id=${loginInfo.id}'">
 		</td>
 	</tr>
 </table>

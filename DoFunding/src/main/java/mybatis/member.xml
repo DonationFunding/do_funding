@@ -9,6 +9,10 @@
 		select * from do_members where id=#{id}
 	</select>
 	
+	<select id="GetAllMember" resultType="MyMember">
+		select * from do_members order by no
+	</select>
+	
 	<select id="FindId" resultType="MyMember">
 		select * from do_members where name=#{name} and birthday=#{birthday}
 	</select>
@@ -20,6 +24,15 @@
 	<update id="UpdatePassword">
 		update do_members set password=#{password} where id=#{id}
 	</update>
+	
+	<update id="UpgradeMember">
+		update do_members set admin='0' where no=#{no}
+	</update>
+	
+	<update id="UpdateMember">
+		update do_members set gender=#{gender} , hp1=#{hp1} , hp2=#{hp2} , hp3=#{hp3} , address1=#{address1} , address2=#{address2} , accountbank=#{accountbank} , account=#{account} where id=#{id}
+	</update>
+	
 </mapper>
 <!-- member.xml -->
 
