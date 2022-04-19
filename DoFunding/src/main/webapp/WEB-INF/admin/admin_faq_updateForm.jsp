@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@ include file="../common/common_top.jsp" %>    
+<%@ include file="admin_top.jsp" %>    
 
 <style type="text/css">
 	body{
@@ -20,42 +19,40 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 </head> -->
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
 
-<form action="update.bd?pageNumber=${pageNumber }" method="post" onsubmit="return check()">
-<input type="hidden" name="b_num" value="${bdBean.getB_num()}">
+<form action="admin_faq_update.ad?pageNumber=${pageNumber }" method="post" onsubmit="return faqcheck()">
+<input type="hidden" name="b_num" value="${faqBean.faq_num}">
 <h3>수정하기</h3>
 <div class="container">
 <table class="table" class="text-center">
 		<tr>
 			<td colspan="2" align="right">
-				<a href="list.bd?pageNumber=${pageNumber}">글목록</a>
+				<a href="admin_faq_list.ad">글목록</a>
 			</td>
 		</tr>
 		<tr>
 			<th class="text-center">이름</th>
-			<td><input type="text" name="b_writer" value="${bdBean.b_writer}" readonly></td>
+			<td><input type="text" name="faq_writer" value="${faqBean.faq_writer}" readonly></td>
 		</tr>
 		<tr>
 			<th class="text-center">제목</th>
-			<td><input type="text" name="b_subject" value="${bdBean.getB_subject()}"></td>
+			<td><input type="text" name="faq_subject" value="${faqBean.faq_subject}"></td>
 		</tr>
 		<tr>
 			<th class="text-center">내용</th>
 			<td>
-				<textarea name="b_content" rows="10" cols="50" >${bdBean.getB_content()}</textarea>
+				<textarea name="faq_content" rows="10" cols="50" >${faqBean.faq_content}</textarea>
 			</td>
 		</tr>
-			<input type="hidden" name="b_passwd" value="${sessionScope.loginInfo.password}">
 		<tr>
 			<td colspan="2" align="center">
-				<input type="submit" name="" value="수정하기" class="btn btn-default btn-sm">
+				<input type="submit" name="" value="수정하기" class="btn btn-default btn-sm" >
 				<input type="reset" name="" value="다시작성" class="btn btn-default btn-sm">
-				<input type="button" name="" value="목록보기" class="btn btn-default btn-sm" onclick="location.href='list.bd?pageNumber=${pageNumber}'">
+				<input type="button" name="" value="목록보기" class="btn btn-default btn-sm" onclick="location.href='admin_faq_list.ad?pageNumber=${pageNumber}'">
 			</td>
 		</tr>
 	</table>
 </form>
 
-<%@ include file="../common/common_bottom.jsp" %>
+<%@ include file="admin_bottom.jsp" %>
 

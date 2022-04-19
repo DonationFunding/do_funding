@@ -10,17 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
-import board.model.BoardBean;
 import board.model.BoardDao;
+import board.model.NoticeBean;
 
 @Controller
-public class AdminBoardDeleteController {
+public class AdminNoticeDeleteController {
 
-	private final String command="/admin_bd_delete.ad";
-	private String getPage="admin_bd_content";
-	private String gotoPage="redirect:/admin_bd_list.ad";
+	private final String command="/admin_notice_delete.ad";
+	private String getPage="admin_notice_content";
+	private String gotoPage="redirect:/admin_notice_list.ad";
 
 	@Autowired
 	private BoardDao boardDao;
@@ -28,7 +27,7 @@ public class AdminBoardDeleteController {
 	@RequestMapping(value=command)
 	public String doAction(
 			@RequestParam(value="pageNumber") String pageNumber,
-			BoardBean bdBean,
+			NoticeBean noticeBean,
 			HttpServletRequest request,
 			HttpServletResponse response
 			) {	
@@ -36,7 +35,7 @@ public class AdminBoardDeleteController {
 		
 		PrintWriter pw =null;	
 
-		int cnt=boardDao.adminDeleteArticle(bdBean);			
+		int cnt=boardDao.deleteNotice(noticeBean);			
 		try {
 			pw=response.getWriter();
 		} catch (IOException e) {
@@ -47,9 +46,9 @@ public class AdminBoardDeleteController {
 			return gotoPage;
 		}	
 		else {
-			pw.println("<script> alert('게시글 삭제에 실패했습니다.');</script>");
+			pw.println("<script> alert('공지글 삭제에 실패했습니다.');</script>");
 			pw.flush();
-			request.setAttribute("bdBean", bdBean);
+			request.setAttribute("noticeBean", noticeBean);
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
 		}	

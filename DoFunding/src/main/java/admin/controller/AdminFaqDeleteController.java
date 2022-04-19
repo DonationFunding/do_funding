@@ -14,13 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import board.model.BoardBean;
 import board.model.BoardDao;
+import board.model.FaqBean;
 
 @Controller
-public class AdminBoardDeleteController {
+public class AdminFaqDeleteController {
 
-	private final String command="/admin_bd_delete.ad";
-	private String getPage="admin_bd_content";
-	private String gotoPage="redirect:/admin_bd_list.ad";
+	private final String command="/admin_faq_delete.ad";
+	private String getPage="admin_faq_content";
+	private String gotoPage="redirect:/admin_faq_list.ad";
 
 	@Autowired
 	private BoardDao boardDao;
@@ -28,7 +29,7 @@ public class AdminBoardDeleteController {
 	@RequestMapping(value=command)
 	public String doAction(
 			@RequestParam(value="pageNumber") String pageNumber,
-			BoardBean bdBean,
+			FaqBean faqBean,
 			HttpServletRequest request,
 			HttpServletResponse response
 			) {	
@@ -36,7 +37,7 @@ public class AdminBoardDeleteController {
 		
 		PrintWriter pw =null;	
 
-		int cnt=boardDao.adminDeleteArticle(bdBean);			
+		int cnt=boardDao.deleteFaq(faqBean);			
 		try {
 			pw=response.getWriter();
 		} catch (IOException e) {
@@ -47,9 +48,9 @@ public class AdminBoardDeleteController {
 			return gotoPage;
 		}	
 		else {
-			pw.println("<script> alert('게시글 삭제에 실패했습니다.');</script>");
+			pw.println("<script> alert('FAQ 삭제에 실패했습니다.');</script>");
 			pw.flush();
-			request.setAttribute("bdBean", bdBean);
+			request.setAttribute("faqBean", faqBean);
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
 		}	
