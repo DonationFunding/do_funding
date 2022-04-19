@@ -31,7 +31,8 @@ public class productDetailController {
 	@Qualifier("myProductDao")
 	private ProductDao productDao;	
 		
-	@Autowired	
+	@Autowired
+	@Qualifier("myDipDao")
 	private DipDao dipDao; 
 	
 	@RequestMapping(value = command ,method = RequestMethod.GET)
@@ -42,7 +43,7 @@ public class productDetailController {
 			MemberBean loginInfo=(MemberBean)session.getAttribute("loginInfo");
 			int check = 0;
 			
-			if(loginInfo != null) { //로그인 인포가 null 아니면
+			if(loginInfo != null) { 
 				DipBean diBean = new DipBean();
 				diBean.setM_no(loginInfo.getNo());
 				diBean.setP_num(p_num);
@@ -81,7 +82,7 @@ public class productDetailController {
 		diBean.setM_no(loginInfo.getNo());
 		diBean.setP_num(p_num);
 		//int cnt = 0;
-		if(loginInfo != null) { //로그인 했냐 안했냐
+		if(loginInfo != null) { 
 			check = dipDao.checkDip(diBean);	
 			if(check == -1) {
 				dipDao.insertDip(diBean); 

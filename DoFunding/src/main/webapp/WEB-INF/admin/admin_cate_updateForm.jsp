@@ -5,27 +5,29 @@
 <center>
 <br>
 <b>카테고리수정</b>
+<br>
 <form:form commandName="cateBean"  method="post"  action="admin_cate_update.ad">
 	<input type="hidden" name="cnum" value="${cateBean.cnum}">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
-<br>
-	<table border="1" height="100">
+	<div class="container">
+    <table class="table" class="text-center">
 		<tr>
-			<td align="center">카테고리코드</td>
-			<td>
-				<input type="text" name="code" value="${cateBean.code}">
-			</td>
+			<th class="text-center">
+			  카테고리코드 : <input type="text" name="code" value="${cateBean.code}">
+	        </th>		
 		</tr>
 		<tr>
-			<td align="center">카테고리이름</td>
-			<td><input type="text" name="cname" value="${cateBean.cname}"></td>
+			<th class="text-center">
+			  카테고리이름 : <input type="text" name="cname" value="${cateBean.cname}">
+		    </th>
 		</tr>
 		<tr> 
 			<td colspan="2" align="center">
- 			    <input type="submit" value="수정하기" > 
+ 			    <input type="submit" value="수정하기" class="btn btn-default btn-sm" > 
 			</td>
 		</tr>
  </table>
+ </div>
  </form:form>
 </center>
 <%@include file ="admin_bottom.jsp" %>

@@ -7,9 +7,6 @@
 <!-- 여기 경로로 주문 세부내역 작업하세요. -->
  	<select id="DetailList">
  		select * from do_orderdetail 
- 		where 
  	</select>
  	
 </mapper>
-
-<!-- order.xml -->

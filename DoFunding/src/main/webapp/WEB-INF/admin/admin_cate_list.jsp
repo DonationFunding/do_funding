@@ -4,7 +4,7 @@
 
 <center>
 	<div>
-		<h4 align="center">카테고리 목록</h4>
+		<h3 align="center">카테고리 목록</h3>
 		<div >
 			<form method="get" action="admin_cate_list.ad">
 				<select name="whatColumn">
@@ -51,7 +51,7 @@
 							<input type="checkbox" name="rowcheck" value="${product.p_num } %>">
 						</td> --%>
 						<td><input type="button" value="수정"  class="btn btn-default btn-sm"
-							onclick="updateCate'${cateBean.cnum}','${pageInfo.pageNumber}')">
+							onclick="updateCate('${cateBean.cnum}','${pageInfo.pageNumber}')">
 						</td>
 					</tr>
 				</c:forEach>

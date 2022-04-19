@@ -11,10 +11,10 @@
 		margin: auto;
 	}
 </style>
-<!-- <head>
+<head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-</head> -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
+</head>
 <script type="text/javascript">
 	function list(){
 		location.href="list.bd"; 
@@ -38,7 +38,7 @@
 	</tr>
 	<tr>
 		<th class="text-center">내용</th>
-		<td><textarea name="b_content" rows="10" cols="50"></textarea></td>
+		<td><textarea name="b_content" rows="10" cols="50" style="resize: none;"></textarea></td>
 	</tr>
 	<tr>
 		<th class="text-center">비밀번호</th>

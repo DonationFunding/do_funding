@@ -1,19 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="admin_top.jsp"%>
-<script type="text/javascript">
-	function insert() {
-		location.href="admin_prd_insert.ad"; 
-	}
-	
-	function update(p_num,pageNumber){
-
-		location.href="admin_prd_update.ad?p_num="+p_num+"&pageNumber="+pageNumber; 	
-	}	
-</script>
-
 <center>
-	<h2>펀딩 목록(${pageInfo.pageNumber})</h2>
+	<h3>펀딩 목록(${pageInfo.pageNumber})</h3>
 	<form action="admin_prd_list.ad" method="get">
 		<select name="whatColumn">
 			<option value="all">선택</option>
@@ -21,27 +10,25 @@
 			<option value="p_content">설명</option>
 		</select> 
 		<input type="text" name="keyword"> 
-		<input type="submit" value="검색">
+		<input type="submit" value="검색" class="btn btn-default btn-sm">
 	</form>
-	<table border="1" width="1000">
+	<div class="container">
+    <table class="table table-hover table-sm" class="text-center">
 		<tr>
 			<td align="left" colspan="8">
-				<input type="button" value="삭제" onclick="selectDelete()">
-				<input type="button" value="추가하기" onclick="insertPrd()">
+				<input type="button" value="삭제" class="btn btn-default btn-sm" onclick="selectDelete()">
+				<input type="button" value="추가하기" class="btn btn-default btn-sm" onclick="insertPrd()">
 			</td>
-			<td colspan="3" align="center">
+			<td colspan="3" align="right">
 				<c:set var="now" value="<%=new java.util.Date()%>" />
 				<c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set>
 				Today : ${sysDate} 								
 			</td>
-			<td align="right" colspan="8">
-				<input type="button" value="추가하기" onclick="insert()">
-			</td>
 		</tr>
 		<tr>
-			<th  align="center">
+			<td align="center" width="40px">
 				<input type="checkbox" name="allcheck" onclick="allRowCheck(this)">
-			</th>
+			</td>
 			<th>펀딩번호</th>
 			<th>펀딩명</th>
 			<th>image</th>
@@ -77,14 +64,15 @@
  					<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
  				</td>
 				<td>
-					<input type="button" value="수정" onclick="updatePrd('${prdBean.p_num}','${pageInfo.pageNumber}')">				
+					<input type="button" value="수정" class="btn btn-default btn-sm" onclick="updatePrd('${prdBean.p_num}','${pageInfo.pageNumber}')">				
 				</td>
 				<td>
-					<input type="button" value="삭제" onclick="deletePrd('${prdBean.p_num}','${pageInfo.pageNumber}')">				
+					<input type="button" value="삭제" class="btn btn-default btn-sm" onclick="deletePrd('${prdBean.p_num}','${pageInfo.pageNumber}')">				
 				</td>
 			</tr>
 		</c:forEach>
 	</table>
+	</div>
 		<br>
 		<br>
 	<div class="container">
