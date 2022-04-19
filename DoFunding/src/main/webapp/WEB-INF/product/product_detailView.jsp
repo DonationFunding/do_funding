@@ -74,8 +74,8 @@ a:hover {
     				<input type="hidden" name="p_num" value="${productBean.p_num }">
     				<input type="hidden" name="p_subject" value="${productBean.p_subject }">
     				<input type="hidden" name="p_origin_price" value="${productBean.p_origin_price }">
-    				<input type="hidden" name="option_content" value="${productBean.option_content}">
-    				<input type="hidden" name="option_content" value="${productBean.option_no}">
+    				<input type="hidden" name="option_no" value="${optionBean.option_no}">
+    				<input type="hidden" name="option_content" value="${optionBean.option_content}">
 	    			<input type="text" name="o_qty">
 	    			
 <!-- 현재날짜 -->

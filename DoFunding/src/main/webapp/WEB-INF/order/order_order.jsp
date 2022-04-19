@@ -66,25 +66,22 @@
 <!-- OrderMallController => order_order.jsp -->
 <br><br>
 
-<div align="center"> 
+<div class="div1" align="center"> 
 	<form name="myform" action=""><!-- action -->
 	<h2>주문 및 결제</h2>
 	<h3>주문 정보</h3>
-	<ol>
 		주문자명
 		${loginInfo.name}(${loginInfo.id})
 		<br>
 		휴대폰 번호
 		${loginInfo.hp1}-${loginInfo.hp2}-${loginInfo.hp3}
 		<br>
-	</ol>
 			<h3>배송정보</h3>
-			<ol>
 				<p>받는 분<br> 
 					<input type="text" name=name value="${loginInfo.name}"><br> 
-					<input type="text" name="hp1" size="3" value="${loginInfo.hp1}">-
-					<input type="text" name="hp2" size="3" value="${loginInfo.hp2}">-
-					<input type="text" name="hp3" size="3" value="${loginInfo.hp3}"><br>
+					<input type="text" name="hp1" size="2" value="${loginInfo.hp1}">-
+					<input type="text" name="hp2" size="2" value="${loginInfo.hp2}">-
+					<input type="text" name="hp3" size="2" value="${loginInfo.hp3}"><br>
 				</p><br>
 				<p>
 					배송지<br> <input type="text" name="addr" value="${loginInfo.address1} ${loginInfo.address2}"><br>
@@ -93,17 +90,14 @@
 				<p>
 					배송 요청사항(선택)<br> <input type="text" placeholder="배송 요청사항을 입력하세요" size="40">
 				</p><br>
-		</ol>	
 	<h3>주문 요청사항(선택)</h3>
-	<ol>
 		<input type="text" placeholder="주문 요청사항을 입력하세요" size="40"><br>
-	</ol><br>
+	<br>
 	<h3>상품 정보<h3>
-			<ol>
 				<table>
 					<tr>
 						<td>상품명</td>
-						<td>${productBean.getP_subject() }</td>
+						<td>${productBean.p_subject }</td>
 					</tr>
 					<tr>
 						<td>옵션</td>
@@ -122,12 +116,10 @@
 						<td>${productBean.p_origin_price*param.o_qty }원</td>
 					</tr>
 				</table>
-			</ol><br>
+			<br>
 			<h4>배송 안내사항</h4>
-			<ol>
 				기본 배송비는 3000원이면 30000원 이상 주문 시 무료배송입니다.<br>
 				주문 확인 후 입금 계좌를 개별 안내드리며, 미입금 시 주문이 취소될 수 있습니다. <br> <br> <br> <br> <br> <br> <br>
-			</ol>
 </div>
 <div class="div2">
 	<h3>결제금액</h3>
