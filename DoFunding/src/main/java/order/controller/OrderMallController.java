@@ -47,9 +47,15 @@ public class OrderMallController {
 		System.out.println("�ɼ�="+opbean.getOption_content());
 		System.out.println("�ɼ�="+opbean.getOption_item_no());
 		System.out.println("�ɼ�="+opbean.getOption_no());
+		//초기화
+		session.removeAttribute("destination");
 		if(loginInfo==null) { // �α��� ��������
 			session.setAttribute("destination", "redirect:/order.ord");
 			return "redirect:/login.mem"; // MemberLoginController
+		}
+		else if(loginInfo.getAccountbank()==null) { // �α��� ��������
+			session.setAttribute("destination", "redirect:/update.mem");
+			return "redirect:/update.mem"; // MemberLoginController
 		}
 		else { 
 			MyOrderList myorder=(MyOrderList) session.getAttribute("myorder");

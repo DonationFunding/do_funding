@@ -18,7 +18,7 @@ import board.model.BoardDao;
 public class AdminBoardDeleteController {
 	
 	private final String command="/admin_bd_delete.ad";
-	private String getPage="admin_bd_deleteForm";
+	private String getPage="redirect:/admin_bd_list.ad";
 	private String gotoPage="redirect:/admin_bd_list.ad";
 	
 	@Autowired
@@ -36,42 +36,27 @@ public class AdminBoardDeleteController {
 		
 		PrintWriter pw =null;	
 		
-		if(passwd.equals("")){	//ÀÔ·Â ´©¶ô
+		int cnt=boardDao.deleteArticle(bdBean,passwd);			
 			try {
 				pw=response.getWriter();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('ºñ¹Ð¹øÈ£ ÀÔ·Â ´©¶ô');</script>");
-			pw.flush();
-			request.setAttribute("bdBean", bdBean);
-			request.setAttribute("pageNumber", pageNumber);
-			return getPage;
-		}
-		else
-		{
-			int cnt=boardDao.deleteArticle(bdBean,passwd);			
-			try {
-				pw=response.getWriter();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			if(cnt>0) {		//»èÁ¦¼º°ø
+			if(cnt>0) {		//
 				return gotoPage+"?pageNumber="+pageNumber;
-			}
-			
-			if(cnt == -2) {	//ºñ¹Ð¹øÈ£°¡ ÀÏÄ¡ ¾ÊÇÏ¸é
-				pw.println("<script> alert('ÀÛ¼º±ÛÀÇ ºñ¹Ð¹øÈ£¿Í ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.');</script>");
+			}	
+			if(cnt == -2) {	//
+				pw.println("<script> alert('ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.');</script>");
 				pw.flush();
 			}
 			else {
-				pw.println("<script> alert('±Û ¼öÁ¤ÀÌ ½ÇÆÐÇß½À´Ï´Ù');</script>");
+				pw.println("<script> alert('ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½');</script>");
 				pw.flush();
 			}	
 			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
-		}
+		
 			
 
 	}	

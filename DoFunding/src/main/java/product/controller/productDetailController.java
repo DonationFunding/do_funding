@@ -42,7 +42,7 @@ public class productDetailController {
 			int check = 0;
 			
 
-			if(loginInfo != null) { //·Î±×ÀÎ ÀÎÆ÷°¡ null ¾Æ´Ï¸é
+			if(loginInfo != null) { //
 				LikeBean likeBean = new LikeBean();
 				likeBean.setM_no(loginInfo.getNo());
 				likeBean.setLp_num(p_num);
@@ -83,7 +83,7 @@ public class productDetailController {
 		likeBean.setLp_num(p_num);
 		//int cnt = 0;
 
-		if(loginInfo != null) { //·Î±×ÀÎ Çß³Ä ¾ÈÇß³Ä
+		if(loginInfo != null) { //ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ß³ï¿½ ï¿½ï¿½ï¿½ß³ï¿½
 			check = likeDao.checkLike(likeBean);	
 			if(check == -1) {
 				likeDao.insertLike(likeBean); 
