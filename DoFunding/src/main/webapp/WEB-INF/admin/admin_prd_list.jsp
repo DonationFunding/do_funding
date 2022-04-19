@@ -59,8 +59,11 @@
 				<td>${prdBean.p_end_price}원</td>
 				<td>${(prdBean.p_total_price/prdBean.p_end_price)*100} %</td>	
  				<td>
+ 				<c:set var="end_date">
  					<fmt:parseDate value="${prdBean.p_end_date}" var="dateValue" pattern="yyyy-MM-dd" />
  					<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
+ 				</c:set>
+ 					${end_date}
  				</td>
 				<td>
 					<input type="button" value="수정" onclick="updatePrd('${prdBean.p_num}','${pageInfo.pageNumber}')">				

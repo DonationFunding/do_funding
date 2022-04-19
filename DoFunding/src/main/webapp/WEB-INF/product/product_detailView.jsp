@@ -96,16 +96,16 @@ a:hover {
     			<td colspan="3">
 				<form name="likeform" action="detail.prd" method="post"> <!-- form  -->
 					<input type="hidden" name= "p_num" value="${productBean.p_num}"/>
-					<input type="hidden" name= "cnt" value="${cnt}"/>
+					<input type="hidden" name= "like_check" value="${like_check}"/>
 					<input type="hidden" name= "pageNumber" value="${pageNumber}"/>
 				
 				<c:if test = "${loginInfo != null}">
-					<c:if test="${cnt == 1}">
+					<c:if test="${like_check == 1}"><!--좋아요  -->
 						<input type="image"
 							src="<%=request.getContextPath()%>/resources/images/heart_2.png" width="20px" height="20px"
 							onclick="like()">
 					</c:if>
-					<c:if test="${cnt == 0}">
+					<c:if test="${like_check == 0}"><!--좋아요x  -->
 						<input type="image"
 							src="<%=request.getContextPath()%>/resources/images/heart_1.png" width="20px" height="20px"
 							onclick="like()">

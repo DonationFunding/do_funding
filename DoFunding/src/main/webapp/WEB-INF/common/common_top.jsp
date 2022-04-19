@@ -33,7 +33,7 @@
 						</c:if>
 						&nbsp;<a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a>
 						&nbsp;<a href="memberInfo.mem">회원정보</a>
-						&nbsp;<a href="list.like?no=${loginInfo.no}">찜목록</a>
+						&nbsp;<a href="list.like?">찜목록</a>
 						&nbsp;<a href="orderlist.ord">주문내역</a>
 						&nbsp;<a href="">펀딩조회</a>
 					</li>
@@ -74,7 +74,6 @@
 								<ul class="sec m5_Menu" align="center">
 									<li><a href="#">공지사항</a></li>
 									<li><a href="#">FAQ</a></li>
-									<li><a href="#">QnA</a></li>
 								</ul>
 							</li>
 						</ul>
