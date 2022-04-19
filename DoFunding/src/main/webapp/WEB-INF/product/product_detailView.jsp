@@ -103,12 +103,12 @@ a:hover {
 					<c:if test="${cnt == 1}">
 						<input type="image"
 							src="<%=request.getContextPath()%>/resources/images/heart_2.png" width="20px" height="20px"
-							onclick="like()">
+							onclick="like(); window.location.reload();">
 					</c:if>
 					<c:if test="${cnt == 0}">
 						<input type="image"
 							src="<%=request.getContextPath()%>/resources/images/heart_1.png" width="20px" height="20px"
-							onclick="like()">
+							onclick="like(); window.location.reload();">
 					</c:if>
 				</c:if>
 				</form>
