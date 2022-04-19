@@ -47,11 +47,8 @@
 						<td>
 							<input type="button" value="삭제"  class="btn btn-default btn-sm"
 							onclick="deleteCate('${cateBean.cnum}','${pageInfo.pageNumber}')">
-						<%-- <td align="center" >
-							<input type="checkbox" name="rowcheck" value="${product.p_num } %>">
-						</td> --%>
 						<td><input type="button" value="수정"  class="btn btn-default btn-sm"
-							onclick="updateCate'${cateBean.cnum}','${pageInfo.pageNumber}')">
+							onclick="updateCate('${cateBean.cnum}','${pageInfo.pageNumber}')">
 						</td>
 					</tr>
 				</c:forEach>
