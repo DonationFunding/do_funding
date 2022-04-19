@@ -14,25 +14,15 @@
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/admin/" />
+		<property name="prefix" value="/WEB-INF/like/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
-	<!-- new MultipartRequest( ); -->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="10485760"/>
-		<property name="maxInMemorySize" value="10240"/>
-		<property name="defaultEncoding" value="UTF-8"/>
-	</bean>
 		
 	<context:component-scan base-package="like" />
-	<context:component-scan base-package="board" />
-	<context:component-scan base-package="admin" />
+	<context:component-scan base-package="order"/>
 	<context:component-scan base-package="product" />
-	<context:component-scan base-package="member" />
-	<context:component-scan base-package="mall" />
-	<context:component-scan base-package="order" />
 	<context:component-scan base-package="orderdetail" />
-	<context:component-scan base-package="category" />
+
 	
 </beans>
