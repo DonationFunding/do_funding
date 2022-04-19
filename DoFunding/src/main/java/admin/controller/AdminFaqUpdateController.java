@@ -30,11 +30,11 @@ public class AdminFaqUpdateController {
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
-			FaqBean fBean,
+			FaqBean faqBean,
 			HttpServletRequest request
 			) {	
-		FaqBean faqBean=boardDao.faqOneSelect(fBean);
-		request.setAttribute("faqBean", faqBean);
+		FaqBean fBean=boardDao.faqOneSelect(faqBean);
+		request.setAttribute("fBean", fBean);
 		request.setAttribute("pageNumber", pageNumber);
 		return getPage;
 	}	
@@ -65,7 +65,7 @@ public class AdminFaqUpdateController {
 			pw.println("<script> alert('FAQ글 수정에 실패했습니다.');</script>");
 			pw.flush();
 	
-			request.setAttribute("faqBean", faqBean);
+			request.setAttribute("fBean", faqBean);
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
 		}

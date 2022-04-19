@@ -35,7 +35,7 @@ public class AdminNoticeUpdateController {
 			) {	
 		NoticeBean noticeBean=boardDao.noticeOneSelect(ncBean);
 		System.out.println("check:"+noticeBean.getNo_content());
-		request.setAttribute("noticeBean", noticeBean);
+		request.setAttribute("nBean", noticeBean);
 		request.setAttribute("pageNumber", pageNumber);
 		return getPage;
 	}	
@@ -66,7 +66,7 @@ public class AdminNoticeUpdateController {
 			pw.println("<script> alert('공지글 수정에 실패했습니다.');</script>");
 			pw.flush();
 		
-			request.setAttribute("noticeBean", noticeBean);
+			request.setAttribute("nBean", noticeBean);
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
 		}

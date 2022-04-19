@@ -21,7 +21,7 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 
 <form action="admin_faq_update.ad?pageNumber=${pageNumber }" method="post" onsubmit="return faqcheck()">
-<input type="hidden" name="b_num" value="${faqBean.faq_num}">
+<input type="hidden" name="faq_num" value="${fBean.faq_num}">
 <h3>수정하기</h3>
 <div class="container">
 <table class="table" class="text-center">
@@ -32,16 +32,16 @@
 		</tr>
 		<tr>
 			<th class="text-center">작성자</th>
-			<td><input type="text" name="faq_writer" value="${faqBean.faq_writer}" readonly></td>
+			<td><input type="text" name="faq_writer" value="${fBean.faq_writer}" readonly></td>
 		</tr>
 		<tr>
 			<th class="text-center">제목</th>
-			<td><input type="text" name="faq_subject" value="${faqBean.faq_subject}"></td>
+			<td><input type="text" name="faq_subject" value="${fBean.faq_subject}"></td>
 		</tr>
 		<tr>
 			<th class="text-center">내용</th>
 			<td>
-				<textarea name="faq_content" rows="10" cols="50" >${faqBean.faq_content}</textarea>
+				<textarea name="faq_content" rows="10" cols="50" >${fBean.faq_content}</textarea>
 			</td>
 		</tr>
 		<tr>

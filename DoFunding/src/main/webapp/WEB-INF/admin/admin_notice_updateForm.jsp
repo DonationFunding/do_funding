@@ -21,28 +21,28 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 
 <form action="admin_notice_update.ad?pageNumber=${pageNumber }" method="post" onsubmit="return noticecheck()">
-<input type="hidden" name="no_num" value="${noticeBean.no_num}">
+<input type="hidden" name="no_num" value="${nBean.no_num}">
 <h3>수정하기</h3>
 <div class="container">
 <table class="table" class="text-center">
 		<tr>
 			<td colspan="2" align="right">
 				<a href="admin_notice_list.ad">글목록</a>
-				${noticeBean.no_writer}
+				${nBean.no_writer}
 			</td>
 		</tr>
 		<tr>
 			<th class="text-center">작성자</th>
-			<td><input type="text" name="no_writer" value="${noticeBean.no_writer}" readonly></td>
+			<td><input type="text" name="no_writer" value="${nBean.no_writer}" readonly></td>
 		</tr>
 		<tr>
 			<th class="text-center">제목</th>
-			<td><input type="text" name="no_subject" value="${noticeBean.no_subject}"></td>
+			<td><input type="text" name="no_subject" value="${nBean.no_subject}"></td>
 		</tr>
 		<tr>
 			<th class="text-center">내용</th>
 			<td>
-				<textarea name="no_content" rows="10" cols="50" >${noticeBean.no_content}</textarea>
+				<textarea name="no_content" rows="10" cols="50" >${nBean.no_content}</textarea>
 			</td>
 		</tr>
 		<tr>
