@@ -9,6 +9,10 @@
 		select * from do_members where id=#{id}
 	</select>
 	
+	<select id="GetAllMember" resultType="MyMember">
+		select * from do_members order by no
+	</select>
+	
 	<select id="FindId" resultType="MyMember">
 		select * from do_members where name=#{name} and birthday=#{birthday}
 	</select>

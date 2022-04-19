@@ -1,6 +1,9 @@
 package member.model;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -40,6 +43,11 @@ public class MemberDao {
 			System.out.println("비밀번호 변경 성공 "+cnt);
 		}
 		return cnt;
+	}
+
+	public List<MemberBean> getAllMember() {
+		List<MemberBean> memlist = sqlSessionTemplate.selectList(namespace+".GetAllMember");
+		return memlist;
 	}
 
 }
