@@ -171,7 +171,7 @@ $(document).ready(function(){
 				<tr>
 					<th>게시글 내용</th>
 					<td>
-						<textarea name="p_content" rows="15" cols="50" style="resize: none;">${prdBean.p_content}</textarea>
+						<textarea name="p_content" rows="15" cols="50" style="resize: none;" >${prdBean.p_content}</textarea>
 						<form:errors cssClass="err" path="p_content" />
 					</td>
 				</tr>

@@ -40,12 +40,6 @@
 	
 	<tr height="200">
 	     <th class="text-center">글내용</th>
-	
-<%-- 		
-		<td colspan="3" >
-			<textarea name=content rows="2"  readonly="readonly" >${bdBean.getContent() }</textarea>
-		</td> 
---%>
  		<td colspan="6" >
 			${bdBean.getB_content() }
 		</td>
@@ -54,7 +48,7 @@
 	<tr height="30">
 		<td align="center" colspan="6">
 			<input type="button" name="delete_btn" value="글삭제" class="btn btn-default btn-sm" onclick="location.href='admin_bd_delete.ad?b_num=${bdBean.getB_num()}&pageNumber=${pageNumber }'" >
-			<input type="button" name="reple_btn" value="답글쓰기" class="btn btn-default btn-sm" onclick="location.href='reply.bd?b_ref=${bdBean.b_ref}&b_re_step=${bdBean.b_re_step}&b_re_level=${bdBean.b_re_level}&pageNumber=${pageNumber}'" >
+			<input type="button" name="reple_btn" value="답글쓰기" class="btn btn-default btn-sm" onclick="location.href='admin_bd_reply.ad?b_ref=${bdBean.b_ref}&b_re_step=${bdBean.b_re_step}&b_re_level=${bdBean.b_re_level}&pageNumber=${pageNumber}'" >
 			<input type="button" name="list_btn" value="글목록" class="btn btn-default btn-sm" onclick="location.href='admin_bd_list.ad?pageNumber=${pageNumber}'">
 		</td>
 	</tr>		
