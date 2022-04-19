@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@ include file="../common/common_top.jsp" %>  
-
+<%@ include file="admin_top.jsp"%> 
 <style type="text/css">
 	body{
 		text-align: center;
@@ -24,7 +22,7 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
 <body>
-<form action="reply.bd" method="post">
+<form action="admin_bd_reply.bd" method="post">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
 	<input type="hidden" name="b_ref" value="${bdBean.b_ref}">
 	<input type="hidden" name="b_re_step" value="${bdBean.b_re_step}">
@@ -33,18 +31,13 @@
 <table class="table" class="text-center">
 	<tr>
 		<td colspan="2" align="right">
-			<a href="list.bd?pageNumber=${pageNumber}">글목록</a>
+			<a href="admin_bd_list.bd?pageNumber=${pageNumber}">글목록</a>
 		</td>
 	</tr>
 	<tr>
 		<th class="text-center">작성자</th>
 		<td>
-			<c:if test="${loginInfo.admin ==1}">
-				<input type="text" name="b_writer" value="${sessionScope.loginInfo.id}" readonly>
-			</c:if>
-			<c:if test="${loginInfo.admin ==0}">
-				<input type="text" name="b_writer" value="관리자" >
-			</c:if>
+			<input type="text" name="b_writer" value="${sessionScope.loginInfo.id}" readonly>
 		</td>
 	</tr>
 	<tr>
@@ -55,15 +48,16 @@
 		<th class="text-center">내용</th>
 		<td><textarea name="b_content" rows="10" cols="50"></textarea></td>
 	</tr>
+	<!-- 관리자 글은 비밀번호 필요x -->
 	<tr>
 		<th class="text-center">비밀번호</th>
-		<td><input type="password" name="b_passwd" value="1234"></td>
+		<td><input type="hidden" name="b_passwd" value="1234"></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="submit" name="" value="글쓰기"  class="btn btn-default btn-sm"onclick="return check()">
+			<input type="submit" name="" value="글쓰기"  class="btn btn-default btn-sm" onclick="return check()">
 			<input type="reset" name="" value="다시작성" class="btn btn-default btn-sm">
-			<input type="button" name="" value="목록보기"  class="btn btn-default btn-sm"onclick="location.href='list.bd?pageNumber=${pageNumber}'">
+			<input type="button" name="" value="목록보기"  class="btn btn-default btn-sm" onclick="location.href='admmin_bd_list.bd?pageNumber=${pageNumber}'">
 		</td>
 	</tr>
 </table>
@@ -71,5 +65,4 @@
 </form>
 </body>
 
-<%@ include file="../common/common_bottom.jsp" %>
-
+<%@ include file="admin_top.jsp"%> 

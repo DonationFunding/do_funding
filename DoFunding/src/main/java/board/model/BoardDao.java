@@ -38,14 +38,14 @@ public class BoardDao {
 		return cnt;
 	}//deleteArticle
 	
-	//´ä±Û
+	//ï¿½ï¿½ï¿½
 	public int replyArticle(BoardBean article){
 		int cnt=-1;
-		//ÇÏ³ª¾¿ Áõ°¡½ÃÅ°´Â ¾÷µ¥ÀÌÆ®ÇÊ¿ä.
+		//ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ê¿ï¿½.
 		sqlSessionTemplate.update(namespace+".ReplyPlus", article);			
 		cnt=sqlSessionTemplate.insert(namespace+".ReplyArticle", article);
 		//sql="update board set re_step=re_step+1 where ref=? and re_step>?";
-		//±×·³ ºÎ¸ð ´ÙÀ½°ªÀº ÀÌ¹ø ±ÛÀÌ Â÷ÁöÇÏ°Ô µÊ. ÀÌ°É insertÀü¿¡ ¹«Á¶°Ç ÇØÁà¾ß‰Î.
+		//ï¿½×·ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½. ï¿½Ì°ï¿½ insertï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ß‰ï¿½.
 		return cnt;
 	}//replyArticle
 	
@@ -68,9 +68,9 @@ public class BoardDao {
 	//detail
 	public BoardBean getArticle(BoardBean article){
 		BoardBean detail=null;
-		//Á¶È¸¼ö
+		//ï¿½ï¿½È¸ï¿½ï¿½
 		sqlSessionTemplate.update(namespace+".UpdateReadCount", article);
-		//content³»¿ë
+		//contentï¿½ï¿½ï¿½ï¿½
 		detail=sqlSessionTemplate.selectOne(namespace+".GetArticle", article);
 		return detail;
 	}//getArticle	
@@ -113,6 +113,8 @@ public class BoardDao {
 		System.out.println(cnt);
 		return cnt;		
 	}
+
+
 
 	
 	
