@@ -1,17 +1,19 @@
 package board.model;
 
+import java.sql.Timestamp;
+
 public class FaqBean {
 	private int faq_num;
 	private String faq_writer; 
 	private String faq_subject; 
-	private String faq_reg_date;		
+	private Timestamp faq_reg_date;		
 	private int faq_readcount; 			
 	private String faq_content;
 
 	public FaqBean() {
 		super();
 	}
-	public FaqBean(int faq_num, String faq_writer, String faq_subject, String faq_reg_date, int faq_readcount,
+	public FaqBean(int faq_num, String faq_writer, String faq_subject, Timestamp faq_reg_date, int faq_readcount,
 			String faq_content) {
 		super();
 		this.faq_num = faq_num;
@@ -39,10 +41,10 @@ public class FaqBean {
 	public void setFaq_subject(String faq_subject) {
 		this.faq_subject = faq_subject;
 	}
-	public String getFaq_reg_date() {
+	public Timestamp getFaq_reg_date() {
 		return faq_reg_date;
 	}
-	public void setFaq_reg_date(String faq_reg_date) {
+	public void setFaq_reg_date(Timestamp faq_reg_date) {
 		this.faq_reg_date = faq_reg_date;
 	}
 	public int getFaq_readcount() {

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common_top.jsp" %>	 
+<%@ include file="admin_top.jsp" %>	 
 
 <style type="text/css">
 	body{
@@ -46,7 +46,9 @@
 	</tr>
 	<tr height="30">
 		<td align="center" colspan="6">
-		<input type="button" name="list_btn" value="목록" class="btn btn-default btn-sm" onclick="location.href='faq_list.bd?pageNumber=${pageNumber}'">
+		<input type="button" name="list_btn" value="목록" class="btn btn-default btn-sm" onclick="location.href='admin_faq_list.ad?pageNumber=${pageNumber}'">
+		<input type="button" name="update_btn" value="글수정" class="btn btn-default btn-sm"   onclick="location.href='admin_faq_update.ad?faq_num=${faqBean.faq_num}&pageNumber=${pageNumber}'" >
+		<input type="button" name="delete_btn" value="글삭제"  class="btn btn-default btn-sm" onclick="location.href='admin_faq_delete.ad?faq_num=${faqBean.faq_num}&pageNumber=${pageNumber }'" >		</td>
 		</td>
 	</tr>		
 </table>
@@ -54,4 +56,4 @@
 </body> 
 
 <br><br>
-<%@ include file="../common/common_bottom.jsp" %>
+<%@ include file="admin_bottom.jsp" %>

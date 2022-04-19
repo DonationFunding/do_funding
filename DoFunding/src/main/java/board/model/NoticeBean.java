@@ -1,10 +1,12 @@
 package board.model;
 
+import java.sql.Timestamp;
+
 public class NoticeBean {	
 	private int no_num;
 	private String no_writer; 
 	private String no_subject; 
-	private String no_reg_date;		
+	private Timestamp no_reg_date;		
 	private int no_readcount; 			
 	private String no_content;
 
@@ -12,7 +14,7 @@ public class NoticeBean {
 		super();
 	}
 
-	public NoticeBean(int no_num, String no_writer, String no_subject, String no_reg_date, int no_readcount,
+	public NoticeBean(int no_num, String no_writer, String no_subject, Timestamp no_reg_date, int no_readcount,
 			String no_content) {
 		super();
 		this.no_num = no_num;
@@ -47,11 +49,11 @@ public class NoticeBean {
 		this.no_subject = no_subject;
 	}
 
-	public String getNo_reg_date() {
+	public Timestamp getNo_reg_date() {
 		return no_reg_date;
 	}
 
-	public void setNo_reg_date(String no_reg_date) {
+	public void setNo_reg_date(Timestamp no_reg_date) {
 		this.no_reg_date = no_reg_date;
 	}
 

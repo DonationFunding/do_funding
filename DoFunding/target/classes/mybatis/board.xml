@@ -156,7 +156,7 @@
 	</select>
 	
 	<select id="GetFaqs" resultType="board.model.FaqBean">
-		select * from do_notice_board
+		select * from do_faq_board
 		<if test="whatColumn == 'faq_subject'">
 			where faq_subject like #{keyword}
 		</if>

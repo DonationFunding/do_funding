@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
-<%@ include file="../common/common_top.jsp" %>    
+<%@ include file="admin_top.jsp" %>    
 <style type="text/css">
 	body{
 		text-align: center;
@@ -33,7 +33,7 @@
 		<tr>
 			<td align="center" >${requestScope.totalCount - (requestScope.pageInfo.pageNumber-1)*requestScope.pageInfo.pageSize  - status.index}</td>
 			<td colspan="2">
-				<a href="notice_content.bd?no_num=${noticeBean.no_num}&pageNumber=${pageInfo.pageNumber}" > ${noticeBean.no_subject}</a>
+				<a href="admin_notice_content.ad?no_num=${noticeBean.no_num}&pageNumber=${pageInfo.pageNumber}" > ${noticeBean.no_subject}</a>
 			</td>
 			<td align="center" >
 				<fmt:formatDate value="${noticeBean.no_reg_date}" pattern="yyyy-MM-dd"/>
@@ -50,7 +50,7 @@
 	</div>
 </center>
 
-<form action="notice_list.bd" method="get" class="row g-3">
+<form action="admin_notice_list.ad" method="get" class="row g-3">
 <p>
 	<select name="whatColumn">
 		<option value="all">선택
@@ -63,5 +63,5 @@
 </form>
 
 
-<%@ include file="../common/common_bottom.jsp" %>  
+<%@ include file="admin_bottom.jsp" %>  
 

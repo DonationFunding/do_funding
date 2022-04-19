@@ -31,7 +31,7 @@
 		<td width="250">${noticeBean.no_writer}</td>
 		<th class="text-center" width="100">작성일</th>
 		<td width="350">
-			<fmt:formatDate value="${noticeBean.no_reg_date}" pattern="yyyy-MM-dd HH:mm"/>
+			<fmt:formatDate value="${noticeBean.no_reg_date}" pattern="yyyy-MM-dd"/>
 		</td>
 		<th class="text-center" width="100">조회수</th>
 		<td>${noticeBean.no_readcount}</td>

@@ -368,8 +368,8 @@ create sequence seqdo_notice_board
 drop table do_notice_board CASCADE CONSTRAINTS;
 create table do_notice_board( 
 	no_num number not null primary key,	
-	no_writer varchar2(20) not null,	//무조건 관리자
-	no_subject varchar2(20) not null,
+	no_writer varchar2(20) not null,
+	no_subject varchar2(100) not null,
 	no_reg_date date default sysdate,			
 	no_readcount int default 0,			
 	no_content varchar2(3000) not null			
@@ -389,11 +389,13 @@ drop table do_faq_board CASCADE CONSTRAINTS;
 create table do_faq_board( 
 	faq_num number not null primary key,	
 	faq_writer varchar2(20) not null,	
-	faq_subject varchar2(20) not null,	
+	faq_subject varchar2(100) not null,	
 	faq_reg_date date default sysdate,			
 	faq_readcount int default 0,			
 	faq_content varchar2(3000) not null			
 );
+
+commit;
 
 insert into do_board(faq_num,'faq_writer',faq_subject,faq_reg_date,faq_readcount,faq_content)
 values(seqdo_faq_board.nextval,'관리자','a1','2015-1-1',0,'내용1');

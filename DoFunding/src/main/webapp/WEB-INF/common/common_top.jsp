@@ -11,6 +11,7 @@
 	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
 </head>
 <body>
+	<br><br>
 	<div id="top-wrap">
 		<header class="top-inner">		
 			<c:if test="${sessionScope.loginInfo.id == null}">
