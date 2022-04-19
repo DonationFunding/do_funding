@@ -1,15 +1,12 @@
 package product.model;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Pattern;
-
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ProductBean {
 
-	 //default p_readcount,p_total_price,p_reg_date  
+	//default p_readcount,p_total_price,p_reg_date  
+	//스크립트로 처리
 	
 	private final String common=" 입력 누락";
 		
@@ -18,45 +15,32 @@ public class ProductBean {
 	private String p_category_fk;   
 		
 	private String p_writer; 	
-	
-	@NotEmpty(message = "제목"+common)
+
 	private String p_subject; 	
 	
 	//default
 	private int p_readcount;
 	
-	@NotEmpty(message = "사진"+common)
 	private String p_image;    				
 	
-
-	@Length(min = 10, max = 500, message = "10~500 자리로 입력하세요.")
 	private String p_content; 	
 	
 	
 	private String p_like; 	
 	
 
-	//@NotEmpty(message = "단가"+common)
-	@Min(value = 1,message = "단가"+common)
 	private int p_origin_price;  	
 	
 	private int p_total_price; 	
-	
-	
-	//@NotEmpty(message = "목표가"+common)
-	@Min(value = 100,message = "목표가"+common)
+			
 	private int p_end_price;  
 	
 	private int p_point; 	
 	
 	private String p_reg_date; 	
 	
-	@NotEmpty(message = "펀딩 시작일"+common)
-	@Pattern(regexp = "^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))$", message = "펀딩 시작일 입력 형식에 맞지 않습니다.")
 	private String p_start_date; 		
 
-	@NotEmpty(message = "펀딩 마감일"+common)
-	@Pattern(regexp = "^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))$", message = "펀딩 마감일 입력 형식에 맞지 않습니다.")
 	private String p_end_date;
 	
 	private int orderqty;

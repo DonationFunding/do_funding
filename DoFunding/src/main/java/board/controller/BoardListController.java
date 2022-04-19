@@ -25,39 +25,38 @@ public class BoardListController {
 	@Autowired
 	private BoardDao boardDao;
 
-	//start.jsp get방식 
+	//start.jsp
 	@RequestMapping(command)
 	public ModelAndView doAction(
 			@RequestParam(value="pageNumber",required = false)String pageNumber,
 			@RequestParam(value="pageSize",required = false)String pageSize,
-			//검색은 선택
 			@RequestParam(value="whatColumn",required = false)String whatColumn,
 			@RequestParam(value="keyword",required = false)String keyword,
 			HttpServletRequest request
 			) {
-		//선택 검색은 선택
+		
 		Map<String, String> map=new HashMap<String, String>();
 		map.put("whatColumn", whatColumn);
 		map.put("keyword", "%"+keyword+"%");
-		
+
 		int totalCount= boardDao.getArticleCount(map);
 		System.out.println("totalCount:"+totalCount);
-		
-			
+
+
 		String url=request.getContextPath()+command;
 		if(pageSize==null) {
 			pageSize="10";
 		}
 		Paging pageInfo=new Paging(pageNumber,pageSize,totalCount,url,whatColumn,keyword);
-		List<BoardBean> articleList=boardDao.getArticles(pageInfo, map);
-	
+		List<BoardBean> bdList=boardDao.getArticles(pageInfo, map);
+
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("articleList", articleList);
+		mav.addObject("bdList", bdList);
 		mav.addObject("totalCount", totalCount);
 		mav.addObject("pageInfo", pageInfo);
 		mav.setViewName(getPage);
 		return mav;
 	}
-	
+
 
 }

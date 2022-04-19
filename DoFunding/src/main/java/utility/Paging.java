@@ -1,23 +1,23 @@
 package utility;
 
 public class Paging {
-	//ÆäÀÌÂ¡ °ü·Ã º¯¼ö	
-	private int totalCount = 0 ; //ÃÑ ·¹ÄÚµå °Ç¼ö
-	private int totalPage = 0 ; //ÀüÃ¼ ÆäÀÌÁö ¼ö
-	private int pageNumber = 0 ; //º¸¿©ÁÙ ÆäÀÌÁö ³Ñ¹ö(Ç¥Çö °¡´ÉÇÑ ÆäÀÌÁö´Â 1ºÎÅÍ totalPage±îÁöÀÌ´Ù.)
-	private int pageSize = 0 ; //ÇÑ ÆäÀÌÁö¿¡ º¸¿©ÁÙ °Ç¼ö
-	private int beginRow = 0 ; //ÇöÀç ÆäÀÌÁöÀÇ ½ÃÀÛ Çà
-	private int endRow = 0 ; //ÇöÀç ÆäÀÌÁöÀÇ ³¡ Çà
-	private int pageCount = 3 ; // ÇÑ È­¸é¿¡ º¸¿©ÁÙ ÆäÀÌÁö ¸µÅ© ¼ö (ÆäÀÌÁö °¹¼ö)=> ·¹ÄÚµå °¹¼ö ¾Æ´Ô 
-	private int beginPage = 0 ; //ÆäÀÌÂ¡ Ã³¸® ½ÃÀÛ ÆäÀÌÁö ¹øÈ£
-	private int endPage = 0 ; //ÆäÀÌÂ¡ Ã³¸® ³¡ ÆäÀÌÁö ¹øÈ£
+	//í˜ì´ì§• ê´€ë ¨ ë³€ìˆ˜	
+	private int totalCount = 0 ; //ì´ ë ˆì½”ë“œ ê±´ìˆ˜
+	private int totalPage = 0 ; //ì „ì²´ í˜ì´ì§€ ìˆ˜
+	private int pageNumber = 0 ; //ë³´ì—¬ì¤„ í˜ì´ì§€ ë„˜ë²„(í‘œí˜„ ê°€ëŠ¥í•œ í˜ì´ì§€ëŠ” 1ë¶€í„° totalPageê¹Œì§€ì´ë‹¤.)
+	private int pageSize = 0 ; //í•œ í˜ì´ì§€ì— ë³´ì—¬ì¤„ ê±´ìˆ˜
+	private int beginRow = 0 ; //í˜„ì¬ í˜ì´ì§€ì˜ ì‹œì‘ í–‰
+	private int endRow = 0 ; //í˜„ì¬ í˜ì´ì§€ì˜ ë í–‰
+	private int pageCount = 3 ; // í•œ í™”ë©´ì— ë³´ì—¬ì¤„ í˜ì´ì§€ ë§í¬ ìˆ˜ (í˜ì´ì§€ ê°¯ìˆ˜)=> ë ˆì½”ë“œ ê°¯ìˆ˜ ì•„ë‹˜ 
+	private int beginPage = 0 ; //í˜ì´ì§• ì²˜ë¦¬ ì‹œì‘ í˜ì´ì§€ ë²ˆí˜¸
+	private int endPage = 0 ; //í˜ì´ì§• ì²˜ë¦¬ ë í˜ì´ì§€ ë²ˆí˜¸
 	private int offset = 0 ;
 	private int limit = 0 ;
-	private String url = "" ; //¿¹½Ã ==>  http://localhost:8989/MyServlet/list.do
-	private String pagingHtml = "";//ÇÏ´ÜÀÇ ¼ıÀÚ ÆäÀÌÁö ¸µÅ©
-	//°Ë»öÀ» À§ÇÑ º¯¼ö Ãß°¡
-	private String whatColumn = "" ; //°Ë»ö ¸ğµå(ÀÛ¼ºÀÚ, ±ÛÁ¦¸ñ, ÀüÃ¼ °Ë»öÀº all) µîµî
-	private String keyword = "" ; //°Ë»öÇÒ ´Ü¾î 
+	private String url = "" ; //ì˜ˆì‹œ ==>  http://localhost:8989/MyServlet/list.do
+	private String pagingHtml = "";//í•˜ë‹¨ì˜ ìˆ«ì í˜ì´ì§€ ë§í¬
+	//ê²€ìƒ‰ì„ ìœ„í•œ ë³€ìˆ˜ ì¶”ê°€
+	private String whatColumn = "" ; //ê²€ìƒ‰ ëª¨ë“œ(ì‘ì„±ì, ê¸€ì œëª©, ì „ì²´ ê²€ìƒ‰ì€ all) ë“±ë“±
+	private String keyword = "" ; //ê²€ìƒ‰í•  ë‹¨ì–´ 
 
 	public int getTotalCount() {
 		return totalCount;
@@ -187,11 +187,11 @@ public class Paging {
 		this.pageNumber = Integer.parseInt( _pageNumber ) ; 
 
 		if( _pageSize == null || _pageSize.equals("null") || _pageSize.equals("") ){
-			_pageSize = "9" ; // ÇÑ ÆäÀÌÁö¿¡ º¸¿©ÁÙ ·¹ÄÚµå °¹¼ö
+			_pageSize = "9" ; // í•œ í˜ì´ì§€ì— ë³´ì—¬ì¤„ ë ˆì½”ë“œ ê°¯ìˆ˜
 		}		
 		this.pageSize = Integer.parseInt( _pageSize ) ;
 		
-		this.limit = pageSize ; // ÇÑ ÆäÀÌÁö¿¡ º¸¿©ÁÙ ·¹ÄÚµå °¹¼ö
+		this.limit = pageSize ; // í•œ í˜ì´ì§€ì— ë³´ì—¬ì¤„ ë ˆì½”ë“œ ê°¯ìˆ˜
 
 		this.totalCount = totalCount ; 
 
@@ -227,45 +227,45 @@ public class Paging {
 		this.pagingHtml = getPagingHtml(url) ;
 	
 	}
-	private String getPagingHtml( String url ){ //ÆäÀÌÂ¡ ¹®ÀÚ¿­À» ¸¸µç´Ù./ex/list.ab
+	private String getPagingHtml( String url ){ //í˜ì´ì§• ë¬¸ìì—´ì„ ë§Œë“ ë‹¤./ex/list.ab
 		System.out.println("getPagingHtml url:"+url); 
 		
 		String result = "" ;
-		String added_param = "&whatColumn=" + whatColumn + "&keyword=" + keyword ; // &whatColumn=singer&keyword=¾Æ
+		String added_param = "&whatColumn=" + whatColumn + "&keyword=" + keyword ; // &whatColumn=singer&keyword=ï¿½ï¿½
 		
-		if (this.beginPage != 1) { // ¾ÕÂÊ, pageSize:ÇÑ È­¸é¿¡ º¸ÀÌ´Â ·¹ÄÚµå ¼ö
-			result += "&nbsp;<a href='" + url  
+		if (this.beginPage != 1) { // ì•ìª½, pageSize:í•œ í™”ë©´ì— ë³´ì´ëŠ” ë ˆì½”ë“œ ìˆ˜
+			result += "&nbsp;<li><a href='" + url  
 					+ "?pageNumber=" + ( 1 ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'>¸Ç Ã³À½</a>&nbsp;" ;
-			result += "&nbsp;<a href='" + url 
+					+ added_param + "'><span><<</span></a></li>&nbsp;" ;
+			result += "&nbsp;<li><a href='" + url 
 					+ "?pageNumber=" + (this.beginPage - 1 ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'>ÀÌÀü</a>&nbsp;" ;
+					+ added_param + "'><span><</span></a></li>&nbsp;" ;
 		}
 		
-		//°¡¿îµ¥
+		//ê°€ìš´ë°îµ¥
 		for (int i = this.beginPage; i <= this.endPage ; i++) {
 			if ( i == this.pageNumber ) {
-				result += "&nbsp;<font color='red'>" + i + "</font>&nbsp;"	;
+				result += "&nbsp;<li><span><font color='red'>" + i + "</font></span></li>&nbsp;"	;
 						
 			} else {
-				result += "&nbsp;<a href='" + url   
+				result += "&nbsp;<li><a href='" + url   
 						+ "?pageNumber=" + i + "&pageSize=" + this.pageSize 
-						+ added_param + "'>" + i + "</a>&nbsp;" ;
+						+ added_param + "'>" + i + "</a></li>&nbsp;" ;
 				
 			}
 		}
 		System.out.println("result:"+result); 
 		System.out.println();
 		
-		if ( this.endPage != this.totalPage) { // µÚÂÊ
+		if ( this.endPage != this.totalPage) {  // ë’¤ìª½
 			
-			result += "&nbsp;<a href='" + url  
+			result += "&nbsp;<li><a href='" + url  
 					+ "?pageNumber=" + (this.endPage + 1 ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'>´ÙÀ½</a>&nbsp;" ;
+					+ added_param + "'><span>></span></a></li>&nbsp;" ;
 			
-			result += "&nbsp;<a href='" + url  
+			result += "&nbsp;<li><a href='" + url  
 					+ "?pageNumber=" + (this.totalPage ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'>¸Ç ³¡</a>&nbsp;" ;
+					+ added_param + "'><span>>></span></a></li>&nbsp;" ;
 		}		
 		System.out.println("result2:"+result);
 		
@@ -273,4 +273,5 @@ public class Paging {
 	}	
 	
 }
+
 

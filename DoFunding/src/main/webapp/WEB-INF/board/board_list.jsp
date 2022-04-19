@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp" %>    
-list.jsp<br>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ include file="../common/common_top.jsp" %>    
 <style type="text/css">
 	body{
 		text-align: center;
@@ -10,65 +8,75 @@ list.jsp<br>
 		margin: auto;
 	}
 </style>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
+</head>
 <center>
 <h1>글목록(전체 글:${totalCount})</h1>
-<form action="list.bd" method="get">
+<div class="container">
+<table class="table table-hover table-sm" class="text-center">
+	
+	<tr>
+		<th class="text-center">번호</th>
+		<th>제목</th>
+		<th class="text-center">작성자</th>
+		<th class="text-center">작성일</th>
+		<th class="text-center">조회</th>
+	</tr>
+	
+		<c:forEach var="bdList" items="${requestScope.bdList}" varStatus="status">
+		<tr>
+			<td align="center" >${requestScope.totalCount - (requestScope.pageInfo.pageNumber-1)*requestScope.pageInfo.pageSize  - status.index}</td>
+			<td>
+				<c:if test="${bdList.b_re_level>0}">
+					<c:set var="wid" value="${bdList.b_re_level*20}"/>
+					<img src="<%=request.getContextPath() %>/resources/images/level.gif" width="${wid}" height="15">
+					<img src="<%=request.getContextPath() %>/resources/images/화살표2.png" height="15">
+				</c:if>
+
+			<a href="content.bd?b_num=${bdList.b_num}&pageNumber=${pageInfo.pageNumber}" > ${bdList.b_subject}</a>
+				<!-- 글번호 뿐만 아니라 현재페이지도 넘겨야함! -->					
+			<c:if test="${bdList.b_readcount >=10 }">
+				<img src='<%=request.getContextPath()%>/resources/images/best2.png' height='20'>
+			</c:if>
+			</td>
+			<td align="center" >${bdList.b_writer}</td>
+			<td align="center" >
+				<fmt:formatDate value="${bdList.b_reg_date}" pattern="yyyy-MM-dd HH:mm"/>
+			</td>
+			<td align="center" >${bdList.b_readcount}</td>
+		</tr>
+		</c:forEach>
+</table>
+<br><br>
+
+	<div>
+		<a href="insert.bd" class="btn btn-default btn-sm pull-right">글쓰기</a>	
+	</div>
+	<div class="container">
+		<ul class="pagination pagination-sm">
+			${pageInfo.pagingHtml}		
+		</ul>
+	</div>
+</center>
+
+<form action="list.bd" method="get" class="row g-3">
 <p>
 	<select name="whatColumn">
 		<option value="all">선택
-		<option value="content">내용
-		<option value="subject">제목
-		<option value="writer">글쓴이
+		<option value="b_content">내용
+		<option value="b_subject">제목
+		<option value="b_writer">글쓴이
 	</select>
 	<input type="text" name="keyword">
-	<input type="submit" value="검색">
-	<c:if test="${sessionScope.loginInfo != null}">&emsp;<a href="logout.jsp">로그아웃</a></c:if>
-	<c:if test="${sessionScope.loginInfo == null}">&emsp;<a href="loginForm.mem">로그인</a></c:if>
-	
+	<input type="submit" value="검색" class="btn btn-default btn-sm">
 </p>	
 </form>
-<table width="700" border="1">
-	<tr>
-		<td align="right"><a href="insert.bd">글쓰기</a></td>
-	</tr>
-</table>
 
-<table width="700" border="1">
-	<tr>
-		<td align="center">번호</td>
-		<td align="center">제목</td>
-		<td align="center">작성자</td>
-		<td align="center">작성일</td>
-		<td align="center">조회</td>
-		<td align="center">IP</td>
-	</tr>
-		<c:forEach var="article" items="${requestScope.articleList}">
-		<tr>
-			<td align="center" >${requestScope.totalCount - (requestScope.pageInfo.pageNumber-1)*requestScope.pageInfo.pageSize}</td>
-			<td>
-				<c:if test="${article.re_level>0}">
-					<c:set var="wid" value="${article.re_level*20}"/>
-					<img src="<%=request.getContextPath() %>/resources/images/level.gif" width="${wid}" height="15">
-					<img src="<%=request.getContextPath() %>/resources/images/re.gif">
-				</c:if>
 
-			<a href="content.bd?num=${article.num}&pageNumber=${pageInfo.pageNumber}" > ${article.subject}</a>
-				<!-- 글번호 뿐만 아니라 현재페이지도 넘겨야함! -->					
-			<c:if test="${article.readcount >=10 }">
-				<img src='<%=request.getContextPath()%>/resources/images/hot.gif' height='15'>
-			</c:if>
-			</td>
-			<td align="center" >${article.writer}</td>
-			<td align="center" >
-				<fmt:formatDate value="${article.reg_date}" pattern="yyyy-MM-dd HH:mm"/>
-			</td>
-			<td align="center" >${article.readcount}</td>
-			<td align="center" >${article.ip}</td>
-		</tr>
-		</c:forEach>
-
-</table>
-<br><br>
-${pageInfo.pagingHtml}
-</center>
+<%@ include file="../common/common_bottom.jsp" %>  
 

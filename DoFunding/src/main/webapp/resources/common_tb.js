@@ -1,4 +1,3 @@
-
 (function(win, $) {  // 자동 실행 함수 : 브라우저가 표시되면 실행된다.
 	var $html = $("html");
 	var deviceSize = {  // 반응형 웹으로 동작하기 위한 미디어 쿼리 값을 설정

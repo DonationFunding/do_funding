@@ -5,23 +5,28 @@
 <center>
 <br>
 <b>카테고리등록</b>
-<form:form commandName="category"  method="post"  action="admin_cate_insert.ad">
 <br>
-	<table border="1" height="100">
-		<tr>
-			<td align="center">카테고리코드</td>
-			<td><input type="text" name="code" value="${category.code}"></td>
+<form:form commandName="cateBean"  method="post"  action="admin_cate_insert.ad">
+<div class="container">
+<table class="table" class="text-center">
+
+         <tr align="center">
+			<th class="text-center">
+				카테고리코드 : <input type="text" name="code" value="${cateBean.code}">
+			</th>
 		</tr>
-		<tr>
-			<td align="center">카테고리이름</td>
-			<td><input type="text" name="cname" value="${category.cname}"></td>
+		 <tr align="center">
+			<th class="text-center">
+				카테고리이름 : <input type="text" name="cname" value="${cateBean.cname}">
+			</th>
 		</tr>
 		<tr> 
 			<td colspan="2" align="center">
- 			    <input type="submit" value="추가하기" > 
+ 			    <input type="submit" value="추가하기"  class="btn btn-default btn-sm"> 
 			</td>
 		</tr>
  </table>
+ </div>
  </form:form>
 </center> 
 <%@include file ="admin_bottom.jsp" %>

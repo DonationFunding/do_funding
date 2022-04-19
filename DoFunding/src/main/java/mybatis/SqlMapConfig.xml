@@ -6,10 +6,12 @@
 <configuration>
 	
 	<typeAliases>
+		<typeAlias type="dip.model.DipBean" alias="MyDip"/>
 		<typeAlias type="board.model.BoardBean" alias="MyBoard"/>
 		<typeAlias type="product.model.ProductBean" alias="MyProduct"/>
 		<typeAlias type="member.model.MemberBean" alias="MyMember"/>
 		<typeAlias type="order.model.OrderBean" alias="MyOrder"/>
+		<typeAlias type="orderdetail.model.OrderDetailBean" alias="MyOrderDetail"/>
 		<typeAlias type="category.model.CategoryBean" alias="MyCategory"/>
 	</typeAliases>
 	
@@ -19,6 +21,7 @@
 		<mapper resource="mybatis/member.xml"/>
 		<mapper resource="mybatis/order.xml"/>
 		<mapper resource="mybatis/category.xml"/>
+		<mapper resource="mybatis/dip.xml"/>
 	</mappers>
 </configuration>
 

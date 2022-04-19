@@ -18,9 +18,27 @@ public class MemberDao {
 		return loginInfo;
 	}
 
-	public int insertMember(MemberBean mb) {
+	public int insertMember(MemberBean membean) {
 		int cnt=-1;
-		cnt = sqlSessionTemplate.insert(namespace+".InsertMember", mb);
+		cnt = sqlSessionTemplate.insert(namespace+".InsertMember", membean);
+		return cnt;
+	}
+
+	public MemberBean findId(MemberBean membean) {
+		MemberBean findid = sqlSessionTemplate.selectOne(namespace+".FindId", membean);
+		System.out.println("dao/findid.getId :"+findid.getId());
+		return findid;
+	}
+
+	public int updatePassword(MemberBean membean) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.update(namespace+".UpdatePassword", membean);
+		if(cnt < 0) {
+			System.out.println("비밀번호 변경 실패");
+		}
+		else {
+			System.out.println("비밀번호 변경 성공 "+cnt);
+		}
 		return cnt;
 	}
 

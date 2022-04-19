@@ -1,4 +1,7 @@
--- È¸¿ø Å×ÀÌºí
+--alter user jspid default tablespace users quota unlimited on users; 
+
+
+-- íšŒì› í…Œì´ë¸”
 drop sequence seqdo_members;
 create sequence seqdo_members 
 	increment by 1 
@@ -7,9 +10,9 @@ create sequence seqdo_members
 
 DROP TABLE do_members CASCADE CONSTRAINTS;
 create table do_members(
-	no number not null,			
-	admin number default 1	,	
-	id varchar2(20) primary key,
+	no number primary key,			
+	admin number default 1,		
+	id varchar2(20) not null,
 	password varchar2(30),		
 	name varchar2(30),			
 	birthday date not null,		
@@ -27,10 +30,10 @@ create table do_members(
 
 
 insert into do_members(no,admin,id,password,name,birthday,joindate,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)
-values(seqdo_members.nextval,'0','admin','1234','°ü¸®ÀÚ1','2022-3-6',sysdate,'³²ÀÚ','010','4586','5870','¼­¿ïÆ¯º°½Ã ¾îµò°¡·Î 123-4','Æİµù¾ÆÆÄÆ® 205È£','±¹¹ÎÀºÇà','123456-23442323','0');
+values(seqdo_members.nextval,'0','admin','1234','ê´€ë¦¬ì1','2022-3-6',sysdate,'ë‚¨ì','010','4586','5870','ì„œìš¸íŠ¹ë³„ì‹œ ì–´ë”˜ê°€ë¡œ 123-4','í€ë”©ì•„íŒŒíŠ¸ 205í˜¸','êµ­ë¯¼ì€í–‰','123456-23442323','0');
 
 insert into do_members(no,id,password,name,birthday,gender,hp1,hp2,hp3,address1,address2,accountbank,account,mpoint)
-values(seqdo_members.nextval,'kim','1234','±èÃ¶¼ö','2022-04-05','³²ÀÚ','010','2580','9876','¼­¿ï½Ã','ÀºÆò±¸','±¹¹ÎÀºÇà','012345678','10000');
+values(seqdo_members.nextval,'kim','1234','ê¹€ì² ìˆ˜','2022-04-05','ë‚¨ì','010','2580','9876','ì„œìš¸ì‹œ','ì€í‰êµ¬','êµ­ë¯¼ì€í–‰','012345678','10000');
 
 commit ;
 
@@ -40,88 +43,10 @@ col name for a8
 col gender for a6
 col address1 for a10
 col address2 for a10
-select * from members;
-
---»óÇ°Å×ÀÌºí
-drop sequence seqdo_product;
-create sequence seqdo_product
-  increment by 1
-  start with 1
-  minvalue 1
-  nocache;
+select * from do_members;
 
 
-drop table do_product CASCADE CONSTRAINTS;
-create table do_product( 
-	p_num 		number  primary key,	
-	p_category_fk  varchar2(100)    not null,    
-	p_writer 	varchar2(50) references do_members(id) on delete cascade,
-	p_subject 	varchar2(100) not null,		
-	p_readcount int default 0,				
-	p_image    	varchar2(100) not null,				
-	p_content 	varchar2(3000) not null,				
-	p_like 		varchar2(3000),		
-	p_origin_price  int not null,		
-	p_total_price   int default 0,			
-	p_end_price     int default 0,				
-	p_point 		int default 0 not null,	
-	p_reg_date 		date default sysdate,	
-	p_start_date 	date not null,		
-	p_end_date 		date not null		
-);
-
-insert into do_product values(seqdo_product.nextval,'ÇÚµåÆùÄÉÀÌ½º','kim','xxxÇÒ¸Ó´Ô ÄÉÀÌ½º',5,'ÇÚµåÆùÄÉÀÌ½º1.jpg','³»¿ë123','kim',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'ÇÚµåÆùÄÉÀÌ½º','kim','xxxÇÒ¸Ó´Ô ÄÉÀÌ½º',5,'ÇÚµåÆùÄÉÀÌ½º2.jpg','³»¿ë123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'ÇÚµåÆùÄÉÀÌ½º','kim','xxxÇÒ¸Ó´Ô ÄÉÀÌ½º',5,'ÇÚµåÆùÄÉÀÌ½º2.jpg','³»¿ë123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'ÇÚµåÆùÄÉÀÌ½º','kim','xxxÇÒ¸Ó´Ô ÄÉÀÌ½º',5,'ÇÚµåÆùÄÉÀÌ½º1.jpg','³»¿ë123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-
---¿É¼Ç Å×ÀÌºí
-drop sequence seqdo_option;
-create sequence seqdo_option
-  increment by 1
-  start with 1
-  minvalue 1
-  nocache;
-
-drop table do_option CASCADE CONSTRAINTS;
-create table do_option( 
-	option_no number primary key,
-	option_content varchar2(200),
-	option_item_no number  references do_product(p_num) on delete cascade
-);
-
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , 'Ä³¸¯ÅÍ:Åä³¢' , 1);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , 'Ä³¸¯ÅÍ:°³±¸¸®' , 1);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , 'Ä³¸¯ÅÍ:°­¾ÆÁö' , 1);	
-
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , 'Ä³¸¯ÅÍ:ºñµÑ±â' , 2);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , 'Ä³¸¯ÅÍ:¼Û¾ÆÁö' , 2);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , 'Ä³¸¯ÅÍ:ÀáÀÚ¸®' , 2);	
-
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '»ö»ó:°ËÁ¤' , 3);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '»ö»ó:ÆÄ¶û' , 3);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '»ö»ó:³ë¶û' , 3);	
-
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '±âÁ¾:°¶·°½Ã ³ëÆ®' , 4);	
-INSERT INTO do_option (option_no, option_content, option_item_no )
-VALUES(seqdo_option.nextval , '±âÁ¾:¾ÆÀÌÆù' , 4);	
-
-
-commit;
-
-
-
--- Ä«Å×°í¸® Å×ÀÌºí
+-- ì¹´í…Œê³ ë¦¬ í…Œì´ë¸”
 drop sequence catseq ;
 
 create sequence catseq
@@ -137,11 +62,299 @@ create table category(
 	cname 	varchar2(50) not null	
 );
 
-insert into category values(catseq.nextval,'phonecase','ÇÚµåÆù ÄÉÀÌ½º');
-insert into category values(catseq.nextval,'necklace','¸ñ°ÉÀÌ');
-insert into category values(catseq.nextval,'earring','±Í°ÉÀÌ');
-insert into category values(catseq.nextval,'handbag','ÇÚµå¹é');
-insert into category values(catseq.nextval,'bracelet','ÆÈÂî');
-insert into category values(catseq.nextval,'ring','¹İÁö');
+insert into category values(catseq.nextval,'handkerchief','ì†ìˆ˜ê±´');
+insert into category values(catseq.nextval,'phonecase','í•¸ë“œí° ì¼€ì´ìŠ¤');
+insert into category values(catseq.nextval,'necklace','ëª©ê±¸ì´');
+insert into category values(catseq.nextval,'earring','ê·€ê±¸ì´');
+insert into category values(catseq.nextval,'handbag','í•¸ë“œë°±');
+insert into category values(catseq.nextval,'bag','ê°€ë°©');
+insert into category values(catseq.nextval,'bracelet','íŒ”ì°Œ');
+insert into category values(catseq.nextval,'ring','ë°˜ì§€');
 
 commit;
+
+
+--ìƒí’ˆí…Œì´ë¸”
+drop sequence seqdo_product;
+create sequence seqdo_product
+  increment by 1
+  start with 1
+  minvalue 1
+  nocache;
+
+
+drop table do_product CASCADE CONSTRAINTS;
+create table do_product( 
+	p_num 		number  primary key,	
+	p_category_fk  varchar2(100)    not null,    
+	p_writer 	varchar2(50) not null,
+	p_subject 	varchar2(100) not null,		
+	p_readcount int default 0,				
+	p_image    	varchar2(100) not null,				
+	p_content 	varchar2(3000) not null,				
+	p_like 		varchar2(3000),		
+	p_origin_price  int not null,		
+	p_total_price   int default 0,			
+	p_end_price     int default 0,				
+	p_point 		int default 0 not null,	
+	p_reg_date 		date default sysdate,	
+	p_start_date 	date not null,		
+	p_end_date 		date not null		
+);
+
+insert into do_product values(seqdo_product.nextval,'phonecase','kim','xxxí• ë¨¸ë‹˜ ì¼€ì´ìŠ¤',5,'í•¸ë“œí°ì¼€ì´ìŠ¤1.jpg','ë‚´ìš©123','kim',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'phonecase','kim','xxxí• ë¨¸ë‹˜ ì¼€ì´ìŠ¤',5,'í•¸ë“œí°ì¼€ì´ìŠ¤2.jpg','ë‚´ìš©123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'handkerchief','kim','xxxí• ë¨¸ë‹˜ ì†ìˆ˜ê±´',5,'ìœ„ì•ˆë¶€ ì†ìˆ˜ê±´.jpg','ë‚´ìš©123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'ring','kim','xxxí• ë¨¸ë‹˜ ë°˜ì§€',5,'ë°˜ì§€.jpg','ë‚´ìš©123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'necklace','kim','xxxí• ë¨¸ë‹˜ ëª©ê±¸ì´',5,'ëª©ê±¸ì´.jpg','ë‚´ìš©123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-15');
+insert into do_product values(seqdo_product.nextval,'earring','kim','xxxí• ë¨¸ë‹˜ ê·€ê±¸ì´',5,'ê·€ê±¸ì´2.jpeg','ë‚´ìš©123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-10');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxxí• ë¨¸ë‹˜ íŒ”ì°Œ',5,'íŒ”ì°Œ2.jpg','ë‚´ìš©123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-8');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxxí• ë¨¸ë‹˜ íŒ”ì°Œ',5,'íŒ”ì°Œ.jpg','ë‚´ìš©123','kim',10000,0,10000000,100,sysdate,'2022-4-30','2022-5-22');
+insert into do_product values(seqdo_product.nextval,'bag','kim','xxxí• ë¨¸ë‹˜ ê°€ë°©',5,'ê°€ë°©3.jpg','ë‚´ìš©123','kim',10000,0,10000000,100,sysdate,'2022-5-1','2022-5-30');
+insert into do_product values(seqdo_product.nextval,'bag','kim','xxxí• ë¨¸ë‹˜ ê°€ë°©',5,'ê°€ë°©.jpg','ë‚´ìš©123','kim',10000,0,10000000,100,sysdate,'2022-5-15','2022-5-19');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxxí• ë¨¸ë‹˜ íŒ”ì°Œ',5,'íŒ”ì°Œ2.jpg','ë‚´ìš©123','kim',10000,0,10000000,100,sysdate,'2022-4-18','2022-5-30');
+insert into do_product values(seqdo_product.nextval,'bag','kim','xxxí• ë¨¸ë‹˜ ê°€ë°©',5,'ê°€ë°©2.jpg','ë‚´ìš©123','kim',10000,0,10000000,100,sysdate,'2022-4-15','2022-5-19');
+
+
+--ì˜µì…˜ í…Œì´ë¸”
+drop sequence seqdo_option;
+create sequence seqdo_option
+  increment by 1
+  start with 1
+  minvalue 1
+  nocache;
+
+drop table do_option CASCADE CONSTRAINTS;
+create table do_option( 
+	option_no number primary key,
+	option_content varchar2(200),
+	option_item_no number  references do_product(p_num) on delete cascade
+);
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ê¸°ì¢…:ê°¤ëŸ­ì‹œ ë…¸íŠ¸' , 1);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ê¸°ì¢…:ì•„ì´í°' , 1);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ê¸°ì¢…:ê°¤ëŸ­ì‹œ ë…¸íŠ¸' , 2);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ê¸°ì¢…:ì•„ì´í°' , 2);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:í°ìƒ‰' , 3);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:êµ°ì²­ìƒ‰' , 3);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:ê²€ì •' , 3);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ë””ìì¸:ë‚˜ë¹„' , 4);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ë””ìì¸:ë‚˜ë¹„2' , 4);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ë””ìì¸:ë‚˜ë¹„3' , 4);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:ë³´ë¼' , 5);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:íŒŒë‘' , 5);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:ë…¸ë‘' , 5);	
+
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ë””ìì¸:ë¯¼ë“¤ë ˆ' , 6);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ë””ìì¸:êµ­í™”' , 6);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ë””ìì¸:ë¬´ê¶í™”' , 6);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:ê²€ì •' , 7);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:íŒŒë‘' , 7);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:ë…¸ë‘' , 7);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:ê²€ì •' , 8);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:íŒŒë‘' , 8);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:ë…¸ë‘' , 8);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:ë¸”ë™' , 9);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:í™”ì´íŠ¸' , 9);	
+
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ë””ìì¸:1' , 10);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ë””ìì¸:2' , 10);	
+
+	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:ê²€ì •' , 11);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:ë¹¨ê°•' , 11);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:ë…¸ë‘' , 11);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:ë¶„í™' , 11);	
+
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:ë¹¨ê°•' , 12);	
+INSERT INTO do_option (option_no, option_content, option_item_no )
+VALUES(seqdo_option.nextval , 'ìƒ‰ìƒ:íŒŒë‘' , 12);	
+
+
+commit;
+
+
+drop sequence seqoid ;
+create sequence seqoid start with 1 increment by 1 nocache ;
+
+ DROP TABLE do_order CASCADE CONSTRAINTS;
+ 
+create table do_order(
+--ì£¼ë¬¸ë²ˆí˜¸
+  o_num number primary key,
+--íšŒì›ë²ˆí˜¸
+  o_mnum number references do_members(no) on delete set null,
+--ìƒí’ˆë²ˆí˜¸
+  o_pnum number references do_product(p_num) on delete set null,
+--ì£¼ë¬¸ìˆ˜ëŸ‰
+  o_qty number not null,
+--ì£¼ë¬¸ì¼
+  o_date date default sysdate,
+--ìƒí’ˆê°€ê²©
+  o_price number not null,
+--ì‹œì‘ì¼
+  o_startdate date default sysdate,
+--ì¢…ë£Œì¼
+  o_enddate date default sysdate,
+--ìƒíƒœ
+  o_state varchar2(30) not null
+);
+
+
+
+
+--ê¸°ë³¸ ê²Œì‹œíŒ 
+drop sequence seqdo_board;
+create sequence seqdo_board
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+  
+drop table do_board CASCADE CONSTRAINTS;
+create table do_board( 
+	b_num number not null primary key,	
+	b_writer varchar2(10) not null,	
+	b_subject varchar2(20) not null,
+	b_passwd varchar2(20)not null,		
+	b_reg_date date not null,			
+	b_readcount int default 0,			
+	--reë‹µê¸€ê´€ë ¨
+	b_ref number not null,				
+	b_re_step number not null,			
+	b_re_level number not null,			
+	--ë‹µê¸€ë§ˆë‹¤ 1ì”© ì¦ê°€
+	b_content varchar2(20) not null			
+);
+
+
+
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'admin','a1','1234','2015-1-1',1,0,0,'ë‚´ìš©1');
+
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'admin','a2','1234','2015-1-1',2,0,0,'ë‚´ìš©2');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'kim','a22','1234','2015-1-1',2,4,1,'ë‚´ìš©21');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a22','a22','1234','2015-1-1',2,1,1,'ë‚´ìš©22');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'kim','a221','1234','2015-1-1',2,3,2,'ë‚´ìš©221');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a222','a222','1234','2015-1-1',2,2,2,'ë‚´ìš©222');
+
+
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'kim','a3','1234','2015-1-1',7,0,0,'ë‚´ìš©3');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'kim','a31','1234','2015-1-1',7,6,1,'ë‚´ìš©31');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a311','a311','1234','2015-1-1',7,7,2,'ë‚´ìš©311');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a32','a32','1234','2015-1-1',7,2,1,'ë‚´ìš©32');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a321','a321','1234','2015-1-1',7,5,2,'ë‚´ìš©321');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a322','a322','1234','2015-1-1',7,3,2,'ë‚´ìš©322');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a3221','a3221','1234','2015-1-1',7,4,3,'ë‚´ìš©3221');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'a33','a33','1234','2015-1-1',7,1,1,'ë‚´ìš©33');
+
+commit;
+
+
+-- ì°œ í…Œì´ë¸”
+drop sequence dipseq ;
+
+create sequence dipseq
+increment by 1
+start with 1
+minvalue 1
+nocache;
+
+drop table dipstate cascade constraints purge ;
+create table dipstate (
+	d_num 	number primary key,
+	m_no 	number references do_members(no) on delete cascade,	
+	p_num 	number  references do_product(p_num) on delete cascade,
+	d_check  number 
+);
+
+insert into dipstate(d_num,m_no ,p_num,d_check ) values(dipseq.nextval,1,8,1);
+commit;
+
+drop sequence seqod ;
+create sequence seqod start with 1 increment by 1 nocache ;
+
+ DROP TABLE do_orderdetail CASCADE CONSTRAINTS;
+ 
+create table do_orderdetail(
+  od_no number references do_order(o_num) on delete set null primary key,
+  od_m_no number references do_members(no) on delete set null,
+  od_p_num number references do_product(p_num) on delete set null,
+  od_qty number not null,
+  od_price number not null,
+  od_amount number not null,
+  od_option varchar2(100) not null,	
+  od_deliver varchar2(30) not null	
+);
+
+commit;
+
+

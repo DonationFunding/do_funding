@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="orderdetail.model.Orderdetail">
+<!-- 여기 경로로 주문 세부내역 작업하세요. -->
+ 	<select id="DetailList">
+ 		select * from do_orderdetail 
+ 	</select>
+ 	
+</mapper>

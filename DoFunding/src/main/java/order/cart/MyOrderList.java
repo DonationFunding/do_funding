@@ -25,7 +25,8 @@ public class MyOrderList { // 장바구니
 		}
 		
 	}//addOrder	
-
+	
+	
 	public Map<Integer, Integer> getAllOrderLists() {
 		return orderlists;
 
