@@ -10,8 +10,8 @@ a:hover {
 	function insert(){
 		location.href = "insert.prd"; // ProductInsertController
 	}
-	function likedip(){
-		document.dipform.submit();
+	function like(){
+		document.likeform.submit();
 	}
 
 </script>
@@ -49,10 +49,12 @@ a:hover {
     		<th>펀딩 기간</th>
     		<td>${p_start_date}~${p_end_date}</td>
     	</tr>
+    	
     	<tr>
     		<th>진행상황</th>
     		<td>${(productBean.p_total_price/productBean.p_end_price)*100} %</td>
     	</tr>
+    	
 <!-- add.mall => mall.controller.CartAddController -->
 <form method="post" action="order.ord">
     	<tr>
@@ -75,6 +77,7 @@ a:hover {
     				<input type="hidden" name="option_content" value="${productBean.option_content}">
     				<input type="hidden" name="option_content" value="${productBean.option_no}">
 	    			<input type="text" name="o_qty">
+	    			
 <!-- 현재날짜 -->
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set> 
@@ -83,14 +86,15 @@ a:hover {
     		</td>   		
     	</tr>
  </form>	
+ 
     	<tr>
     		<td colspan="3">
     			<a href="list.prd?pageNumber=${pageNumber }">상품 리스트</a>
     		</td>
     	</tr>
     	<tr>
-			<td colspan="3">
-				<form name="dipform" action="detail.prd" method="post"> <!-- form  -->
+    			<td colspan="3">
+				<form name="likeform" action="detail.prd" method="post"> <!-- form  -->
 					<input type="hidden" name= "p_num" value="${productBean.p_num}"/>
 					<input type="hidden" name= "cnt" value="${cnt}"/>
 					<input type="hidden" name= "pageNumber" value="${pageNumber}"/>
@@ -99,12 +103,12 @@ a:hover {
 					<c:if test="${cnt == 1}">
 						<input type="image"
 							src="<%=request.getContextPath()%>/resources/images/heart_2.png" width="20px" height="20px"
-							onclick="likedip()">
+							onclick="like()">
 					</c:if>
 					<c:if test="${cnt == 0}">
 						<input type="image"
 							src="<%=request.getContextPath()%>/resources/images/heart_1.png" width="20px" height="20px"
-							onclick="likedip()">
+							onclick="like()">
 					</c:if>
 				</c:if>
 				</form>

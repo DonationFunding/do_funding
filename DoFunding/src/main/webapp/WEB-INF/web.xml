@@ -151,17 +151,17 @@
 
 	<!-- 찜 -->
 	<servlet>
-		<servlet-name>dip</servlet-name>
+		<servlet-name>like</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/dip-context.xml</param-value>
+			<param-value>/WEB-INF/spring/appServlet/like-context.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>dip</servlet-name>
-		<url-pattern>*.dip</url-pattern>
+		<servlet-name>like</servlet-name>
+		<url-pattern>*.like</url-pattern>
 	</servlet-mapping>
 	
 </web-app>
