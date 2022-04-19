@@ -72,8 +72,8 @@
 							</li>
 							<li class="m5"><a href="#">고객센터</a>
 								<ul class="sec m5_Menu" align="center">
-									<li><a href="#">공지사항</a></li>
-									<li><a href="#">FAQ</a></li>
+									<li><a href="notice_list.bd">공지사항</a></li>
+									<li><a href="faq_list.bd">FAQ</a></li>
 								</ul>
 							</li>
 						</ul>

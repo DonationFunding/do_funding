@@ -25,7 +25,7 @@
 </script>
 
 <center>
-<h1>찜목록(전체 글: ${totalCount})</h1>
+<h1>찜목록</h1>
 <div class="container">
 <table class="table table-hover table-sm" class="text-center" border="1">
 	    <tr>

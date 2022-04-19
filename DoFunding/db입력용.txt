@@ -263,7 +263,7 @@ create table do_board(
 	b_re_step number not null,			
 	b_re_level number not null,			
 	--답글마다 1씩 증가
-	b_content varchar2(20) not null			
+	b_content varchar2(3000) not null			
 );
 
 
@@ -337,8 +337,6 @@ insert into do_like(l_num,m_no ,lp_num,l_check ) values(likseq.nextval,1,8,1);
 commit;
 
 
-
-
 drop sequence seqod ;
 create sequence seqod start with 1 increment by 1 nocache ;
 
@@ -370,11 +368,11 @@ create sequence seqdo_notice_board
 drop table do_notice_board CASCADE CONSTRAINTS;
 create table do_notice_board( 
 	no_num number not null primary key,	
-	no_writer varchar2(10) not null,	//무조건 관리자
+	no_writer varchar2(20) not null,	//무조건 관리자
 	no_subject varchar2(20) not null,
-	no_reg_date date not null,			
+	no_reg_date date default sysdate,			
 	no_readcount int default 0,			
-	no_content varchar2(20) not null			
+	no_content varchar2(3000) not null			
 );
 
 
@@ -390,11 +388,11 @@ create sequence seqdo_faq_board
 drop table do_faq_board CASCADE CONSTRAINTS;
 create table do_faq_board( 
 	faq_num number not null primary key,	
-	faq_writer varchar2(10) not null,	
+	faq_writer varchar2(20) not null,	
 	faq_subject varchar2(20) not null,	
 	faq_reg_date date default sysdate,			
 	faq_readcount int default 0,			
-	faq_content varchar2(20) not null			
+	faq_content varchar2(3000) not null			
 );
 
 insert into do_board(faq_num,'faq_writer',faq_subject,faq_reg_date,faq_readcount,faq_content)
