@@ -41,7 +41,6 @@ public class productDetailController {
 			MemberBean loginInfo=(MemberBean)session.getAttribute("loginInfo");
 			int check = 0;
 			
-
 			if(loginInfo != null) { //
 				LikeBean likeBean = new LikeBean();
 				likeBean.setM_no(loginInfo.getNo());
