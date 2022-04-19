@@ -11,6 +11,7 @@
 	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
 </head>
 <body>
+	<br><br>
 	<div id="top-wrap">
 		<header class="top-inner">		
 			<c:if test="${sessionScope.loginInfo.id == null}">
@@ -33,7 +34,7 @@
 						</c:if>
 						&nbsp;<a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a>
 						&nbsp;<a href="memberInfo.mem">회원정보</a>
-						&nbsp;<a href="list.dip?no=${loginInfo.no}">찜목록</a>
+						&nbsp;<a href="list.like?">찜목록</a>
 						&nbsp;<a href="orderlist.ord">주문내역</a>
 						&nbsp;<a href="">펀딩조회</a>
 					</li>
@@ -72,9 +73,8 @@
 							</li>
 							<li class="m5"><a href="#">고객센터</a>
 								<ul class="sec m5_Menu" align="center">
-									<li><a href="#">공지사항</a></li>
-									<li><a href="#">FAQ</a></li>
-									<li><a href="#">QnA</a></li>
+									<li><a href="notice_list.bd">공지사항</a></li>
+									<li><a href="faq_list.bd">FAQ</a></li>
 								</ul>
 							</li>
 						</ul>
