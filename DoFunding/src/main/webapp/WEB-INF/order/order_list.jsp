@@ -2,6 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp"%>
 
+<style>
+	.order-detail {
+		background: #fffcf6;
+		font: 14px Malgun Ghothic,"맑은고딕",sans-serif;
+    	color: #555;
+    	min-width:320px;
+	}
+</style>
+
 <div class="order-list">
 
 	<h1 class="order-head">주문 내역</h1>
@@ -9,7 +18,7 @@
 		<c:choose>
 			<c:when test="${orderList == null}">
 				<tr>
-					<td colspan="8"><h3>주문 내역이 없습니다.</h3></td>
+					<td colspan="3"><h3>주문 내역이 없습니다.</h3></td>
 				</tr>
 			</c:when>
 			<c:otherwise>
@@ -30,7 +39,7 @@
 							<td>${od.o_num}</td>
 							<td>${od.o_date}</td>
 							<td>
-								<a href="detailView.ord?oid=${ob.o_num}">상세보기</a>
+								<a href="detailView.ord?o_num=${ob.o_num}">상세보기</a>
 							</td>
 						</tr>
 					</div>

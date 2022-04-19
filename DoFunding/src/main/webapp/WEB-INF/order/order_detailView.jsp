@@ -1,16 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp"%>    
+<%@ include file="../common/common.jsp" %>    
+<%@ include file="../common/common_top.jsp" %>   
+
+<style>
+	.order-detail {
+		background: #fffcf6;
+		font: 14px Malgun Ghothic,"맑은고딕",sans-serif;
+    	color: #555;
+    	min-width:320px;
+	}
+</style>
 
 <div class="order-detail">
 
-	<div class="od-head">
+	<div class="od-head" style="margin-bottom: 50px;">
 		<h1>주문 상세 내역</h1>
 	</div>
-	<table class="od-table" border="1">
+	<table class="od-table" style="margin: auto; border-bottom: 1px solid #555">
 		<div class="od-menu">
 			<tr>
-				<th colspan="2">상품명</th>
+				<th colspan="2" style="text-align: center;">상품명</th>
 				<th>가격</th>
 				<th>수량</th>
 				<th>옵션</th>
@@ -18,7 +28,7 @@
 				<th>배송현황</th>
 			</tr>
 		</div>
-		<div class="od-in">
+		<div class="od-in" style="text-align: left;">
 			<c:forEach var="odb" items="${detailList}">
 				<tr>
 					<td>${odb.pname}</td>
@@ -50,3 +60,5 @@
 		</div>
 	</table>
 </div>
+
+<%@ include file="../common/common_bottom.jsp" %>  
