@@ -319,15 +319,8 @@ values(seqdo_board.nextval,'a33','a33','1234','2015-1-1',7,1,1,'ë‚´ìš©33');
 commit;
 
 
-<<<<<<< HEAD
-
--- Âò Å×ÀÌºí
-drop sequence likseq ;
-=======
 -- ì°œ í…Œì´ë¸”
-drop sequence dipseq ;
->>>>>>> refs/remotes/origin/master
-
+drop sequence likseq ;
 create sequence likseq
 increment by 1
 start with 1
