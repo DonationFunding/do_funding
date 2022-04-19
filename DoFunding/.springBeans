@@ -7,8 +7,10 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/like-context.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/bot-context.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/admin-context.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/member-context.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/order-context.xml</config>

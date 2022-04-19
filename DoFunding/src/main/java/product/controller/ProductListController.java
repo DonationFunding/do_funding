@@ -50,9 +50,11 @@ public class ProductListController {
 		Paging pageInfo=new Paging(pageNumber, null, totalCount, url, whatColumn, keyword);
 	
 		  
+		List<ProductBean> rotatorlist = productDao.rotatorList();
 		List<ProductBean> list = productDao.productList(pageInfo, map);
 		System.out.println("list.size:"+list.size());
 		ModelAndView mav=new ModelAndView();
+		mav.addObject("rotatorlist",rotatorlist);
 		mav.addObject("list",list);
 		mav.addObject("totalCount",totalCount);
 		mav.addObject("pageInfo",pageInfo);

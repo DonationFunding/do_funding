@@ -18,9 +18,9 @@ import member.model.MemberBean;
 import member.model.MemberDao;
 @Controller
 public class MemberInsertController {
-	private final String command = "insertMemberForm.mem";
-	private final String getPage = "insertMemberForm";
-	private String gotoPage = "redirect:/productList.prd";
+	private final String command = "insert.mem";
+	private final String getPage = "member_insertForm";
+	private String gotoPage = "redirect:/login.mem";
 	@Autowired
 	MemberDao mdao;
 	
@@ -31,15 +31,20 @@ public class MemberInsertController {
 	}
 	
 	@RequestMapping(value = command,method = RequestMethod.POST)
-	public  ModelAndView doAction(@Valid MemberBean mb,BindingResult result,HttpSession session,HttpServletResponse response) {
+	public  ModelAndView doAction(@Valid MemberBean membean,BindingResult result,HttpSession session,HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		if(result.hasErrors()) {
 			mav.setViewName(getPage);
 			return mav;
 		}
 
-		int cnt = mdao.insertMember(mb);
-		
+		int cnt = mdao.insertMember(membean);
+		if(cnt < 0) {
+			System.out.println("회원가입 실패");
+		}
+		else {
+			System.out.println("회원가입 성공");
+		}
 		mav.setViewName(gotoPage);
 		return mav;
 	}
