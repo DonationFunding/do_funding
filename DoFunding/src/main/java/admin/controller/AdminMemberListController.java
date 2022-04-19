@@ -14,7 +14,7 @@ import member.model.MemberDao;
 
 @Controller
 public class AdminMemberListController {
-	private final String command = "/admin_mem_list.ad";
+	private final String command = "admin_mem_list.ad";
 	private final String getPage = "admin_mem_list";
 	private String gotoPage = "redirect:/list.prd";
 	private List<MemberBean> memlist;

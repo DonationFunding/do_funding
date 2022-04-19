@@ -29,11 +29,19 @@
 			<td>
 				${memList.name }
 			</td>
+			<c:set var="birthday">
+				<fmt:parseDate value="${memList.birthday}" var="dateValue" pattern="yyyy-MM-dd" />
+				<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />	
+			</c:set> 
+			<c:set var="joindate">
+				<fmt:parseDate value="${memList.joindate}" var="dateValue" pattern="yyyy-MM-dd" />
+				<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />	
+			</c:set> 	
 			<td>
-				${memList.birthday }
+				${birthday }
 			</td>
 			<td>
-				${memList.joindate }
+				${joindate }
 			</td>
 			<td>
 				${memList.gender }
@@ -54,16 +62,19 @@
 				${memList.mpoint }
 			</td>
 			<td>
-				<c:if test="${memList.admin eq '1'}"> 관리자 </c:if>
-				<c:if test="${memList.admin eq '0'}"> 
+				<c:if test="${memList.admin eq '0'}"> 관리자 </c:if>
+				<c:if test="${memList.admin eq '1'}"> 
 					<c:if test="${memList.accountbank eq null }"> 일반회원 </c:if>
 					<c:if test="${memList.accountbank != null }"> 정회원 </c:if>
 				</c:if>
-				
+			</td>
+			<td>
+				<input type="button" value="등업" onclick="location.href='upgrade.ad?no=${memList.no}'">
 			</td>
 		</tr>
+		
 	</c:forEach>
-
+	
 </table>
 </center>
 
