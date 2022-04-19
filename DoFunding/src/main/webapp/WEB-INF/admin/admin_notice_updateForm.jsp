@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ include file="admin_top.jsp" %>    
 
 <style type="text/css">
@@ -28,11 +27,12 @@
 <table class="table" class="text-center">
 		<tr>
 			<td colspan="2" align="right">
-				<a href="admin_notice_list.bd">글목록</a>
+				<a href="admin_notice_list.ad">글목록</a>
+				${noticeBean.no_writer}
 			</td>
 		</tr>
 		<tr>
-			<th class="text-center">이름</th>
+			<th class="text-center">작성자</th>
 			<td><input type="text" name="no_writer" value="${noticeBean.no_writer}" readonly></td>
 		</tr>
 		<tr>

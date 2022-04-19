@@ -159,6 +159,7 @@ public class BoardDao {
 	
 	public NoticeBean noticeOneSelect(NoticeBean noticeBean){
 		NoticeBean detail=sqlSessionTemplate.selectOne(namespace+".GetNotice", noticeBean);
+		System.out.println("체크:"+detail.getNo_content());
 		return detail;
 	}//noticeOneSelect	
 

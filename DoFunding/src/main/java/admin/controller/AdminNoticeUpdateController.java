@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import board.model.BoardBean;
 import board.model.BoardDao;
 import board.model.NoticeBean;
 
@@ -31,11 +30,12 @@ public class AdminNoticeUpdateController {
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
-			NoticeBean noticeBean,
+			NoticeBean ncBean,
 			HttpServletRequest request
 			) {	
-		NoticeBean detail=boardDao.noticeOneSelect(noticeBean);
-		request.setAttribute("noticeBean", detail);
+		NoticeBean noticeBean=boardDao.noticeOneSelect(ncBean);
+		System.out.println("check:"+noticeBean.getNo_content());
+		request.setAttribute("noticeBean", noticeBean);
 		request.setAttribute("pageNumber", pageNumber);
 		return getPage;
 	}	

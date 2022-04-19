@@ -22,7 +22,7 @@
 <div class="container">
 <table class="table" class="text-center">
 	<tr>
-		<th class="text-center">이름</th>
+		<th class="text-center">작성자</th>
 		<td><input type="text" name="faq_writer" value="${sessionScope.loginInfo.id}" readonly></td>
 	</tr>
 	<tr>

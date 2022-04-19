@@ -30,11 +30,11 @@ public class AdminFaqUpdateController {
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
-			FaqBean faqBean,
+			FaqBean fBean,
 			HttpServletRequest request
 			) {	
-		FaqBean detail=boardDao.faqOneSelect(faqBean);
-		request.setAttribute("faqBean", detail);
+		FaqBean faqBean=boardDao.faqOneSelect(fBean);
+		request.setAttribute("faqBean", faqBean);
 		request.setAttribute("pageNumber", pageNumber);
 		return getPage;
 	}	
