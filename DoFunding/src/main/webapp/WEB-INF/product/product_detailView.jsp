@@ -10,8 +10,8 @@ a:hover {
 	function insert(){
 		location.href = "insert.prd"; // ProductInsertController
 	}
-	function likedip(){
-		document.dipform.submit();
+	function like(){
+		document.likeform.submit();
 	}
 
 </script>

@@ -44,11 +44,11 @@ public class productDetailController {
 			int check = 0;
 			
 			if(loginInfo != null) { //로그인 인포가 null 아니면
-				LikeBean likebean = new LikeBean();
-				likebean.setM_no(loginInfo.getNo());
-				likebean.setP_num(p_num);
+				LikeBean likeBean = new LikeBean();
+				likeBean.setM_no(loginInfo.getNo());
+				likeBean.setLp_num(p_num);
 			
-				check = likeDao.checkLike(likebean);
+				check = likeDao.checkLike(likeBean);
 			
 				if(check == -1) {
 					check = 0;
@@ -78,18 +78,18 @@ public class productDetailController {
 		//map.put("m_no",Integer.toString(loginInfo.getNo()));
 		//DipBean bean=null;
 		int check = 0;
-		LikeBean likebean = new LikeBean();
-		likebean.setM_no(loginInfo.getNo());
-		likebean.setP_num(p_num);
+		LikeBean likeBean = new LikeBean();
+		likeBean.setM_no(loginInfo.getNo());
+		likeBean.setLp_num(p_num);
 		//int cnt = 0;
 		if(loginInfo != null) { //로그인 했냐 안했냐
-			check = likeDao.checkLike(likebean);	
+			check = likeDao.checkLike(likeBean);	
 			if(check == -1) {
-				likeDao.insertLike(likebean); 
+				likeDao.insertLike(likeBean); 
 			}
 			else {
-				likebean.setL_check(Integer.parseInt(cnt));
-				check = likeDao.updateLike(likebean);
+				likeBean.setL_check(Integer.parseInt(cnt));
+				check = likeDao.updateLike(likeBean);
 			}
 		}
 		ProductBean p_product = productDao.getProduct(p_num);

@@ -3,7 +3,7 @@ package like.model;
 public class LikeBean {
 	private int l_num; 	
 	private int m_no; 	
-	private int p_num; 	
+	private int lp_num; 	
 	private int l_check;
 	
 	
@@ -11,11 +11,11 @@ public class LikeBean {
 		super();
 	}
 
-	public LikeBean(int d_num, int m_no, int p_num, int l_check) {
+	public LikeBean(int d_num, int m_no, int lp_num, int l_check) {
 		super();
 		this.l_num = d_num;
 		this.m_no = m_no;
-		this.p_num = p_num;
+		this.lp_num = lp_num;
 		this.l_check = l_check;
 	}
 
@@ -31,11 +31,11 @@ public class LikeBean {
 	public void setM_no(int m_no) {
 		this.m_no = m_no;
 	}
-	public int getP_num() {
-		return p_num;
+	public int getLp_num() {
+		return lp_num;
 	}
-	public void setP_num(int p_num) {
-		this.p_num = p_num;
+	public void setLp_num(int lp_num) {
+		this.lp_num = lp_num;
 	}
 	public int getL_check() {
 		return l_check;

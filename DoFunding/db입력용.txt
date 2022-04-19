@@ -308,15 +308,15 @@ start with 1
 minvalue 1
 nocache;
 
-drop table like cascade constraints purge ;
-create table like (
+drop table do_like cascade constraints purge ;
+create table do_like (
 	l_num 	number primary key,
 	m_no 	number references do_members(no) on delete cascade,	
-	p_num 	number  references do_product(p_num) on delete cascade,
+	lp_num 	number  references do_product(p_num) on delete cascade,
 	l_check  number 
 );
 
-insert into like(l_num,m_no ,p_num,l_check ) values(likseq.nextval,1,8,1);
+insert into do_like(l_num,m_no ,lp_num,l_check ) values(likseq.nextval,1,8,1);
 commit;
 
 drop sequence seqod ;
