@@ -375,6 +375,12 @@ create table do_notice_board(
 	no_content varchar2(3000) not null			
 );
 
+insert into do_notice_board(no_num,no_writer,no_subject,no_reg_date,no_readcount,no_content)
+values(seqdo_notice_board.nextval,'관리자','[공지]배송 가능 시간 안내','2018-1-1',0,'영업일 기준 오후 1시 이전 결제 완료 주문건 :  당일 출고됩니다.');
+
+insert into do_notice_board(no_num,no_writer,no_subject,no_reg_date,no_readcount,no_content)
+values(seqdo_notice_board.nextval,'관리자','[공지] 교환 및 반품 안내','2022-3-1',0,'교환 및 반품 안내');
+
 
 
 --자주 묻는 질문(FAQ)게시판 
@@ -395,10 +401,11 @@ create table do_faq_board(
 	faq_content varchar2(3000) not null			
 );
 
-commit;
 
-insert into do_board(faq_num,'faq_writer',faq_subject,faq_reg_date,faq_readcount,faq_content)
+insert into do_faq_board(faq_num,faq_writer,faq_subject,faq_reg_date,faq_readcount,faq_content)
 values(seqdo_faq_board.nextval,'관리자','a1','2015-1-1',0,'내용1');
+
+commit;
 
 
 
