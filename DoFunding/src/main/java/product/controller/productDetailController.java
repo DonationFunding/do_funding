@@ -53,8 +53,7 @@ public class productDetailController {
 					check = 0;
 				}
 			}
-		
-		
+			
 		ProductBean p_product = productDao.getProduct(p_num);
 		List<OptionBean> o_list = productDao.optionAllByProduct(p_num);
 		
