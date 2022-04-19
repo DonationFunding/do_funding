@@ -49,7 +49,7 @@ public class OrderMallController {
 		System.out.println("�ɼ�="+opbean.getOption_no());
 		//초기화
 		session.removeAttribute("destination");
-		if(loginInfo==null) { // �α��� ��������
+		if(loginInfo==null) { // 
 			session.setAttribute("destination", "redirect:/order.ord");
 			return "redirect:/login.mem"; // MemberLoginController
 		}
