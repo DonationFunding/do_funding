@@ -6,28 +6,22 @@
 <%@ include file="../common/common_top.jsp" %>    
 
 
- 
-				<c:if test="${(fn:length(d_num)) == 0">
-				<div align="center"><strong>찜하신 펀딩이 없습니다.</strong></div>
-				</c:if>
-
-
-			<c:forEach items="${d_num}" var="d_num">
-			<div class="dipBox">
+			<c:forEach items="${like.list}">
+			<div class="likeBox">
 				<table class="info">	
     		<tr>
 					<th rowspan="3">
-						<a  onClick="location.href='product_detailView?p_num=${DipBean.p_num}'">
+						<a onClick="location.href='product_detailView?p_num=${likeBean.lp_num}'">
 						<div class="imgBox">
 							<img src="<%=request.getContextPath() %>/resources/images/${productBean.p_image}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" width="50px" height="50px"> 
 						</div>
 						</a>
 					</th>
-			</tr>
+			</tr>		
 			<tr>
-					<td class="p_subject"><a onClick="location.href='product_detailView?p_num=${dip.p_num}'">${productBean.p_subject}</a> 
+					<td class="p_subject"><a onClick="location.href='product_detailView?p_num=${like.lp_num}'">${productBean.p_subject}</a> 
 					</td>
-					<td class="" id="deletedip" onclick="" >
+					<td class="" id="deletelike" onclick="" >
 					
 					</td>
 			</tr>
@@ -35,4 +29,6 @@
 			</div>
 			</c:forEach>
 			
+			
+
 <%@ include file="../common/common_bottom.jsp" %>  

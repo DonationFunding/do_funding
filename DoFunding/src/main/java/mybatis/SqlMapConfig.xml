@@ -6,7 +6,11 @@
 <configuration>
 	
 	<typeAliases>
+<<<<<<< HEAD
 <!-- 		<typeAlias type="dip.model.DipBean" alias="MyDip"/> -->
+=======
+		<typeAlias type="like.model.LikeBean" alias="MyLike"/>
+>>>>>>> refs/remotes/origin/master
 		<typeAlias type="board.model.BoardBean" alias="MyBoard"/>
 		<typeAlias type="product.model.ProductBean" alias="MyProduct"/>
 		<typeAlias type="member.model.MemberBean" alias="MyMember"/>
@@ -21,7 +25,13 @@
 		<mapper resource="mybatis/member.xml"/>
 		<mapper resource="mybatis/order.xml"/>
 		<mapper resource="mybatis/category.xml"/>
+<<<<<<< HEAD
 		<!-- <mapper resource="mybatis/dip.xml"/> -->
+=======
+		<mapper resource="mybatis/like.xml"/>
+		<mapper resource="mybatis/orderdetail.xml"/>
+		<mapper resource="mybatis/bot.xml"/>
+>>>>>>> refs/remotes/origin/master
 	</mappers>
 </configuration>
 
