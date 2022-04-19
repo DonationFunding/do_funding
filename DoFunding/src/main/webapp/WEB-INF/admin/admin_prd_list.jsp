@@ -1,17 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="admin_top.jsp"%>
-<script type="text/javascript">
-	function insert() {
-		location.href="admin_prd_insert.ad"; 
-	}
-	
-	function update(p_num,pageNumber){
-
-		location.href="admin_prd_update.ad?p_num="+p_num+"&pageNumber="+pageNumber; 	
-	}	
-</script>
-
 <center>
 	<h2>펀딩 목록(${pageInfo.pageNumber})</h2>
 	<form action="admin_prd_list.ad" method="get">
@@ -34,12 +23,9 @@
 				<c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set>
 				Today : ${sysDate} 								
 			</td>
-			<td align="right" colspan="8">
-				<input type="button" value="추가하기" onclick="insert()">
-			</td>
 		</tr>
 		<tr>
-			<th  align="center">
+			<th  align="center" width="40px">
 				<input type="checkbox" name="allcheck" onclick="allRowCheck(this)">
 			</th>
 			<th>펀딩번호</th>

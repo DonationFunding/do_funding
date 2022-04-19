@@ -1,23 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="common.jsp"%>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
-<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport"
-	content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
-<title>두펀딩</title>
-</head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>두펀딩</title>
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
-	<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
 </head>
 <body>
@@ -52,50 +42,41 @@
 			<br><br>
 
 			<div class="top-banner-wrap">
-				<h1 class="banner-inner">banner</h1>
+				<h1 class="banner-inner">Do_Funding</h1>
 			</div>
-			<h1 class="logo">
-				<a href="<c:url value="list.prd"/>">두펀딩</a>
-			</h1>
 
 			<div class="mobile-menu-wrap">
 				<div class="mobile-menu-scroll">
 					<nav id="gnb">
 						<h2 class="blind">메인 메뉴</h2>
-						<ul>
+						<ul class="secMenu">
 							<li class="m1 no-sub"><a href="list.prd">홈</a></li>
 
 							<li class="m2"><a href="#">두펀딩</a>
-								<div class="secMenu secMenu1" align="center">
-									<!--<ul class="secMenu secMenu1">-->
-									<ul>
-										<li><a href="#">Donation Funding</a></li>
-										<li><a href="#">후원 기록</a></li>
-									</ul>
-								</div></li>
+								<ul class="sec m2_Menu" align="center">
+									<li><a href="#">Donation Funding</a></li>
+									<li><a href="#">후원 기록</a></li>
+								</ul>
+							</li>
 							<li class="m3"><a href="#">펀딩상품</a>
-								<div class="secMenu secMenu1" align="center">
-									<ul>
-										<li><a href="list.prd?whatColumn=p_ing">진행중인 펀딩</a></li>
-										<li><a href="list.prd?whatColumn=p_end">마감된 펀딩</a></li>
-										<li><a href="list.prd?whatColumn=p_future">공개 예정</a></li>
-									</ul>
-								</div></li>
-							<!-- 					<li class="m4 no-sub"> -->
-							<li class="m3"><a href="#">커뮤니티</a>
-								<div class="secMenu secMenu1" align="center">
-									<ul>
-										<li><a href="list.bd">게시판</a></li>
-									</ul>
-								</div></li>
+								<ul class="sec m3_Menu" align="center">
+									<li><a href="list.prd?whatColumn=p_ing">진행중인 펀딩</a></li>
+									<li><a href="list.prd?whatColumn=p_end">마감된 펀딩</a></li>
+									<li><a href="list.prd?whatColumn=p_future">공개 예정</a></li>
+								</ul>
+							</li>
+							<li class="m4"><a href="#">커뮤니티</a>
+								<ul class="sec m4_Menu" align="center">
+									<li><a href="list.bd">게시판</a></li>
+								</ul>
+							</li>
 							<li class="m5"><a href="#">고객센터</a>
-								<div class="secMenu secMenu1" align="center">
-									<ul>
-										<li><a href="#">공지사항</a></li>
-										<li><a href="#">FAQ</a></li>
-										<li><a href="#">QnA</a></li>
-									</ul>
-								</div></li>
+								<ul class="sec m5_Menu" align="center">
+									<li><a href="#">공지사항</a></li>
+									<li><a href="#">FAQ</a></li>
+									<li><a href="#">QnA</a></li>
+								</ul>
+							</li>
 						</ul>
 					</nav>
 				</div>

@@ -25,17 +25,16 @@ public class BoardListController {
 	@Autowired
 	private BoardDao boardDao;
 
-	//start.jsp get방식 
+	//start.jsp
 	@RequestMapping(command)
 	public ModelAndView doAction(
 			@RequestParam(value="pageNumber",required = false)String pageNumber,
 			@RequestParam(value="pageSize",required = false)String pageSize,
-			//검색은 선택
 			@RequestParam(value="whatColumn",required = false)String whatColumn,
 			@RequestParam(value="keyword",required = false)String keyword,
 			HttpServletRequest request
 			) {
-		//선택 검색은 선택
+		
 		Map<String, String> map=new HashMap<String, String>();
 		map.put("whatColumn", whatColumn);
 		map.put("keyword", "%"+keyword+"%");

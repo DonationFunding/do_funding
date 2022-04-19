@@ -31,9 +31,15 @@ public class productDetailController {
 	@Qualifier("myProductDao")
 	private ProductDao productDao;	
 		
+<<<<<<< HEAD
 	@Autowired	
 	@Qualifier("myLikeDao")
 	private LikeDao likeDao; 
+=======
+	@Autowired
+	@Qualifier("myDipDao")
+	private DipDao dipDao; 
+>>>>>>> refs/remotes/origin/master
 	
 	@RequestMapping(value = command ,method = RequestMethod.GET)
 	public String doAction(
@@ -43,10 +49,17 @@ public class productDetailController {
 			MemberBean loginInfo=(MemberBean)session.getAttribute("loginInfo");
 			int check = 0;
 			
+<<<<<<< HEAD
 			if(loginInfo != null) { //로그인 인포가 null 아니면
 				LikeBean likeBean = new LikeBean();
 				likeBean.setM_no(loginInfo.getNo());
 				likeBean.setLp_num(p_num);
+=======
+			if(loginInfo != null) { 
+				DipBean diBean = new DipBean();
+				diBean.setM_no(loginInfo.getNo());
+				diBean.setP_num(p_num);
+>>>>>>> refs/remotes/origin/master
 			
 				check = likeDao.checkLike(likeBean);
 			
@@ -82,8 +95,13 @@ public class productDetailController {
 		likeBean.setM_no(loginInfo.getNo());
 		likeBean.setLp_num(p_num);
 		//int cnt = 0;
+<<<<<<< HEAD
 		if(loginInfo != null) { //로그인 했냐 안했냐
 			check = likeDao.checkLike(likeBean);	
+=======
+		if(loginInfo != null) { 
+			check = dipDao.checkDip(diBean);	
+>>>>>>> refs/remotes/origin/master
 			if(check == -1) {
 				likeDao.insertLike(likeBean); 
 			}
