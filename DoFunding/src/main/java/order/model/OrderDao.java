@@ -16,14 +16,14 @@ public class OrderDao {
 	
 	private String namespace="order.model.Order";
 
-	public int insertOrder(String id) { 
-		int cnt = sqlSessionTemplate.insert(namespace+".InsertOrder",id);
+	public int insertOrder(int no) { 
+		int cnt = sqlSessionTemplate.insert(namespace+".InsertOrder",no);
 		return cnt;
 	}
 
 	public int getMaxO_num() {
 		int maxOid=sqlSessionTemplate.selectOne(namespace+".GetMaxO_num");
-		System.out.println("maxOid1:" + maxOid);
+		//System.out.println("maxOid1:" + maxOid);
 		return maxOid;
 	}
 

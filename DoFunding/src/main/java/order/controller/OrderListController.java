@@ -16,7 +16,7 @@ import order.model.OrderDao;
 import product.model.ProductDao;
 
 @Controller
-public class OrderMallController {
+public class OrderListController {
 
 	private final String command = "/order.ord";
 	private String getPage = "order_list";
@@ -29,8 +29,6 @@ public class OrderMallController {
 			HttpSession session,Model model) {
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
 		
-		
-
 		//초기화
 		session.removeAttribute("destination");
 		if(loginInfo==null) { // 
@@ -38,7 +36,7 @@ public class OrderMallController {
 			return "redirect:/login.mem"; // MemberLoginController
 		}
 		else if(loginInfo.getAccountbank()==null) { // 
-			session.setAttribute("destination", "redirect:/update.mem");
+			session.setAttribute("destination", "redirect:/order.ord");
 			return "redirect:/update.mem"; // MemberLoginController
 		}
 		else { 

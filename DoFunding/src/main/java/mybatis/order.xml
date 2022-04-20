@@ -6,25 +6,16 @@
 <mapper namespace="order.model.Order">
 
 	<insert id="InsertOrder">
-		insert into do_order(o_num, o_mnum, o_pnum, o_qty, o_price,o_startdate,o_enddate ) 
-		values(seqoid.nextval, #{o_mnum},#{o_pnum}, #{o_qty}, #{o_price},#{o_startdate},#{o_enddate})
+		insert into do_order(o_num, o_mnum) 
+		values(seqoid.nextval, #{no})
 	</insert>
 	
-	<select id="getMaxO_num" resultType="int">
+	<select id="GetMaxO_num" resultType="int">
 		select max(o_num) from do_order
 	</select>
 
-<!-- 	
-	<select id="">
-		select od.odid, o.orderdate from (orders o inner JOIN members m on m.id like o.mid) 
-		inner JOIN orderdetails od o.oid = od.oid where m.id='';
-	</select>
- -->
  	<select id="OrderList" resultType="MyOrder">
- 		select * from do_order where o_mnum = #{o_mnum} order by o_num desc
+ 		select * from do_order where o_mnum = #{no} order by o_num desc
  	</select>
  		
- 	
 </mapper>
-
-<!-- order.xml -->

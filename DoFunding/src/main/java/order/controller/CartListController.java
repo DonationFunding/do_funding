@@ -2,8 +2,6 @@ package order.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -30,12 +28,10 @@ public class CartListController {
 	//add.mall에서 로그인도 다하고 장바구니 해서 넘어옴
 	@RequestMapping(value=command)
 	public String doAction(HttpSession session) {
-		
 		MyCartList mycart = (MyCartList)session.getAttribute("mycart");
 		
 		List<int[]> orderlists = mycart.getAllOrderLists();
 		// key(상품번호), value(주문수량) , 옵션 번호
-	
 		//장바구니 정보화
 		ArrayList<ShoppingInfo> lists = new ArrayList<ShoppingInfo>();
 		
@@ -44,8 +40,7 @@ public class CartListController {
 			int p_num = info[0];	//상품번호
 			int o_qty = info[1];	//상품수량
 			int option_no = info[2];	//선택된 옵션번호
-			System.out.println(p_num+":" + o_qty); 
-			ProductBean pb = productDao.getProduct(p_num);
+			ProductBean pb = productDao.getupdateProduct(p_num);
 			OptionBean ob = productDao.getOption(option_no);
 			
 			ShoppingInfo sinfo=new ShoppingInfo();

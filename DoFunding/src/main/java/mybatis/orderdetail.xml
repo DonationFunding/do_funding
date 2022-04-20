@@ -4,13 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="orderdetail.model.Orderdetail">
-<!-- 여기 경로로 주문 세부내역 작업하세요. -->
  	<select id="OrderDetailList" resultType="MyOrderDetail">
 		select * from do_orderdetail where o_num = #{o_num}
   	</select>
  	
-	<insert id="InsertOrderDetail">
-		insert into do_orderdetail(od_num,od_o_num,od_p_num,od_option_no,od_qty,od_deliver)
-		values(seqod.nextval,#{od_o_num},#{od_p_num},#{od_option_no},#{od_qty},'0')
+	<insert id="InsertOrderDetail" >
+		insert into do_orderdetail(od_num, od_o_num, od_p_num, od_option_no, od_qty)
+		values(seqod.nextval, #{od_o_num}, #{od_p_num}, #{od_option_no}, #{od_qty})
 	</insert>
 </mapper>

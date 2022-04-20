@@ -9,7 +9,14 @@ public class ShoppingInfo {
 	private int price;
 	private int amount;
 	private int deliver;
+	private int od_num;
 	
+	public int getOd_num() {
+		return od_num;
+	}
+	public void setOd_num(int od_num) {
+		this.od_num = od_num;
+	}
 	public int getP_num() {
 		return p_num;
 	}

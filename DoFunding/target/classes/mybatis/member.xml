@@ -34,7 +34,7 @@
 	</update>
 
 	<update id="MpointUpdate">
-		update members set mpoint=mpoint + #{mpoint} where id=#{id}
+		update do_members set mpoint=mpoint + #{mpoint} where id=#{id}
 	</update>
 
 	

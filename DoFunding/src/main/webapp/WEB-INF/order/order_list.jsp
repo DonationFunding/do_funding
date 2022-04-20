@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp"%>
+<%@ include file="../common/common_top.jsp"%>
 
 <style>
 	.order-detail {
@@ -10,9 +10,8 @@
     	min-width:320px;
 	}
 </style>
-
+<center>
 <div class="order-list">
-
 	<h1 class="order-head">주문 내역</h1>
 	<table class="od-1" border="1">
 		<c:choose>
@@ -48,3 +47,5 @@
 		</c:choose>
 	</table>
 </div>
+</center>
+<%@ include file="../common/common_bottom.jsp"%>

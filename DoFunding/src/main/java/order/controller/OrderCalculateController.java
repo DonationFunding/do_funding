@@ -46,6 +46,7 @@ public class OrderCalculateController {
 			MemberBean memBean,	//연락처 hp1,hp2,hp3, 배송지 주소 address1,address2
 			@RequestParam(value="del_request",required = false) String del_request,
 			@RequestParam(value="order_request",required = false) String order_request,
+			@RequestParam(value="amount",required = false) String amount,
 			HttpSession session ) {
 		
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
@@ -55,12 +56,13 @@ public class OrderCalculateController {
 			
 		//Map<String,String> map =new HashMap<String,String>();
 		//장바구니에 
-		orderDao.insertOrder(loginInfo.getId());	//order번호 생성용
+		
+		orderDao.insertOrder(loginInfo.getNo());	//order번호 생성용
 		
 		//orders 테이블에서 가장 큰 oid값 가져와서 
 		//orderdetails의 oid에 넣기	주문 뭉태기를 찾기 위해서
 		int maxOnum = orderDao.getMaxO_num(); 
-		System.out.println("maxOnum:" + maxOnum);
+		//System.out.println("maxOnum:" + maxOnum);
 		
 		
 		double point=0;//후원금
@@ -77,8 +79,9 @@ public class OrderCalculateController {
 			odBean.setOd_p_num(p_num);		//상품번호
 			odBean.setOd_option_no(option_no);//선택된 상품옵션번호
 			odBean.setOd_qty(o_qty);		//주문수량
-			point += o_qty*pb.getP_origin_price()/0.3;
+
 			orderDetailDao.insertOrderDetail(odBean);
+			point += o_qty*pb.getP_origin_price()/0.3;
 		}
 		int mpoint= (int) Math.round(point);
 		// 회원 mpoint 누적
