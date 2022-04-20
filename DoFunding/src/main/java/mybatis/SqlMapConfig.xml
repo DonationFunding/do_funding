@@ -24,6 +24,7 @@
 		<mapper resource="mybatis/like.xml"/>
 		<mapper resource="mybatis/orderdetail.xml"/>
 		<mapper resource="mybatis/bot.xml"/>
+		<mapper resource="mybatis/composite.xml"/>
 	</mappers>
 </configuration>
 

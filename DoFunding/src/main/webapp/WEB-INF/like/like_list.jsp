@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../common/common_top.jsp"%>
+
 <script>
 	//다중 삭제
 	function selectDelete() {
@@ -22,6 +23,21 @@
 			document.myform.submit();//submit 누른것처럼 동작해라.
 		}
 	}//selectDelete
+	
+	function allRowCheck(allck){ 
+		var chkArr = document.getElementsByName("rowcheck");
+		var check = allck.checked;	
+		if (check) {﻿
+	        for (var i=0; i<chkArr.length; i++){ //배열의 길이만큼
+	        	   chkArr[i].checked = true;
+	        }
+	    } 
+		else {
+	        for (var i=0; i<chkArr.length; i++) {
+	          chkArr[i].checked = false;
+	         }
+	    }
+	}// allRowCheck	
 </script>
 
 <center>

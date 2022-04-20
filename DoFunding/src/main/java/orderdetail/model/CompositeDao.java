@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import order.cart.ShoppingInfo;
+
 @Component("myCompositeDao")
 public class CompositeDao {
 	
@@ -14,9 +16,8 @@ public class CompositeDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 
-	public List<OrderDetailBean> detailList(int od_no) {
-		List<OrderDetailBean> detailList = sqlSessionTemplate.selectList(namespace + ".DetailList", od_no);
-	
+	public List<ShoppingInfo> detailList(int o_num) {//주문 번호
+		List<ShoppingInfo> detailList = sqlSessionTemplate.selectList(namespace + ".DetailList", o_num);
 		return detailList;
 	}
 	

@@ -110,5 +110,10 @@ public class ProductDao {
 		return list;
 	}
 
+	public OptionBean getOption(int option_no) {
+		OptionBean option=sqlSessionTemplate.selectOne(namespace+".GetOption", option_no);
+		return option;
+	}
+
 
 }

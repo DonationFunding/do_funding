@@ -1,15 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../common/common.jsp"%>
+<%@ include file="../common/common_top.jsp"%>
 
+<style>
+	.order-detail {
+		background: #fffcf6;
+		font: 14px Malgun Ghothic,"맑은고딕",sans-serif;
+    	color: #555;
+    	min-width:320px;
+	}
+</style>
+<center>
 <div class="order-list">
-
 	<h1 class="order-head">주문 내역</h1>
 	<table class="od-1" border="1">
 		<c:choose>
 			<c:when test="${orderList == null}">
 				<tr>
-					<td colspan="8"><h3>주문 내역이 없습니다.</h3></td>
+					<td colspan="3"><h3>주문 내역이 없습니다.</h3></td>
 				</tr>
 			</c:when>
 			<c:otherwise>
@@ -24,13 +32,13 @@
 					</tr>
 				</div>
 				
-				<c:forEach var="od" items="${orderList}">
+				<c:forEach var="order" items="${orderList}">
 					<div class="order-in">
 						<tr align="center">
-							<td>${od.o_num}</td>
-							<td>${od.o_date}</td>
+							<td>${order.o_num}</td>
+							<td>${order.o_date}</td>
 							<td>
-								<a href="detailView.ord?oid=${ob.o_num}">상세보기</a>
+								<a href="order_detail.ord?o_num=${order.o_num}">상세보기</a>
 							</td>
 						</tr>
 					</div>
@@ -39,3 +47,5 @@
 		</c:choose>
 	</table>
 </div>
+</center>
+<%@ include file="../common/common_bottom.jsp"%>
