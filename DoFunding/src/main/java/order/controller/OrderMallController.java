@@ -38,6 +38,7 @@ public class OrderMallController {
 			HttpSession session,Model model) {
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
 		
+		
 //		ProductBean p_product = productDao.getProduct(p_num);
 //		List<OptionBean> o_list = productDao.optionAllByProduct(p_num);
 //		
