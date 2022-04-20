@@ -5,8 +5,14 @@
 
 <mapper namespace="orderdetail.model.Orderdetail">
 <!-- 여기 경로로 주문 세부내역 작업하세요. -->
+<<<<<<< HEAD
  	<select id="DetailList">
  		select * from do_orderdetail 
  	</select>
+=======
+ 	<select id="detailList" resultType="order.model.Orderdetail">
+		select * from do_orderdetail where o_num = #{o_num}
+  	</select>
+>>>>>>> refs/remotes/origin/do_cjh
  	
 </mapper>
