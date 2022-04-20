@@ -4,10 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="order.model.Order">
-<!-- 여기서 주문과정 작업하세요. -->
+
 	<insert id="InsertOrder">
-		insert into do_order(o_num, o_mnum, o_qty, o_date) 
-		values(seqoid.nextval, #{o_mnum}, #{o_qty}, sysdate)
+		insert into do_order(o_num, o_mnum, o_pnum, o_qty, o_price,o_startdate,o_enddate ) 
+		values(seqoid.nextval, #{o_mnum},#{o_pnum}, #{o_qty}, #{o_price},#{o_startdate},#{o_enddate})
 	</insert>
 	
 	<select id="getMaxO_num" resultType="int">
@@ -23,13 +23,7 @@
  	<select id="OrderList" resultType="MyOrder">
  		select * from do_order where o_mnum = #{o_mnum} order by o_num desc
  	</select>
- 	
- 	
- 	<select id="DetailList" resultType="MyOrder">
- 		select * from do_order where o_mnum = #{o_mnum} order by o_num desc
- 	</select>
- 	
- 	
+ 		
  	
 </mapper>
 

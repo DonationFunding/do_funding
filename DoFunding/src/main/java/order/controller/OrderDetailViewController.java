@@ -9,27 +9,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import order.cart.ShoppingInfo;
 import orderdetail.model.OrderDetailBean;
 import orderdetail.model.CompositeDao;
 
 @Controller
-public class DetailViewController {
-	private final String command = "detailView.ord";
+public class OrderDetailViewController {
+	private final String command = "/order_detail.ord";
 	private final String getPage = "order_detailView";
 
 	@Autowired
 	private CompositeDao CompositeDao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
-	public ModelAndView doAction(@RequestParam("od_no") int od_no) { 
+	public ModelAndView doAction(@RequestParam("o_num") int o_num) { 
 		ModelAndView mav = new ModelAndView();
-		List<OrderDetailBean> detailList = CompositeDao.detailList(od_no);
-		
-		System.out.println(detailList.get(0).getOd_pnum());
-		System.out.println(detailList.get(0).getOd_pname());
+		List<ShoppingInfo> detailList = CompositeDao.detailList(o_num);
 		
 		mav.addObject("detailList", detailList);
-		mav.addObject("od_no", od_no);
+		mav.addObject("o_num", o_num);
 		mav.setViewName(getPage);
 		
 		return mav;

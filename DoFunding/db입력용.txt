@@ -215,29 +215,37 @@ commit;
 
 drop sequence seqoid ;
 create sequence seqoid start with 1 increment by 1 nocache ;
-
- DROP TABLE do_order CASCADE CONSTRAINTS;
- 
+DROP TABLE do_order CASCADE CONSTRAINTS;
 create table do_order(
 --주문번호
   o_num number primary key,
 --회원번호
   o_mnum number references do_members(no) on delete set null,
---상품번호
-  o_pnum number references do_product(p_num) on delete set null,
---주문수량
-  o_qty number not null,
 --주문일
-  o_date date default sysdate,
---상품가격
-  o_price number not null,
---시작일
-  o_startdate date default sysdate,
---종료일
-  o_enddate date default sysdate,
---상태
-  o_state varchar2(30) not null
+  o_date date default sysdate
 );
+
+
+drop sequence seqod ;
+create sequence seqod start with 1 increment by 1 nocache ;
+
+DROP TABLE do_orderdetail CASCADE CONSTRAINTS;
+create table do_orderdetail(
+--주문상세번호 
+  od_num number primary key,
+--주문번호 
+  od_o_num number references do_order(o_num) on delete cascade,
+--상품번호
+  od_p_num number references do_product(p_num) on delete set null,
+--상품옵션번호
+  od_option_no varchar2(100) not null,	
+--주문수량
+  od_qty number not null,
+--배송상태 펀딩기간이 끝나고 성공 되면 배송내역 수정
+  od_deliver number default 0	
+);
+
+commit;
 
 
 
@@ -335,26 +343,6 @@ create table do_like (
 insert into do_like(l_num,m_no ,lp_num,l_check ) values(likseq.nextval,1,8,1);
 
 commit;
-
-
-drop sequence seqod ;
-create sequence seqod start with 1 increment by 1 nocache ;
-
-DROP TABLE do_orderdetail CASCADE CONSTRAINTS;
-create table do_orderdetail(
-  od_no number references do_order(o_num) on delete set null primary key,
-  od_m_no number references do_members(no) on delete set null,
-  od_p_num number references do_product(p_num) on delete set null,
-  od_qty number not null,
-  od_price number not null,
-  od_amount number not null,
-  od_option varchar2(100) not null,	
-  od_deliver varchar2(30) not null	
-);
-
-commit;
-
-
 
 
 --공지사항 게시판 

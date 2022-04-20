@@ -33,13 +33,13 @@
 					</tr>
 				</div>
 				
-				<c:forEach var="od" items="${orderList}">
+				<c:forEach var="order" items="${orderList}">
 					<div class="order-in">
 						<tr align="center">
-							<td>${od.o_num}</td>
-							<td>${od.o_date}</td>
+							<td>${order.o_num}</td>
+							<td>${order.o_date}</td>
 							<td>
-								<a href="detailView.ord?o_num=${ob.o_num}">상세보기</a>
+								<a href="order_detail.ord?o_num=${order.o_num}">상세보기</a>
 							</td>
 						</tr>
 					</div>

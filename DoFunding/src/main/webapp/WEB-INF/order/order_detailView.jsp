@@ -30,10 +30,10 @@
 		<div class="od-in" style="text-align: left;">
 			<c:forEach var="odb" items="${detailList}">
 				<tr>
-					<td>${odb.pname}</td>
+					<td>${odb.p_subject}</td>
 					<td>${odb.price}</td>
 					<td>${odb.qty}</td>
-					<td>${odb.option}</td>
+					<td>${odb.option_content}</td>
 					<td>${odb.amount}</td>
 					<td>${odb.deliver == 0?"배송준비중":
 							odb.deliver == 1?"배송중":"배송완료"}</td>

@@ -56,7 +56,7 @@ a:hover {
     	</tr>
     	
 <!-- add.mall => mall.controller.CartAddController -->
-<form method="post" action="order.ord">
+<form method="post" action="add.ord">
     	<tr>
     		<th>옵션</th>
     		<td>
@@ -71,12 +71,8 @@ a:hover {
     	<tr>
     		<th>주문수량</th>
     		<td colspan="2">
-    				<input type="hidden" name="p_num" value="${productBean.p_num }">
-    				<input type="hidden" name="p_subject" value="${productBean.p_subject }">
-    				<input type="hidden" name="p_origin_price" value="${productBean.p_origin_price }">
-    	<%-- 		<input type="hidden" name="option_no" value="${optionBean.option_no}">
-    				<input type="hidden" name="option_content" value="${optionBean.option_content}">--%> 			
-    				<input type="text" name="o_qty">
+    				<input type="hidden" name="p_num" value="${productBean.p_num }">		
+    				<input type="text" name="orderqty">
 	    			
 <!-- 현재날짜 -->
 <c:set var="now" value="<%=new java.util.Date()%>" />

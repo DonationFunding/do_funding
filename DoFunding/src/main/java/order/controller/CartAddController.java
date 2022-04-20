@@ -5,33 +5,43 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import order.cart.MyOrderList;
+import member.model.MemberBean;
+import order.cart.MyCartList;
 import product.model.ProductBean;
 
 @Controller
 public class CartAddController {
 
 	private final String command="/add.ord";
-	private final String gotoPage="redirect:/list.ord"; // CartListController
+	private final String gotoPage="redirect:/cart_list.ord"; // CartListController
 
-	// productDetailView.jspø°º≠ ¡÷πÆ«œ±‚ ≈¨∏Ø
+	// productDetailView.jspÏóêÏÑú Ï£ºÎ¨∏ÌïòÍ∏∞ ÌÅ¥Î¶≠
 	@RequestMapping(value=command)
-	public String doAction(ProductBean p_product,HttpSession session) {
-		System.out.println(p_product.getP_num());
-		System.out.println(p_product.getOrderqty());
+	public String doAction(
+			ProductBean bean,
+			HttpSession session) {
 		
-		if(session.getAttribute("loginInfo") == null) { // ∑Œ±◊¿Œ æ»«ﬂ¿∏∏È 
-			session.setAttribute("destination", "redirect:/list.prd");
-			return "redirect:/loginForm.mem"; // MemberLoginController
+		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
+
+		
+		//Ï¥àÍ∏∞Ìôî
+		session.removeAttribute("destination");
+		if(loginInfo==null) { // 
+			session.setAttribute("destination", "redirect:/order.ord");
+			return "redirect:/login.mem"; // MemberLoginController
 		}
-		else { // ∑Œ±◊¿Œ «ﬂ¿∏∏È 
-			MyOrderList mycart = (MyOrderList)session.getAttribute("mycart");
+		else if(loginInfo.getAccountbank()==null) { // 
+			session.setAttribute("destination", "redirect:/update.mem");
+			return "redirect:/update.mem"; // MemberLoginController
+		}
+		else {  // Î°úÍ∑∏Ïù∏ ÌñàÏúºÎ©¥
+			MyCartList mycart = (MyCartList)session.getAttribute("mycart");
 			if(mycart == null) {
-				mycart = new MyOrderList();
+				mycart = new MyCartList();
 			}
-			mycart.addOrder(p_product.getP_num(),p_product.getOrderqty());
+			mycart.addOrder(bean.getP_num(),bean.getOrderqty(),bean.getOption_no());
 			
-			//¿ÂπŸ±∏¥œ
+			//Ïû•Î∞îÍµ¨Îãà
 			session.setAttribute("mycart", mycart);
 			return gotoPage;
 		}

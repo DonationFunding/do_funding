@@ -9,7 +9,8 @@
 		select * from do_orderdetail where o_num = #{o_num}
   	</select>
  	
- 	<insert id="InsertOrderDetail">
- 		
- 	</insert>
+	<insert id="InsertOrderDetail">
+		insert into do_orderdetail(od_num,od_o_num,od_p_num,od_option_no,od_qty,od_deliver)
+		values(seqod.nextval,#{od_o_num},#{od_p_num},#{od_option_no},#{od_qty},'0')
+	</insert>
 </mapper>
