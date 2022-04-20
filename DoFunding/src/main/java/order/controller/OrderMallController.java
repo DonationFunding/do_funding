@@ -53,7 +53,7 @@ public class OrderMallController {
 			session.setAttribute("destination", "redirect:/order.ord");
 			return "redirect:/login.mem"; // MemberLoginController
 		}
-		else if(loginInfo.getAccountbank()==null) { // �α��� ��������
+		else if(loginInfo.getAccountbank()==null) { // 
 			session.setAttribute("destination", "redirect:/update.mem");
 			return "redirect:/update.mem"; // MemberLoginController
 		}

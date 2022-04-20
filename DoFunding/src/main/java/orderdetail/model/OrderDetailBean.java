@@ -1,19 +1,19 @@
 package orderdetail.model;
 
+
 public class OrderDetailBean {
 	private int od_no; 
 	private int od_id; 
-	private int od_pnum; //상품번호
-	private int od_pname; //상품명
-	private int od_price; //상품명
-	private int od_qty; //수량
-	private int od_option; //옵션
-	private int od_amount; //결제금액
-	private int od_deliver; //배송현황
+	private int od_pnum; 
+	private int od_pname; 
+	private int od_price; 
+	private int od_qty; 
+	private int od_option; 
+	private int od_amount; 
+	private int od_deliver; 
 	
 	public OrderDetailBean() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public OrderDetailBean(int od_no, int od_id, int od_pnum, int od_pname, int od_price, int od_qty, int od_option,

@@ -24,5 +24,10 @@ public class OrderDetailDao {
 		sqlSessionTemplate.insert(namespace + ".InsertOrderDetail", odBean);
 	}
 	
+	public void orderDetailList(OrderDetailBean odBean) {
+
+		sqlSessionTemplate.selectList(namespace + ".OrderDetailList", odBean);
+	}
+	
 }
 
