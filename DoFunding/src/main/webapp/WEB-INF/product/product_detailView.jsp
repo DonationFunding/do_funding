@@ -60,7 +60,7 @@ a:hover {
     	<tr>
     		<th>옵션</th>
     		<td>
-    			<select name="option1">
+    			<select name="option_no">
     				<c:forEach var="optionBean" items="${optionList}">
     					<option value="${optionBean.option_no}">${optionBean.option_content}</option>
     				</c:forEach>
@@ -74,9 +74,9 @@ a:hover {
     				<input type="hidden" name="p_num" value="${productBean.p_num }">
     				<input type="hidden" name="p_subject" value="${productBean.p_subject }">
     				<input type="hidden" name="p_origin_price" value="${productBean.p_origin_price }">
-    				<input type="hidden" name="option_no" value="${optionBean.option_no}">
-    				<input type="hidden" name="option_content" value="${optionBean.option_content}">
-	    			<input type="text" name="o_qty">
+    	<%-- 		<input type="hidden" name="option_no" value="${optionBean.option_no}">
+    				<input type="hidden" name="option_content" value="${optionBean.option_content}">--%> 			
+    				<input type="text" name="o_qty">
 	    			
 <!-- 현재날짜 -->
 <c:set var="now" value="<%=new java.util.Date()%>" />

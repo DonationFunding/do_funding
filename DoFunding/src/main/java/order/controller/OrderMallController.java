@@ -32,9 +32,9 @@ public class OrderMallController {
 
 	@RequestMapping(value=command)
 	public String doAction(
-			ProductBean prdbean,
-			OrderBean ordbean,
-			OptionBean opbean,
+			ProductBean prdbean,//상품번호,상품명,상품 단가
+			OrderBean ordbean,	//수량
+			OptionBean opbean,  //옵션번호
 			HttpSession session,Model model) {
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
 		
@@ -43,6 +43,7 @@ public class OrderMallController {
 //		
 //		model.addAttribute("optionList", o_list);
 //		model.addAttribute("productBean", p_product);
+		opbean
 		
 		System.out.println("�ɼ�="+opbean.getOption_content());
 		System.out.println("�ɼ�="+opbean.getOption_item_no());
