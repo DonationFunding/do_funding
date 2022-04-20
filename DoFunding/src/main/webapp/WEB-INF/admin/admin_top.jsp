@@ -22,32 +22,33 @@
 	<br><br>
 	<div id="top-wrap">
 		<header class="top-inner">
-			<div>
-				<c:if test="${sessionScope.loginInfo.id != null}">
-					<ul class="subMenu">
-						<li>
-							&nbsp;${sessionScope.loginInfo.id} 님 
-							&nbsp;<a href="#">마이페이지</a> 
-							&nbsp;<a href="<%=request.getContextPath() %>/logout.jsp">로그아웃</a>
-						</li>
-					</ul>
-				</c:if>
-			</div>
+			<c:if test="${sessionScope.loginInfo.id  != null}">
+				<ul class="subMenu">
+					<li>
+						<c:if test="${loginInfo.admin == 0}">
+						&nbsp;<a href="main.ad">관리자 페이지</a>
+						</c:if>
+						&nbsp;<a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a>
+						&nbsp;<a href="memberInfo.mem">회원정보</a>
+						&nbsp;<a href="list.like?">찜목록</a>
+						&nbsp;<a href="orderlist.ord">주문내역</a>
+						&nbsp;<a href="">펀딩조회</a>
+					</li>
+				</ul>
+			</c:if>
 			<br><br>
 		
-			<div class="top-banner-wrap" >
-				<h1 class="logo" align="left">
-					<img width="100px" height="100px" src="<%=request.getContextPath() %>/resources/images/위안부소녀상.jpg" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg">
-				</h1> 
-				<h1 class="banner-inner">Do_<span><font size="3px">nation</font></span>Funding</h1>
+			<div class="top-banner-wrap">
+				<h1 class="banner-inner">Do_Funding</h1>
 			</div>
-			<br><br>
+
 			<div class="mobile-menu-wrap">
-				<div>
+				<div class="mobile-menu-scroll">
 					<nav id="gnb">
 						<h2 class="blind">메인 메뉴</h2>
 						<ul class="secMenu">
 							<li class="m1 no-sub"><a href="main.ad">홈</a></li>
+					
 							<li class="m2"><a href="admin_cate_list.ad">카테고리</a>
 								<ul class="sec m2_Menu" align="center">
 									<li><a href="admin_cate_list.ad">카테고리 목록</a></li>
@@ -71,6 +72,8 @@
 							<li class="m5"><a href="admin_bd_list.ad">게시판</a>
 								<ul class="sec m5_Menu" align="center">
 									<li><a href="admin_bd_list.ad">게시판 목록</a></li>
+									<li><a href="admin_notice_list.ad">공지사항 목록</a></li>
+									<li><a href="admin_faq_list.ad">FAQ 목록</a></li>
 								</ul>
 							</li>
 							<li class="m6"><a href="#">주문내역</a>

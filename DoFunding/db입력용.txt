@@ -91,8 +91,7 @@ create table do_product(
 	p_subject 	varchar2(100) not null,		
 	p_readcount int default 0,				
 	p_image    	varchar2(100) not null,				
-	p_content 	varchar2(3000) not null,				
-	p_like 		varchar2(3000),		
+	p_content 	varchar2(3000) not null,					
 	p_origin_price  int not null,		
 	p_total_price   int default 0,			
 	p_end_price     int default 0,				
@@ -102,18 +101,18 @@ create table do_product(
 	p_end_date 		date not null		
 );
 
-insert into do_product values(seqdo_product.nextval,'phonecase','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123','kim',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'phonecase','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'handkerchief','kim','xxx할머님 손수건',5,'위안부 손수건.jpg','내용123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'ring','kim','xxx할머님 반지',5,'반지.jpg','내용123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'necklace','kim','xxx할머님 목걸이',5,'목걸이.jpg','내용123','kim',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-15');
-insert into do_product values(seqdo_product.nextval,'earring','kim','xxx할머님 귀걸이',5,'귀걸이2.jpeg','내용123','kim',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-10');
-insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxx할머님 팔찌',5,'팔찌2.jpg','내용123','kim',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-8');
-insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxx할머님 팔찌',5,'팔찌.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-4-30','2022-5-22');
-insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 가방',5,'가방3.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-5-1','2022-5-30');
-insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 가방',5,'가방.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-5-15','2022-5-19');
-insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxx할머님 팔찌',5,'팔찌2.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-4-18','2022-5-30');
-insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 가방',5,'가방2.jpg','내용123','kim',10000,0,10000000,100,sysdate,'2022-4-15','2022-5-19');
+insert into do_product values(seqdo_product.nextval,'phonecase','kim','xxx할머님 케이스',5,'핸드폰케이스1.jpg','내용123',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'phonecase','kim','xxx할머님 케이스',5,'핸드폰케이스2.jpg','내용123',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'handkerchief','kim','xxx할머님 손수건',5,'위안부 손수건.jpg','내용123',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'ring','kim','xxx할머님 반지',5,'반지.jpg','내용123',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'necklace','kim','xxx할머님 목걸이',5,'목걸이.jpg','내용123',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-15');
+insert into do_product values(seqdo_product.nextval,'earring','kim','xxx할머님 귀걸이',5,'귀걸이2.jpeg','내용123',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-10');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxx할머님 팔찌',5,'팔찌2.jpg','내용123',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-8');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxx할머님 팔찌',5,'팔찌.jpg','내용123',10000,0,10000000,100,sysdate,'2022-4-30','2022-5-22');
+insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 가방',5,'가방3.jpg','내용123',10000,0,10000000,100,sysdate,'2022-5-1','2022-5-30');
+insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 가방',5,'가방.jpg','내용123',10000,0,10000000,100,sysdate,'2022-5-15','2022-5-19');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxx할머님 팔찌',5,'팔찌2.jpg','내용123',10000,0,10000000,100,sysdate,'2022-4-18','2022-5-30');
+insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 가방',5,'가방2.jpg','내용123',10000,0,10000000,100,sysdate,'2022-4-15','2022-5-19');
 
 
 --옵션 테이블
@@ -249,7 +248,6 @@ create sequence seqdo_board
   increment by 1
   start with 1
   minvalue 1
-  maxvalue 10000
   nocache;
   
 drop table do_board CASCADE CONSTRAINTS;
@@ -265,7 +263,7 @@ create table do_board(
 	b_re_step number not null,			
 	b_re_level number not null,			
 	--답글마다 1씩 증가
-	b_content varchar2(20) not null			
+	b_content varchar2(3000) not null			
 );
 
 
@@ -318,7 +316,6 @@ values(seqdo_board.nextval,'a33','a33','1234','2015-1-1',7,1,1,'내용33');
 
 commit;
 
-
 -- 찜 테이블
 drop sequence likseq ;
 create sequence likseq
@@ -336,13 +333,14 @@ create table do_like (
 );
 
 insert into do_like(l_num,m_no ,lp_num,l_check ) values(likseq.nextval,1,8,1);
+
 commit;
+
 
 drop sequence seqod ;
 create sequence seqod start with 1 increment by 1 nocache ;
 
- DROP TABLE do_orderdetail CASCADE CONSTRAINTS;
- 
+DROP TABLE do_orderdetail CASCADE CONSTRAINTS;
 create table do_orderdetail(
   od_no number references do_order(o_num) on delete set null primary key,
   od_m_no number references do_members(no) on delete set null,
@@ -355,5 +353,72 @@ create table do_orderdetail(
 );
 
 commit;
+
+
+
+
+--공지사항 게시판 
+drop sequence seqdo_notice_board;
+create sequence seqdo_notice_board
+  increment by 1
+  start with 1
+  minvalue 1
+  nocache;
+  
+drop table do_notice_board CASCADE CONSTRAINTS;
+create table do_notice_board( 
+	no_num number not null primary key,	
+	no_writer varchar2(20) not null,
+	no_subject varchar2(100) not null,
+	no_reg_date date default sysdate,			
+	no_readcount int default 0,			
+	no_content varchar2(3000) not null			
+);
+
+insert into do_notice_board(no_num,no_writer,no_subject,no_reg_date,no_readcount,no_content)
+values(seqdo_notice_board.nextval,'관리자','[공지]배송 가능 시간 안내','2018-1-1',0,'영업일 기준 오후 1시 이전 결제 완료 주문건 :  당일 출고됩니다.');
+
+insert into do_notice_board(no_num,no_writer,no_subject,no_reg_date,no_readcount,no_content)
+values(seqdo_notice_board.nextval,'관리자','[공지] 교환 및 반품 안내','2022-3-1',0,'교환 및 반품 안내');
+
+
+
+--자주 묻는 질문(FAQ)게시판 
+drop sequence seqdo_faq_board;
+create sequence seqdo_faq_board
+  increment by 1
+  start with 1
+  minvalue 1
+  nocache;
+  
+drop table do_faq_board CASCADE CONSTRAINTS;
+create table do_faq_board( 
+	faq_num number not null primary key,	
+	faq_writer varchar2(20) not null,	
+	faq_subject varchar2(100) not null,	
+	faq_reg_date date default sysdate,			
+	faq_readcount int default 0,			
+	faq_content varchar2(3000) not null			
+);
+
+
+insert into do_faq_board(faq_num,faq_writer,faq_subject,faq_reg_date,faq_readcount,faq_content)
+values(seqdo_faq_board.nextval,'관리자','a1','2015-1-1',0,'내용1');
+
+commit;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

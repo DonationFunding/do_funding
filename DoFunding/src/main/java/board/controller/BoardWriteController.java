@@ -7,12 +7,10 @@ import java.sql.Timestamp;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,24 +31,22 @@ public class BoardWriteController {
 	public String doAction(HttpSession session) {	
 		System.out.println("loginInfo:"+session.getAttribute("loginInfo")); // null
 
-		if(session.getAttribute("loginInfo") == null) { // ·Î±×ÀÎ ¾ÈÇÑ »óÅÂ
+		session.removeAttribute("destination");
+		if(session.getAttribute("loginInfo") == null) { 
 			session.setAttribute("destination", "redirect:/insert.bd");
 
 			return "redirect:/login.mem"; 
 		}
-		else {// ·Î±×ÀÎ ÇÑ »óÅÂ
+		else {
 			return getPage;// writeForm.jsp
 		}	
 	}
 
-	//writeForm.jsp post¹æ½Ä writeArticle.bv
 	@RequestMapping(value=command,method = RequestMethod.POST)
 	public String doAction(
-			// @ModelAttribute("article") @Valid ½ºÅ©¸³Æ®·Î »©³ÁÀ½ 
 			BoardBean article,
 			HttpServletRequest request,
 			HttpServletResponse response) {
-		//writer/subject/email/content/password/Reg_date/Ip
 		response.setContentType("text/html; charset=UTF-8");			
 		article.setB_reg_date(new Timestamp(System.currentTimeMillis()));
 
@@ -65,7 +61,7 @@ public class BoardWriteController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('±Û ÀÛ¼ºÀÌ ½ÇÆÐÇß½À´Ï´Ù');</script>");
+			pw.println("<script> alert('ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½');</script>");
 			pw.flush();
 			return getPage;
 		}

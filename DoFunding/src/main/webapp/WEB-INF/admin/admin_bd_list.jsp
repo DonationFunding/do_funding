@@ -21,16 +21,16 @@
 				<input type="button" value="삭제"  class="btn btn-default btn-sm" onclick="selectDelete()">
 			</td>
 		</tr>	
-	
-		<th class="text-center">
-				<input type="checkbox" name="allcheck" onclick="allRowCheck(this)">
-		</th>
-		<th class="text-center">번호</th>
-		<th>제목</th>
-		<th class="text-center">작성자</th>
-		<th class="text-center">작성일</th>
-		<th class="text-center">조회</th>
-	</tr>
+		<tr>
+			<th class="text-center">
+					<input type="checkbox" name="allcheck" onclick="allRowCheck(this)">
+			</th>
+			<th class="text-center">번호</th>
+			<th>제목</th>
+			<th class="text-center">작성자</th>
+			<th class="text-center">작성일</th>
+			<th class="text-center">조회</th>
+		</tr>
 	    <form name="myform" action="admin_bd_multidelete.ad?" method="post">
 		<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber }">
 		<c:forEach var="bdBean" items="${requestScope.bdList}" varStatus="status">
@@ -61,8 +61,8 @@
 		</tr>
 		</c:forEach>
 </table>
-<br><br>
 
+<br><br>
 	<div>
 		<a href="insert.bd" class="btn btn-default btn-sm pull-right">글쓰기</a>	
 	</div>
@@ -71,10 +71,8 @@
 			${pageInfo.pagingHtml}		
 		</ul>
 	</div>
-</center>
-<%-- <td>
-	<input type="button" value="삭제" onclick="deleteBd('${bdBean.b_num}','${pageInfo.pageNumber}')">
-</td> --%>
+
+
 <form action="list.bd" method="get" class="row g-3">
 <p>
 	<select name="whatColumn">
@@ -87,5 +85,7 @@
 	<input type="submit" value="검색"  class="btn btn-default btn-sm">
 </p>	
 </form>
+</div>
+</center>
 <%@include file="admin_bottom.jsp"%>
 

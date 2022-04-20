@@ -6,7 +6,7 @@
 	<form action="admin_prd_list.ad" method="get">
 		<select name="whatColumn">
 			<option value="all">선택</option>
-			<option value="p_subject">상품명</option>
+			<option value="p_subject">펀딩명</option>
 			<option value="p_content">설명</option>
 		</select> 
 		<input type="text" name="keyword"> 
@@ -60,8 +60,11 @@
 				<td>${prdBean.p_end_price}원</td>
 				<td>${(prdBean.p_total_price/prdBean.p_end_price)*100} %</td>	
  				<td>
+ 				<c:set var="end_date">
  					<fmt:parseDate value="${prdBean.p_end_date}" var="dateValue" pattern="yyyy-MM-dd" />
  					<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />
+ 				</c:set>
+ 					${end_date}
  				</td>
 				<td>
 					<input type="button" value="수정" class="btn btn-default btn-sm" onclick="updatePrd('${prdBean.p_num}','${pageInfo.pageNumber}')">				

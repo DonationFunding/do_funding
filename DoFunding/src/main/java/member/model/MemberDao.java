@@ -1,6 +1,9 @@
 package member.model;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -34,11 +37,28 @@ public class MemberDao {
 		int cnt = -1;
 		cnt = sqlSessionTemplate.update(namespace+".UpdatePassword", membean);
 		if(cnt < 0) {
-			System.out.println("ºñ¹Ð¹øÈ£ º¯°æ ½ÇÆÐ");
+			System.out.println("ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		}
 		else {
-			System.out.println("ºñ¹Ð¹øÈ£ º¯°æ ¼º°ø "+cnt);
+			System.out.println("ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ "+cnt);
 		}
+		return cnt;
+	}
+
+	public List<MemberBean> getAllMember() {
+		List<MemberBean> memlist = sqlSessionTemplate.selectList(namespace+".GetAllMember");
+		return memlist;
+	}
+
+	public int upgrade(int no) {
+		int cnt=-1;
+		cnt = sqlSessionTemplate.update(namespace+".UpgradeMember",no);
+		return cnt;
+	}
+
+	public int updateMember(MemberBean membean) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.update(namespace+".UpdateMember", membean);
 		return cnt;
 	}
 

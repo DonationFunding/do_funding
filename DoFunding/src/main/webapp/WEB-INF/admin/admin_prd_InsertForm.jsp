@@ -129,6 +129,7 @@ $(document).ready(function(){
 </script>
 <center>
 <h3>제품 추가 화면(${loginInfo.id})</h3>
+
 <div >
 	<form:form commandName="prdBean" action="admin_prd_insert.ad" method="post" enctype="multipart/form-data" >
 		<div class="container">
@@ -233,7 +234,7 @@ $(document).ready(function(){
 								<div class='form-group' style='margin: 10px;' >
 <!-- 								<input type='text' placeholder='옵션' class='form-control input-lg'  style='float:left;' name='item_option' id='item_option'>-->									
 									<input type='text' placeholder='옵션'  style='float:left;' name='item_option' id='item_option' >
-									<button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn'>삭제</button>
+									<button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn' class='btn btn-default btn-sm'>삭제</button>
 								<br></div>
 							</div>							
 						</td>

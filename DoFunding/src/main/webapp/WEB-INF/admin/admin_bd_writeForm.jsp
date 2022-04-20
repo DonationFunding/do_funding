@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@ include file="../common/common_top.jsp" %>  
+<%@ include file="admin_top.jsp" %>  
 
 <style type="text/css">
 	body{
@@ -17,14 +16,13 @@
 	}
 </script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
 <body>
 <h3>글쓰기</h3>
 <form action="insert.bd" method="post">
 <div class="container">
 <table class="table" class="text-center">
 	<tr>
-		<th class="text-center">이름</th>
+		<th class="text-center">작성자</th>
 		<td><input type="text" name="b_writer" value="${sessionScope.loginInfo.id}" readonly></td>
 	</tr>
 	<tr>
@@ -37,7 +35,7 @@
 	</tr>
 	<tr>
 		<th class="text-center">비밀번호</th>
-		<td><input type="password" name="b_passwd" ></td>
+		<td><input type="password" name="b_passwd" value="1234" ></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
@@ -51,5 +49,4 @@
 </form>
 </body>
 
-<%@ include file="../common/common_bottom.jsp" %>
-
+<%@ include file="admin_bottom.jsp" %>

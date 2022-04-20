@@ -47,7 +47,7 @@ public class AdminBoardDeleteController {
 			return gotoPage;
 		}	
 		else {
-			pw.println("<script> alert('회원 삭제에 실패했습니다.');</script>");
+			pw.println("<script> alert('게시글 삭제에 실패했습니다.');</script>");
 			pw.flush();
 			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);
