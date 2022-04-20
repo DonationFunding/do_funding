@@ -12,7 +12,6 @@
 <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
 <title>두펀딩(관리자)</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/admin.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/check.js"></script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
