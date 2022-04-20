@@ -5,7 +5,7 @@
 
 <mapper namespace="orderdetail.model.Orderdetail">
 <!-- 여기 경로로 주문 세부내역 작업하세요. -->
- 	<select id="detailList" resultType="order.model.Orderdetail">
+ 	<select id="detailList" resultType="MyOrderDetail">
 		select * from do_orderdetail where o_num = #{o_num}
   	</select>
  	
