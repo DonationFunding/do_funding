@@ -37,7 +37,7 @@
 		</td>
 	</tr>
 	<tr>
-		<th class="text-center">이름</th>
+		<th class="text-center">작성자</th>
 		<td>
 			<c:if test="${loginInfo.admin ==1}">
 				<input type="text" name="b_writer" value="${sessionScope.loginInfo.id}" readonly>

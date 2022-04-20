@@ -23,7 +23,6 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="product" />
-	<context:component-scan base-package="member" />
 	<context:component-scan base-package="order" />
 	<context:component-scan base-package="like" />
 	<context:component-scan base-package="orderdetail" />
