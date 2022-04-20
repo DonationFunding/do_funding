@@ -78,6 +78,10 @@ filebox .upload-thumb-wrap { /* 추가될 이미지를 감싸는 요소 */
  }
 
 </style>
+<%-- <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head> --%>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/option.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){ 
@@ -212,32 +216,33 @@ $(document).ready(function(){
 			</div>
 
 			<div class="container"  >
-			 <table class="table table-hover table-sm" class="text-center">
-				<div>
-					<div style="border: 1px solid; padding: 25px;">
+			 <table class="table table-hover table-sm" class="text-center" padding: 10px; margin: 10px;>
+					<tr style="border: 1px solid; padding: 25px;">
+						<td colspan="3" align="center">
 						<b>제품 옵션</b> 
-					</div>
-						<span style="float:right; margin:auto;">
-							<button id="optionAdd_btn"  class="btn btn-default btn-sm" type="button">옵션추가</button>
-						</span>
-						<br>
-						<br>
-					<div>
-						<div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3" style="float:right; margin:auto;">
+							<button id="optionAdd_btn"  class="btn btn-default btn-sm" type="button">옵션추가</button>							
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
 							<div id="optionIndex" >
 								<div class='form-group' style='margin: 10px;' >
 <!-- 								<input type='text' placeholder='옵션' class='form-control input-lg'  style='float:left;' name='item_option' id='item_option'>-->									
 									<input type='text' placeholder='옵션'  style='float:left;' name='item_option' id='item_option' >
-									<button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn' class='btn btn-default btn-sm'>삭제</button>
-
+									<button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn'>삭제</button>
 								<br></div>
-							</div>
-						</div>
-						<div>
+							</div>							
+						</td>
+					</tr>					
+					<tr>
+						<td colspan="3">
 							<font color="red">최소 1개의 옵션이 필요합니다. ex) (의류) 100 , red ///(핸드폰관련) galaxy22 </font>
-						</div>
-					</div>
-				</div>
+						</td>
+					</tr>
 			</table>
 			</div>
 			

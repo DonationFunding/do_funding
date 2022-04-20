@@ -22,7 +22,7 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
 <body>
-<form action="admin_bd_reply.bd" method="post">
+<form action="admin_bd_reply.ad" method="post">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
 	<input type="hidden" name="b_ref" value="${bdBean.b_ref}">
 	<input type="hidden" name="b_re_step" value="${bdBean.b_re_step}">
@@ -31,7 +31,7 @@
 <table class="table" class="text-center">
 	<tr>
 		<td colspan="2" align="right">
-			<a href="admin_bd_list.bd?pageNumber=${pageNumber}">글목록</a>
+			<a href="admin_bd_list.ad?pageNumber=${pageNumber}">글목록</a>
 		</td>
 	</tr>
 	<tr>
@@ -65,4 +65,4 @@
 </form>
 </body>
 
-<%@ include file="admin_top.jsp"%> 
+<%@ include file="admin_bottom.jsp"%> 
