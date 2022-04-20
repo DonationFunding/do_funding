@@ -43,7 +43,7 @@ public class OrderMallController {
 //		
 //		model.addAttribute("optionList", o_list);
 //		model.addAttribute("productBean", p_product);
-		opbean
+		//opbean
 		
 		System.out.println("�ɼ�="+opbean.getOption_content());
 		System.out.println("�ɼ�="+opbean.getOption_item_no());
