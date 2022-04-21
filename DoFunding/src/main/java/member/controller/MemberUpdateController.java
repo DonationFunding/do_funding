@@ -44,37 +44,14 @@ public class MemberUpdateController {
 		System.out.println("update.mem(post)"+membean.getPassword());
 		ModelAndView mav=new ModelAndView();
 		int cnt = mdao.updateMember(membean);
-		PrintWriter pw=null;
-		if(cnt > 0) {
-			try {
-				pw = response.getWriter();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			MemberBean loginInfo = mdao.getLoginInfo(membean);
-			session.setAttribute("loginInfo", loginInfo);
-			pw.println("<script> alert('수정이 완료 되었습니다');</script>");
-			pw.flush();
-			String destination = (String)session.getAttribute("destination");
-			if(destination ==null) {
-				mav.setViewName(gotoPage);
-				return mav;
-			}
-			else {
-				mav.setViewName(destination);
-				return mav;					
-			}
-		}//if
-		else {
-			try {
-				pw = response.getWriter();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			pw.println("<script> alert('정보수정에 실패했습니다.');</script>");
-			pw.flush();
-			mav.setViewName(getPage);
+		String destination = (String)session.getAttribute("destination");
+		if(destination ==null) {
+			mav.setViewName(gotoPage);
 			return mav;
+		}
+		else {
+			mav.setViewName(destination);
+			return mav;					
 		}
 	}
 }
