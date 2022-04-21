@@ -4,7 +4,7 @@
 
 <center>
 	<div>
-		<h4 align="center">카테고리 목록</h4>
+		<h3 align="center">카테고리 목록</h3>
 		<div >
 			<form method="get" action="admin_cate_list.ad">
 				<select name="whatColumn">

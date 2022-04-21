@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../common/common_top.jsp"%>
+<<<<<<< HEAD
 
+=======
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
+</head>
+>>>>>>> refs/remotes/origin/do-khc
 <script>
 	//다중 삭제
 	function selectDelete() {
@@ -41,9 +48,11 @@
 </script>
 
 <center>
-<h1>찜목록</h1>
-<div class="container">
-<table class="table table-hover table-sm" class="text-center" border="1">
+<br>
+<h3>찜목록</h3>
+<br>
+	<div class="container">
+    <table class="table" class="text-center">
 	    <tr>
 			<td align="left" colspan="6">
 				<input type="button" value="삭제"  class="btn btn-default btn-sm" onclick="selectDelete()">
@@ -58,10 +67,10 @@
 			</th>
 			<th class="text-center">펀딩번호</th>
 			<th>상품명</th>
-			<th class="text-center">image</th>
-			<th class="text-center">가격</th>
-			<th class="text-center">진행률</th>
-			<th class="text-center">마감일</th>
+			<th class="text-left">image</th>
+			<th class="text-left">가격</th>
+			<th class="text-left">진행률</th>
+			<th class="text-left">마감일</th>
 		</tr>
 	    <form name="myform" action="like_multidelete.like?" method="post">
 		<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber }">
@@ -92,6 +101,7 @@
 		</tr>
 		</c:forEach>
 </table>
+</div>
 <br><br>
 	<div class="container">
 		<ul class="pagination pagination-sm">

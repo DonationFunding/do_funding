@@ -134,7 +134,8 @@ $(document).ready(function(){
 		<input type="hidden" name="p_reg_date" value="${prdBean.p_reg_date}">
 		<input type="hidden" name="pageNumber" value="${pageNumber}">
 		<input type="hidden" name="option_item_no" value="${prdBean.option_item_no}">
-			<table border="1" width="800">
+		<div class="container">
+        <table class="table table-hover table-sm" class="text-center">
 				<tr>
 					<th>작성자</th>
 					<td>
@@ -163,8 +164,8 @@ $(document).ready(function(){
 					<th>이미지 파일</th>
 					<td class="filebox preview-image">
 					    <input class="upload-name" value="파일선택" disabled="disabled">
-					    <label  for="input-file">업로드</label> 
-					    <input type="file" id="input-file" class="upload-hidden" name="upload">
+					    <label  for="input-file" class='btn btn-default btn-sm'>업로드</label> 
+					    <input type="file" id="input-file" class="upload-hidden"  name="upload">
 						<form:errors cssClass="err" path="p_image" />
 					</td>
 				</tr>
@@ -223,22 +224,26 @@ $(document).ready(function(){
 				</tr>
 
 			</table>
+			</div>
 
-			<div style="width:800px; border: 1px solid; padding: 2px; margin: 10px;" >
+			 <div class="container"  >
+			 <table class="table table-hover table-sm" class="text-center">
 				<div>
 					<div style="border: 1px solid; padding: 25px;">
-						<b>제품 옵션</b> 
-						<span style="float:right; margin:auto;">
-							<button id="optionAdd_btn" class="btn btn-primary mb-3" type="button">옵션추가</button>
-						</span>
+						<b>제품 옵션</b> 						
 					</div>
+					<span style="float:right; margin:auto;">
+							<button id="optionAdd_btn" class="btn btn-default btn-sm" type="button">옵션추가</button>
+					</span>
+					<br>
+					<br>
 					<div>
 						<div>
 							<div id="optionIndex" >
 								<c:forEach var="option" items="${opList}">
 									<div class='form-group' style='margin: 10px;' >
 										<input type='text' placeholder="옵션"  style="float:left;" name='item_option' id='item_option' value="${option.option_content}">
-										<button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn' class='btn-btn dark'>삭제</button>
+										<button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn' class='btn btn-default btn-sm'>삭제</button>
 										<form:errors cssClass="err" path="item_option" />
 									<br></div>
 								</c:forEach>
@@ -249,9 +254,10 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>
+				</table>
 			</div>
 			<div>
-				<input type="submit" value="상품수정하기" onclick="return prdcheck()">
+				<input type="submit" value="상품수정하기" class="btn btn-default btn-sm" onclick="return prdcheck()">
 			</div>
 		</form:form>	
 	</div>
