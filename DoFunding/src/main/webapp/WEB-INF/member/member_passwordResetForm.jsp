@@ -6,7 +6,7 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <script type="text/javascript">
-	function check(myform){
+	function resetcheck(myform){
 		if (myform.password.value.length==0){
 			alert("비밀번호를 입력하세요.");
 			myform.password.focus();
@@ -64,7 +64,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-			<input type="submit" value="변경하기"  class="btn btn-default btn-sm" onclick="return check(myform)">
+			<input type="submit" value="변경하기"  class="btn btn-default btn-sm" onclick="return resetcheck(myform)">
 			</td>
 		</tr>
 	</table>
