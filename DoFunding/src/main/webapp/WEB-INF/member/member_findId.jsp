@@ -7,7 +7,11 @@
 </head>
 <script type="text/javascript">
 	function findIdcheck(myform){
+<<<<<<< HEAD
 		if (myform.name.value==""){
+=======
+		if (myform.name.value.length==0){
+>>>>>>> refs/remotes/origin/master
 			alert("이름을 입력하세요.");
 			myform.name.focus();
 			return false;

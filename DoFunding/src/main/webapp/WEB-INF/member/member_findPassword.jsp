@@ -6,7 +6,7 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <script type="text/javascript">
-	function check(myform){
+	function findPasswordcheck(myform){
 		if (myform.name.value.length==0){
 			alert("이름을 입력하세요.");
 			myform.name.focus();
@@ -45,7 +45,7 @@
 	</tr>
 	<tr>
 		<td align="center"colspan="2">
-			<input type="submit" value="비밀번호찾기" class="btn btn-default btn-sm" onclick="return check(myform)">
+			<input type="submit" value="비밀번호찾기" class="btn btn-default btn-sm" onclick="return findPasswordcheck(myform)">
 		</td>
 	</tr>
 </table>
