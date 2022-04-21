@@ -35,6 +35,7 @@
 						&nbsp;<a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a>
 						&nbsp;<a href="memberInfo.mem">회원정보</a>
 						&nbsp;<a href="list.like?">찜목록</a>
+						&nbsp;<a href="cart_list.ord">장바구니</a>
 						&nbsp;<a href="order.ord">주문내역</a>
 					</li>
 				</ul>

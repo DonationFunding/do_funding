@@ -24,12 +24,12 @@
 				<ul class="subMenu">
 					<li>
 						<c:if test="${loginInfo.admin == 0}">
-						&nbsp;<a href="list.prd">관리자 페이지</a>
+						&nbsp;<a href="list.prd">사용자 페이지</a>
 						</c:if>
 						&nbsp;<a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a>
 						&nbsp;<a href="memberInfo.mem">회원정보</a>
 						&nbsp;<a href="list.like?">찜목록</a>
-						&nbsp;<a href="orderlist.ord">주문내역</a>
+						&nbsp;<a href="admin_ord_list.ad">주문내역</a>
 					</li>
 				</ul>
 			</c:if>

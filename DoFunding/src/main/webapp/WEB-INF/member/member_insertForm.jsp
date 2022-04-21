@@ -9,7 +9,7 @@
 	function idcheck(myform){
 		location.href="idfunction.mem?id="+myform.id.value;
 	}
-	function check(myform){
+	function memcheck(myform){
 		if (myform.id.value.length==0){
 			alert("id를 입력하세요.");
 			myform.id.focus();
@@ -71,7 +71,7 @@
 		</tr>
 		<tr>
 			<td align="center">
-			<input type="submit" value="가입하기" class="btn btn-default btn-sm" onclick="idcheck(myform)"></td>
+			<input type="submit" value="가입하기" class="btn btn-default btn-sm" onclick="return memcheck(myform)"></td>
 		</tr>
 	</table>
 	</div>
