@@ -158,7 +158,8 @@
 		</c:choose> 
 		</td>
 	</tr>
-	<br> <br> <input type="submit" name="btn1" value="결제하기" onclick="return check()">
+	<br> <br> 
+	<input type="submit" name="btn1" value="결제하기" onclick="return check()">
 	</form>	
 </div>
 </body>

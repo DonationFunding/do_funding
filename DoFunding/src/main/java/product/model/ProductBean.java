@@ -60,7 +60,7 @@ public class ProductBean {
 	public ProductBean(int p_num, String p_category_fk, String p_writer, String p_subject, int p_readcount,
 			String p_image, String p_content, int p_origin_price,
 			int p_total_price, int p_end_price, int p_point, String p_reg_date, String p_start_date, String p_end_date,
-			int orderqty, MultipartFile upload, String[] item_option, int option_item_no, 
+			int orderqty, MultipartFile upload, String[] item_option, int option_item_no,
 			int option_no) {
 		super();
 		this.p_num = p_num;

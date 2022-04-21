@@ -8,7 +8,7 @@
 		조인할 경우 받는 객체에 별칭 설정을 해줘야 resultType에 들어간다.
  --> 
  	<select id="DetailList" resultType="order.cart.ShoppingInfo" >
- 		select od.od_o_num od_num,  p.p_num, od.od_deliver deliver, od.od_option_no option_no, op.option_content, p.p_subject, od.od_qty qty, p.p_origin_price price, p.p_origin_price*od.od_qty amount
+ 		select od.od_o_num od_num, p.p_image, p.p_total_price, p.p_end_price, p.p_start_date, p.p_end_date,  p.p_num, od.od_deliver deliver, od.od_option_no option_no, op.option_content, p.p_subject, od.od_qty qty, p.p_origin_price price, p.p_origin_price*od.od_qty amount
  		from do_orderdetail od inner join do_option op
  		on op.option_no = od.od_option_no
 		inner join do_product p

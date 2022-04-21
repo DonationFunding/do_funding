@@ -73,7 +73,7 @@
 				<option value="p_subject">상품명</option>
 				<option value="p_content">설명</option>
 			</select> <input type="text" name="keyword"> <input type="submit"
-				value="검색">
+				value="검색" class="btn btn-default btn-sm">
 		</form>
 	</div>
 	

@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common_top.jsp" %>   
-<head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
-</head>
+<%@ include file="admin_top.jsp" %>   
+
 <style>
 	.order-detail {
 		background: #fffcf6;
@@ -14,16 +11,14 @@
 	}
 </style>
 <center>
-<center>
-<br>
-<h3>주문 상세 내역</h3>
-<br>
-</center>
-	<div class="container">
-            <table class="table" class="text-center">
-            <td colspan="8" align="right"><a href="order.ord">주문내역</a></td>
+<div class="order-detail">
+	<div class="od-head" style="margin-bottom: 50px;">
+		<h1>주문 상세 내역</h1><a href="admin_ord_list.ad">주문내역</a>
+	</div>
+	<table class="od-table" style="margin: auto; border-bottom: 1px solid #555" border="1">
+		<div class="od-menu">
 			<tr>
-				<th>상품명</th>
+				<th colspan="2" style="text-align: center;">상품명</th>
 				<th>이미지</th>
 				<th>가격</th>
 				<th>수량</th>
@@ -37,7 +32,7 @@
 			<c:forEach var="odb" items="${detailList}">
 				<c:set var= "totalprice" value="${totalprice + odb.amount}"/>
 				<tr>
-					<td>${odb.p_subject}</td>
+					<td colspan="2">${odb.p_subject}</td>
 					<td ><img width="100px" height="100px" src="<%=request.getContextPath()%>/resources/images/${odb.p_image}"></td>
 					<td>${odb.price}</td>
 					<td>${odb.qty}</td>
@@ -80,4 +75,4 @@
 	</table>
 </div>
 </center>
-<%@ include file="../common/common_bottom.jsp" %>  
+<%@ include file="admin_bottom.jsp" %>  
