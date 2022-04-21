@@ -36,10 +36,6 @@
 						&nbsp;<a href="memberInfo.mem">회원정보</a>
 						&nbsp;<a href="list.like?">찜목록</a>
 						&nbsp;<a href="order.ord">주문내역</a>
-<<<<<<< HEAD
-=======
-						&nbsp;<a href="">펀딩조회</a>
->>>>>>> refs/remotes/origin/do-hjh
 					</li>
 				</ul>
 			</c:if>
