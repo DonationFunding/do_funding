@@ -82,6 +82,7 @@ public class OrderCalculateController {
 			odBean.setOd_qty(o_qty);		//주문수량
 
 			orderDetailDao.insertOrderDetail(odBean);
+			//30% 후원금 누적
 			point += o_qty*pb.getP_origin_price()/0.3;
 		}
 		int mpoint= (int) Math.round(point);

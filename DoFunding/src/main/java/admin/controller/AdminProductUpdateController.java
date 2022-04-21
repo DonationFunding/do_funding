@@ -77,11 +77,11 @@ public class AdminProductUpdateController {
 		 if(cnt > 0) {
 			 int item_no=productDao.getP_num();
 			 prdBean.setOption_item_no(item_no);
-			 //�ɼ� �߰��ϱ� �� ���� �ɼ� ����
+			 
 			 productDao.itemOptionDelete(prdBean.getOption_item_no());
-			 //�ɼ��߰��κ�
+			 
 			 for (int i = 0; i < prdBean.getItem_option().length; i++) {
-				 String itemOptionContent = prdBean.getItem_option()[i];	//�ɼ� 1�� ��
+				 String itemOptionContent = prdBean.getItem_option()[i];	
 				 System.out.println("itemOptionContent:"+itemOptionContent);
 				 Map<String, Object> map = new HashMap<String, Object>();
 				 map.put("item_option", itemOptionContent);

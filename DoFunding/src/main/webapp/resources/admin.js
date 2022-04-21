@@ -61,8 +61,7 @@ function insertCate() {
 }
 //카테고리 수정
 function updateCate(cnum, pageNumber) {
-	location.href = "admin_cate_update.ad?cnum=" + cnum + "&pageNumber="
-			+ pageNumber;
+	location.href="admin_cate_update.ad?cnum="+cnum+"&pageNumber="+pageNumber;
 }
 //카테고리 삭제
 function deleteCate(cnum,pageNumber){
@@ -155,7 +154,7 @@ function prdcheck(){
 		return false;
 	}		
 	var p_origin_price=Number($('input[name=p_origin_price]').val());
-	alert(2);
+	//alert(2);
 	if(p_origin_price<1000){
 		alert('단가는 최소 1,000원  이상입니다.');
 		$('input[name=p_origin_price]').focus();
@@ -209,6 +208,15 @@ function prdcheck(){
 	if($('input[name=item_option]').val()==""){
 		alert('옵셥이 누락됐습니다.');
 		$('input[name=item_option]').focus();
+		return false;
+	}
+	var opcheck=false;
+	$("input[name='item_option']").each(function (i) {
+		if( $("input[name='item_option']").eq(i).attr("value")==""){
+			opcheck=true;
+		}  
+    });	
+	if(opcheck){
 		return false;
 	}			
 	return true;
