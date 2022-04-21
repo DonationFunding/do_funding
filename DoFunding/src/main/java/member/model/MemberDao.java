@@ -1,7 +1,5 @@
 package member.model;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -60,6 +58,13 @@ public class MemberDao {
 		int cnt = -1;
 		cnt = sqlSessionTemplate.update(namespace+".UpdateMember", membean);
 		return cnt;
+	}
+
+	public void mpointUpdate(String id, int mpoint) {
+		MemberBean mb=new MemberBean();
+		mb.setId(id);
+		mb.setMpoint(mpoint);
+		sqlSessionTemplate.update(namespace+".MpointUpdate",mb);		
 	}
 
 }

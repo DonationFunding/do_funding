@@ -37,20 +37,13 @@
 		<td>${bdBean.b_readcount}</td>
 	</tr>
 
-	
 	<tr height="200">
 	     <th class="text-center">글내용</th>
 	
-<%-- 		
-		<td colspan="3" >
-			<textarea name=content rows="2"  readonly="readonly" >${bdBean.getContent() }</textarea>
-		</td> 
---%>
  		<td colspan="6" >
 			${bdBean.getB_content() }
 		</td>
 	</tr>
-
 	<tr height="30">
 		<td align="center" colspan="6">
 			<input type="button" name="update_btn" value="글수정" class="btn btn-default btn-sm" <c:if test="${sessionScope.loginInfo.id != bdBean.b_writer}"> disabled </c:if>  onclick="location.href='update.bd?b_num=${bdBean.getB_num()}&pageNumber=${pageNumber}'" >
@@ -65,5 +58,3 @@
 
 <br><br>
 <%@ include file="../common/common_bottom.jsp" %>
-
-

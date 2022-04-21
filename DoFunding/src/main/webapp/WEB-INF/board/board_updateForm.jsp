@@ -29,7 +29,7 @@
 <table class="table" class="text-center">
 		<tr>
 			<td colspan="2" align="right">
-				<a href="list.bd">글목록</a>
+				<a href="list.bd?pageNumber=${pageNumber}">글목록</a>
 			</td>
 		</tr>
 		<tr>
@@ -46,10 +46,7 @@
 				<textarea name="b_content" rows="10" cols="50" >${bdBean.getB_content()}</textarea>
 			</td>
 		</tr>
-		<tr>
-			<th class="text-center">비밀번호</th>
-			<td><input type="password" name="b_passwd"></td>
-		</tr>
+			<input type="hidden" name="b_passwd" value="${sessionScope.loginInfo.password}">
 		<tr>
 			<td colspan="2" align="center">
 				<input type="submit" name="" value="수정하기" class="btn btn-default btn-sm">

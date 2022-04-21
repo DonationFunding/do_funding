@@ -40,10 +40,7 @@
 		<th class="text-center">내용</th>
 		<td><textarea name="b_content" rows="10" cols="50" style="resize: none;"></textarea></td>
 	</tr>
-	<tr>
-		<th class="text-center">비밀번호</th>
-		<td><input type="password" name="b_passwd" ></td>
-	</tr>
+		<input type="hidden" name="b_passwd" value="${sessionScope.loginInfo.password}">
 	<tr>
 		<td colspan="2" align="center">
 			<input type="submit" name="" value="글쓰기" class="btn btn-default btn-sm" onclick="return check()">

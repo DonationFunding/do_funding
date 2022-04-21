@@ -44,7 +44,7 @@ public class MemberLoginController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('ÇØ´ç ¾ÆÀÌµð°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù');</script>");
+			pw.println("<script> alert('ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½');</script>");
 			pw.flush();
 			return getPage;
 		}//if
@@ -61,7 +61,6 @@ public class MemberLoginController {
 					return gotoPage;
 				}
 				else {
-					
 					return destination;					
 				}
 			}
@@ -71,7 +70,7 @@ public class MemberLoginController {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				pw.println("<script> alert('ºñ¹Ð¹øÈ£°¡ Àß¸øµÇ¾ú½À´Ï´Ù');</script>");
+				pw.println("<script> alert('ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½');</script>");
 				pw.flush();
 				return getPage;
 			}

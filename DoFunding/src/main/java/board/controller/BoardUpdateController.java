@@ -26,7 +26,7 @@ public class BoardUpdateController {
 	@Autowired
 	private BoardDao boardDao;
 
-	//content.jsp get¹æ½Ä updateForm.bv
+	//content.jsp getï¿½ï¿½ï¿½ updateForm.bv
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
@@ -40,10 +40,9 @@ public class BoardUpdateController {
 		return getPage;
 	}	
 
-	//boardList.jsp get¹æ½Ä writeArticle.bv
+	
 	@RequestMapping(value=command,method = RequestMethod.POST)
 	public String doAction(
-			// @ModelAttribute("article") @Valid ½ºÅ©¸³Æ®·Î »©³ÁÀ½ 
 			@RequestParam(value="pageNumber") String pageNumber,
 			BoardBean bdBean,
 			HttpServletRequest request,
@@ -53,7 +52,7 @@ public class BoardUpdateController {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter pw =null;	
 		int cnt=boardDao.updateArticle(bdBean);
-		if(cnt>0){	//¾÷µ¥ÀÌÆ® ¼º°ø
+		if(cnt>0){	
 			return gotoPage+"?pageNumber="+pageNumber+"&b_num="+bdBean.getB_num();
 		}
 		else
@@ -63,12 +62,12 @@ public class BoardUpdateController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			if(cnt == -2) {	//ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ ¾ÊÇÏ¸é
-				pw.println("<script> alert('ÀÛ¼º±ÛÀÇ ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.');</script>");
+			if(cnt == -2) {	
+				pw.println("<script> alert('ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');</script>");
 				pw.flush();
 			}
 			else {
-				pw.println("<script> alert('±Û ¼öÁ¤ÀÌ ½ÇÆĞÇß½À´Ï´Ù');</script>");
+				pw.println("<script> alert('ê²Œì‹œê¸€ ìˆ˜ì •ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.');</script>");
 				pw.flush();
 			}	
 			request.setAttribute("bdBean", bdBean);

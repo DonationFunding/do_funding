@@ -31,7 +31,6 @@ public class ProductDao {
 
 	public int insertProduct(ProductBean bean) {
 		int cnt = -1;
-		System.out.println(1111111);
 		cnt = sqlSessionTemplate.insert(namespace+".InsertProduct", bean);
 		return cnt;
 	}
@@ -43,16 +42,15 @@ public class ProductDao {
 
 	}//updateProduct
 	
-	//ªÛ«∞ ªÛºº¡§∫∏(contentøÎ)
+	//Ï°∞ÌöåÏàò Ï¶ùÍ∞Ä
 	public ProductBean getProduct(int p_num) {
-		//¡∂»∏ºˆ ¡ı∞°
 		int cnt= sqlSessionTemplate.update(namespace+".ReadcountUp", p_num);
 		System.out.println("readcount+1");
 		ProductBean p_product = sqlSessionTemplate.selectOne(namespace+".GetProduct", p_num);
 		return p_product;
 	}//getProduct
 
-	//ªÛ«∞ ªÛºº¡§∫∏(updateøÎ)
+	//Ï°∞ÌöåÏàò Ï¶ùÍ∞Äx
 	public ProductBean getupdateProduct(int p_num) {
 		ProductBean bean = sqlSessionTemplate.selectOne(namespace+".GetProduct", p_num);
 		return bean;
@@ -63,20 +61,20 @@ public class ProductDao {
 		return count;
 	}//getProductInfoBysearchCount_admin	
 
-	//ø…º«√ﬂ∞°øÎ
+	//
 	public int getP_num() {
 		int p_num=sqlSessionTemplate.selectOne(namespace+".GetP_num");
 		return p_num;
 	}
 
-	//ø…º«≈◊¿Ã∫Ì ø…º«√ﬂ∞°
+	//
 	public int itemOptionInsert(Map<String, Object> map) {
 		int cnt=-1;
 		cnt=sqlSessionTemplate.insert(namespace+".ItemOptionInsert", map);
 		return cnt;
 	}
 	
-	//ªÛ«∞ ø…º« ∞°¡Æø¿±‚
+	//
 	public List<OptionBean> optionAllByProduct(int p_num) {
 		List<OptionBean>list=sqlSessionTemplate.selectList(namespace+".OptionAllByProduct", p_num);
 		return list;
@@ -99,7 +97,6 @@ public class ProductDao {
 			String rowcheck=rowchecks[i];
 			System.out.println("rowcheck:"+rowcheck);
 			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteProduct",rowcheck);
-
 			count+=cnt;
 		}
 
@@ -111,6 +108,11 @@ public class ProductDao {
 	public List<ProductBean> rotatorList() {
 		List<ProductBean> list=sqlSessionTemplate.selectList(namespace+".RotatorList");
 		return list;
+	}
+
+	public OptionBean getOption(int option_no) {
+		OptionBean option=sqlSessionTemplate.selectOne(namespace+".GetOption", option_no);
+		return option;
 	}
 
 
