@@ -60,9 +60,9 @@ public class MemberDao {
 		return cnt;
 	}
 
-	public void mpointUpdate(String id, int mpoint) {
+	public void mpointUpdate(int no, int mpoint) {
 		MemberBean mb=new MemberBean();
-		mb.setId(id);
+		mb.setNo(no);
 		mb.setMpoint(mpoint);
 		sqlSessionTemplate.update(namespace+".MpointUpdate",mb);		
 	}

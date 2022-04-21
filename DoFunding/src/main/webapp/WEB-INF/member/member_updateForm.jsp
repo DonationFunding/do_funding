@@ -14,7 +14,7 @@
     <table class="table" class="text-center">
     
 		<tr aling="center">
-			<th class="text-center">
+			<th >
 			아이디 : <input type="text" name="id" <c:if test="${loginInfo.id != null}">value="${loginInfo.id }" readonly</c:if>>
 			</th>
 		</tr>

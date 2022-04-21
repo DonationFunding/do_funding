@@ -30,7 +30,6 @@
 						&nbsp;<a href="memberInfo.mem">회원정보</a>
 						&nbsp;<a href="list.like?">찜목록</a>
 						&nbsp;<a href="orderlist.ord">주문내역</a>
-						&nbsp;<a href="">펀딩조회</a>
 					</li>
 				</ul>
 			</c:if>
@@ -74,9 +73,9 @@
 									<li><a href="admin_faq_list.ad">FAQ 목록</a></li>
 								</ul>
 							</li>
-							<li class="m6"><a href="#">주문내역</a>
+							<li class="m6"><a href="admin_ord_list.ad">주문내역</a>
 								<ul class="sec m6_Menu" align="center">
- 									<li><a href="#">주문 내역</a></li>
+ 									<li><a href="admin_ord_list.ad">주문 내역</a></li>
 									<li><a href="#">매출통계?</a></li>
 								</ul>
 							</li>
