@@ -55,9 +55,6 @@ public class OrderCalculateController {
 		List<int[]> orderlists = mycart.getAllOrderLists();
 		// key(상품번호), value(주문수량) , 옵션 번호
 			
-		//Map<String,String> map =new HashMap<String,String>();
-		//장바구니에 
-		
 		//회원번호,주문일자,상품이름?
 		orderDao.insertOrder(loginInfo.getNo());	//order번호 생성용
 		
@@ -92,7 +89,7 @@ public class OrderCalculateController {
 			orderDetailDao.insertDonation(doBean);
 		}
 		int mpoint= (int) Math.round(point);
-		// 회원 mpoint 누적
+		// 회원 mpoint 후원금 총액 누적
 		memberDao.mpointUpdate(loginInfo.getId(),mpoint);
 		session.removeAttribute("mycart");
 		session.removeAttribute("shopLists");
