@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
+import oracle.sql.DATE;
 import order.cart.MyCartList;
 
 import order.model.OrderDao;
@@ -71,8 +72,7 @@ public class OrderCalculateController {
 			int option_no = info[2];	//선택된 옵션번호
 
 			ProductBean pb = productDao.getProduct(p_num);
-			OptionBean ob = productDao.getOption(option_no);
-			
+	
 			//주문상세 작성
 			OrderDetailBean odBean=new OrderDetailBean();
 			odBean.setOd_o_num(maxOnum);	//주문뭉태기요 번호
@@ -82,15 +82,17 @@ public class OrderCalculateController {
 			orderDetailDao.insertOrderDetail(odBean);
 			
 			//30% 후원금 누적
-			point += o_qty*pb.getP_origin_price()/0.3;
+			point += o_qty*pb.getP_origin_price()*0.3;
 			DonationBean doBean=new DonationBean();
-			doBean.setDo_o_num(maxOnum);
-			doBean.setDona_money((int)Math.round(point));
+			doBean.setDona_o_num(maxOnum);
+			doBean.setDona_no(loginInfo.getNo());
+			doBean.setDona_money((int)Math.round(o_qty*pb.getP_origin_price()*0.3));
+			doBean.setdona_buyprice(o_qty*pb.getP_origin_price());
 			orderDetailDao.insertDonation(doBean);
 		}
 		int mpoint= (int) Math.round(point);
 		// 회원 mpoint 후원금 총액 누적
-		memberDao.mpointUpdate(loginInfo.getId(),mpoint);
+		memberDao.mpointUpdate(loginInfo.getNo(),mpoint);
 		session.removeAttribute("mycart");
 		session.removeAttribute("shopLists");
 		session.removeAttribute("totalAmount");

@@ -256,10 +256,16 @@ create table do_donation(
 --후원금번호
 	dona_num number primary key,
 --주문번호
-	do_o_num  number references do_order(o_num) on delete cascade,
+	dona_o_num  number references do_order(o_num) on delete cascade,
+--회원번호
+	dona_no number references do_members(no) on delete cascade,
 --후원금액
-	dona_money number
-)	
+	dona_money number,
+--주문금액
+	dona_buyprice number,
+--주문일자
+	dona_date date default sysdate	
+);	
 
 commit;
 
