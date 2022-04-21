@@ -24,7 +24,7 @@
 				<ul class="subMenu">
 					<li>
 						<c:if test="${loginInfo.admin == 0}">
-						&nbsp;<a href="main.ad">관리자 페이지</a>
+						&nbsp;<a href="list.prd">관리자 페이지</a>
 						</c:if>
 						&nbsp;<a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a>
 						&nbsp;<a href="memberInfo.mem">회원정보</a>
@@ -44,7 +44,8 @@
 					<nav id="gnb">
 						<h2 class="blind">메인 메뉴</h2>
 						<ul class="secMenu">
-							<li class="m1 no-sub"><a href="main.ad">홈</a></li>
+							<li class="m1 no-sub"><a href="main.ad">홈</a>						
+							</li>
 					
 							<li class="m2"><a href="admin_cate_list.ad">카테고리</a>
 								<ul class="sec m2_Menu" align="center">
@@ -56,7 +57,6 @@
 								<ul class="sec m3_Menu" align="center">
 									<li><a href="admin_prd_list.ad">펀딩 목록</a></li>
 									<li><a href="admin_prd_insert.ad">펀딩 추가</a></li>
-									<li><a href="list.prd">사용자 홈</a></li>
 								</ul>
 							</li>
 							<!-- 					<li class="m4 no-sub"> -->
