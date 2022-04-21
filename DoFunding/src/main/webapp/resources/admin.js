@@ -38,8 +38,25 @@ function allRowCheck(allck){
     }
 }// allRowCheck
 
+//카테고리 유효성
+function catecheck(){
+	if($('input[name=code]').val()==""){
+		alert('코드 입력 누락');
+		$('input[name=code]').focus();
+		return false;
+	}		
+	if($('input[name=cname]').val()==""){
+		alert('이름 입력 누락');
+		$('input[name=cname]').focus();
+		return false;
+	}		
+}
+
+
+
+
 //카테고리 추가
-function inserCate() {
+function insertCate() {
 	location.href="admin_cate_insert.ad"; 
 }
 //카테고리 수정
@@ -115,7 +132,7 @@ function deleteMem(gnum){
 
 
 function prdcheck(){
-	alert(1);
+	//alert(1);
 
 	if($('input[name=p_subject]').val()==""){
 		alert('제목 입력 누락');

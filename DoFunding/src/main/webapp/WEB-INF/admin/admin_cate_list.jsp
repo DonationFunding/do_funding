@@ -22,7 +22,7 @@
 			<tr>
 				<td align="left" colspan="6">
 					<input type="button" value="삭제"  class="btn btn-default btn-sm" onclick="selectDelete()">
-					<input type="button" value="추가"  class="btn btn-default btn-sm"onclick="inserCate()">
+					<input type="button" value="추가"  class="btn btn-default btn-sm"onclick="insertCate()">
 				</td>
 			</tr>
 			<tr>

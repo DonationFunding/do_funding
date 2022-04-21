@@ -5,7 +5,7 @@
 <br>
 <b>카테고리등록</b>
 <br>
-<form:form commandName="cateBean"  method="post"  action="admin_cate_insert.ad">
+<form method="post"  action="admin_cate_insert.ad">
 <div class="container">
 <table class="table" class="text-center">
 
@@ -21,11 +21,11 @@
 		</tr>
 		<tr> 
 			<td colspan="2" align="center">
- 			    <input type="submit" value="추가하기"  class="btn btn-default btn-sm"> 
+ 			    <input type="submit" value="추가하기"  class="btn btn-default btn-sm" onclick="return catecheck()"> 
 			</td>
 		</tr>
  </table>
  </div>
- </form:form>
+ </form>
 </center> 
 <%@include file ="admin_bottom.jsp" %>

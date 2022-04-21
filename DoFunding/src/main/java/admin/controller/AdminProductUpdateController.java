@@ -47,7 +47,7 @@ public class AdminProductUpdateController {
 			@RequestParam(value="p_num", required = true) String num,
 			@RequestParam(value="pageNunber", required = false) String pageNumber
 			) {
-		//pageNumber ¹Þ´Âµ¥¼­ false¶û StringÀ¸·Î ¾È¹ÞÀ¸¸é ¿¡·¯¹ß»ýÇÔ.
+		//pageNumber
 		int p_num=Integer.parseInt(num);
 		List<CategoryBean> cateList = categoryDao.categoryAllByProduct();
 		List<OptionBean> opList = productDao.optionAllByProduct(p_num);
@@ -73,15 +73,15 @@ public class AdminProductUpdateController {
 		 List<OptionBean> opList = productDao.optionAllByProduct(prdBean.getP_num());
 		 
 		 prdBean.setP_point(Math.round(prdBean.getP_origin_price()/1000)*10);
-		 int cnt = productDao.updateProduct(prdBean); //update³¡
+		 int cnt = productDao.updateProduct(prdBean); 
 		 if(cnt > 0) {
 			 int item_no=productDao.getP_num();
 			 prdBean.setOption_item_no(item_no);
-			 //¿É¼Ç Ãß°¡ÇÏ±â Àü ±âÁ¸ ¿É¼Ç »èÁ¦
+			 //ï¿½É¼ï¿½ ï¿½ß°ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 			 productDao.itemOptionDelete(prdBean.getOption_item_no());
-			 //¿É¼ÇÃß°¡ºÎºÐ
+			 //ï¿½É¼ï¿½ï¿½ß°ï¿½ï¿½Îºï¿½
 			 for (int i = 0; i < prdBean.getItem_option().length; i++) {
-				 String itemOptionContent = prdBean.getItem_option()[i];	//¿É¼Ç 1°³ °ª
+				 String itemOptionContent = prdBean.getItem_option()[i];	//ï¿½É¼ï¿½ 1ï¿½ï¿½ ï¿½ï¿½
 				 System.out.println("itemOptionContent:"+itemOptionContent);
 				 Map<String, Object> map = new HashMap<String, Object>();
 				 map.put("item_option", itemOptionContent);
@@ -89,9 +89,9 @@ public class AdminProductUpdateController {
 				 productDao.itemOptionInsert(map);
 				} 
 			 
-			 //±âÁ¸ ÆÄÀÏ ÀÌ¹ÌÁö »èÁ¦ ÇÊ¿ä
+		
 			 
-			 //ÆÄÀÏ Ãß°¡ ºÎºÐ
+			 
 			 String uploadPath = servletContext.getRealPath("/resources/images");
 			 MultipartFile multi = prdBean.getUpload();
 			 File f = new File(uploadPath+"\\" + prdBean.getP_image());

@@ -5,7 +5,7 @@
 <br>
 <b>카테고리수정</b>
 <br>
-<form:form commandName="cateBean"  method="post"  action="admin_cate_update.ad">
+<form method="post" action="admin_cate_update.ad" >
 	<input type="hidden" name="cnum" value="${cateBean.cnum}">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
 	<div class="container">
@@ -22,11 +22,11 @@
 		</tr>
 		<tr> 
 			<td colspan="2" align="center">
- 			    <input type="submit" value="수정하기" class="btn btn-default btn-sm" > 
+ 			    <input type="submit" value="수정하기" onclick="return catecheck()" class="btn btn-default btn-sm" > 
 			</td>
 		</tr>
- </table>
- </div>
- </form:form>
+ 	</table>
+ 	</div>
+</form>
 </center>
 <%@include file ="admin_bottom.jsp" %>

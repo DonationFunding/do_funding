@@ -95,29 +95,14 @@ a:hover {
  
     	<tr>
     		<th>주문수량</th>
-<<<<<<< HEAD
     		<td colspan="2">
     				<input type="hidden" name="p_num" value="${productBean.p_num }">		
-    				<input type="text" name=orderqty>
-=======
-    		<td>
-    				<input type="hidden" name="p_num" value="${productBean.p_num }">
-    				<input type="hidden" name="p_subject" value="${productBean.p_subject }">
-    				<input type="hidden" name="p_origin_price" value="${productBean.p_origin_price }">
-    				<input type="hidden" name="option_no" value="${optionBean.option_no}">
-    				<input type="hidden" name="option_content" value="${optionBean.option_content}">
-	    			<input type="text" name="o_qty">
->>>>>>> refs/remotes/origin/do-khc
-	    			
+    				<input type="text" name=orderqty>	    			
 <!-- 현재날짜 -->
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set> 
-<<<<<<< HEAD
 	    			<input type="submit" value="주문" <c:if test="${sysDate > p_end_date or sysDate < p_start_date}"> disabled</c:if>>
-=======
-	    			<input type="submit" value="주문" class="btn btn-default btn-sm" <c:if test="${sysDate>productBean.p_end_date}">disabled</c:if>>
-	    			<input type="submit" value="주문1" class="btn btn-default btn-sm" <c:if test="${sysDate>productBean.p_end_date}"></c:if>>
->>>>>>> refs/remotes/origin/do-khc
+
     		</td>   		
     	</tr>
  </form>	
