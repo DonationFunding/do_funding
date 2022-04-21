@@ -23,7 +23,7 @@
  <center>
 findpwd.jsp <br>
 <form name="myform" action="findpw.mem" method="post">
-<div name="">
+<div class="container">
 <table border="1">
 	<tr>
 		<td align="center">아이디</td>
@@ -45,6 +45,7 @@ findpwd.jsp <br>
 		</td>
 	</tr>
 </table>
+</div>
 </form>
 </center>
 <%@ include file="../common/common_bottom.jsp" %>

@@ -22,7 +22,7 @@
 <center>
 findid.jsp<br>
 <form name="myform" action="findid.mem" method="post">
-<div>
+<div class="container">
 <table border="1">
 	<tr>
 		<td align="center">이름</td>
