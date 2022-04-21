@@ -3,10 +3,10 @@
 
 <%@ include file="../common/common_top.jsp" %>	
 
-<!-- <head>
+<head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-</head> -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
+</head>
 <form method="post" action="delete.bd">
 	<input type="hidden" name="b_num" value="${bdBean.b_num}">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">

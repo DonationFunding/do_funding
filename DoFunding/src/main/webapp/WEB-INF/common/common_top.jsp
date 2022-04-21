@@ -6,6 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
 	<title>두펀딩</title>
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
 	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
@@ -20,7 +21,6 @@
 						&nbsp;<a href="login.mem">로그인</a>
 						&nbsp;<a href="insert.mem">회원가입</a>
 						&nbsp;<a href="findid.mem">ID/비밀번호 찾기</a>
-						&nbsp;<a href="">비회원 펀딩조회</a>
 					</li>
 				</ul>
 
@@ -36,7 +36,6 @@
 						&nbsp;<a href="memberInfo.mem">회원정보</a>
 						&nbsp;<a href="list.like?">찜목록</a>
 						&nbsp;<a href="order.ord">주문내역</a>
-						&nbsp;<a href="">펀딩조회</a>
 					</li>
 				</ul>
 			</c:if>

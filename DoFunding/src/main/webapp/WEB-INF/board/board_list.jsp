@@ -14,6 +14,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <center>
 <h1>글목록(전체 글:${totalCount})</h1>

@@ -129,12 +129,12 @@ $(document).ready(function(){
 	<form:form commandName="prdBean" action="admin_prd_update.ad" method="post" enctype="multipart/form-data" >
 		<input type="hidden" name="p_num" value="${prdBean.p_num}">
 		<input type="hidden" name="p_readcount" value="${prdBean.p_readcount}">
-		<input type="hidden" name="p_like" value="${prdBean.p_like}">
 		<input type="hidden" name="p_total_price" value="${prdBean.p_total_price}">
 		<input type="hidden" name="p_reg_date" value="${prdBean.p_reg_date}">
 		<input type="hidden" name="pageNumber" value="${pageNumber}">
 		<input type="hidden" name="option_item_no" value="${prdBean.option_item_no}">
-			<table border="1" width="800">
+		<div class="container">
+        <table class="table table-hover table-sm" class="text-center">
 				<tr>
 					<th>작성자</th>
 					<td>
@@ -163,8 +163,8 @@ $(document).ready(function(){
 					<th>이미지 파일</th>
 					<td class="filebox preview-image">
 					    <input class="upload-name" value="파일선택" disabled="disabled">
-					    <label  for="input-file">업로드</label> 
-					    <input type="file" id="input-file" class="upload-hidden" name="upload">
+					    <label  for="input-file" class='btn btn-default btn-sm'>업로드</label> 
+					    <input type="file" id="input-file" class="upload-hidden"  name="upload">
 						<form:errors cssClass="err" path="p_image" />
 					</td>
 				</tr>
@@ -179,10 +179,10 @@ $(document).ready(function(){
 					<th>단가</th>
 					<td>
 						<c:if test="${prdBean == null}">
-							<input type="text" name="p_origin_price" value="0">
+							<input type="number" name="p_origin_price" value="0">
 						</c:if>
 						<c:if test="${prdBean != null}">
-							<input type="text" name="p_origin_price" value="${prdBean.p_origin_price}">
+							<input type="number" name="p_origin_price" value="${prdBean.p_origin_price}">
 						</c:if>											
 						<form:errors cssClass="err" path="p_origin_price" />
 					</td>
@@ -191,10 +191,10 @@ $(document).ready(function(){
 					<th>목표 금액</th>
 					<td>
 						<c:if test="${prdBean == null}">
-							<input type="text" name="p_end_price" value="0">
+							<input type="number" name="p_end_price" value="0">
 						</c:if>
 						<c:if test="${prdBean != null}">
-							<input type="text" name="p_end_price" value="${prdBean.p_end_price}">
+							<input type="number" name="p_end_price" value="${prdBean.p_end_price}">
 						</c:if>						
 						<form:errors cssClass="err" path="p_end_price" />
 					</td>
@@ -223,22 +223,26 @@ $(document).ready(function(){
 				</tr>
 
 			</table>
+			</div>
 
-			<div style="width:800px; border: 1px solid; padding: 2px; margin: 10px;" >
+			 <div class="container"  >
+			 <table class="table table-hover table-sm" class="text-center">
 				<div>
 					<div style="border: 1px solid; padding: 25px;">
-						<b>제품 옵션</b> 
-						<span style="float:right; margin:auto;">
-							<button id="optionAdd_btn" class="btn btn-primary mb-3" type="button">옵션추가</button>
-						</span>
+						<b>제품 옵션</b> 						
 					</div>
+					<span style="float:right; margin:auto;">
+							<button id="optionAdd_btn" class="btn btn-default btn-sm" type="button">옵션추가</button>
+					</span>
+					<br>
+					<br>
 					<div>
 						<div>
 							<div id="optionIndex" >
 								<c:forEach var="option" items="${opList}">
-									<div class='form-group' style='margin: 10px;' >
+									<div class='form-group' style='margin: 13px;' >
 										<input type='text' placeholder="옵션"  style="float:left;" name='item_option' id='item_option' value="${option.option_content}">
-										<button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn' class='btn-btn dark'>삭제</button>
+										<button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn' class='btn btn-default btn-sm'>삭제</button>
 										<form:errors cssClass="err" path="item_option" />
 									<br></div>
 								</c:forEach>
@@ -249,9 +253,10 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>
+				</table>
 			</div>
 			<div>
-				<input type="submit" value="상품수정하기" onclick="return prdcheck()">
+				<input type="submit" value="상품수정하기" class="btn btn-default btn-sm" onclick="return prdcheck()">
 			</div>
 		</form:form>	
 	</div>

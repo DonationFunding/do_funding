@@ -2,20 +2,23 @@
     pageEncoding="UTF-8"%>
 <%@ include file="admin_top.jsp"%>  
 <center>
-<table border="1">
+ <div class="container">
+        <table class="table table-hover table-sm" class="text-center">
 	<tr>
-		<td>회원번호</td>
-		<td>아이디</td>
-		<td>이름</td>
-		<td>생년월일</td>
-		<td>가입일</td>
-		<td>성별</td>
-		<td>핸드폰 번호</td>
-		<td>주소</td>
-		<td>거래 은행</td>
-		<td>계좌번호</td>
-		<td>적립포인트</td>
-		<td>회원등급</td>
+		<th>회원번호</th>
+		<th>아이디</th>
+		<th>이름</th>
+		<th>생년<br>월일</th>
+		<th>가입일</th>
+		<th>성별</th>
+		<th>핸드폰<br>번호</th>
+		<th>주소</th>
+		<th>거래은행</th>
+		<th>계좌번호</th>
+		<th>적립포인트</th>
+		<th>회원등급</th>
+		<th>등급<br>관리</th>
+		
 	</tr>
 
 	<c:forEach var="memList" items="${memlist}">
@@ -69,13 +72,14 @@
 				</c:if>
 			</td>
 			<td>
-				<input type="button" value="등업" onclick="location.href='upgrade.ad?no=${memList.no}'">
+				<input type="button" value="등업" class="btn btn-default btn-sm" onclick="location.href='upgrade.ad?no=${memList.no}'">
 			</td>
 		</tr>
 		
 	</c:forEach>
 	
 </table>
+</div>
 </center>
 
 

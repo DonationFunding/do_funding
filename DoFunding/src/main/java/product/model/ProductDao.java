@@ -86,7 +86,7 @@ public class ProductDao {
 
 
 	public int productDelete(int p_num) {
-		int cnt = sqlSessionTemplate.delete(namespace+".ProductDelete",p_num);
+		int cnt = sqlSessionTemplate.delete(namespace+".DeleteProduct",p_num);
 		return cnt;
 	}
 
