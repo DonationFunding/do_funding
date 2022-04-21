@@ -160,13 +160,17 @@
 			<td>최종 결제금액: 
 			<c:choose> 
 				<c:when test="${totalAmount > 30000}">
-				${totalAmount}
-				<input type="hidden" name="amount" value="${totalAmount }">
-			</c:when> 
-			<c:otherwise>
-				${totalAmount+3000}
-				<input type="hidden" name="amount" value="${totalAmount+3000}">	
-			</c:otherwise> 
+					${totalAmount}
+					<input type="hidden" name="amount" value="${totalAmount }">
+				</c:when> 
+				<c:when test="${totalAmount > 0  and totalAmount < 30000 }">
+					${totalAmount+3000}
+					<input type="hidden" name="amount" value="${totalAmount+3000 }">
+				</c:when> 
+				<c:otherwise>
+					${totalAmount}
+					<input type="hidden" name="amount" value="${totalAmount}">	
+				</c:otherwise> 
 			</c:choose> 
 			</td>
 		</tr>

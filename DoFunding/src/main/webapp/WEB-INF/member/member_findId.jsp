@@ -1,14 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common_top.jsp" %>
+<<<<<<< HEAD
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
+=======
+
+>>>>>>> refs/remotes/origin/do-hjh
 <center>
+<<<<<<< HEAD
 <br>
 <h3>아이디찾기</h3>
 <br>
+=======
+findid.jsp<br>
+
+>>>>>>> refs/remotes/origin/do-hjh
 <form:form commandName="memberBean" action="findid.mem" method="post">
 	<div class="container">
     <table class="table" class="text-center">
@@ -33,6 +42,7 @@
 </table>
 </div>
 
-</form:form>
+</form:form >
 </center>
+
 <%@ include file="../common/common_bottom.jsp" %>
