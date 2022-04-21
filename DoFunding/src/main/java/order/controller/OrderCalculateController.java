@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
+import oracle.sql.DATE;
 import order.cart.MyCartList;
 
 import order.model.OrderDao;
+import orderdetail.model.DonationBean;
 import orderdetail.model.OrderDetailBean;
 import orderdetail.model.OrderDetailDao;
 import product.model.OptionBean;
@@ -54,9 +56,6 @@ public class OrderCalculateController {
 		List<int[]> orderlists = mycart.getAllOrderLists();
 		// key(상품번호), value(주문수량) , 옵션 번호
 			
-		//Map<String,String> map =new HashMap<String,String>();
-		//장바구니에 
-		
 		//회원번호,주문일자,상품이름?
 		orderDao.insertOrder(loginInfo.getNo());	//order번호 생성용
 		
@@ -72,21 +71,27 @@ public class OrderCalculateController {
 			int option_no = info[2];	//선택된 옵션번호
 
 			ProductBean pb = productDao.getProduct(p_num);
-			OptionBean ob = productDao.getOption(option_no);
-			
+	
+			//주문상세 작성
 			OrderDetailBean odBean=new OrderDetailBean();
 			odBean.setOd_o_num(maxOnum);	//주문뭉태기요 번호
 			odBean.setOd_p_num(p_num);		//상품번호
 			odBean.setOd_option_no(option_no);//선택된 상품옵션번호
 			odBean.setOd_qty(o_qty);		//주문수량
-
 			orderDetailDao.insertOrderDetail(odBean);
+			
 			//30% 후원금 누적
-			point += o_qty*pb.getP_origin_price()/0.3;
+			point += o_qty*pb.getP_origin_price()*0.3;
+			DonationBean doBean=new DonationBean();
+			doBean.setDona_o_num(maxOnum);
+			doBean.setDona_no(loginInfo.getNo());
+			doBean.setDona_money((int)Math.round(o_qty*pb.getP_origin_price()*0.3));
+			doBean.setdona_buyprice(o_qty*pb.getP_origin_price());
+			orderDetailDao.insertDonation(doBean);
 		}
 		int mpoint= (int) Math.round(point);
-		// 회원 mpoint 누적
-		memberDao.mpointUpdate(loginInfo.getId(),mpoint);
+		// 회원 mpoint 후원금 총액 누적
+		memberDao.mpointUpdate(loginInfo.getNo(),mpoint);
 		session.removeAttribute("mycart");
 		session.removeAttribute("shopLists");
 		session.removeAttribute("totalAmount");

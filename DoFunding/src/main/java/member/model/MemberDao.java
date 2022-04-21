@@ -27,7 +27,9 @@ public class MemberDao {
 
 	public MemberBean findId(MemberBean membean) {
 		MemberBean findid = sqlSessionTemplate.selectOne(namespace+".FindId", membean);
-		System.out.println("dao/findid.getId :"+findid.getId());
+		if(findid!=null) {
+			System.out.println("dao/findid.getId :"+findid.getId());			
+		}
 		return findid;
 	}
 
@@ -60,9 +62,9 @@ public class MemberDao {
 		return cnt;
 	}
 
-	public void mpointUpdate(String id, int mpoint) {
+	public void mpointUpdate(int no, int mpoint) {
 		MemberBean mb=new MemberBean();
-		mb.setId(id);
+		mb.setNo(no);
 		mb.setMpoint(mpoint);
 		sqlSessionTemplate.update(namespace+".MpointUpdate",mb);		
 	}

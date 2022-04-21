@@ -23,7 +23,7 @@ public class OrderAddController {
 			@RequestParam(value = "pageNumber",required = false) String pageNumber,
 			HttpSession session) {
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
-	
+		System.out.println("add.ord"+loginInfo);
 		//초기화
 		if(loginInfo==null) { // 
 			session.setAttribute("destination", "redirect:/detail.prd?pageNumber="+pageNumber+"&p_num="+bean.getP_num());
