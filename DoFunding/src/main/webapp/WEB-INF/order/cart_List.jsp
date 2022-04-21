@@ -63,9 +63,8 @@
 			return false;
 		}
 	}
-	
-	function recheck(){
-		var dep = confirm(p_subject+"를 정말 장바구니에서 삭제 하시겠습니까?");
+	function delcartcheck(p_subject){
+		var dep = confirm(p_subject+"(을)를 정말 장바구니에서 삭제 하시겠습니까?");
 		//prompt : 값을 입력 받을 수 있는 창 (제목, 초기값) 확인/취소 버튼이 있음.
 		//comfirm : YES/NO t/f
 		//alert(dep);
@@ -73,17 +72,15 @@
 			document.reform.submit();
 		}		
 	}
+	
 </script>
 <body>
-<center>
-<br>
-<h3>주문 및 결제</h3>
-<br>
-</center>
+	<br>
+	<h3 align="center">주문 및 결제</h3>
+	<br>
 	<form name="myform" action="calculate.ord" >
 	<div class="div2" align="center" style="background-color: #fffcf6; border: 1px solid black;">
 		<h3>결제금액</h3>
-	
 		<tr>
 			<th class="text-center">총 금액</th>
 			<td>${totalAmount}</td>
@@ -170,7 +167,7 @@
 		</tr>
 	</form>			
 		<tr>
-			<th colspan="6" class="text-center">상품 정보</th>
+			<th colspan="7" class="text-center">상품 정보</th>
 		</tr>
 		<tr>
 			<th>상품 번호</th>
@@ -181,22 +178,31 @@
 			<th>금액</th>
 			<th>삭제</th>
 		</tr>
-	<form name="reform" method="post" action="cart_list.ord">	
-		<c:forEach var="shopInfo" items="${sessionScope.shopLists}">
-			<tr>
-				<td>${shopInfo.p_num }</td>
-				<td>${shopInfo.p_subject}</td>
-				<td>${shopInfo.option_content }</td>
-				<td>${shopInfo.qty }</td>
-				<td>${shopInfo.price }</td>
-				<td>${shopInfo.amount }</td>
-				<td>			
-				<input type="hidden" name="p_num" value="'${shopInfo.p_num }"> 
-				<input type="hidden" name="option_no" value="${shopInfo.option_no}"> 
-				<input type="submit" value="삭제" onclick="recheck('${shopInfo.p_subject}')"> 
-				</td>
-			</tr>
-		</c:forEach>
+	<form name="reform" method="post" action="cart_list.ord">
+		<c:choose>	
+			<c:when test="${sessionScope.shopLists.size() ==0}">
+				<tr>
+					<td  colspan="7" class="text-center">장바구니에 담긴 상품이 없습니다.</td>
+				</tr>
+			</c:when>
+			<c:otherwise>	
+				<c:forEach var="shopInfo" items="${sessionScope.shopLists}">
+					<tr>
+						<td>${shopInfo.p_num }</td>
+						<td>${shopInfo.p_subject}</td>
+						<td>${shopInfo.option_content }</td>
+						<td>${shopInfo.qty }</td>
+						<td>${shopInfo.price }</td>
+						<td>${shopInfo.amount }</td>
+						<td>			
+						<input type="hidden" name="p_num" value="${shopInfo.p_num }"> 
+						<input type="hidden" name="option_no" value="${shopInfo.option_no}"> 
+						<input type="submit" value="삭제" onclick="delcartcheck('${shopInfo.p_subject}')" class="btn btn-default btn-sm" > 
+						</td>
+					</tr>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>	
 	</form>	
 		</table>
 	</div>
