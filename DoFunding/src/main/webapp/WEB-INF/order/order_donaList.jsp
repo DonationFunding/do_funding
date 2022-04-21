@@ -51,17 +51,4 @@
 </center>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <%@ include file="../common/common_bottom.jsp" %>
