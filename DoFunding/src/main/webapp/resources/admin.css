@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(reset.css);
 
 *, *:after, *:before {
 	box-sizing: border-box;  /* width=content+padding+border */
@@ -117,7 +116,7 @@ ul,  li, a {
 	left: 0;
 	bottom: 0;  /* 아래에 배치 */
 	width: 100%;
-	/* z-index: 100; */
+ 	z-index: 100; 
 	background: white;
 }
 
@@ -138,9 +137,9 @@ a:hover {
 	background: #FFF29E;
 }
 #gnb > ul > li > a {
-	font-size: 0.938em; /* 15px */
-    font-size: 0.938rem;
-    font-size: 15px;
+	font-size: 1.125em; /* 18px */
+    font-size: 1.125rem;
+    font-size: 18px;
 	text-align: center;
 	display: block;
 	height: 45px;
@@ -155,9 +154,9 @@ a:hover {
 	border: 1px solid #555;
 	border-top: none;
 	border-radius: 0 0 7px 7px;
-	font-size: 0.813em;
-    font-size: 0.813rem;  /* 15px */
-    font-size: 13px; 
+	font-size: 0.938em;
+    font-size: 0.938rem;  /* 15px */
+    font-size: 15px; 
 }
 #gnb ul.secMenu > li:hover ul.sec {
 	display: block;
@@ -190,9 +189,9 @@ a:hover {
 	clear: both;  /* 정렬 해제 */
 	display: flex;  /* 플렉서블 그리드로 배치 */
 	flex-flow: column nowrap;  /* 새로를 주축으로 배치 */
-	height: 360px;  /* 120 + 38 + 30 + 22 + 90 + 60 = 
+	height: 360px;  /* 120 + 38 + 30 + 22 + 90 + 60 = */
 }
-#bottom-menu1 {  \
+#bottom-menu1 {  
 	height: 30px; 
 	position: relative;  /* relative로 배치 */
 	top: 38px;
@@ -206,9 +205,9 @@ a:hover {
 }
 #bottom-menu1 li {  /* 메뉴를 가로로 배치 */
     float: left;
-	padding: 5px 20px;
+	padding: 5px 10px;
 	list-style: none;
-	line-height: 100px;
+	line-height: 20x;
 	vertical-align: middle;
 	text-align: center;
 }

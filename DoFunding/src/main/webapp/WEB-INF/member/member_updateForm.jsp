@@ -3,7 +3,7 @@
 <%@ include file="../common/common_top.jsp" %>
  <center>
 <title>update.jsp</title>
-<form:form commandName="memberBean" action="update.mem" method="post"> 
+<form action="update.mem" method="post"> 
 	<table border="1">
 		<tr>
 			<td align="center" width="130px">아이디 :</td>
@@ -29,17 +29,19 @@
 		</tr>
 		<tr>
 			<td align="center">생년월일 :</td>
+			<c:set var="birthday">
+				<fmt:parseDate value="${loginInfo.birthday}" var="dateValue" pattern="yyyy-MM-dd" />
+				<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />	
+			</c:set> 
 			<td>
-				<input type="date" name="birthday" <c:if test="${loginInfo.birthday != null}">value="${loginInfo.birthday }" readonly</c:if>>
-				<form:errors cssClass="err" path="birthday"/>
+				<input type="date" name="birthday" <c:if test="${loginInfo.birthday != null}">value="${birthday }" readonly</c:if>>
 			</td>
 		</tr>
 		<tr>
 			<td align="center">성별 :</td>
 			<td>
-				<input type="radio" name="gender" value="남">남
-				<input type="radio" name="gender" value="여">여
-				<form:errors cssClass="err" path="gender"/>
+				<input type="radio" name="gender" value="남" <c:if test="${loginInfo.gender eq '남' }">checked</c:if>>남
+				<input type="radio" name="gender" value="여" <c:if test="${loginInfo.gender eq '여' }">checked</c:if>>여
 			</td>
 		</tr>
 		<tr>
@@ -54,23 +56,19 @@
 					<option value="019">019
 				</select> - 
 				<input type="text" name="hp2" value="${loginInfo.hp2 }" size="4px"> - 
-				<form:errors cssClass="err" path="hp2"/>
 				<input type="text" name="hp3" value="${loginInfo.hp3 }" size="4px">
-				<form:errors cssClass="err" path="hp3"/>
 			</td>
 		</tr>
 		<tr>
 			<td align="center">주소 :</td>
 			<td>
 				<input type="text" name="address1" value="${loginInfo.address1 }">
-				<form:errors cssClass="err" path="address1"/>
 			</td>
 		</tr>
 		<tr>
 			<td align="center">상세주소 :</td>
 			<td>
 				<input type="text" name="address2" value="${loginInfo.address2 }" size="24px">
-				<form:errors cssClass="err" path="address2"/>
 			</td>
 		</tr>
 		<tr>
@@ -85,13 +83,12 @@
 					<option value="새마을금고">새마을금고
 				</select> -
 				<input type="text" name="account" value="${loginInfo.account }">
-				<form:errors cssClass="err" path="account"/>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center"><input type="submit" value="변경하기"></td>
 		</tr>
 	</table>
-</form:form>
+</form>
 </center>
 <%@ include file="../common/common_bottom.jsp" %>

@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common_top.jsp" %>
+
 <center>
 findid.jsp<br>
+
 <form:form commandName="memberBean" action="findid.mem" method="post">
 <table border="1">
 	<tr>
@@ -26,6 +28,7 @@ findid.jsp<br>
 	</tr>
 </table>
 
-</form:form>
+</form:form >
 </center>
+
 <%@ include file="../common/common_bottom.jsp" %>

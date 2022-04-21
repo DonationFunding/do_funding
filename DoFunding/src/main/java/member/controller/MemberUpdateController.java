@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +18,9 @@ import member.model.MemberDao;
 
 @Controller
 public class MemberUpdateController {
-	private final String command = "update.mem";
+	private final String command = "/update.mem";
 	private final String getPage = "member_updateForm";
-	private String gotoPage = "member_loginForm";
+	private String gotoPage = "redirect:memberInfo.mem";
 	
 	@Autowired
 	MemberDao mdao;
@@ -34,11 +35,9 @@ public class MemberUpdateController {
 	}
 
 	@RequestMapping(value = command , method = RequestMethod.POST)
-	public String doAction(MemberBean membean,HttpServletRequest request,HttpServletResponse response) {
+	public String doAction(MemberBean membean,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		response.setContentType("text/html; charset=UTF-8");
-		//int cnt = mdao.updateMember(membean);
-		int cnt=-1;
-
+		int cnt = mdao.updateMember(membean);
 		PrintWriter pw=null;
 		if(cnt > 0) {
 			try {
@@ -46,9 +45,16 @@ public class MemberUpdateController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('ÆĞ½º¿öµå¸¦ º¯°æÇÏ¿´½À´Ï´Ù.');</script>");
+			pw.println("<script> alert('ìˆ˜ì •ì´ ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤');</script>");
 			pw.flush();
-			return gotoPage;
+			String destination = (String)session.getAttribute("destination");
+			if(destination ==null) {
+				return gotoPage;
+			}
+			else {
+				
+				return destination;					
+			}
 		}//if
 		else {
 			try {
@@ -56,7 +62,7 @@ public class MemberUpdateController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('ÆĞ½º¿öµå¸¦ º¯°æÇÏÁö ¸øÇß½À´Ï´Ù. Àá½ÃÈÄ ´Ù½Ã ½ÃµµÇØº¸½Ã±â ¹Ù¶ø´Ï´Ù. ¹®Á¦°¡ ¹İº¹µÉ°æ¿ì °í°´¼¾ÅÍ·Î ¿¬¶ôÁÖ½Ê½Ã¿ä.');</script>");
+			pw.println("<script> alert('ì •ë³´ìˆ˜ì •ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.');</script>");
 			pw.flush();
 			return getPage;
 		}

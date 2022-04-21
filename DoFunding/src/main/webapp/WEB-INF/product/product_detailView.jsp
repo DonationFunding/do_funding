@@ -10,10 +10,30 @@ a:hover {
 	function insert(){
 		location.href = "insert.prd"; // ProductInsertController
 	}
-	function likedip(){
-		document.dipform.submit();
+	function like(){
+		document.likeform.submit();
 	}
 
+	function addcheck(){
+			if (document.myform.orderqty.value =="") {
+				alert("수량을 입력해주세요");
+				document.myform.orderqty.focus();
+				return false;
+			}	
+			if (isNaN(document.myform.orderqty.value)) {
+				alert("수량은 숫자만 입력가능 합니다");
+				document.myform.orderqty.select();
+				return false;
+			}
+			if (Number(document.myform.orderqty.value)<0) {
+				alert("수량은 0보다 커야 합니다.");
+				document.myform.orderqty.focus();
+				return false;
+			}	
+			document.myform.submit();
+			
+	}
+	
 </script>
 <center>
     <h3>펀딩 상세 화면(${productBean.p_num }/${pageNumber })</h3>
@@ -49,16 +69,18 @@ a:hover {
     		<th>펀딩 기간</th>
     		<td>${p_start_date}~${p_end_date}</td>
     	</tr>
+    	
     	<tr>
     		<th>진행상황</th>
     		<td>${(productBean.p_total_price/productBean.p_end_price)*100} %</td>
     	</tr>
+    	
 <!-- add.mall => mall.controller.CartAddController -->
-<form method="post" action="order.ord">
+<form name="myform" method="post" action="add.ord" onsubmit="return addcheck()">
     	<tr>
     		<th>옵션</th>
     		<td>
-    			<select name="option1">
+    			<select name="option_no">
     				<c:forEach var="optionBean" items="${optionList}">
     					<option value="${optionBean.option_no}">${optionBean.option_content}</option>
     				</c:forEach>
@@ -69,42 +91,39 @@ a:hover {
     	<tr>
     		<th>주문수량</th>
     		<td colspan="2">
-    				<input type="hidden" name="p_num" value="${productBean.p_num }">
-    				<input type="hidden" name="p_subject" value="${productBean.p_subject }">
-    				<input type="hidden" name="p_origin_price" value="${productBean.p_origin_price }">
-    				<input type="hidden" name="option_no" value="${optionBean.option_no}">
-    				<input type="hidden" name="option_content" value="${optionBean.option_content}">
-	    			<input type="text" name="o_qty">
+    				<input type="hidden" name="p_num" value="${productBean.p_num }">		
+    				<input type="text" name=orderqty>
+	    			
 <!-- 현재날짜 -->
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set> 
-	    			<input type="submit" value="주문" <c:if test="${sysDate>productBean.p_end_date}">disabled</c:if>>
-	    			<input type="submit" value="주문1" <c:if test="${sysDate>productBean.p_end_date}"></c:if>>
+	    			<input type="submit" value="주문" <c:if test="${sysDate > p_end_date or sysDate < p_start_date}"> disabled</c:if>>
     		</td>   		
     	</tr>
  </form>	
+ 
     	<tr>
     		<td colspan="3">
     			<a href="list.prd?pageNumber=${pageNumber }">상품 리스트</a>
     		</td>
     	</tr>
     	<tr>
-			<td colspan="3">
-				<form name="dipform" action="detail.prd" method="post"> <!-- form  -->
+    			<td colspan="3">
+				<form name="likeform" action="detail.prd" method="post"> <!-- form  -->
 					<input type="hidden" name= "p_num" value="${productBean.p_num}"/>
-					<input type="hidden" name= "cnt" value="${cnt}"/>
+					<input type="hidden" name= "like_check" value="${like_check}"/>
 					<input type="hidden" name= "pageNumber" value="${pageNumber}"/>
 				
 				<c:if test = "${loginInfo != null}">
-					<c:if test="${cnt == 1}">
+					<c:if test="${like_check == 1}"><!--좋아요  -->
 						<input type="image"
 							src="<%=request.getContextPath()%>/resources/images/heart_2.png" width="20px" height="20px"
-							onclick="likedip()">
+							onclick="like()">
 					</c:if>
-					<c:if test="${cnt == 0}">
+					<c:if test="${like_check == 0}"><!--좋아요x  -->
 						<input type="image"
 							src="<%=request.getContextPath()%>/resources/images/heart_1.png" width="20px" height="20px"
-							onclick="likedip()">
+							onclick="like()">
 					</c:if>
 				</c:if>
 				</form>

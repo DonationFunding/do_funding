@@ -64,10 +64,7 @@
 	</update>
 
 	<delete id="MultiDeleteProduct">
-		delete do_product  
-		<where>
-			FIND_IN_SET (p_num, ${p_num})
-		</where> 	
+		delete do_product where b_num = #{rowcheck}	
 	</delete>
 
 	<delete id="DeleteProduct">
@@ -101,6 +98,10 @@
 	<insert id="ItemOptionDelete">
 		delete do_option where option_item_no=#{option_item_no}
 	</insert>
+
+	<select id="GetOption" resultType="product.model.OptionBean">
+ 		select * from do_option where option_no=#{option_no}
+ 	</select>
 
 </mapper>
 
