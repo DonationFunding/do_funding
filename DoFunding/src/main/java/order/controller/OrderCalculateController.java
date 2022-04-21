@@ -63,8 +63,7 @@ public class OrderCalculateController {
 		//orderdetails의 oid에 넣기	주문 뭉태기를 찾기 위해서
 		int maxOnum = orderDao.getMaxO_num(); 
 		//System.out.println("maxOnum:" + maxOnum);
-		
-		
+				
 		double point=0;//후원금
 		for(int[] info : orderlists) {
 			int p_num = info[0];	//상품번호

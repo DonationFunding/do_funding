@@ -101,7 +101,7 @@ a:hover {
 <!-- 현재날짜 -->
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set> 
-	    			<input type="submit" value="주문" <c:if test="${sysDate > p_end_date or sysDate < p_start_date}"> disabled</c:if>>
+	    			<input type="submit" value="주문"  class="btn btn-default btn-sm" <c:if test="${sysDate > p_end_date or sysDate < p_start_date}"> disabled</c:if>>
 
     		</td>   		
     	</tr>
