@@ -57,6 +57,7 @@ public class OrderCalculateController {
 		//Map<String,String> map =new HashMap<String,String>();
 		//장바구니에 
 		
+		//회원번호,주문일자,상품이름?
 		orderDao.insertOrder(loginInfo.getNo());	//order번호 생성용
 		
 		//orders 테이블에서 가장 큰 oid값 가져와서 
