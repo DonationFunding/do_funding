@@ -57,6 +57,7 @@ public class OrderCalculateController {
 		//Map<String,String> map =new HashMap<String,String>();
 		//장바구니에 
 		
+		//회원번호,주문일자,상품이름?
 		orderDao.insertOrder(loginInfo.getNo());	//order번호 생성용
 		
 		//orders 테이블에서 가장 큰 oid값 가져와서 
@@ -81,6 +82,7 @@ public class OrderCalculateController {
 			odBean.setOd_qty(o_qty);		//주문수량
 
 			orderDetailDao.insertOrderDetail(odBean);
+			//30% 후원금 누적
 			point += o_qty*pb.getP_origin_price()/0.3;
 		}
 		int mpoint= (int) Math.round(point);

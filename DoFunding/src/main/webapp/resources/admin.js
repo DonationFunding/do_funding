@@ -38,14 +38,30 @@ function allRowCheck(allck){
     }
 }// allRowCheck
 
+//카테고리 유효성
+function catecheck(){
+	if($('input[name=code]').val()==""){
+		alert('코드 입력 누락');
+		$('input[name=code]').focus();
+		return false;
+	}		
+	if($('input[name=cname]').val()==""){
+		alert('이름 입력 누락');
+		$('input[name=cname]').focus();
+		return false;
+	}		
+}
+
+
+
+
 //카테고리 추가
-function inserCate() {
+function insertCate() {
 	location.href="admin_cate_insert.ad"; 
 }
 //카테고리 수정
 function updateCate(cnum, pageNumber) {
-	location.href = "admin_cate_update.ad?cnum=" + cnum + "&pageNumber="
-			+ pageNumber;
+	location.href="admin_cate_update.ad?cnum="+cnum+"&pageNumber="+pageNumber;
 }
 //카테고리 삭제
 function deleteCate(cnum,pageNumber){
@@ -115,7 +131,7 @@ function deleteMem(gnum){
 
 
 function prdcheck(){
-	alert(1);
+	//alert(1);
 
 	if($('input[name=p_subject]').val()==""){
 		alert('제목 입력 누락');
@@ -138,7 +154,7 @@ function prdcheck(){
 		return false;
 	}		
 	var p_origin_price=Number($('input[name=p_origin_price]').val());
-	alert(2);
+	//alert(2);
 	if(p_origin_price<1000){
 		alert('단가는 최소 1,000원  이상입니다.');
 		$('input[name=p_origin_price]').focus();
@@ -192,6 +208,15 @@ function prdcheck(){
 	if($('input[name=item_option]').val()==""){
 		alert('옵셥이 누락됐습니다.');
 		$('input[name=item_option]').focus();
+		return false;
+	}
+	var opcheck=false;
+	$("input[name='item_option']").each(function (i) {
+		if( $("input[name='item_option']").eq(i).attr("value")==""){
+			opcheck=true;
+		}  
+    });	
+	if(opcheck){
 		return false;
 	}			
 	return true;

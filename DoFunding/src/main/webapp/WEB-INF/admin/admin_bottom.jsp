@@ -19,7 +19,7 @@
 		return false;
 	});
 </script>
- </head>
+</head>
  
 
 <div style="position:fixed; bottom:35px; right:30px; z-index:99;"> 

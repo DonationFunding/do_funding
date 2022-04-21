@@ -1,7 +1,6 @@
 package category.model;
 
 public class CategoryBean {
-
 	private int cnum;
 	private String code;
 	private String cname;

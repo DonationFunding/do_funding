@@ -19,12 +19,12 @@
 		<div class="od-menu">
 			<tr>
 				<th colspan="2" style="text-align: center;">상품명</th>
+				<th>이미지</th>
 				<th>가격</th>
 				<th>수량</th>
 				<th>옵션</th>
 				<th>결제금액</th>
-				<th>배송현황</th>
-				<th>비고</th>
+				<th>펀딩현황</th>
 			</tr>
 		</div>
 		<c:set var="totalprice" value="0" />
@@ -33,13 +33,13 @@
 				<c:set var= "totalprice" value="${totalprice + odb.amount}"/>
 				<tr>
 					<td colspan="2">${odb.p_subject}</td>
+					<td ><img width="100px" height="100px" src="<%=request.getContextPath()%>/resources/images/${odb.p_image}"></td>
 					<td>${odb.price}</td>
 					<td>${odb.qty}</td>
 					<td>${odb.option_content}</td>
 					<td>${odb.amount}</td>
-					<td>${odb.deliver == 0?"배송준비중":
-							odb.deliver == 1?"배송중":"배송완료"}</td>
-					<c:choose>
+					<td>${(odb.p_total_price/odb.p_end_price)*100} %</td>
+<%-- 					<c:choose>
 						<c:when test="${odb.deliver != 0}">
 							<td>
 								<button class="btn-default-disable" disabled="disabled">주문취소</button>
@@ -55,7 +55,7 @@
 								<button class="btn-default-disable" disabled="disabled">주문변경</button>
 							</td>
 						</c:otherwise>
-					</c:choose>
+					</c:choose> --%>
 				</tr>
 			</c:forEach>	
 		</div>

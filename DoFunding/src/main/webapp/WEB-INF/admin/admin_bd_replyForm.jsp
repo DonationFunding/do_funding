@@ -65,4 +65,4 @@
 </form>
 </body>
 
-<%@ include file="admin_top.jsp"%> 
+<%@ include file="admin_bottom.jsp"%> 
