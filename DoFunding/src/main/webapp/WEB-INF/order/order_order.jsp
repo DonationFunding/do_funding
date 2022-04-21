@@ -118,7 +118,7 @@
 				</table>
 			<br>
 			<h4>배송 안내사항</h4>
-				기본 배송비는 3000원이면 30000원 이상 주문 시 무료배송입니다.<br>
+				기본 배송비는 3000원이며 30000원 이상 주문 시 무료배송입니다.<br>
 				주문 확인 후 입금 계좌를 개별 안내드리며, 미입금 시 주문이 취소될 수 있습니다. <br> <br> <br> <br> <br> <br> <br>
 </div>
 <div class="div2">
@@ -158,7 +158,8 @@
 		</c:choose> 
 		</td>
 	</tr>
-	<br> <br> <input type="submit" name="btn1" value="결제하기" onclick="return check()">
+	<br> <br> 
+	<input type="submit" name="btn1" value="결제하기" onclick="return check()">
 	</form>	
 </div>
 </body>

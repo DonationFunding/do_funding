@@ -129,7 +129,6 @@ $(document).ready(function(){
 	<form:form commandName="prdBean" action="admin_prd_update.ad" method="post" enctype="multipart/form-data" >
 		<input type="hidden" name="p_num" value="${prdBean.p_num}">
 		<input type="hidden" name="p_readcount" value="${prdBean.p_readcount}">
-		<input type="hidden" name="p_like" value="${prdBean.p_like}">
 		<input type="hidden" name="p_total_price" value="${prdBean.p_total_price}">
 		<input type="hidden" name="p_reg_date" value="${prdBean.p_reg_date}">
 		<input type="hidden" name="pageNumber" value="${pageNumber}">
@@ -241,7 +240,7 @@ $(document).ready(function(){
 						<div>
 							<div id="optionIndex" >
 								<c:forEach var="option" items="${opList}">
-									<div class='form-group' style='margin: 10px;' >
+									<div class='form-group' style='margin: 13px;' >
 										<input type='text' placeholder="옵션"  style="float:left;" name='item_option' id='item_option' value="${option.option_content}">
 										<button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn' class='btn btn-default btn-sm'>삭제</button>
 										<form:errors cssClass="err" path="item_option" />

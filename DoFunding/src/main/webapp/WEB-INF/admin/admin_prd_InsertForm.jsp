@@ -218,39 +218,37 @@ $(document).ready(function(){
 
 			<div class="container"  >
 			 <table class="table table-hover table-sm" class="text-center" padding: 10px; margin: 10px;>
-					<tr style="border: 1px solid; padding: 25px;">
-						<td colspan="3" align="center">
+					<div style="border: 1px solid; padding: 25px;">
 						<b>제품 옵션</b> 
 						</td>
-					</tr>
-					<tr>
-						<td colspan="3" style="float:right; margin:auto;">
+					</div>
+					
+						<span  style="float:right; margin:auto;">
 							<button id="optionAdd_btn"  class="btn btn-default btn-sm" type="button">옵션추가</button>							
-						</td>
-					</tr>
-					<tr>
-						<td colspan="3">
+						</span>
+					<br>
+					<br>
+					<div>
+					    <div>
 							<div id="optionIndex" >
-								<div class='form-group' style='margin: 10px;' >
+								<div class='form-group' style='margin: 13px;' >
 <!-- 								<input type='text' placeholder='옵션' class='form-control input-lg'  style='float:left;' name='item_option' id='item_option'>-->									
 									<input type='text' placeholder='옵션'  style='float:left;' name='item_option' id='item_option' >
 									<button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn' class='btn btn-default btn-sm'>삭제</button>
 								<br></div>
 							</div>							
-						</td>
-					</tr>					
-					<tr>
-						<td colspan="3">
+						</div>
+					   </div>								
+						<div>
 							<font color="red">최소 1개의 옵션이 필요합니다. ex) (의류) 100 , red ///(핸드폰관련) galaxy22 </font>
-						</td>
-					</tr>
-			</table>
+						</div>
+					</div>
+			        </table>
 			</div>
 			
 			<div>
 				<input type="submit" value="상품추가하기" class="btn btn-default btn-sm" onclick="return prdcheck()">
-			</div>
-			
+			</div>			
 		</form:form>	
 	</div>
 </center>

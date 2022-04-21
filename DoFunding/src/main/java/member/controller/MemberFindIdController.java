@@ -43,7 +43,7 @@ public class MemberFindIdController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('ÇØ´ç ¾ÆÀÌµð°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù');</script>");
+			pw.println("<script> alert('ìž…ë ¥í•˜ì„¸ìš”');</script>");
 			pw.flush();
 			return getPage;
 		}//if

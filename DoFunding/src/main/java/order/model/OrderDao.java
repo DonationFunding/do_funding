@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import member.model.MemberBean;
+
 @Component("myOrderDao")
 public class OrderDao {
 	
@@ -14,20 +16,21 @@ public class OrderDao {
 	
 	private String namespace="order.model.Order";
 
-	public int insertOrder(int o_mnum) { 
-		int cnt = sqlSessionTemplate.insert(namespace+".InsertOrder",o_mnum);
+	public int insertOrder(int no) { 
+		int cnt = sqlSessionTemplate.insert(namespace+".InsertOrder",no);
 		return cnt;
 	}
 
 	public int getMaxO_num() {
 		int maxOid=sqlSessionTemplate.selectOne(namespace+".GetMaxO_num");
-		System.out.println("maxOid1:" + maxOid);
+		//System.out.println("maxOid1:" + maxOid);
 		return maxOid;
 	}
 
-	public List<OrderBean> orderList(int o_mnum) {
-		List<OrderBean> list=sqlSessionTemplate.selectList(namespace+".OrderList",o_mnum);
+	public List<OrderBean> orderList(MemberBean loginInfo) {
+		List<OrderBean> list=sqlSessionTemplate.selectList(namespace+".OrderList",loginInfo);
 		return list;
 	}
+
 	
 }

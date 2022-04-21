@@ -69,7 +69,7 @@
 
 	<delete id="DeleteProduct">
 		delete do_product  
-		where p_num = ${p_num}
+		where p_num = #{p_num}
 	</delete>
 
 	<update id="UpdateProduct">
@@ -98,6 +98,10 @@
 	<insert id="ItemOptionDelete">
 		delete do_option where option_item_no=#{option_item_no}
 	</insert>
+
+	<select id="GetOption" resultType="product.model.OptionBean">
+ 		select * from do_option where option_no=#{option_no}
+ 	</select>
 
 </mapper>
 

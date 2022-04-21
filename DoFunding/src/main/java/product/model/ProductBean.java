@@ -41,8 +41,6 @@ public class ProductBean {
 	private int orderqty;
 	
 	private MultipartFile upload;
-	
-	private String p_like;
 
 	//옵션
 	@NotEmpty(message = "옵션값"+common)
@@ -62,7 +60,7 @@ public class ProductBean {
 	public ProductBean(int p_num, String p_category_fk, String p_writer, String p_subject, int p_readcount,
 			String p_image, String p_content, int p_origin_price,
 			int p_total_price, int p_end_price, int p_point, String p_reg_date, String p_start_date, String p_end_date,
-			int orderqty, MultipartFile upload, String[] item_option, int option_item_no, String p_like,
+			int orderqty, MultipartFile upload, String[] item_option, int option_item_no,
 			int option_no) {
 		super();
 		this.p_num = p_num;
@@ -83,7 +81,6 @@ public class ProductBean {
 		this.upload = upload;
 		this.item_option = item_option;
 		this.option_item_no = option_item_no;
-		this.p_like = p_like;
 		this.option_no = option_no;
 	}
 
@@ -221,12 +218,6 @@ public class ProductBean {
 	}
 	public void setP_end_date(String p_end_date) {
 		this.p_end_date = p_end_date;
-	}
-	public String getp_like() {
-		return p_like;
-	}
-	public void setP_like(String p_like) {
-		this.p_like = p_like;
 	}
 	
 }

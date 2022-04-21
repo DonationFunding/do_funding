@@ -199,9 +199,9 @@ a:hover {
 }
 #bottom-menu1 li {  /* 메뉴를 가로로 배치 */
     float: left;
-	padding: 5px 20px;
+	padding: 5px 10px;
 	list-style: none;
-	line-height: 100px;
+	line-height: 20x;
 	vertical-align: middle;
 	text-align: center;
 }
