@@ -97,7 +97,7 @@ a:hover {
     		<th>주문수량</th>
     		<td colspan="2">
     				<input type="hidden" name="p_num" value="${productBean.p_num }">		
-    				<input type="text" name=orderqty>	    			
+    				<input type="number" name=orderqty>	    			
 <!-- 현재날짜 -->
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set> 

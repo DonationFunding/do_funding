@@ -196,8 +196,8 @@
 					<option value="018">018
 					<option value="019">019
 				</select> - 
-				<input type="text" name="hp2" value="${loginInfo.hp2 }" size="4px"> - 
-				<input type="text" name="hp3" value="${loginInfo.hp3 }" size="4px">
+				<input type="number" name="hp2" value="${loginInfo.hp2 }" size="4px"> - 
+				<input type="number" name="hp3" value="${loginInfo.hp3 }" size="4px">
 			</th>
 		</tr>
 		<tr aling="center">
@@ -220,7 +220,7 @@
 					<option value="SC제일">SC제일
 					<option value="새마을금고">새마을금고
 				</select> -
-				<input type="text" name="account" value="${loginInfo.account }">
+				<input type="number" name="account" value="${loginInfo.account }">
 			</th>
 		</tr>
 				
