@@ -47,7 +47,7 @@ public class AdminProductUpdateController {
 			@RequestParam(value="p_num", required = true) String num,
 			@RequestParam(value="pageNunber", required = false) String pageNumber
 			) {
-		//pageNumber 받는데서 false랑 String으로 안받으면 에러발생함.
+		//pageNumber
 		int p_num=Integer.parseInt(num);
 		List<CategoryBean> cateList = categoryDao.categoryAllByProduct();
 		List<OptionBean> opList = productDao.optionAllByProduct(p_num);
@@ -73,15 +73,15 @@ public class AdminProductUpdateController {
 		 List<OptionBean> opList = productDao.optionAllByProduct(prdBean.getP_num());
 		 
 		 prdBean.setP_point(Math.round(prdBean.getP_origin_price()/1000)*10);
-		 int cnt = productDao.updateProduct(prdBean); //update끝
+		 int cnt = productDao.updateProduct(prdBean); 
 		 if(cnt > 0) {
 			 int item_no=productDao.getP_num();
 			 prdBean.setOption_item_no(item_no);
-			 //옵션 추가하기 전 기존 옵션 삭제
+			 
 			 productDao.itemOptionDelete(prdBean.getOption_item_no());
-			 //옵션추가부분
+			 
 			 for (int i = 0; i < prdBean.getItem_option().length; i++) {
-				 String itemOptionContent = prdBean.getItem_option()[i];	//옵션 1개 값
+				 String itemOptionContent = prdBean.getItem_option()[i];	
 				 System.out.println("itemOptionContent:"+itemOptionContent);
 				 Map<String, Object> map = new HashMap<String, Object>();
 				 map.put("item_option", itemOptionContent);
@@ -89,9 +89,9 @@ public class AdminProductUpdateController {
 				 productDao.itemOptionInsert(map);
 				} 
 			 
-			 //기존 파일 이미지 삭제 필요
+		
 			 
-			 //파일 추가 부분
+			 
 			 String uploadPath = servletContext.getRealPath("/resources/images");
 			 MultipartFile multi = prdBean.getUpload();
 			 File f = new File(uploadPath+"\\" + prdBean.getP_image());

@@ -2,6 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common_top.jsp" %>
 <title>login.jsp</title>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
+</head>
 <center>
 <form action="login.mem" method="post">
 <div class="container">

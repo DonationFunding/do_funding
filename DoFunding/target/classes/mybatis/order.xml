@@ -17,5 +17,23 @@
  	<select id="OrderList" resultType="MyOrder">
  		select * from do_order where o_mnum = #{no} order by o_num desc
  	</select>
+ 
+	<select id="OrderTotalCount" resultType="int">
+		select count(*) from do_order
+		<if test="whatColumn == 'o_mnum'">
+			where o_mnum like #{keyword}
+		</if>
+		order by o_num desc
+	</select>
+ 
+ 	<select id="AllOrderList" resultType="MyOrder">
+ 		select * from do_order 
+ 		<if test="whatColumn=='o_mnum'">
+			where o_mnum like #{keyword}
+		</if>	
+ 		order by o_num desc
+ 	</select>
+ 
+ 
  		
 </mapper>

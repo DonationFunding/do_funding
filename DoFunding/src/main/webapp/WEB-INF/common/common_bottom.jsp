@@ -33,15 +33,19 @@ $('.btn_gotop').click(function(){
 </div>
  <body>
  	<div id="bottom-wrap">
+<<<<<<< HEAD
  		<div id="bottom-menu1">
 	 		<ul >
 	 			<li><a href="company.bot">회사소개</a></li>
+=======
+	 		<ul id="bottom-menu1">
+	 			<li><a href="">회사소개</a></li>
+>>>>>>> refs/remotes/origin/master
 	 			<li><a href="tos.bot">이용약관</a></li>
 	 			<li><a href="">공지사항</a></li>
 	 			<li><a href="">고객센터</a></li>
 	 			<li><a href="map.bot">오시는길</a></li>
 	 		</ul>
- 		</div>
 	 	<div class="bottom-menu2">
 		 	<div class="bottom-1">
 		 		<h1><a href="<c:url value="/"/>">두  펀  딩</a></h1>

@@ -23,7 +23,7 @@
 	<tr>
 		<th class="text-center">번호</th>
 		<th colspan="2" class="text-center">제목</th>
-		<th class="text-center">작성자</th>
+		<th class="text-center">작성일</th>
 		<th class="text-center">조회</th>
 	</tr>
 		<c:if test="${noticeList == null}">

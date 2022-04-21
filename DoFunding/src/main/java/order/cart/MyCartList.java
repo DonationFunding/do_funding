@@ -41,5 +41,14 @@ public class MyCartList {
 		return orderlists;
 
 	}
+
+	public void deleteOrder(int p_num, int option_no) {
+		for(int i=0;i<orderlists.size();i++) {	
+			if((orderlists.get(i)[0] == p_num) && (orderlists.get(i)[2] == option_no)) {
+				//상품번호랑 옵션 같은거 장바구니에서 삭제
+				orderlists.remove(i);
+			}
+		}			
+	}
 	
 }

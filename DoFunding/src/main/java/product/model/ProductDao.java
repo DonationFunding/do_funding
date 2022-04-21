@@ -86,7 +86,7 @@ public class ProductDao {
 
 
 	public int productDelete(int p_num) {
-		int cnt = sqlSessionTemplate.delete(namespace+".ProductDelete",p_num);
+		int cnt = sqlSessionTemplate.delete(namespace+".DeleteProduct",p_num);
 		return cnt;
 	}
 
@@ -102,9 +102,13 @@ public class ProductDao {
 
 		return count;
 		
-		
 	}
 
+	public int updateTotal_price(ProductBean pb) {
+		int cnt=sqlSessionTemplate.update(namespace+".UpdateTotal_price", pb);
+		return cnt;
+	}	
+	
 	public List<ProductBean> rotatorList() {
 		List<ProductBean> list=sqlSessionTemplate.selectList(namespace+".RotatorList");
 		return list;
@@ -114,6 +118,8 @@ public class ProductDao {
 		OptionBean option=sqlSessionTemplate.selectOne(namespace+".GetOption", option_no);
 		return option;
 	}
+
+
 
 
 }
