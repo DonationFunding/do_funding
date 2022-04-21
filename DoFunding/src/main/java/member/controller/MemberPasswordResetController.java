@@ -43,7 +43,7 @@ public class MemberPasswordResetController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('ÆÐ½º¿öµå¸¦ º¯°æÇÏ¿´½À´Ï´Ù.');</script>");
+			pw.println("<script> alert('ë¹„ë°€ë²ˆí˜¸ ë³€ê²½ì™„ë£Œ');</script>");
 			pw.flush();
 			return gotoPage;
 		}//if
@@ -53,7 +53,7 @@ public class MemberPasswordResetController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('ÆÐ½º¿öµå¸¦ º¯°æÇÏÁö ¸øÇß½À´Ï´Ù. Àá½ÃÈÄ ´Ù½Ã ½ÃµµÇØº¸½Ã±â ¹Ù¶ø´Ï´Ù. ¹®Á¦°¡ ¹Ýº¹µÉ°æ¿ì °í°´¼¾ÅÍ·Î ¿¬¶ôÁÖ½Ê½Ã¿ä.');</script>");
+			pw.println("<script> alert('ë¹„ë°€ë²ˆí˜¸ ë³€ê²½ ì‹¤íŒ¨.');</script>");
 			pw.flush();
 			return getPage;
 		}

@@ -1,9 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common_top.jsp" %>
+<script type="text/javascript">
+	function check(myform){
+		if (myform.name.value.length==0){
+			alert("이름을 입력하세요.");
+			myform.name.focus();
+			return false;
+		}
+		if (myform.birthday.value.length==""){
+			alert("생년월일을 입력하세요");
+			myform.birthday.focus();
+			return false;
+		}
+		
+	}
+</script>
  <center>
 findpwd.jsp <br>
-<form action="findpw.mem" method="post">
+<form name="myform" action="findpw.mem" method="post">
 <table border="1">
 	<tr>
 		<td align="center">아이디</td>
@@ -21,7 +36,7 @@ findpwd.jsp <br>
 	</tr>
 	<tr>
 		<td align="center"colspan="2">
-			<input type="submit" value="비밀번호찾기">
+			<input type="submit" value="비밀번호찾기" onclick="return check(myform)">
 		</td>
 	</tr>
 </table>

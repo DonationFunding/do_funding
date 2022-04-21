@@ -20,23 +20,29 @@ import member.model.MemberDao;
 public class MemberUpdateController {
 	private final String command = "/update.mem";
 	private final String getPage = "member_updateForm";
-	private String gotoPage = "redirect:memberInfo.mem";
+	private String gotoPage = "member_detailView";
 	
 	@Autowired
 	MemberDao mdao;
 	
 	@RequestMapping(value = command , method = RequestMethod.GET)
 	public ModelAndView doAction(MemberBean membean) {
-		MemberBean loginInfo = mdao.getLoginInfo(membean);
+		MemberBean loginInfo;
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("loginInfo", loginInfo);
+		if(membean == null) {
+			loginInfo = mdao.getLoginInfo(membean);
+			mav.addObject("loginInfo", loginInfo);
+		}
 		mav.setViewName(getPage);
 		return mav;
 	}
 
 	@RequestMapping(value = command , method = RequestMethod.POST)
-	public String doAction(MemberBean membean,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+	public ModelAndView doAction(MemberBean membean,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		response.setContentType("text/html; charset=UTF-8");
+		System.out.println("update.mem(post)"+membean.getId());
+		System.out.println("update.mem(post)"+membean.getPassword());
+		ModelAndView mav=new ModelAndView();
 		int cnt = mdao.updateMember(membean);
 		PrintWriter pw=null;
 		if(cnt > 0) {
@@ -45,15 +51,18 @@ public class MemberUpdateController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			MemberBean loginInfo = mdao.getLoginInfo(membean);
+			session.setAttribute("loginInfo", loginInfo);
 			pw.println("<script> alert('수정이 완료 되었습니다');</script>");
 			pw.flush();
 			String destination = (String)session.getAttribute("destination");
 			if(destination ==null) {
-				return gotoPage;
+				mav.setViewName(gotoPage);
+				return mav;
 			}
 			else {
-				
-				return destination;					
+				mav.setViewName(destination);
+				return mav;					
 			}
 		}//if
 		else {
@@ -64,7 +73,8 @@ public class MemberUpdateController {
 			}
 			pw.println("<script> alert('정보수정에 실패했습니다.');</script>");
 			pw.flush();
-			return getPage;
+			mav.setViewName(getPage);
+			return mav;
 		}
 	}
 }
