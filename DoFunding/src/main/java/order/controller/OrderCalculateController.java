@@ -15,6 +15,7 @@ import member.model.MemberDao;
 import order.cart.MyCartList;
 
 import order.model.OrderDao;
+import orderdetail.model.DonationBean;
 import orderdetail.model.OrderDetailBean;
 import orderdetail.model.OrderDetailDao;
 import product.model.OptionBean;
@@ -75,15 +76,20 @@ public class OrderCalculateController {
 			ProductBean pb = productDao.getProduct(p_num);
 			OptionBean ob = productDao.getOption(option_no);
 			
+			//주문상세 작성
 			OrderDetailBean odBean=new OrderDetailBean();
 			odBean.setOd_o_num(maxOnum);	//주문뭉태기요 번호
 			odBean.setOd_p_num(p_num);		//상품번호
 			odBean.setOd_option_no(option_no);//선택된 상품옵션번호
 			odBean.setOd_qty(o_qty);		//주문수량
-
 			orderDetailDao.insertOrderDetail(odBean);
+			
 			//30% 후원금 누적
 			point += o_qty*pb.getP_origin_price()/0.3;
+			DonationBean doBean=new DonationBean();
+			doBean.setDo_o_num(maxOnum);
+			doBean.setDona_money((int)Math.round(point));
+			orderDetailDao.insertDonation(doBean);
 		}
 		int mpoint= (int) Math.round(point);
 		// 회원 mpoint 누적

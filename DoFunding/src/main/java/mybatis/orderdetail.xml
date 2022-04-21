@@ -12,4 +12,10 @@
 		insert into do_orderdetail(od_num, od_o_num, od_p_num, od_option_no, od_qty)
 		values(seqod.nextval, #{od_o_num}, #{od_p_num}, #{od_option_no}, #{od_qty})
 	</insert>
+	
+	<insert id="InsertDonation" >
+		insert into do_donation(dona_num, do_o_num, dona_money)
+		values(seqdona.nextval, #{do_o_num}, #{dona_money})
+	</insert>
+	
 </mapper>

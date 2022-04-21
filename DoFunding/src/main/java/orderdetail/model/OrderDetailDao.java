@@ -25,6 +25,11 @@ public class OrderDetailDao {
 	public void orderDetailList(OrderDetailBean odBean) {
 		sqlSessionTemplate.selectList(namespace + ".OrderDetailList", odBean);
 	}
+
+	public void insertDonation(DonationBean doBean) {
+		int cnt=sqlSessionTemplate.insert(namespace+".InsertDonation",doBean);
+		System.out.println(cnt);
+	}
 	
 }
 

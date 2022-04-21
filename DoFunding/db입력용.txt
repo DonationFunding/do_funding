@@ -248,6 +248,20 @@ create table do_orderdetail(
 commit;
 
 
+drop sequence seqdona ;
+create sequence seqdona start with 1 increment by 1 nocache ;
+
+DROP TABLE do_orderdetail CASCADE CONSTRAINTS;
+create table do_donation(
+--후원금번호
+	dona_num number primary key,
+--주문번호
+	do_o_num  number references do_order(o_num) on delete cascade,
+--후원금액
+	dona_money number
+)	
+
+commit;
 
 
 --기본 게시판 
