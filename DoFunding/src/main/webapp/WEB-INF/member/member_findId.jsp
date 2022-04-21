@@ -7,16 +7,12 @@
 </head>
 <script type="text/javascript">
 	function findIdcheck(myform){
-<<<<<<< HEAD
-		if (myform.name.value==""){
-=======
-		if (myform.name.value.length==0){
->>>>>>> refs/remotes/origin/master
+		if (myform.name.value()==""){
 			alert("이름을 입력하세요.");
 			myform.name.focus();
 			return false;
 		}
-		if (myform.birthday.value.==""){
+		if (myform.birthday.value()==""){
 			alert("생년월일을 입력하세요");
 			myform.birthday.focus();
 			return false;
@@ -27,7 +23,7 @@
 <br>
 <h3>아이디찾기</h3>
 <br>
-<form:form commandName="memberBean" action="findid.mem" method="post">
+<form name="myform" action="findid.mem" method="post">
 	<div class="container">
     <table class="table" class="text-center">
 	
@@ -51,6 +47,6 @@
 </table>
 </div>
 
-</form:form>
+</form>
 </center>
 <%@ include file="../common/common_bottom.jsp" %>
