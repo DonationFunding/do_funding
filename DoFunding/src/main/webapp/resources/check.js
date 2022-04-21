@@ -24,7 +24,6 @@ function check(){
 			alert("비밀번호를 입력하세요.");
 			$('input[name="b_passwd"]').focus();
 			return false;
-		}
-		
+		}	
 	}//check
 
