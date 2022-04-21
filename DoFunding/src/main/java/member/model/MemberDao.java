@@ -36,12 +36,6 @@ public class MemberDao {
 	public int updatePassword(MemberBean membean) {
 		int cnt = -1;
 		cnt = sqlSessionTemplate.update(namespace+".UpdatePassword", membean);
-		if(cnt < 0) {
-			System.out.println("��й�ȣ ���� ����");
-		}
-		else {
-			System.out.println("��й�ȣ ���� ���� "+cnt);
-		}
 		return cnt;
 	}
 
