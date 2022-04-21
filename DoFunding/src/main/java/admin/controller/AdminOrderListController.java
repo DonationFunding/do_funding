@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,18 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import member.model.MemberBean;
-
 import order.model.OrderBean;
 import order.model.OrderDao;
-import orderdetail.model.DonationBean;
-import product.model.ProductDao;
 import utility.Paging;
 
 @Controller
 public class AdminOrderListController {
 
-	private final String command = "/admin_ord_list.ord";
+	private final String command = "/admin_ord_list.ad";
 	private String getPage = "admin_ord_list";
 
 	@Autowired

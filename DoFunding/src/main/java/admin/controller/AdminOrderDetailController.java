@@ -29,7 +29,6 @@ public class AdminOrderDetailController {
 		mav.addObject("detailList", detailList);
 		mav.addObject("o_num", o_num);
 		mav.setViewName(getPage);
-		
 		return mav;
 	}
 

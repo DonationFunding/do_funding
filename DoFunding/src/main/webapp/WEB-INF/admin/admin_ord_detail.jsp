@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common_top.jsp" %>   
+<%@ include file="admin_top.jsp" %>   
 
 <style>
 	.order-detail {
@@ -13,7 +13,7 @@
 <center>
 <div class="order-detail">
 	<div class="od-head" style="margin-bottom: 50px;">
-		<h1>주문 상세 내역</h1><a href="order.ord">주문내역</a>
+		<h1>주문 상세 내역</h1><a href="admin_ord_list.ad">주문내역</a>
 	</div>
 	<table class="od-table" style="margin: auto; border-bottom: 1px solid #555" border="1">
 		<div class="od-menu">
@@ -75,4 +75,4 @@
 	</table>
 </div>
 </center>
-<%@ include file="../common/common_bottom.jsp" %>  
+<%@ include file="admin_bottom.jsp" %>  

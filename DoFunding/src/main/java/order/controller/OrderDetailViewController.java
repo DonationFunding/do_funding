@@ -28,8 +28,7 @@ public class OrderDetailViewController {
 		System.out.println("detailList:"+detailList.size());
 		mav.addObject("detailList", detailList);
 		mav.addObject("o_num", o_num);
-		mav.setViewName(getPage);
-		
+		mav.setViewName(getPage);	
 		return mav;
 	}
 
