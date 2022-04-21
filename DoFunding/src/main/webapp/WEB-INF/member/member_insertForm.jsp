@@ -42,13 +42,12 @@
 <center>
 <form name="myform" action="insert.mem" method="post">
 	<div class="container"> 
-	<table border="1">
-		<tr>
-			<td align="center" width="130px">아이디 :</td>
-			<td>
+	<table class="table">
+		<tr align="center">
+			<th class="text-center" width="130px">아이디 :
 				<input type="text" name="id" <c:if test="${param.id != null }">value="${param.id}"</c:if>>
-				<input type="button" value="중복체크" onclick="return idcheck(myform)">
-			</td>
+				<input type="button" value="중복체크" onclick="return idcheck(myform)" class="btn btn-default btn-sm">
+			</th>
 		</tr>
 		<tr align="center">
 			<th class="text-center">
@@ -63,20 +62,15 @@
 		<tr align="center">
 			<th class="text-center">
 			    이름 : <input type="text" name="name">
-			    <form:errors cssClass="err" path="name"/>
 			</th>
 		<tr>
 		<tr align="center">
 			<th class="text-center">
 			    생년월일 : <input type="date" name="birthday" style = "height : 30px;" >
 			</th>
-			<td align="center">이름 :</td>
-			<td>
-				<input type="text" name="name">
-			</td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center">
+			<td align="center">
 			<input type="submit" value="가입하기" class="btn btn-default btn-sm" onclick="idcheck(myform)"></td>
 		</tr>
 	</table>
