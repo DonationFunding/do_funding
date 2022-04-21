@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common_top.jsp" %>
+<<<<<<< HEAD
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
@@ -17,11 +18,86 @@
 			<th class="text-center">
 			아이디 : <input type="text" name="id" <c:if test="${loginInfo.id != null}">value="${loginInfo.id }" readonly</c:if>>
 			</th>
+=======
+<script type="text/javascript">
+	var count = 0;
+	function check(myform){
+		if (myform.password.value.length==0){
+			alert("비밀번호를 입력하세요.");
+			myform.password.focus();
+			return false;
+		}
+		if (myform.repassword.value != myform.password.value){
+			alert("비밀번호가 일치하지 않습니다.");
+			myform.repassword.focus();
+			return false;
+		}
+		if (myform.password.value != myform.key.value){
+			alert("비밀번호를 확인하세요.");
+			count += 1;
+			alert(count)
+			myform.repassword.focus();
+			return false;
+		}
+		hp2value = myform.hp2.value;
+		hp3value = myform.hp3.value;
+		if(hp2value==""){
+			alert("전화번호를 입력하세요");
+			return false;
+		}
+		if(isNaN(hp2value)){
+			alert("전화번호는 숫자로 입력하세요");
+			return false;
+		}
+		if(hp3value==""){
+			alert("전화번호를 입력하세요");
+			return false;
+		}
+		if(isNaN(hp3value) || hp3value==""){
+			alert("전화번호는 숫자로 입력하세요");
+			return false;
+		}
+		if(myform.address1.value.length==0){
+			alert("주소를 입력하세요.");
+			myform.address1.focus();			
+			return false;
+		}
+		if(myform.address2.value.length==0){
+			alert("상세 주소를 입력하세요.");
+			myform.address2.focus();			
+			return false;
+		}
+		if(myform.account.value.length==0){
+			alert("계좌번호를 입력하세요.");
+			myform.account.focus();			
+			return false;
+		}
+	}
+</script>
+ <center>
+<title>update.jsp</title>
+<form name="myform" action="update.mem" method="post"> 
+	<table border="1">
+		<tr>
+			<td align="center" width="130px">아이디 :</td>
+			<td>
+				<input type="text" name="id" <c:if test="${loginInfo.id != null}">value="${loginInfo.id }" readonly</c:if>>
+			</td>
+>>>>>>> refs/remotes/origin/do-pms
 		</tr>
+<<<<<<< HEAD
 		<tr aling="center">
 			<th class="text-center">
 			패스워드 : <input type="password" name="password">
 			</th>
+=======
+		<tr>
+			<td align="center">패스워드 :</td>
+			<td>
+				<input type="hidden" name="key" value="${loginInfo.password }">
+				<input type="password" name="password">
+			</td>
+>>>>>>> refs/remotes/origin/do-pms
 		</tr>
 		<tr aling="center">
 			<th class="text-center">
@@ -88,7 +164,11 @@
 		</tr>
 				
 		<tr>
+<<<<<<< HEAD
 			<td colspan="2" align="center"><input type="submit" value="변경하기" class="btn btn-default btn-sm"></td>
+=======
+			<td colspan="2" align="center"><input type="submit" value="변경하기" onclick="return check(myform)"></td>
+>>>>>>> refs/remotes/origin/do-pms
 		</tr>
 	</table>
 	</div>

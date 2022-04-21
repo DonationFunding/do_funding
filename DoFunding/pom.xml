@@ -21,7 +21,7 @@
 			<name>ORACLE JDBC Repository</name>
 			<url>http://maven.jahia.org/maven2</url>
 		</repository>
-	</repositories>			
+	</repositories>		 	
 	<dependencies>
 		<!-- Spring -->
 		<dependency>
