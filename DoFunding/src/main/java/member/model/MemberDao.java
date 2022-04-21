@@ -27,7 +27,9 @@ public class MemberDao {
 
 	public MemberBean findId(MemberBean membean) {
 		MemberBean findid = sqlSessionTemplate.selectOne(namespace+".FindId", membean);
-		System.out.println("dao/findid.getId :"+findid.getId());
+		if(findid!=null) {
+			System.out.println("dao/findid.getId :"+findid.getId());			
+		}
 		return findid;
 	}
 

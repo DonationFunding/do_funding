@@ -23,25 +23,25 @@
 findid.jsp<br>
 <form name="myform" action="findid.mem" method="post">
 <div class="container">
-<table border="1">
-	<tr>
-		<td align="center">이름</td>
-		<td>
-			<input type="text" name="name">
-		</td>
-	</tr>
-	<tr>
-		<td align="center">생년월일</td>
-		<td>
-			<input type="date" name="birthday">		
-		</td>
-	</tr>
-	<tr>
-		<td align="center"colspan="2">
-			<input type="submit" value="아이디 찾기" onclick="return check(myform)">
-		</td>
-	</tr>
-</table>
+	<table border="1">
+		<tr>
+			<td align="center">이름</td>
+			<td>
+				<input type="text" name="name">
+			</td>
+		</tr>
+		<tr>
+			<td align="center">생년월일</td>
+			<td>
+				<input type="date" name="birthday">		
+			</td>
+		</tr>
+		<tr>
+			<td align="center"colspan="2">
+				<input type="submit" value="아이디 찾기" onclick="return check(myform)">
+			</td>
+		</tr>
+	</table>
 </div>
 </form>
 </center>
