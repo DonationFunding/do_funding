@@ -25,10 +25,11 @@ public class BoardDao {
 		return cnt;
 	}//insertArticle
 	
-	public int deleteArticle(BoardBean article, String passwd){
+	public int deleteArticle(BoardBean article){
 		int cnt=-1;
-		passwd=sqlSessionTemplate.selectOne(namespace+".GetArticlePasswd", article);
+		String passwd=sqlSessionTemplate.selectOne(namespace+".GetArticlePasswd", article);
 		if(passwd.equals(article.getB_passwd())) {
+			article=sqlSessionTemplate.selectOne(namespace+".GetArticle", article);
 			cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", article);			
 		}
 		else {
@@ -38,7 +39,7 @@ public class BoardDao {
 		return cnt;
 	}//deleteArticle
 	
-	//���
+	
 	public int replyArticle(BoardBean article){
 		int cnt=-1;
 		sqlSessionTemplate.update(namespace+".ReplyPlus", article);			
