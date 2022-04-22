@@ -77,8 +77,17 @@
  		p_image=#{p_image}, p_content=#{p_content}, p_origin_price=#{p_origin_price}, 
  		p_end_price=#{p_end_price}, p_point=#{p_point}, p_start_date=#{p_start_date}, 
  		p_end_date=#{p_end_date}
- 		where p_num = ${p_num}
+ 		where p_num = #{p_num}
 	</update>
+	
+	<!--상품 결제시 금액 기존꺼에 추가기입  -->
+	<update id="UpdateTotal_price">
+ 		update do_product set 
+ 		p_total_price=p_total_price+#{p_total_price}
+ 		where p_num = #{p_num}
+	</update>
+
+
 	
 	
 	<!-- 옵션용 -->

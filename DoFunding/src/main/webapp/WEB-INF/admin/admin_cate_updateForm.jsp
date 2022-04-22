@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file ="admin_top.jsp" %>
+<script type="text/javascript">
+
+</script>
 <center>
 <br>
 <b>카테고리수정</b>
 <br>
-<form method="post" action="admin_cate_update.ad" >
+<form method="post" action="admin_cate_update.ad" name="myform">
 	<input type="hidden" name="cnum" value="${cateBean.cnum}">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
 	<div class="container">

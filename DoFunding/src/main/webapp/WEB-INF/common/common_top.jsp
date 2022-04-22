@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+`<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="common.jsp"%>
 <!DOCTYPE html>
@@ -35,6 +35,7 @@
 						&nbsp;<a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a>
 						&nbsp;<a href="memberInfo.mem">회원정보</a>
 						&nbsp;<a href="list.like?">찜목록</a>
+						&nbsp;<a href="cart_list.ord">장바구니</a>
 						&nbsp;<a href="order.ord">주문내역</a>
 					</li>
 				</ul>
@@ -54,7 +55,6 @@
 
 							<li class="m2"><a href="#">두펀딩</a>
 								<ul class="sec m2_Menu" align="center">
-									<li><a href="#">Donation Funding</a></li>
 									<li><a href="dona.ord">후원 기록</a></li>
 								</ul>
 							</li>

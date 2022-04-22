@@ -26,7 +26,6 @@ import product.model.ProductDao;
 @Controller
 public class OrderCalculateController {
 	private final String command = "/calculate.ord";
-	//private String getPage = "redirect:/cart_list.ord";
 	private String gotoPage = "redirect:/order.ord";
 	
 	@Autowired
@@ -71,7 +70,10 @@ public class OrderCalculateController {
 			int option_no = info[2];	//선택된 옵션번호
 
 			ProductBean pb = productDao.getProduct(p_num);
-	
+			//상품 진행상황 금액 추가
+			pb.setP_total_price(o_qty*pb.getP_origin_price());
+			productDao.updateTotal_price(pb);
+			
 			//주문상세 작성
 			OrderDetailBean odBean=new OrderDetailBean();
 			odBean.setOd_o_num(maxOnum);	//주문뭉태기요 번호
