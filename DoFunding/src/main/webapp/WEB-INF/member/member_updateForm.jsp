@@ -30,7 +30,7 @@
 			location.href="/list.prd";
 		}
 		alert(2)
-		var genderarr = myform.getElementsByName('gender');
+		var genderarr = myform.getElementsByName("gender");
 		alert(2)
 		var flag = true;
 		for(var i=0;i<genderarr.length;i++){
