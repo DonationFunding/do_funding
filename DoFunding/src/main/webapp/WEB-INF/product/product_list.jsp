@@ -73,7 +73,7 @@
 				<option value="p_subject">상품명</option>
 				<option value="p_content">설명</option>
 			</select> <input type="text" name="keyword"> <input type="submit"
-				value="검색">
+				value="검색" class="btn btn-default btn-sm">
 		</form>
 	</div>
 	
@@ -94,8 +94,8 @@
 			<div>
 				<table border="1" width="800">
 					<tr>
-						<c:forEach var="p_product" items="${prdList}" varStatus="status">
-							<fmt:parseDate value="${p_product.p_start_date}" var="sValue"
+						<c:forEach var="prdBean" items="${prdList}" varStatus="status">
+							<fmt:parseDate value="${prdBean.p_start_date}" var="sValue"
 								pattern="yyyy-MM-dd" />
 							<fmt:parseNumber value="${sValue.time / (1000*60*60*24)}"
 								integerOnly="true" var="s_Date"></fmt:parseNumber>
@@ -103,7 +103,7 @@
 								<fmt:formatDate value="${sValue}" pattern="yyyy-MM-dd" />
 							</c:set>
 
-							<fmt:parseDate value="${p_product.p_end_date}" var="eValue"
+							<fmt:parseDate value="${prdBean.p_end_date}" var="eValue"
 								pattern="yyyy-MM-dd" />
 							<fmt:parseNumber value="${eValue.time / (1000*60*60*24)}"
 								integerOnly="true" var="e_Date"></fmt:parseNumber>
@@ -117,20 +117,20 @@
 										<td><c:choose>
 												<c:when test="${0>(t_Date-s_Date)}">
 													<a
-														href="detail.prd?p_num=${p_product.p_num}&pageNumber=${pageInfo.pageNumber}">
+														href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}">
 														<img width="250px" height="250px"
 														alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 														src="<%=request.getContextPath() %>/resources/images/comingsoon1.png"><br>
-														${p_product.p_subject}<br>
+														${prdBean.p_subject}<br>
 													</a>
 												</c:when>
 												<c:otherwise>
 													<a
-														href="detail.prd?p_num=${p_product.p_num}&pageNumber=${pageInfo.pageNumber}">
+														href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}">
 														<img width="250px" height="250px"
 														alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-														src="<%=request.getContextPath() %>/resources/images/${p_product.p_image}"><br>
-														${p_product.p_subject}<br>
+														src="<%=request.getContextPath() %>/resources/images/${prdBean.p_image}"><br>
+														${prdBean.p_subject}<br>
 													</a>
 												</c:otherwise>
 											</c:choose></td>
@@ -142,19 +142,19 @@
 									</tr>
 									<tr>
 										<td><span style="float: left;">금액 :
-												${p_product.p_total_price}/${p_product.p_end_price} 원</span></td>
+												${prdBean.p_total_price}/${prdBean.p_end_price} 원</span></td>
 									</tr>
 									<tr>
 										<td><span style="float: left;">진행률 :
-												${(p_product.p_total_price/p_product.p_end_price)*100} %</span><span
-											style="float: right;">조회수:${p_product.p_readcount}</span><br>
+												<fmt:formatNumber value="${(prdBean.p_total_price/prdBean.p_end_price)*100}" pattern=".00" /> %</span>
+												<span style="float: right;">조회수:${prdBean.p_readcount}</span><br>
 										</td>
 									</tr>
 									<tr>
 										<td><input type="range" width="80%" name="userRange"
-											min="1" max="${p_product.p_end_price}"
-											step="${p_product.p_end_price/100}"
-											value="${p_product.p_total_price}" disabled="disabled" /></td>
+											min="1" max="${prdBean.p_end_price}"
+											step="${prdBean.p_end_price/100}"
+											value="${prdBean.p_total_price}" disabled="disabled" /></td>
 									</tr>
 									<tr>
 										<td><c:choose>
@@ -172,7 +172,7 @@
 														</c:when>
 														<c:otherwise>
 															<c:choose>
-																<c:when test="${p_product.p_readcount>10}">
+																<c:when test="${prdBean.p_readcount>10}">
 																	<img width="25px"
 																		alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 																		src="<%=request.getContextPath() %>/resources/images/hot.gif">

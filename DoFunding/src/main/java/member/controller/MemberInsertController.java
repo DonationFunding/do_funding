@@ -31,19 +31,16 @@ public class MemberInsertController {
 	}
 	
 	@RequestMapping(value = command,method = RequestMethod.POST)
-	public  ModelAndView doAction(@Valid MemberBean membean,BindingResult result,HttpSession session,HttpServletResponse response) {
+	public  ModelAndView doAction(MemberBean membean,HttpSession session,HttpServletResponse response) {
+		response.setContentType("text/html; charset=UTF-8");
 		ModelAndView mav = new ModelAndView();
-		if(result.hasErrors()) {
-			mav.setViewName(getPage);
-			return mav;
-		}
 
 		int cnt = mdao.insertMember(membean);
 		if(cnt < 0) {
-			System.out.println("È¸¿ø°¡ÀÔ ½ÇÆÐ");
+			System.out.println("íšŒì›ê°€ìž… ì‹¤íŒ¨");
 		}
 		else {
-			System.out.println("È¸¿ø°¡ÀÔ ¼º°ø");
+			System.out.println("íšŒì›ê°€ìž… ì„±ê³µ");
 		}
 		mav.setViewName(gotoPage);
 		return mav;

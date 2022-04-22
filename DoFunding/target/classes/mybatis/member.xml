@@ -5,8 +5,30 @@
 
 <mapper namespace="member.model.Member">
 
+	<select id="GetTotalCount" resultType="int">
+		select count(*) from do_members
+		<if test="whatColumn == 'id'">
+			where id like #{keyword}
+		</if>
+		<if test="whatColumn == 'name'">
+			where name like #{keyword}
+		</if>
+		order by no
+	</select>
+	
 	<select id="GetLoginInfo" resultType="MyMember">
 		select * from do_members where id=#{id}
+	</select>
+	
+	<select id="GetAllMember" resultType="MyMember">
+		select * from do_members
+		<if test="whatColumn == 'id'">
+			where id like #{keyword}
+		</if>
+		<if test="whatColumn == 'name'">
+			where name like #{keyword}
+		</if>
+		order by no
 	</select>
 	
 	<select id="FindId" resultType="MyMember">
@@ -20,6 +42,22 @@
 	<update id="UpdatePassword">
 		update do_members set password=#{password} where id=#{id}
 	</update>
+	
+	<update id="UpgradeMember">
+		update do_members set admin='0' where no=#{no}
+	</update>
+	
+	<update id="UpdateMember">
+		update do_members set gender=#{gender} , hp1=#{hp1} , hp2=#{hp2} , hp3=#{hp3} , address1=#{address1} , address2=#{address2} , accountbank=#{accountbank} , account=#{account} where id=#{id}
+	</update>
+	
+	<update id="MpointUpdate">
+		update do_members set mpoint=mpoint + #{mpoint} where no=#{no}
+	</update>
+	
+	<delete id="DeleteMember">
+		delete do_members where no=#{no}
+	</delete>
 </mapper>
 <!-- member.xml -->
 

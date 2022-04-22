@@ -8,13 +8,13 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class MemberBean {
 	private int no;
 	private String admin;
-	@NotEmpty(message = "¾ÆÀÌµğ´Â ÇÊ¼ö ÀÔ·ÂÀÔ´Ï´Ù.")
+	@NotEmpty(message = "idì…ë ¥")
 	private String id;
-	@Size(min = 3,max = 8,message = "ÆĞ½º¿öµå´Â 3~8ÀÚ¸® ÀÔ´Ï´Ù")
+	@Size(min = 3,max = 8,message = "ë¹„ë°€ë²ˆí˜¸ ì…ë ¥")
 	private String password;
-	@NotEmpty(message = "ÀÌ¸§Àº ÇÊ¼ö ÀÔ·ÂÀÔ´Ï´Ù.")
+	@NotEmpty(message = "ì´ë¦„ ì…ë ¥.")
 	private String name; 
-	@NotEmpty(message = "»ı³â¿ùÀÏÀº ÇÊ¼ö ÀÔ·ÂÀÔ´Ï´Ù.")
+	@NotEmpty(message = "ìƒì¼ ì…ë ¥")
 	private String birthday;
 	private String joindate;
 	private String gender;

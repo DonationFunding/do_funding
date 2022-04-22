@@ -1,10 +1,10 @@
 package like.model;
 
 public class LikeBean {
-	private int l_num; 	
-	private int m_no; 	
-	private int lp_num; 	
-	private int l_check;
+	private int l_num; 	//찜하기 테이블 번호
+	private int m_no; 	//회원번호
+	private int lp_num; //상품 번호	
+	private int l_check;//찜하기 상태
 	
 	
 	public LikeBean() {

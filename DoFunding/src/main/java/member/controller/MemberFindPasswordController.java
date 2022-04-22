@@ -40,7 +40,7 @@ public class MemberFindPasswordController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('ÀÔ·ÂÇÏ½Å Á¤º¸¿Í ÀÏÄ¡ÇÏ´Â ¾ÆÀÌµğ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù');</script>");
+			pw.println("<script> alert('ì°¾ìœ¼ì‹œëŠ” íšŒì›ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤');</script>");
 			pw.flush();
 			return getPage;
 		}//if
