@@ -73,6 +73,7 @@
 			</td>
 			<td>
 				<input type="button" value="등업" class="btn btn-default btn-sm" onclick="location.href='upgrade.ad?no=${memList.no}'">
+				<input type="button" value="삭제" class="btn btn-default btn-sm" onclick="location.href='delete.ad?no=${memList.no}'">
 			</td>
 		</tr>
 		
@@ -80,6 +81,22 @@
 	
 </table>
 </div>
+<br>
+<br>
+<form action="admin_mem_list.ad" method="get">
+		<select name="whatColumn">
+			<option value="all">선택</option>
+			<option value="id">id</option>
+			<option value="name">이름</option>
+		</select> 
+		<input type="text" name="keyword"> 
+		<input type="submit" value="검색" class="btn btn-default btn-sm">
+	</form>
+<div class="container">
+			<ul class="pagination pagination-sm">
+				${pageInfo.pagingHtml}
+			</ul>
+	</div>
 </center>
 
 

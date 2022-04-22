@@ -1,10 +1,14 @@
 package member.model;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import utility.Paging;
 
 @Component("myMemberDao")
 public class MemberDao {
@@ -39,8 +43,9 @@ public class MemberDao {
 		return cnt;
 	}
 
-	public List<MemberBean> getAllMember() {
-		List<MemberBean> memlist = sqlSessionTemplate.selectList(namespace+".GetAllMember");
+	public List<MemberBean> getAllMember(Paging pageInfo, Map<String, String> map) {
+		RowBounds rowBounds=new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
+		List<MemberBean> memlist = sqlSessionTemplate.selectList(namespace+".GetAllMember",map,rowBounds);
 		return memlist;
 	}
 
@@ -61,6 +66,17 @@ public class MemberDao {
 		mb.setNo(no);
 		mb.setMpoint(mpoint);
 		sqlSessionTemplate.update(namespace+".MpointUpdate",mb);		
+	}
+
+	public int totalCount(Map<String, String> map) {
+		int count = sqlSessionTemplate.selectOne(namespace+".GetTotalCount",map);
+		return count;
+	}
+
+	public int deleteMember(String no, int no1) {
+		int cnt=-1;
+		cnt = sqlSessionTemplate.delete(namespace+".DeleteMember",no);
+		return cnt;
 	}
 
 }

@@ -24,7 +24,7 @@
 <h3>비밀번호 재설정</h3>
 <br>
 
-<form:form commandName="memberBean" action="update.mem" method="post"> 
+<form action="update.mem" method="post" name="myform"> 
 	<div class="container">
     <table class="table" class="text-center">
      
@@ -69,6 +69,6 @@
 		</tr>
 	</table>
 	</div>
-</form:form>
+</form>
 </center>
 <%@ include file="../common/common_bottom.jsp" %>
