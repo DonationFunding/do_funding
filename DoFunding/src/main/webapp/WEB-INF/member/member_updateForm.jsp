@@ -73,27 +73,63 @@
 	<div class="container">
     <table class="table" class="text-center">
 		<tr align="center">
+<<<<<<< HEAD
 			<th >
+=======
+		    <td width="35%">
+		    </td>
+			<th>
+>>>>>>> refs/remotes/origin/do-khc
 			아이디 : <input type="text" name="id" <c:if test="${loginInfo.id != null}">value="${loginInfo.id }" readonly</c:if>>
 			</th>
+			<td width="28%">
+		    </td>
 		</tr>
 		<tr align="center">
+<<<<<<< HEAD
 			<th class="text-center">
 			패스워드 : <input type="password" name="password"><input type="hidden" name="key" value="${loginInfo.password }">
+=======
+		    <td>
+		    </td>
+			<th>
+			패스워드 : <input type="password" name="password">
+>>>>>>> refs/remotes/origin/do-khc
 			</th>
+			<td>
+		    </td>
 		</tr>
 		<tr align="center">
+<<<<<<< HEAD
 			<th class="text-center">
+=======
+		    <td>
+		    </td>
+			<th>
+>>>>>>> refs/remotes/origin/do-khc
 			패스워드 확인 : <input type="password" name="repassword">
 			</th>
+			<td>
+		    </td>
 		</tr>
 		<tr align="center">
+<<<<<<< HEAD
 			<th class="text-center">
+=======
+		    <td></td>
+			<th>
+>>>>>>> refs/remotes/origin/do-khc
 			이름 : <input type="text" name="name" <c:if test="${loginInfo.name != null}">value="${loginInfo.name }" readonly</c:if>>
 			</th>
+			<td></td>
 		</tr>
 		<tr align="center">
+<<<<<<< HEAD
 			<th class="text-center">
+=======
+			<td></td>
+			<th>
+>>>>>>> refs/remotes/origin/do-khc
 			생년월일 : 
 			 <c:set var="birthday">
 				<fmt:parseDate value="${loginInfo.birthday}" var="dateValue" pattern="yyyy-MM-dd" />
@@ -101,15 +137,27 @@
 			</c:set> 
 				<input type="date" name="birthday" style = "height : 30px; " <c:if test="${loginInfo.birthday != null}">value="${birthday }" readonly</c:if>>
 			</th>
+			<td></td>
 		</tr>
 		<tr align="center">
+<<<<<<< HEAD
 			<th class="text-center">
+=======
+		    <td></td>
+			<th>
+>>>>>>> refs/remotes/origin/do-khc
 			성별 : <input type="radio" name="gender" value="남" <c:if test="${loginInfo.gender eq '남' }">checked</c:if>>남
 				  <input type="radio" name="gender" value="여" <c:if test="${loginInfo.gender eq '여' }">checked</c:if>>여
 			</th>
+			<td></td>
 		</tr>
 		<tr align="center">
+<<<<<<< HEAD
 			<th class="text-center">
+=======
+		    <td></td>
+			<th>
+>>>>>>> refs/remotes/origin/do-khc
 			핸드폰 : <select name="hp1">
 					<option value="010">010
 					<option value="011">011
@@ -121,19 +169,37 @@
 				<input type="text" name="hp2" value="${loginInfo.hp2 }" size="4px"> - 
 				<input type="text" name="hp3" value="${loginInfo.hp3 }" size="4px">
 			</th>
+			<td></td>
 		</tr>
 		<tr align="center">
+<<<<<<< HEAD
 			<th class="text-center">
+=======
+		    <td></td>
+			<th>
+>>>>>>> refs/remotes/origin/do-khc
 			주소 : <input type="text" name="address1" value="${loginInfo.address1 }">
 			</th>
+			<td></td>
 		</tr>
 		<tr align="center">
+<<<<<<< HEAD
 			<th class="text-center">
+=======
+		    <td></td>
+			<th>
+>>>>>>> refs/remotes/origin/do-khc
 			상세주소 :	<input type="text" name="address2" value="${loginInfo.address2 }" size="24px">
 			</th>
+			<td></td>
 		</tr>
 		<tr align="center">
+<<<<<<< HEAD
 			<th class="text-center">
+=======
+		    <td></td>
+			<th style="line-height:50%">
+>>>>>>> refs/remotes/origin/do-khc
 			결제은행 : <select name="accountbank">
 					<option value="국민은행">국민은행
 					<option value="신한은행">신한은행
@@ -141,13 +207,15 @@
 					<option value="하나은행">하나은행
 					<option value="SC제일">SC제일
 					<option value="새마을금고">새마을금고
-				</select> -
-				<input type="text" name="account" value="${loginInfo.account }">
+				</select> 
+				<br>
+				<br>
+				<input type="text" name="account" style="margin-left:80px" value="${loginInfo.account }">
 			</th>
-		</tr>
-				
+			<td></td>
+		</tr>			
 		<tr>
-			<td colspan="2" align="center"><input type="submit" value="변경하기" class="btn btn-default btn-sm" onclick="return memUpcheck(myform)"></td>
+			<td colspan="7" align="center"><input type="submit" value="변경하기" class="btn btn-default btn-sm" onclick="return memUpcheck(myform)"></td>
 		</tr>
 	</table>
 	</div>

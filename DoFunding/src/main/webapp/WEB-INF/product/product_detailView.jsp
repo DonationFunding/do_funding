@@ -40,7 +40,11 @@ a:hover {
 	
 </script>
 <center>
-    <h3>펀딩 상세 화면(${productBean.p_num }/${pageNumber })</h3>
+    <center>
+    <br>
+    <h3>펀딩 상세 화면<%-- (${productBean.p_num }/${pageNumber }) --%></h3>
+    <br>
+    </center>
     <div class="container">
     <table class="table" class="text-center">
     	<tr>

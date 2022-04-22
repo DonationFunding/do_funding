@@ -19,7 +19,11 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <body>
-<h3>글내용 보기</h3>
+<center>
+<br>
+<h3>글내용보기</h3>
+<br>
+</center>
 <div class="container">
 <table class="table" class="text-center">
 	<tr align="center">
