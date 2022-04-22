@@ -77,7 +77,7 @@ a:hover {
     	
     	<tr>
     		<th>진행상황</th>
-    		<td>${(productBean.p_total_price/productBean.p_end_price)*100} %</td>
+    		<td><fmt:formatNumber value="${(productBean.p_total_price/productBean.p_end_price)*100}" pattern=".00" /> %</td>
     	</tr>
     	
 <!-- add.mall => mall.controller.CartAddController -->
