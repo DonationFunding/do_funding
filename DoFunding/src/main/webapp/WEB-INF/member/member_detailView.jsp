@@ -134,6 +134,7 @@
 	<tr>
 		<td colspan="10" align="center">
 			<input type="button" value="정보수정"  class="btn btn-default btn-sm" onclick="location.href='update.mem?id=${loginInfo.id}'">
+			<input type="button" value="회원탈퇴"  class="btn btn-default btn-sm" onclick="location.href='delete.mem?id=${loginInfo.no}'">
 		</td>
 	</tr>
 </table>

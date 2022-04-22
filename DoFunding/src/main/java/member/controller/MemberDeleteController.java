@@ -1,4 +1,4 @@
-package admin.controller;
+package member.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import member.model.MemberDao;
 
 @Controller
-public class AdminMemberDeleteController {
-	private final String command = "/delete.ad";
-	private final String gotoPage = "redirect:/admin_mem_list.ad";
+public class MemberDeleteController {
+	private final String command = "/delete.mem";
+	private final String gotoPage = "redirect:/list.prd";
 	
 	@Autowired
 	MemberDao mdao;
