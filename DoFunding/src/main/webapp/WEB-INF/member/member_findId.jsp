@@ -6,15 +6,15 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <script type="text/javascript">
-	function findIdcheck(myform){
-		if (myform.name.value.length==0){
+	function findIdcheck(){
+		if ($('input[name=name]').val()==""){
 			alert("이름을 입력하세요.");
-			myform.name.focus();
+			$('input[name=name]').focus();
 			return false;
 		}
-		if (myform.birthday.value.length==""){
+		if ($('input[name=birthday]').val()==""){
 			alert("생년월일을 입력하세요");
-			myform.birthday.focus();
+			$('input[name=birthday]').focus();
 			return false;
 		}
 	}
@@ -23,14 +23,13 @@
 <br>
 <h3>아이디찾기</h3>
 <br>
-<form:form commandName="memberBean" action="findid.mem" method="post">
+<form name="myform" action="findid.mem" method="post">
 	<div class="container">
     <table class="table" class="text-center">
 	
 	<tr align="center">
 		<th class="text-center">
 		       이름 : <input type="text" name="name">
-			   <form:errors cssClass="err" path="name"/>
 		</th>
 	</tr>
 	<tr align="center">
@@ -41,12 +40,12 @@
 	</tr>
 	<tr>
 		<td align="center"colspan="2">
-			<input type="submit" value="아이디 찾기" class="btn btn-default btn-sm" onclick="return findIdcheck(myform)">
+			<input type="submit" value="아이디 찾기" class="btn btn-default btn-s	m" onclick="return findIdcheck()">
 		</td>
 	</tr>
 </table>
 </div>
 
-</form:form>
+</form>
 </center>
 <%@ include file="../common/common_bottom.jsp" %>
