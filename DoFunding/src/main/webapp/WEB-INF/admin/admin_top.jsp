@@ -76,7 +76,6 @@
 							<li class="m6"><a href="admin_ord_list.ad">주문내역</a>
 								<ul class="sec m6_Menu" align="center">
  									<li><a href="admin_ord_list.ad">주문 내역</a></li>
-									<li><a href="#">매출통계?</a></li>
 								</ul>
 							</li>
 						</ul>
