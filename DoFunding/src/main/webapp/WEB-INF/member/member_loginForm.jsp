@@ -6,8 +6,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
-
-
 <center>
 <form action="login.mem" method="post">
 <div class="container" >
@@ -17,7 +15,7 @@
 		     <td width="35%">
 		     </td>
 			<th>
-				아이디 : 	<input type="text" name="id" >
+				아이디 : <input type="text" name="id" >
 			</th>
 			 <td width="33%">
 		     </td>

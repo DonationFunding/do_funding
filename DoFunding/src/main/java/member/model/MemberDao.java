@@ -73,7 +73,7 @@ public class MemberDao {
 		return count;
 	}
 
-	public int deleteMember(String no, int no1) {
+	public int deleteMember(String no) {
 		int cnt=-1;
 		cnt = sqlSessionTemplate.delete(namespace+".DeleteMember",no);
 		return cnt;

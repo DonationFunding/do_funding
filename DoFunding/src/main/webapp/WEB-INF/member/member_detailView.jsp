@@ -5,6 +5,16 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
+<script type="text/javascript">
+	function delconfirm() {
+    	if (!confirm("회원탈퇴 하시겠습니까?")) {
+        		alert("취소(아니오)를 누르셨습니다.");
+    	} else {
+       	 		alert("확인(예)을 누르셨습니다.");
+				location.href="delete.mem?no=${loginInfo.no}";
+    	}
+	}
+</script>
 <center>
 <br>
 <h3>회원정보</h3>
@@ -134,6 +144,7 @@
 	<tr>
 		<td colspan="10" align="center">
 			<input type="button" value="정보수정"  class="btn btn-default btn-sm" onclick="location.href='update.mem?id=${loginInfo.id}'">
+			<input type="button" value="회원탈퇴"  class="btn btn-default btn-sm" onclick="delconfirm()">
 		</td>
 	</tr>
 </table>

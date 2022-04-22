@@ -13,7 +13,7 @@ import product.model.ProductDao;
 @Controller
 public class AdminProductMultiDeleteController {
 	
-	private final String command = "admin_prd_multidelete.ad";
+	private final String command = "/admin_prd_multidelete.ad";
 	private String gotoPage = "redirect:/admin_prd_list.ad";
 	
 	@Autowired

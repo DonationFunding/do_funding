@@ -38,6 +38,7 @@ public class MemberIdfunctionController {
 			}
 			pw.println("<script> alert('회원가입 가능합니다');</script>");
 			request.setAttribute("id", mb.getId());
+			request.setAttribute("flag", true);
 			pw.flush();
 			return getPage;
 		}//if
