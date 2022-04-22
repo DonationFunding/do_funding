@@ -105,6 +105,12 @@
 					<input type="text" name="address2" placeholder="상세 주소" value="${loginInfo.address2}"></td>
 				</tr>
 				<tr>
+				<td colspan="6" style="opacity:0.7;">
+				※기본 배송비는 3000원이며 30000원 이상 주문 시 무료배송입니다.<br>
+				주문 확인 후 입금 계좌를 개별 안내드리며, 미입금 시 주문이 취소될 수 있습니다
+				</td>
+				</tr>				
+				<tr>
 					<th colspan="2">배송 요청사항(선택)</th>
 					<td colspan="4">
 						<input type="text" name="del_request" placeholder="배송 요청사항을 입력하세요" size="40">
@@ -170,13 +176,17 @@
 			<td>최종 결제금액: 
 			<c:choose> 
 				<c:when test="${totalAmount > 30000}">
-				${totalAmount}
-				<input type="hidden" name="amount" value="${totalAmount }">
-			</c:when> 
-			<c:otherwise>
-				${totalAmount+3000}
-				<input type="hidden" name="amount" value="${totalAmount+3000}">	
-			</c:otherwise> 
+					${totalAmount}
+					<input type="hidden" name="amount" value="${totalAmount }">
+				</c:when> 
+				<c:when test="${totalAmount > 0  and totalAmount < 30000 }">
+					${totalAmount+3000}
+					<input type="hidden" name="amount" value="${totalAmount+3000 }">
+				</c:when> 
+				<c:otherwise>
+					${totalAmount}
+					<input type="hidden" name="amount" value="${totalAmount}">	
+				</c:otherwise> 
 			</c:choose> 
 			</td>
 		</tr>
