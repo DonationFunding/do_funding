@@ -62,7 +62,7 @@
 			document.myform.d_addr.focus();
 			return false;
 		}
-		if(listSize==0){
+		if(listSize=="0"){
 			alert("최소 한 개 이상의 제품이 있어야 합니다.");
 			return false;
 		}
@@ -124,7 +124,7 @@
 			</td>
 		</tr>
 		<br> <br> 
-		<input type="submit" name="btn1" value="결제하기"  class="btn btn-default btn-sm" onclick="return ordcheck(${sessionScope.shopLists.size())">	
+		<input type="submit" name="btn1" value="결제하기"  class="btn btn-default btn-sm" onclick="return ordcheck('${shopLists}')">	
 		<a href="list.prd" class="btn btn-default btn-sm">추가주문</a>		
 	</div>	      			
 	<div class="container">
