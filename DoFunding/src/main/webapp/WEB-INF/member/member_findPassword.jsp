@@ -25,7 +25,7 @@
 <br>
 <h3>비밀번호찾기</h3>
 <br>
-<form name="myform" action="findpw.mem" method="post">
+<form action="findpw.mem" method="post" name="myform">
 	<div class="container">
     <table class="table" class="text-center">
 	<tr align="center">

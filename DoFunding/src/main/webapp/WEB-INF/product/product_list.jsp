@@ -146,8 +146,8 @@
 									</tr>
 									<tr>
 										<td><span style="float: left;">진행률 :
-												${(prdBean.p_total_price/prdBean.p_end_price)*100} %</span><span
-											style="float: right;">조회수:${prdBean.p_readcount}</span><br>
+												<fmt:formatNumber value="${(prdBean.p_total_price/prdBean.p_end_price)*100}" pattern=".00" /> %</span>
+												<span style="float: right;">조회수:${prdBean.p_readcount}</span><br>
 										</td>
 									</tr>
 									<tr>

@@ -6,24 +6,24 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <script type="text/javascript">
-	function findIdcheck(){
-		if ($('input[name=name]').val()==""){
+	function findIdcheck(myform){
+	 	if (myform.name.value==""){
 			alert("이름을 입력하세요.");
 			$('input[name=name]').focus();
 			return false;
 		}
-		if ($('input[name=birthday]').val()==""){
+		if (myform.birthday.value.length==0){
 			alert("생년월일을 입력하세요");
 			$('input[name=birthday]').focus();
 			return false;
-		}
+		} 
 	}
 </script>
 <center>
 <br>
 <h3>아이디찾기</h3>
 <br>
-<form name="myform" action="findid.mem" method="post">
+<form action="findid.mem" method="post" name="myform">
 	<div class="container">
     <table class="table" class="text-center">
 	
@@ -35,12 +35,11 @@
 	<tr align="center">
 		<th class="text-center">
 		       생년월일 : <input type="date" name="birthday" style = "height : 30px;">
-			   <form:errors cssClass="err" path="name"/>
 		</th>
 	</tr>
 	<tr>
 		<td align="center"colspan="2">
-			<input type="submit" value="아이디 찾기" class="btn btn-default btn-s	m" onclick="return findIdcheck()">
+			<input type="submit" value="아이디 찾기" class="btn btn-default btn-s	m" onclick="return findIdcheck(myform)">
 		</td>
 	</tr>
 </table>
