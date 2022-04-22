@@ -25,7 +25,7 @@
 <h1>공지글 목록(전체 글:${totalCount})</h1>
 <div class="container">
 <table class="table table-hover table-sm" class="text-center">
-	<div>
+	<div align="right">
 		<input type="button"  value="추가하기" class="btn btn-default btn-sm" onclick="insert_notice()">	
 	</div>	
 	<tr>	
