@@ -20,7 +20,6 @@
 	}
 </script>
 <center>
-
 <br>
 <h3>아이디찾기</h3>
 <br>

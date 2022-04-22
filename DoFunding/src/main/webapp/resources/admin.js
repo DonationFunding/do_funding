@@ -34,7 +34,7 @@ function allRowCheck(allck){
 	else {
         for (var i=0; i<chkArr.length; i++) {
           chkArr[i].checked = false;
-         }
+         } 
     }
 }// allRowCheck
 
@@ -42,11 +42,6 @@ function allRowCheck(allck){
 function catecheck(){
 	if($('input[name=code]').val()==""){
 		alert('코드 입력 누락');
-		$('input[name=code]').focus();
-		return false;
-	}		
-	if($('input[name=code]').val().length>10){
-		alert('코드 길이는 10이하');
 		$('input[name=code]').focus();
 		return false;
 	}		

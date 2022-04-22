@@ -283,7 +283,7 @@ create sequence seqdo_board
 drop table do_board CASCADE CONSTRAINTS;
 create table do_board( 
 	b_num number not null primary key,	
-	b_writer varchar2(10) not null,	
+	b_writer varchar2() not null,	
 	b_subject varchar2(20) not null,
 	b_passwd varchar2(20)not null,		
 	b_reg_date date not null,			
