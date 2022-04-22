@@ -29,11 +29,16 @@ public class BoardDao {
 		int cnt=-1;
 		String passwd=sqlSessionTemplate.selectOne(namespace+".GetArticlePasswd", article);
 		if(passwd.equals(article.getB_passwd())) {
+			//삭제할 게시글정보
 			article=sqlSessionTemplate.selectOne(namespace+".GetArticle", article);
 			System.out.println("1:"+article.getB_re_level()); 
 			System.out.println("2:"+article.getB_re_step()); 
-			System.out.println("3:"+article.getB_ref()); 
-			cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", article);			
+			System.out.println("3:"+article.getB_ref());
+			if(article.getB_re_step()==0 && article.getB_re_level()==0) {
+				cnt=sqlSessionTemplate.delete(namespace+".AllDelete", article);							
+			}else {
+				cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", article);							
+			}
 			System.out.println("4 : "+cnt);
 		}
 		else {

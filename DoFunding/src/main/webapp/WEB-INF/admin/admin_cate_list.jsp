@@ -34,7 +34,7 @@
 				<th align="center" width="150">삭제</th>
 				<th align="center">수정</th>
 			</tr>
-			<form name="myform" action="admin_cate_multidelete.ad?" method="post">
+			<form name="myform" action="admin_cate_multidelete.ad" method="post">
 				<input type="hidden" name="pageNumber" value="${pageInfo.pageNumber }">
 				<c:forEach var="cateBean" items="${cateList}">
 					<tr>
