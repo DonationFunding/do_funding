@@ -1,12 +1,15 @@
 package order.model;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import member.model.MemberBean;
+import utility.Paging;
 
 @Component("myOrderDao")
 public class OrderDao {
@@ -30,6 +33,17 @@ public class OrderDao {
 	public List<OrderBean> orderList(MemberBean loginInfo) {
 		List<OrderBean> list=sqlSessionTemplate.selectList(namespace+".OrderList",loginInfo);
 		return list;
+	}
+
+	public List<OrderBean> allOrderList(Paging pageInfo, Map<String, String> map) {
+		RowBounds rowBounds=new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
+		List<OrderBean> list=sqlSessionTemplate.selectList(namespace+".AllOrderList",map,rowBounds);
+		return list;
+	}
+
+	public int orderTotalCount(Map<String, String> map) {
+		int count = sqlSessionTemplate.selectOne(namespace+".OrderTotalCount",map);
+		return count;
 	}
 
 	

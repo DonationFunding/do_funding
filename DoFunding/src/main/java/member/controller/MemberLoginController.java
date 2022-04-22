@@ -44,7 +44,7 @@ public class MemberLoginController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('�ش� ���̵� �������� �ʽ��ϴ�');</script>");
+			pw.println("<script> alert('로그인 실패 아이디와 비밀번호를 확인해주세요');</script>");
 			pw.flush();
 			return getPage;
 		}//if
@@ -70,7 +70,7 @@ public class MemberLoginController {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				pw.println("<script> alert('��й�ȣ�� �߸��Ǿ����ϴ�');</script>");
+				pw.println("<script> alert('로그인 실패 패스워드를 확인하세요');</script>");
 				pw.flush();
 				return getPage;
 			}

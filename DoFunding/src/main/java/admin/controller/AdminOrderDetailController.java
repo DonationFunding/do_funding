@@ -1,4 +1,4 @@
-package order.controller;
+package admin.controller;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ import orderdetail.model.OrderDetailBean;
 import orderdetail.model.CompositeDao;
 
 @Controller
-public class OrderDetailViewController {
-	private final String command = "/order_detail.ord";
-	private final String getPage = "order_detailView";
+public class AdminOrderDetailController {
+	private final String command = "/admin_ord_detail.ad";
+	private final String getPage = "admin_ord_detail";
 
 	@Autowired
 	private CompositeDao CompositeDao;
@@ -28,7 +28,7 @@ public class OrderDetailViewController {
 		System.out.println("detailList:"+detailList.size());
 		mav.addObject("detailList", detailList);
 		mav.addObject("o_num", o_num);
-		mav.setViewName(getPage);	
+		mav.setViewName(getPage);
 		return mav;
 	}
 

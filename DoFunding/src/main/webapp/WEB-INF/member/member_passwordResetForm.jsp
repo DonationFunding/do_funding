@@ -5,6 +5,20 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
+<script type="text/javascript">
+	function resetcheck(myform){
+		if (myform.password.value.length==0){
+			alert("비밀번호를 입력하세요.");
+			myform.password.focus();
+			return false;
+		}
+		if (myform.repassword.value != myform.password.value){
+			alert("비밀번호가 일치하지 않습니다.");
+			myform.repassword.focus();
+			return false;
+		}
+	}
+</script>
 <center>
 <br>
 <h3>비밀번호 재설정</h3>
@@ -50,7 +64,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-			<input type="submit" value="변경하기"  class="btn btn-default btn-sm">
+			<input type="submit" value="변경하기"  class="btn btn-default btn-sm" onclick="return resetcheck(myform)">
 			</td>
 		</tr>
 	</table>

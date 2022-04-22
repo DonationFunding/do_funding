@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/common_top.jsp" %>   
-<head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
-</head>
+<%@ include file="admin_top.jsp" %>   
+
 <style>
 	.order-detail {
 		background: #fffcf6;
@@ -21,7 +18,7 @@
 </center>
 	<div class="container">
             <table class="table" class="text-center">
-            <td colspan="8" align="right"><a href="order.ord">주문내역</a></td>
+             <td colspan="7" align="right"><a href="order.ord">주문내역</a></td>
 			<tr>
 				<th>상품명</th>
 				<th>이미지</th>
@@ -71,11 +68,8 @@
 						<c:when test="${totalprice>30000}">
 							${totalprice} 원
 						</c:when>
-						<c:when test="${totalprice > 0  and totalprice < 30000 }">
-							${totalprice+3000}
-					</c:when> 
 						<c:otherwise>
-							${totalprice} 원
+							${totalprice+3000} 원
 						</c:otherwise>
 					</c:choose>
 			</td>
@@ -83,4 +77,4 @@
 	</table>
 </div>
 </center>
-<%@ include file="../common/common_bottom.jsp" %>  
+<%@ include file="admin_bottom.jsp" %>  

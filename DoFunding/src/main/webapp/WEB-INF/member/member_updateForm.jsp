@@ -5,16 +5,70 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
+<script type="text/javascript">
+	var count = 0;
+	function memUpcheck(myform){
+		if (myform.password.value.length==0){
+			alert("비밀번호를 입력하세요.");
+			myform.password.focus();
+			return false;
+		}
+		if (myform.repassword.value != myform.password.value){
+			alert("비밀번호가 일치하지 않습니다.");
+			myform.repassword.focus();
+			return false;
+		}
+		if (myform.password.value != myform.key.value){
+			alert("비밀번호를 확인하세요.");
+			count += 1;
+			alert(count)
+			myform.repassword.focus();
+			return false;
+		}
+		hp2value = myform.hp2.value;
+		hp3value = myform.hp3.value;
+		if(hp2value==""){
+			alert("전화번호를 입력하세요");
+			return false;
+		}
+		if(isNaN(hp2value)){
+			alert("전화번호는 숫자로 입력하세요");
+			return false;
+		}
+		if(hp3value==""){
+			alert("전화번호를 입력하세요");
+			return false;
+		}
+		if(isNaN(hp3value) || hp3value==""){
+			alert("전화번호는 숫자로 입력하세요");
+			return false;
+		}
+		if(myform.address1.value.length==0){
+			alert("주소를 입력하세요.");
+			myform.address1.focus();			
+			return false;
+		}
+		if(myform.address2.value.length==0){
+			alert("상세 주소를 입력하세요.");
+			myform.address2.focus();			
+			return false;
+		}
+		if(myform.account.value.length==0){
+			alert("계좌번호를 입력하세요.");
+			myform.account.focus();			
+			return false;
+		}
+	}
+</script>
 <center>
 <br>
-<h3>회원정보 수정</h3>
+<h3 align="center">회원정보 수정</h3>
 <br>
-<form action="update.mem" method="post"> 
+<form name="myform" action="update.mem" method="post"> 
 	<div class="container">
     <table class="table" class="text-center">
-    
 		<tr aling="center">
-			<th class="text-center">
+			<th >
 			아이디 : <input type="text" name="id" <c:if test="${loginInfo.id != null}">value="${loginInfo.id }" readonly</c:if>>
 			</th>
 		</tr>
@@ -59,8 +113,8 @@
 					<option value="018">018
 					<option value="019">019
 				</select> - 
-				<input type="number" name="hp2" value="${loginInfo.hp2 }" size="4px"> - 
-				<input type="number" name="hp3" value="${loginInfo.hp3 }" size="4px">
+				<input type="text" name="hp2" value="${loginInfo.hp2 }" size="4px"> - 
+				<input type="text" name="hp3" value="${loginInfo.hp3 }" size="4px">
 			</th>
 		</tr>
 		<tr aling="center">
@@ -83,12 +137,12 @@
 					<option value="SC제일">SC제일
 					<option value="새마을금고">새마을금고
 				</select> -
-				<input type="number" name="account" value="${loginInfo.account }">
+				<input type="text" name="account" value="${loginInfo.account }">
 			</th>
 		</tr>
 				
 		<tr>
-			<td colspan="2" align="center"><input type="submit" value="변경하기" class="btn btn-default btn-sm"></td>
+			<td colspan="2" align="center"><input type="submit" value="변경하기" class="btn btn-default btn-sm" onclick="return memUpcheck(myform)"></td>
 		</tr>
 	</table>
 	</div>

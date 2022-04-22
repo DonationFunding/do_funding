@@ -10,45 +10,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
 
 @Controller
-public class MemberFindPasswordController {
-	private final String command = "findpw.mem";
-	private final String getPage = "member_findPassword";
-	private String gotoPage = "redirect:resetpw.mem";
+public class MemberIdfunctionController {
+	private final String command = "idfunction.mem";
+	private final String getPage = "member_insertForm";
+	private String gotoPage = "redirect:/login.mem";
 	@Autowired
 	MemberDao mdao;
 	
+	
 	@RequestMapping(value = command,method = RequestMethod.GET)
-	public String doAction(MemberBean membean ,HttpServletRequest request) {
-		request.setAttribute("id", request.getParameter("id"));
-		return getPage;
-	}
-
-	@RequestMapping(value = command,method = RequestMethod.POST)
-	public String doAction(MemberBean membean ,HttpServletRequest request,HttpServletResponse response) {
+	public String doAction(MemberBean mb ,HttpServletRequest request,HttpServletResponse response) {
 		response.setContentType("text/html; charset=UTF-8");
-		MemberBean loginInfo = mdao.getLoginInfo(membean);
+		System.out.println("mb"+mb.getId());
+		MemberBean membean = mdao.getLoginInfo(mb);
+		
 		PrintWriter pw=null;
-		if(loginInfo == null) {
+		if(membean == null) {
 			try {
 				pw = response.getWriter();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('일치하지 않습니다.');</script>");
+			pw.println("<script> alert('회원가입 가능합니다');</script>");
+			request.setAttribute("id", mb.getId());
 			pw.flush();
 			return getPage;
 		}//if
-		return gotoPage+"?id="+loginInfo.getId();
+		else {
+			try {
+				pw = response.getWriter();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			pw.println("<script> alert('중복된 아이디가 존재 합니다.');</script>");
+			pw.flush();
+			return getPage;
+		}
 	}
-	
-	
-	
-	
 	
 }
