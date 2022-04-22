@@ -40,7 +40,7 @@ public class MemberFindPasswordController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('일치하지 않습니다.');</script>");
+			pw.println("<script> alert('찾으시는 회원정보가 없습니다');</script>");
 			pw.flush();
 			return getPage;
 		}//if

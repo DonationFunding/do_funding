@@ -24,7 +24,11 @@
 <h3>비밀번호 재설정</h3>
 <br>
 
+<<<<<<< HEAD
 <form name="myform" action="update.mem" method="post"> 
+=======
+<form action="update.mem" method="post" name="myform"> 
+>>>>>>> refs/remotes/origin/do-pms
 	<div class="container">
     <table class="table" class="text-center">
      
