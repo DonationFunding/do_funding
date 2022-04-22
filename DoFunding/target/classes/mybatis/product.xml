@@ -64,7 +64,7 @@
 	</update>
 
 	<delete id="MultiDeleteProduct">
-		delete do_product where b_num = #{rowcheck}	
+		delete from do_product where p_num = #{rowcheck}	
 	</delete>
 
 	<delete id="DeleteProduct">

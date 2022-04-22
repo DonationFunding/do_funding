@@ -28,8 +28,6 @@
 						</c:if>
 						&nbsp;<a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a>
 						&nbsp;<a href="memberInfo.mem">회원정보</a>
-						&nbsp;<a href="list.like?">찜목록</a>
-						&nbsp;<a href="admin_ord_list.ad">주문내역</a>
 					</li>
 				</ul>
 			</c:if>
@@ -76,7 +74,6 @@
 							<li class="m6"><a href="admin_ord_list.ad">주문내역</a>
 								<ul class="sec m6_Menu" align="center">
  									<li><a href="admin_ord_list.ad">주문 내역</a></li>
-									<li><a href="#">매출통계?</a></li>
 								</ul>
 							</li>
 						</ul>

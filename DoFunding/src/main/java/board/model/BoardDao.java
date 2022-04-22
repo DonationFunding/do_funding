@@ -25,11 +25,21 @@ public class BoardDao {
 		return cnt;
 	}//insertArticle
 	
-	public int deleteArticle(BoardBean article, String passwd){
+	public int deleteArticle(BoardBean article){
 		int cnt=-1;
-		passwd=sqlSessionTemplate.selectOne(namespace+".GetArticlePasswd", article);
+		String passwd=sqlSessionTemplate.selectOne(namespace+".GetArticlePasswd", article);
 		if(passwd.equals(article.getB_passwd())) {
-			cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", article);			
+			//삭제할 게시글정보
+			article=sqlSessionTemplate.selectOne(namespace+".GetArticle", article);
+			System.out.println("1:"+article.getB_re_level()); 
+			System.out.println("2:"+article.getB_re_step()); 
+			System.out.println("3:"+article.getB_ref());
+			if(article.getB_re_step()==0 && article.getB_re_level()==0) {
+				cnt=sqlSessionTemplate.delete(namespace+".AllDelete", article);							
+			}else {
+				cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", article);							
+			}
+			System.out.println("4 : "+cnt);
 		}
 		else {
 			cnt=-2;
@@ -38,7 +48,7 @@ public class BoardDao {
 		return cnt;
 	}//deleteArticle
 	
-	//���
+	
 	public int replyArticle(BoardBean article){
 		int cnt=-1;
 		sqlSessionTemplate.update(namespace+".ReplyPlus", article);			

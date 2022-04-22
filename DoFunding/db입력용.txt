@@ -213,6 +213,8 @@ VALUES(seqdo_option.nextval , '색상:파랑' , 12);
 commit;
 
 
+
+--주문테이블
 drop sequence seqoid ;
 create sequence seqoid start with 1 increment by 1 nocache ;
 DROP TABLE do_order CASCADE CONSTRAINTS;
@@ -251,7 +253,7 @@ commit;
 drop sequence seqdona ;
 create sequence seqdona start with 1 increment by 1 nocache ;
 
-DROP TABLE do_orderdetail CASCADE CONSTRAINTS;
+DROP TABLE do_donation CASCADE CONSTRAINTS;
 create table do_donation(
 --후원금번호
 	dona_num number primary key,
@@ -281,7 +283,7 @@ create sequence seqdo_board
 drop table do_board CASCADE CONSTRAINTS;
 create table do_board( 
 	b_num number not null primary key,	
-	b_writer varchar2(10) not null,	
+	b_writer varchar2(20) not null,	
 	b_subject varchar2(20) not null,
 	b_passwd varchar2(20)not null,		
 	b_reg_date date not null,			

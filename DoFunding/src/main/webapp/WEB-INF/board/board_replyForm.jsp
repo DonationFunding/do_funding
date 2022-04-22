@@ -20,7 +20,11 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 
+<center>
+<br>
 <h3>답글쓰기</h3>
+<br>
+</center>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
 <body>
@@ -39,12 +43,7 @@
 	<tr>
 		<th class="text-center">작성자</th>
 		<td>
-			<c:if test="${loginInfo.admin ==1}">
 				<input type="text" name="b_writer" value="${sessionScope.loginInfo.id}" readonly>
-			</c:if>
-			<c:if test="${loginInfo.admin ==0}">
-				<input type="text" name="b_writer" value="관리자" >
-			</c:if>
 		</td>
 	</tr>
 	<tr>
