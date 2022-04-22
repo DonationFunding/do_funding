@@ -14,7 +14,7 @@
 </style>
 
 <script type="text/javascript">
-	function check(){
+	function order_check(){
  		if(document.myform.name.value.length==""){
  			alert("이름을 입력하세요.");
  			document.myform.name.focus();
@@ -159,7 +159,7 @@
 		</td>
 	</tr>
 	<br> <br> 
-	<input type="submit" name="btn1" value="결제하기" onclick="return check()">
+	<input type="submit" name="btn1" value="결제하기" onclick="return order_check()">
 	</form>	
 </div>
 </body>
