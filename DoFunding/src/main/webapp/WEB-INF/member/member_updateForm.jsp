@@ -58,6 +58,11 @@
 			myform.account.focus();			
 			return false;
 		}
+		if(isNaN(myform.account.value)){
+			alert("계좌번호는 숫자만 입력 가능합니다.");
+			myform.account.focus();
+			return false;
+		}
 	}
 </script>
 <center>

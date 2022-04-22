@@ -213,6 +213,8 @@ VALUES(seqdo_option.nextval , '색상:파랑' , 12);
 commit;
 
 
+
+--주문테이블
 drop sequence seqoid ;
 create sequence seqoid start with 1 increment by 1 nocache ;
 DROP TABLE do_order CASCADE CONSTRAINTS;

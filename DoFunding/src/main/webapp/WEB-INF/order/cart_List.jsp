@@ -16,15 +16,15 @@
 </style>
 
 <script type="text/javascript">
-	function ordcheck() {
+	function ordcheck(listSize) {
 		if (document.myform.name.value.length == "") {
 			alert("이름을 입력하세요.");
 			document.myform.name.focus();
 			return false;
 		}
-		if (document.myform.name.value.length>9) {
-			alert("이름을 입력하세요.");
-			document.myform.name.focus();
+		if (document.myform.name.value.length>11) {
+			alert("이름은 10글자 이하로 입력하세요.");
+			document.myform.name.select();
 			return false;
 		}
 		if (document.myform.hp1.value.length == "") {
@@ -67,6 +67,11 @@
 			document.myform.d_addr.focus();
 			return false;
 		}
+		if(listSize=="0"){
+			alert("최소 한 개 이상의 제품이 있어야 합니다.");
+			return false;
+		}
+		
 	}
 	function delcartcheck(p_subject){
 		var dep = confirm(p_subject+"(을)를 정말 장바구니에서 삭제 하시겠습니까?");
@@ -124,7 +129,7 @@
 			</td>
 		</tr>
 		<br> <br> 
-		<input type="submit" name="btn1" value="결제하기"  class="btn btn-default btn-sm" onclick="return ordcheck()">	
+		<input type="submit" name="btn1" value="결제하기"  class="btn btn-default btn-sm" onclick="return ordcheck('${shopLists}')">	
 		<a href="list.prd" class="btn btn-default btn-sm">추가주문</a>		
 	</div>	      			
 	<div class="container">
@@ -147,7 +152,7 @@
 			<th colspan="2">받는 분</th>
 			<td colspan="4">
 				<input type="text" name=name value="${loginInfo.name}"><br><br> 
-				<input type="text" name="hp1" size="3" value="${loginInfo.hp1}">- 
+				<input type="text" name="hp1" size="3" maxlength="3" value="${loginInfo.hp1}">- 
 				<input type="text" name="hp2" size="4" value="${loginInfo.hp2}">-
 				<input type="text" name="hp3" size="4" value="${loginInfo.hp3}">
 			</td>

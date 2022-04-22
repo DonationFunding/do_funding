@@ -5,12 +5,30 @@
 
 <mapper namespace="member.model.Member">
 
+	<select id="GetTotalCount" resultType="int">
+		select count(*) from do_members
+		<if test="whatColumn == 'id'">
+			where id like #{keyword}
+		</if>
+		<if test="whatColumn == 'name'">
+			where name like #{keyword}
+		</if>
+		order by no
+	</select>
+	
 	<select id="GetLoginInfo" resultType="MyMember">
 		select * from do_members where id=#{id}
 	</select>
 	
 	<select id="GetAllMember" resultType="MyMember">
-		select * from do_members order by no
+		select * from do_members
+		<if test="whatColumn == 'id'">
+			where id like #{keyword}
+		</if>
+		<if test="whatColumn == 'name'">
+			where name like #{keyword}
+		</if>
+		order by no
 	</select>
 	
 	<select id="FindId" resultType="MyMember">
@@ -37,6 +55,9 @@
 		update do_members set mpoint=mpoint + #{mpoint} where no=#{no}
 	</update>
 	
+	<delete id="DeleteMember">
+		delete do_members where no=#{no}
+	</delete>
 </mapper>
 <!-- member.xml -->
 

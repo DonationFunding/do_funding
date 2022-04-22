@@ -31,7 +31,7 @@ a:hover {
 			}
 			if (Number(document.myform.orderqty.value)<0||Number(document.myform.orderqty.value)==0) {
 				alert("수량은 0보다 커야 합니다.");
-				document.myform.orderqty.focus();
+				document.myform.orderqty.select();
 				return false;
 			}	
 		
@@ -43,11 +43,9 @@ a:hover {
 			document.myform.submit();
 			if(isNaN(document.myform.orderqty.value)){
 				alert("숫자만 입력 가능합니다.");
-				document.myform.orderqty.focus();
+				document.myform.orderqty.select();
 				return false;
 			}
-	
-			
 	}
 	
 </script>
@@ -89,7 +87,7 @@ a:hover {
     	
     	<tr>
     		<th>진행상황</th>
-    		<td>${(productBean.p_total_price/productBean.p_end_price)*100} %</td>
+    		<td><fmt:formatNumber value="${(productBean.p_total_price/productBean.p_end_price)*100}" pattern=".00" /> %</td>
     	</tr>
     	
 <!-- add.mall => mall.controller.CartAddController -->
