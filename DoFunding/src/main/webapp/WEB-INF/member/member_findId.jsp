@@ -29,18 +29,26 @@
     <table class="table" class="text-center">
 	
 	<tr align="center">
-		<th class="text-center">
+	    <td width="35%">
+		</td>
+		<th>
 		       이름 : <input type="text" name="name">
 		</th>
+		<td width="33%">
+		</td>
 	</tr>
 	<tr align="center">
-		<th class="text-center">
+	    <td>
+		</td>
+		<th>
 		       생년월일 : <input type="date" name="birthday" style = "height : 30px;">
 		</th>
+		</th>
+		<td>
 	</tr>
 	<tr>
-		<td align="center"colspan="2">
-			<input type="submit" value="아이디 찾기" class="btn btn-default btn-s	m" onclick="return findIdcheck(myform)">
+		<td align="center"colspan="3">
+			<input type="submit" value="아이디 찾기" class="btn btn-default btn-sm" onclick="return findIdcheck(myform)">
 		</td>
 	</tr>
 </table>

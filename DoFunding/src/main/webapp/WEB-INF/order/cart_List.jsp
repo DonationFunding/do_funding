@@ -22,11 +22,6 @@
 			document.myform.name.focus();
 			return false;
 		}
-		if (document.myform.name.value.length>11) {
-			alert("이름은 10글자 이하로 입력하세요.");
-			document.myform.name.select();
-			return false;
-		}
 		if (document.myform.hp1.value.length == "") {
 			alert("전화번호를 입력하세요.");
 			document.myform.hp1.focus();
@@ -85,10 +80,6 @@
 	
 </script>
 <body>
-	<br>
-	<h3 align="center">주문 및 결제</h3>
-	<br>
-	<form name="myform" action="calculate.ord" >
 	<div class="div2" align="center" style="background-color: #fffcf6; border: 1px solid black;">
 		<h3>결제금액</h3>
 		<tr>

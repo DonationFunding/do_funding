@@ -13,32 +13,39 @@
 <div class="container">
     <table class="table" class="text-center">
 	<tr>
-		<th class="text-center" width="600">
+	    <td width="30%"></td>
+		<th width="28%">
 			회원번호
-		</th>
-		<td>
+		</th>		
+		<td >
 			${loginInfo.no }
 			
 		</td>
+	    <td width="27%"><td>
 	</tr>
 	<tr>
-		<th class="text-center">
+	    <td></td>
+		<th>
 			ID
 		</th>
 		<td>
 			${loginInfo.id }
 		</td>
+		<td></td>
 	</tr>
 	<tr>
-		<th class="text-center">
+	    <td></td>
+		<th>
 			이름
 		</th>
 		<td>
 			${loginInfo.name }
 		</td>
+		 <td></td>
 	</tr>
 	<tr>
-		<th class="text-center">
+	    <td></td>
+		<th>
 			생년월일
 		</th>
 		<c:set var="birthday">
@@ -48,9 +55,11 @@
 		<td>
 			${birthday }
 		</td>
+		 <td></td>
 	</tr>
 	<tr>
-		<th class="text-center">
+	     <td></td>
+		<th>
 			가입일
 		</th>
 		<c:set var="joindate">
@@ -60,57 +69,70 @@
 		<td>
 			${joindate }
 		</td>
+		 <td></td>
 	</tr>
 	<tr>
-		<th class="text-center">
+	     <td></td>
+		<th>
 			성별
 		</th>
 		<td>
 			${loginInfo.gender }
 		</td>
+		<td></td>
 	</tr>
 	<tr>
-		<th class="text-center">
+	     <td></td>
+		<th>
 			핸드폰 번호
 		</th>
 		<td>
 			${loginInfo.hp1 }-${loginInfo.hp2 }-${loginInfo.hp3 }
 		</td>
+		 <td></td>
 	</tr>
 	<tr>
-		<th class="text-center">
+	    <td></td>
+		<th>
 			주소
 		</th>
 		<td>
 			${loginInfo.address1 } ${loginInfo.address2 }
 		</td>
+		 <td></td>
 	</tr>
 	<tr>
-		<th class="text-center">
+	    <td></td>
+		<th>
 			은행
 		</th>
 		<td>
 			${loginInfo.accountbank }
 		</td>
+		<td></td>
 	</tr>
 	<tr>
-		<th class="text-center">
+		<td></td>
+		<th>
 			입금전용 계좌
 		</th>
 		<td>
 			${loginInfo.account }
 		</td>
+	    <td></td>
 	</tr>
 	<tr>
-		<th class="text-center">
+	    <td></td>
+		<th>
 			적립 포인트
 		</th>
 		<td>
 			${loginInfo.mpoint }
 		</td>
+	    <td></td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center">
+		<td colspan="10" align="center">
 			<input type="button" value="정보수정"  class="btn btn-default btn-sm" onclick="location.href='update.mem?id=${loginInfo.id}'">
 		</td>
 	</tr>

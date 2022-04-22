@@ -24,7 +24,11 @@
 
 <form action="update.bd?pageNumber=${pageNumber }" method="post" onsubmit="return check()">
 <input type="hidden" name="b_num" value="${bdBean.getB_num()}">
-<h3>수정하기</h3>
+<center>
+<br>
+<h3>글 수정하기</h3>
+<br>
+</center>
 <div class="container">
 <table class="table" class="text-center">
 		<tr>
