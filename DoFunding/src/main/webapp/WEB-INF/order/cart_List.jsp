@@ -16,7 +16,7 @@
 </style>
 
 <script type="text/javascript">
-	function ordcheck() {
+	function ordcheck(listSize) {
 		if (document.myform.name.value.length == "") {
 			alert("이름을 입력하세요.");
 			document.myform.name.focus();
@@ -62,6 +62,11 @@
 			document.myform.d_addr.focus();
 			return false;
 		}
+		if(listSize==0){
+			alert("최소 한 개 이상의 제품이 있어야 합니다.");
+			return false;
+		}
+		
 	}
 	function delcartcheck(p_subject){
 		var dep = confirm(p_subject+"(을)를 정말 장바구니에서 삭제 하시겠습니까?");
@@ -119,7 +124,7 @@
 			</td>
 		</tr>
 		<br> <br> 
-		<input type="submit" name="btn1" value="결제하기"  class="btn btn-default btn-sm" onclick="return ordcheck()">	
+		<input type="submit" name="btn1" value="결제하기"  class="btn btn-default btn-sm" onclick="return ordcheck(${sessionScope.shopLists.size())">	
 		<a href="list.prd" class="btn btn-default btn-sm">추가주문</a>		
 	</div>	      			
 	<div class="container">
