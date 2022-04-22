@@ -51,6 +51,9 @@
 		</c:forEach>
 </table>
 <br><br>
+<div>
+        <a href="admin_faq_insert.ad" class="btn btn-default btn-sm pull-right">글쓰기</a>
+    </div>
 	<div class="container">
 		<ul class="pagination pagination-sm">
 			${pageInfo.pagingHtml}		

@@ -25,21 +25,26 @@
 			myform.repassword.focus();
 			return false;
 		}
+		alert(count);
 		hp2value = myform.hp2.value;
+		alert(hp2value);
 		hp3value = myform.hp3.value;
+		alert(hp3value);
 		if(hp2value==""){
 			alert("전화번호를 입력하세요");
 			return false;
 		}
+		alert(1);
 		if(isNaN(hp2value)){
 			alert("전화번호는 숫자로 입력하세요");
 			return false;
 		}
+		alert(2);
 		if(hp3value==""){
 			alert("전화번호를 입력하세요");
 			return false;
 		}
-		if(isNaN(hp3value) || hp3value==""){
+		if(isNaN(hp3value)){
 			alert("전화번호는 숫자로 입력하세요");
 			return false;
 		}
