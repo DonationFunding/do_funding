@@ -24,13 +24,11 @@ ul,  li, a {
 	height: 221px;  /* 52(banner)+10+32(logo)+10+18(서브메뉴)+10+45(GNB) */
 }
 
-/* container가 필요한가 */
 .top-inner, .container, #bottom-wrap {
 	max-width: 1008px;  /* 최대로 늘어날 수 있는 값을 한정 : 1120px 이상에서는 1008px로 제한 */
 	width: 90%;  /* 브라우저의 폭이 1120px이하일 때 90%로 제한 */
 	margin: 0 auto;  /* 중앙 정렬 */
 }
-
 .top-banner-wrap {  /* 실제 배너가 주어지면 수정 가능 */
 	/* display: flex; */
 	/* flex-flow: row nowrap; */
