@@ -25,21 +25,26 @@
 			myform.repassword.focus();
 			return false;
 		}
+		alert(count);
 		hp2value = myform.hp2.value;
+		alert(hp2value);
 		hp3value = myform.hp3.value;
+		alert(hp3value);
 		if(hp2value==""){
 			alert("전화번호를 입력하세요");
 			return false;
 		}
+		alert(1);
 		if(isNaN(hp2value)){
 			alert("전화번호는 숫자로 입력하세요");
 			return false;
 		}
+		alert(2);
 		if(hp3value==""){
 			alert("전화번호를 입력하세요");
 			return false;
 		}
-		if(isNaN(hp3value) || hp3value==""){
+		if(isNaN(hp3value)){
 			alert("전화번호는 숫자로 입력하세요");
 			return false;
 		}
@@ -67,27 +72,27 @@
 <form name="myform" action="update.mem" method="post"> 
 	<div class="container">
     <table class="table" class="text-center">
-		<tr aling="center">
+		<tr align="center">
 			<th >
 			아이디 : <input type="text" name="id" <c:if test="${loginInfo.id != null}">value="${loginInfo.id }" readonly</c:if>>
 			</th>
 		</tr>
-		<tr aling="center">
+		<tr align="center">
 			<th class="text-center">
-			패스워드 : <input type="password" name="password">
+			패스워드 : <input type="password" name="password"><input type="hidden" name="key" value="${loginInfo.password }">
 			</th>
 		</tr>
-		<tr aling="center">
+		<tr align="center">
 			<th class="text-center">
 			패스워드 확인 : <input type="password" name="repassword">
 			</th>
 		</tr>
-		<tr aling="center">
+		<tr align="center">
 			<th class="text-center">
 			이름 : <input type="text" name="name" <c:if test="${loginInfo.name != null}">value="${loginInfo.name }" readonly</c:if>>
 			</th>
 		</tr>
-		<tr aling="center">
+		<tr align="center">
 			<th class="text-center">
 			생년월일 : 
 			 <c:set var="birthday">
@@ -97,13 +102,13 @@
 				<input type="date" name="birthday" style = "height : 30px; " <c:if test="${loginInfo.birthday != null}">value="${birthday }" readonly</c:if>>
 			</th>
 		</tr>
-		<tr aling="center">
+		<tr align="center">
 			<th class="text-center">
 			성별 : <input type="radio" name="gender" value="남" <c:if test="${loginInfo.gender eq '남' }">checked</c:if>>남
 				  <input type="radio" name="gender" value="여" <c:if test="${loginInfo.gender eq '여' }">checked</c:if>>여
 			</th>
 		</tr>
-		<tr aling="center">
+		<tr align="center">
 			<th class="text-center">
 			핸드폰 : <select name="hp1">
 					<option value="010">010
@@ -117,17 +122,17 @@
 				<input type="text" name="hp3" value="${loginInfo.hp3 }" size="4px">
 			</th>
 		</tr>
-		<tr aling="center">
+		<tr align="center">
 			<th class="text-center">
 			주소 : <input type="text" name="address1" value="${loginInfo.address1 }">
 			</th>
 		</tr>
-		<tr aling="center">
+		<tr align="center">
 			<th class="text-center">
 			상세주소 :	<input type="text" name="address2" value="${loginInfo.address2 }" size="24px">
 			</th>
 		</tr>
-		<tr aling="center">
+		<tr align="center">
 			<th class="text-center">
 			결제은행 : <select name="accountbank">
 					<option value="국민은행">국민은행
