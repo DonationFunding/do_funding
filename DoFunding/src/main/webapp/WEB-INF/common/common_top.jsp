@@ -48,7 +48,7 @@
 			</c:if>
 			<br><br>
 
-			<div class="top-banner-wrap">
+			<div class="top-banner-wrap" style="height: 200px;">
 				<!-- <h1 class="banner-inner">Do_Funding</h1> -->
 			</div>
 
