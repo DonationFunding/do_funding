@@ -25,11 +25,14 @@
 			myform.repassword.focus();
 			return false;
 		}
+		alert(1)
 		if(count==3){
 			alert("비밀번호 확인후 재도전하세요~")
 			location.href="/list.prd";
 		}
+		alert(2)
 		var genderarr = myform.getElementsByName('gender');
+		alert(2)
 		var flag = true;
 		for(var i=0;i<genderarr.length;i++){
 			if(genderarr[i].checked == true){ 

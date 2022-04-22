@@ -15,11 +15,11 @@
 			myform.id.focus();
 			return false;
 		}
-		if (myform.id.value.length>3 || myform.id.value.length<9){
+		if (myform.id.value.length<3 || myform.id.value.length>=9){
 			alert("id는 3~8자리 만 입력가능합니다.");
 			myform.id.focus();
 			return false;
-		}
+		} 
 		if (myform.password.value.length==0){
 			alert("비밀번호를 입력하세요.");
 			myform.password.focus();
