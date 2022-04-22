@@ -5,9 +5,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ProductBean {
 
-	 //default p_readcount,p_total_price,p_reg_date  
+	//default p_readcount,p_total_price,p_reg_date  
 	
-	private final String common=" ¿‘∑¬ ¥©∂Ù";
+	private final String common="ÏûÖÎ†• ÎàÑÎùΩ";
 		
 	private int p_num;			
 	
@@ -23,10 +23,6 @@ public class ProductBean {
 	private String p_image;    				
 	
 	private String p_content; 	
-	
-	
-	private String p_like; 	
-	
 
 	private int p_origin_price;  	
 	
@@ -38,33 +34,33 @@ public class ProductBean {
 	
 	private String p_reg_date; 	
 	
-	//Ω∫≈©∏≥∆Æ∑Œ √≥∏Æ
 	private String p_start_date; 		
 
-	//Ω∫≈©∏≥∆Æ∑Œ √≥∏Æ
 	private String p_end_date;
 	
 	private int orderqty;
 	
 	private MultipartFile upload;
 
-	//ªÛ«∞ ø…º«√≥∏Æ
-	@NotEmpty(message = "ø…º«"+common)
-	private String[] item_option;	//option ∞πºˆ∏∏≈≠ πﬁ¿Ω.
+	//ÏòµÏÖò
+	@NotEmpty(message = "ÏòµÏÖòÍ∞í"+common)
+	private String[] item_option;	//option 
 
-	private String option_content;	//option1∞≥ ∞™
+	private String option_content;	//option
 	private int option_item_no;
 	private int option_no;	
 	
+	//Ï¢ãÏïÑÏöî
+	//private int l_num;
 	
 	public ProductBean() {
 		super();
 	}	
 	
 	public ProductBean(int p_num, String p_category_fk, String p_writer, String p_subject, int p_readcount,
-			String p_image, String p_content, String p_like, int p_origin_price,
+			String p_image, String p_content, int p_origin_price,
 			int p_total_price, int p_end_price, int p_point, String p_reg_date, String p_start_date, String p_end_date,
-			int orderqty, MultipartFile upload, String[] item_option, int option_item_no, 
+			int orderqty, MultipartFile upload, String[] item_option, int option_item_no,
 			int option_no) {
 		super();
 		this.p_num = p_num;
@@ -74,7 +70,6 @@ public class ProductBean {
 		this.p_readcount = p_readcount;
 		this.p_image = p_image;
 		this.p_content = p_content;
-		this.p_like = p_like;
 		this.p_origin_price = p_origin_price;
 		this.p_total_price = p_total_price;
 		this.p_end_price = p_end_price;
@@ -181,12 +176,7 @@ public class ProductBean {
 	public void setP_content(String p_content) {
 		this.p_content = p_content;
 	}
-	public String getP_like() {
-		return p_like;
-	}
-	public void setP_like(String p_like) {
-		this.p_like = p_like;
-	}
+
 	public int getP_origin_price() {
 		return p_origin_price;
 	}
@@ -229,5 +219,5 @@ public class ProductBean {
 	public void setP_end_date(String p_end_date) {
 		this.p_end_date = p_end_date;
 	}
-
+	
 }

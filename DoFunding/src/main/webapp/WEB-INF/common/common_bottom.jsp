@@ -7,20 +7,39 @@
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<title>두펀딩</title>
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
-	<script src="<%=request.getContextPath() %>/resources/jquery.js"></script>
+	<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
+
+<script>
+$(window).scroll(function(){
+	if ($(this).scrollTop() > 300){
+		$('.btn_gotop').show();
+	} else{
+		$('.btn_gotop').hide();
+	}
+});
+$('.btn_gotop').click(function(){
+	$('html, body').animate({scrollTop:0},400);
+	return false;
+});
+</script>
  </head>
+ 
+
+<div style="position:fixed; bottom:35px; right:30px; z-index:99;"> 
+	<a href="#"  class="btn_gotop">
+	  <img src="<%=request.getContextPath()%>/resources/images/탑버튼.png" style="width:50px"> 
+	</a>
+</div>
  <body>
  	<div id="bottom-wrap">
- 		<div id="bottom-menu1">
-	 		<ul >
-	 			<li><a href="">회사소개</a></li>
+	 		<ul id="bottom-menu1">
+	 			<li><a href="company.bot">회사소개</a></li>
 	 			<li><a href="tos.bot">이용약관</a></li>
 	 			<li><a href="">공지사항</a></li>
 	 			<li><a href="">고객센터</a></li>
 	 			<li><a href="map.bot">오시는길</a></li>
 	 		</ul>
- 		</div>
 	 	<div class="bottom-menu2">
 		 	<div class="bottom-1">
 		 		<h1><a href="<c:url value="/"/>">두  펀  딩</a></h1>

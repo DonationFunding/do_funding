@@ -17,10 +17,14 @@
 </style>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 
-<b>답글쓰기</b>
+<center>
+<br>
+<h3>답글쓰기</h3>
+<br>
+</center>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
 <body>
@@ -37,33 +41,30 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="center">이름</td>
+		<th class="text-center">작성자</th>
 		<td>
 			<c:if test="${loginInfo.admin ==1}">
 				<input type="text" name="b_writer" value="${sessionScope.loginInfo.id}" readonly>
 			</c:if>
-			<c:if test="${loginInfo.admin ==0}">
-				<input type="text" name="b_writer" value="관리자" >
-			</c:if>
 		</td>
 	</tr>
 	<tr>
-		<td align="center">제목</td>
+		<th class="text-center">제목</th>
 		<td><input type="text" name="b_subject" value="[답글]"></td>
 	</tr>
 	<tr>
-		<td align="center">내용</td>
+		<th class="text-center">내용</th>
 		<td><textarea name="b_content" rows="10" cols="50"></textarea></td>
 	</tr>
 	<tr>
-		<td align="center">비밀번호</td>
+		<th class="text-center">비밀번호</th>
 		<td><input type="password" name="b_passwd" value="1234"></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="submit" name="" value="글쓰기" onclick="return check()">
-			<input type="reset" name="" value="다시작성">
-			<input type="button" name="" value="목록보기" onclick="location.href='list.bd?pageNumber=${pageNumber}'">
+			<input type="submit" name="" value="글쓰기"  class="btn btn-default btn-sm"onclick="return check()">
+			<input type="reset" name="" value="다시작성" class="btn btn-default btn-sm">
+			<input type="button" name="" value="목록보기"  class="btn btn-default btn-sm"onclick="location.href='list.bd?pageNumber=${pageNumber}'">
 		</td>
 	</tr>
 </table>

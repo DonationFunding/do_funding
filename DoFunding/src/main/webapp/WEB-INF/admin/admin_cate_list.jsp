@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="admin_top.jsp"%>
-
 <center>
 	<div>
-		<h4 align="center">카테고리 목록</h4>
+		<h3 align="center">카테고리 목록</h3>
 		<div >
 			<form method="get" action="admin_cate_list.ad">
 				<select name="whatColumn">
@@ -13,25 +12,26 @@
 					<option value="cname">카테고리명</option>
 				</select> 				
 				<input type="text" name="keyword" >
-				<input type="submit" value="검색">
+				<input type="submit" value="검색"  class="btn btn-default btn-sm">
 			</form>
 		</div>
 		<br>
-		<table border="1" width="500">
+		 <div class="container">
+         <table class="table table-hover table-sm" class="text-center">
 			<tr>
 				<td align="left" colspan="6">
-					<input type="button" value="삭제" onclick="selectDelete()">
-					<input type="button" value="추가" onclick="inserCate()">
+					<input type="button" value="삭제"  class="btn btn-default btn-sm" onclick="selectDelete()">
+					<input type="button" value="추가"  class="btn btn-default btn-sm"onclick="insertCate()">
 				</td>
 			</tr>
 			<tr>
-				<th align="center">
+				<td align="center">
 					<input type="checkbox" name="allcheck" onclick="allRowCheck(this)">
-				</th>
+				</td>
 				<th align="center">번호</th>
 				<th align="center">카테고리 코드</th>
 				<th align="center">카테고리명</th>
-				<th align="center">삭제</th>
+				<th align="center" width="150">삭제</th>
 				<th align="center">수정</th>
 			</tr>
 			<form name="myform" action="admin_cate_multidelete.ad?" method="post">
@@ -44,18 +44,16 @@
 						<td>${cateBean.code}</td>
 						<td>${cateBean.cname}</td>
 						<td>
-							<input type="button" value="삭제"
+							<input type="button" value="삭제"  class="btn btn-default btn-sm"
 							onclick="deleteCate('${cateBean.cnum}','${pageInfo.pageNumber}')">
-						<td align="center" >
-							<input type="checkbox" name="rowcheck" value="${product.p_num } %>">
-						</td>
-						<td><input type="button" value="수정"
-							onclick="updateCate'${cateBean.cnum}','${pageInfo.pageNumber}')">
+						<td><input type="button" value="수정"  class="btn btn-default btn-sm"
+							onclick="updateCate('${cateBean.cnum}','${pageInfo.pageNumber}')">
 						</td>
 					</tr>
 				</c:forEach>
 			</form>
 		</table>
+		</div>
 		<br>
 		<br>
 		<div class="container">

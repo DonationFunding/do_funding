@@ -16,10 +16,14 @@
 </style>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <body>
-<h1>글내용 보기</h1>
+<center>
+<br>
+<h3>글내용보기</h3>
+<br>
+</center>
 <div class="container">
 <table class="table" class="text-center">
 	<tr align="center">
@@ -37,26 +41,19 @@
 		<td>${bdBean.b_readcount}</td>
 	</tr>
 
-	
 	<tr height="200">
 	     <th class="text-center">글내용</th>
 	
-<%-- 		
-		<td colspan="3" >
-			<textarea name=content rows="2"  readonly="readonly" >${bdBean.getContent() }</textarea>
-		</td> 
---%>
  		<td colspan="6" >
 			${bdBean.getB_content() }
 		</td>
 	</tr>
-
 	<tr height="30">
 		<td align="center" colspan="6">
-			<input type="button" name="update_btn" value="글수정" <c:if test="${sessionScope.loginInfo.id != bdBean.b_writer}"> disabled </c:if>  onclick="location.href='update.bd?b_num=${bdBean.getB_num()}&pageNumber=${pageNumber}'" >
-			<input type="button" name="delete_btn" value="글삭제" <c:if test="${sessionScope.loginInfo.id != bdBean.b_writer}"> disabled </c:if> onclick="location.href='delete.bd?b_num=${bdBean.getB_num()}&pageNumber=${pageNumber }'" >
-			<input type="button" name="reple_btn" value="답글쓰기" <c:if test="${sessionScope.loginInfo == null}"> disabled </c:if> onclick="location.href='reply.bd?b_ref=${bdBean.getB_ref()}&b_re_step=${bdBean.getB_re_step()}&b_re_level=${bdBean.getB_re_level()}&pageNumber=${pageNumber}'" >
-			<input type="button" name="list_btn" value="글목록" onclick="location.href='list.bd?pageNumber=${pageNumber}'">
+			<input type="button" name="update_btn" value="글수정" class="btn btn-default btn-sm" <c:if test="${sessionScope.loginInfo.id != bdBean.b_writer}"> disabled </c:if>  onclick="location.href='update.bd?b_num=${bdBean.getB_num()}&pageNumber=${pageNumber}'" >
+			<input type="button" name="delete_btn" value="글삭제"  class="btn btn-default btn-sm"<c:if test="${sessionScope.loginInfo.id != bdBean.b_writer}"> disabled </c:if> onclick="location.href='delete.bd?b_num=${bdBean.getB_num()}&pageNumber=${pageNumber }'" >
+			<input type="button" name="reple_btn" value="답글쓰기"  class="btn btn-default btn-sm"<c:if test="${sessionScope.loginInfo == null}"> disabled </c:if> onclick="location.href='reply.bd?b_ref=${bdBean.getB_ref()}&b_re_step=${bdBean.getB_re_step()}&b_re_level=${bdBean.getB_re_level()}&pageNumber=${pageNumber}'" >
+			<input type="button" name="list_btn" value="글목록" class="btn btn-default btn-sm" onclick="location.href='list.bd?pageNumber=${pageNumber}'">
 		</td>
 	</tr>		
 </table>
@@ -65,5 +62,3 @@
 
 <br><br>
 <%@ include file="../common/common_bottom.jsp" %>
-
-

@@ -13,7 +13,7 @@
 </style>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <script type="text/javascript">
 	function list(){
@@ -24,31 +24,32 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
 <body>
-<b>글쓰기</b>
+<center>
+<br>
+<h3>글쓰기</h3>
+<br>
+</center>
 <form action="insert.bd" method="post">
 <div class="container">
 <table class="table" class="text-center">
 	<tr>
-		<td align="center" >이름</td>
+		<th class="text-center">이름</th>
 		<td><input type="text" name="b_writer" value="${sessionScope.loginInfo.id}" readonly></td>
 	</tr>
 	<tr>
-		<td align="center" >제목</td>
+		<th class="text-center">제목</th>
 		<td><input type="text" name="b_subject"></td>
 	</tr>
 	<tr>
-		<td align="center" >내용</td>
-		<td><textarea name="b_content" rows="10" cols="50"></textarea></td>
+		<th class="text-center">내용</th>
+		<td><textarea name="b_content" rows="10" cols="50" style="resize: none;"></textarea></td>
 	</tr>
-	<tr>
-		<td align="center" >비밀번호</td>
-		<td><input type="password" name="b_passwd" ></td>
-	</tr>
+		<input type="hidden" name="b_passwd" value="${sessionScope.loginInfo.password}">
 	<tr>
 		<td colspan="2" align="center">
-			<input type="submit" name="" value="글쓰기" onclick="return check()">
-			<input type="reset" name="" value="다시작성">
-			<input type="button" name="" value="목록보기" onclick="location.href='list.bd'">
+			<input type="submit" name="" value="글쓰기" class="btn btn-default btn-sm" onclick="return check()">
+			<input type="reset" name="" value="다시작성" class="btn btn-default btn-sm">
+			<input type="button" name="" value="목록보기" class="btn btn-default btn-sm" onclick="location.href='list.bd'">
 		</td>
 	</tr>
 </table>
