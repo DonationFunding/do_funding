@@ -44,7 +44,7 @@ function catecheck(){
 		alert('코드 입력 누락');
 		$('input[name=code]').focus();
 		return false;
-	}		
+	}	
 	if($('input[name=cname]').val()==""){
 		alert('이름 입력 누락');
 		$('input[name=cname]').focus();
