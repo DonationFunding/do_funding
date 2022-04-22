@@ -69,9 +69,6 @@
 		where b_num=#{b_num}
 	</update>
 
-	<delete id="DeleteArticle">
-		delete from do_board where b_ref=#{b_ref}
-	</delete>
 
 	<update id="ReplyPlus">
 		update do_board set b_re_step=b_re_step+1

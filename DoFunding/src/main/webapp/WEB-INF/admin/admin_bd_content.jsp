@@ -47,7 +47,7 @@
 
 	<tr height="30">
 		<td align="center" colspan="6">
-			<input type="button" name="delete_btn" value="글삭제" class="btn btn-default btn-sm" onclick="location.href='admin_bd_delete.ad?b_ref=${bdBean.getB_ref()}&pageNumber=${pageNumber }'" >
+			<input type="button" name="delete_btn" value="글삭제" class="btn btn-default btn-sm" onclick="location.href='admin_bd_delete.ad?b_num=${bdBean.getB_num()}&b_ref=${bdBean.getB_ref()}&pageNumber=${pageNumber }'" >
 			<input type="button" name="reple_btn" value="답글쓰기" class="btn btn-default btn-sm" onclick="location.href='admin_bd_reply.ad?b_ref=${bdBean.b_ref}&b_re_step=${bdBean.b_re_step}&b_re_level=${bdBean.b_re_level}&pageNumber=${pageNumber}'" >
 			<input type="button" name="list_btn" value="글목록" class="btn btn-default btn-sm" onclick="location.href='admin_bd_list.ad?pageNumber=${pageNumber}'">
 		</td>
