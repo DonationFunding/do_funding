@@ -17,12 +17,16 @@
 
 <script type="text/javascript">
 	function ordcheck(listSize) {
-		if (document.myform.name.value.length == "") {
+		if(listSize == 0){
+			alert("최소 한 개 이상의 제품이 있어야 합니다.");
+			return false;
+		}
+		if (document.myform.name.value == "") {
 			alert("이름을 입력하세요.");
 			document.myform.name.focus();
 			return false;
 		}
-		if (document.myform.hp1.value.length == "") {
+		if (document.myform.hp1.value == "") {
 			alert("전화번호를 입력하세요.");
 			document.myform.hp1.focus();
 			return false;
@@ -32,7 +36,7 @@
 			document.myform.hp1.select();
 			return false;
 		}
-		if (document.myform.hp2.value.length == "") {
+		if (document.myform.hp2.value == "") {
 			alert("전화번호를 입력하세요.");
 			document.myform.hp2.focus();
 			return false;
@@ -42,7 +46,7 @@
 			document.myform.hp2.select();
 			return false;
 		}
-		if (document.myform.hp3.value.length == "") {
+		if (document.myform.hp3.value == "") {
 			alert("전화번호를 입력하세요.");
 			document.myform.hp3.focus();
 			return false;
@@ -52,18 +56,14 @@
 			document.myform.hp3.select();
 			return false;
 		}
-		if (document.myform.addr.value.length == "") {
+		if (document.myform.address.value=="") {
 			alert("주소를 입력하세요.");
 			document.myform.addr.focus();
 			return false;
 		}
-		if (document.myform.d_addr.value.length == "") {
+		if (document.myform.address2.value== "") {
 			alert("상세주소를 입력하세요.");
 			document.myform.d_addr.focus();
-			return false;
-		}
-		if(listSize=="0"){
-			alert("최소 한 개 이상의 제품이 있어야 합니다.");
 			return false;
 		}
 		
@@ -124,7 +124,7 @@
 			</td>
 		</tr>
 		<br> <br> 
-		<input type="submit" name="btn1" value="결제하기"  class="btn btn-default btn-sm" onclick="return ordcheck('${shopLists}')">	
+		<input type="submit" name="btn1" value="결제하기"  class="btn btn-default btn-sm" onclick="return ordcheck(${shopLists.size()})">	
 		<a href="list.prd" class="btn btn-default btn-sm">추가주문</a>		
 	</div>	      			
 	<div class="container">
