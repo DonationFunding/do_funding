@@ -251,7 +251,7 @@ commit;
 drop sequence seqdona ;
 create sequence seqdona start with 1 increment by 1 nocache ;
 
-DROP TABLE do_orderdetail CASCADE CONSTRAINTS;
+DROP TABLE do_donation CASCADE CONSTRAINTS;
 create table do_donation(
 --후원금번호
 	dona_num number primary key,

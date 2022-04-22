@@ -22,6 +22,11 @@
 			document.myform.name.focus();
 			return false;
 		}
+		if (document.myform.name.value.length>9) {
+			alert("이름을 입력하세요.");
+			document.myform.name.focus();
+			return false;
+		}
 		if (document.myform.hp1.value.length == "") {
 			alert("전화번호를 입력하세요.");
 			document.myform.hp1.focus();
