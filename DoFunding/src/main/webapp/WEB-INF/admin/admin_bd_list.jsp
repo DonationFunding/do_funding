@@ -65,7 +65,7 @@
 <br><br>
 	<div>
 		<a href="insert.bd" class="btn btn-default btn-sm pull-right">글쓰기</a>	
-	</div>
+	</div> 
 	<div class="container">
 		<ul class="pagination pagination-sm">
 			${pageInfo.pagingHtml}		

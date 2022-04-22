@@ -3,7 +3,7 @@
 <%@ include file="admin_top.jsp" %>  
 
 <style type="text/css">
-	body{
+	body{ 
 		text-align: center;
 	}
 	table{

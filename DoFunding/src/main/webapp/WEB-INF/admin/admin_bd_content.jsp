@@ -5,7 +5,7 @@
 <style type="text/css">
 	body{
 		text-align: center;
-	}
+	} 
 	textarea{
 		width: 100%;
 		resize: none;
