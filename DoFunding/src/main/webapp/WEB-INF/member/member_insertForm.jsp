@@ -6,6 +6,10 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <script type="text/javascript">
+	var flag=true;
+	function idchange(){
+		document.myform.flag.value="";
+	}
 	function idcheck(myform){
 		if (myform.id.value.length==0){
 			alert("id를 입력하세요.");
@@ -81,7 +85,7 @@
 		    <td width="33%">
 		    </td>
 			<th>아이디 :
-				<input type="text" name="id" <c:if test="${param.id != null }">value="${param.id}"</c:if>>
+				<input type="text" name="id" <c:if test="${param.id != null }">value="${param.id}"</c:if> onchange="idchange()">
 				<input type="hidden" value="${flag }" name="flag">
 				<input type="button" value="중복체크" onclick="return idcheck(myform)" class="btn btn-default btn-sm">
 			</th>
