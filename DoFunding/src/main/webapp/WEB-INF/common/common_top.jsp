@@ -55,7 +55,6 @@
 
 							<li class="m2"><a href="#">두펀딩</a>
 								<ul class="sec m2_Menu" align="center">
-									<li><a href="#">Donation Funding</a></li>
 									<li><a href="dona.ord">후원 기록</a></li>
 								</ul>
 							</li>
