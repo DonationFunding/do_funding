@@ -22,7 +22,7 @@
 <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
 </head>
 <center>
-<h1>FaQ 목록(전체 글:${totalCount})</h1>
+<h1>FaQ 목록</h1>
 <div class="container">
 		<div align="right">
 			<input type="button" value="추가하기" class="btn btn-default btn-sm" onclick="insert_faq()">

@@ -22,7 +22,7 @@
 <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
 </head>
 <center>
-<h1>공지글 목록(전체 글:${totalCount})</h1>
+<h1>공지글 목록</h1>
 <div class="container">
 <table class="table table-hover table-sm" class="text-center">
 	<div align="right">
