@@ -8,6 +8,12 @@
 		margin: auto;
 	}
 </style>
+<script type="text/javascript">
+	function insert_notice(){
+		location.href="admin_notice_insert.ad";
+	}
+	
+</script>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +25,10 @@
 <h1>공지글 목록(전체 글:${totalCount})</h1>
 <div class="container">
 <table class="table table-hover table-sm" class="text-center">
-	
-	<tr>
+	<div>
+		<input type="button"  value="추가하기" class="btn btn-default btn-sm" onclick="insert_notice()">	
+	</div>	
+	<tr>	
 		<th class="text-center">번호</th>
 		<th colspan="2" class="text-center">제목</th>
 		<th class="text-center">작성자</th>
@@ -61,7 +69,6 @@
 	<input type="submit" value="검색" class="btn btn-default btn-sm">
 </p>	
 </form>
-
 
 <%@ include file="admin_bottom.jsp" %>  
 

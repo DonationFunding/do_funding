@@ -8,6 +8,12 @@
 		margin: auto;
 	}
 </style>
+<script type="text/javascript">
+	function insert_faq(){
+		location.href="admin_faq_insert.ad";
+	}
+	
+</script>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,8 +24,10 @@
 <center>
 <h1>FaQ 목록(전체 글:${totalCount})</h1>
 <div class="container">
+		<div>
+			<input type="button" value="추가하기" class="btn btn-default btn-sm" onclick="insert_faq()">
+		</div>
 <table class="table table-hover table-sm" class="text-center">
-	
 	<tr>
 		<th class="text-center">번호</th>
 		<th colspan="2" class="text-center">제목</th>
