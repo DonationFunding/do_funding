@@ -3,16 +3,18 @@
 <%@ include file="common.jsp"%>
 <!DOCTYPE html>
 <html>
+<style>
+.top-banner-wrap {  /* 실제 배너가 주어지면 수정 가능 */
+	background: url(<%=request.getContextPath()%>/resources/images/banner.png) no-repeat;
+}
+</style>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 
 	<title>두펀딩</title>
-<<<<<<< HEAD
 	<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
-=======
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
->>>>>>> refs/remotes/origin/master
 	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
 </head>
 <body>
@@ -47,7 +49,7 @@
 			<br><br>
 
 			<div class="top-banner-wrap">
-				<h1 class="banner-inner">Do_Funding</h1>
+				<!-- <h1 class="banner-inner">Do_Funding</h1> -->
 			</div>
 
 			<div class="mobile-menu-wrap">
