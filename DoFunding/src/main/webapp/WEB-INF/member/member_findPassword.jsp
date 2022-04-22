@@ -12,8 +12,18 @@
 			myform.name.focus();
 			return false;
 		}
+		if (myform.name.value!=myform.namekey.value){
+			alert("올바른 이름을 입력하세요.");
+			myform.name.focus();
+			return false;
+		}
 		if (myform.birthday.value.length==""){
 			alert("생년월일을 입력하세요");
+			myform.birthday.focus();
+			return false;
+		}
+		if (myform.birthday.value!=myform.birthkey.value){
+			alert("올바른 생년월일을 입력하세요");
 			myform.birthday.focus();
 			return false;
 		}
@@ -32,7 +42,7 @@
 	    <td width="35%">
 		</td>
 		<th>
-		       아이디 : <input type="text" name="id" <c:if test="${id != null}">value="${id }" readonly</c:if>>
+		       아이디 : <input type="text" name="id" value="${findid.id }" readonly>
 		<th>
 		<td width="33%">
 		</td>
@@ -41,7 +51,7 @@
 	    <td>
 		</td>
 		<th>
-		       이름 : <input type="text" name="name">
+		       이름 : <input type="text" name="name"><input type="hidden" name="namekey" value="${findid.name }">
 		<th>
 		<td>
 		</td>
@@ -49,8 +59,12 @@
 	<tr align="center">
 	    <td>
 		</td>
+		<c:set var="birthday1">
+			<fmt:parseDate value="${findid.birthday}" var="dateValue" pattern="yyyy-MM-dd" />
+			<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />	
+		</c:set> 
 		<th>
-		      생년월일 : <input type="date" name="birthday" style = "height : 30px;">
+		      생년월일 : <input type="date" name="birthday" style = "height : 30px;"><input type="hidden" name="birthkey"value="${birthday1 }">
 		<th>
 		<td>
 		</td>

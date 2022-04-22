@@ -19,7 +19,17 @@
 			alert("id는 3~8자리 만 입력가능합니다.");
 			myform.id.focus();
 			return false;
-		} 
+		}
+		if (myform.flag.value==""){
+			flag=true;
+		}
+		if (myform.flag.value=="true"){
+			flag=false;
+		}
+		if(flag){
+			alert("id중복체크 해주세요")
+			return false;
+		}
 		if (myform.password.value.length==0){
 			alert("비밀번호를 입력하세요.");
 			myform.password.focus();
@@ -50,6 +60,7 @@
 			myform.birthday.focus();
 			return false;
 		}
+		flag=true;
 		
 	}
 </script>
@@ -66,6 +77,7 @@
 		    </td>
 			<th>아이디 :
 				<input type="text" name="id" <c:if test="${param.id != null }">value="${param.id}"</c:if>>
+				<input type="hidden" value="${flag }" name="flag">
 				<input type="button" value="중복체크" onclick="return idcheck(myform)" class="btn btn-default btn-sm">
 			</th>
 			<td width="28%">

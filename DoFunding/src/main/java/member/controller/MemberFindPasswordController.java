@@ -26,6 +26,8 @@ public class MemberFindPasswordController {
 	@RequestMapping(value = command,method = RequestMethod.GET)
 	public String doAction(MemberBean membean ,HttpServletRequest request) {
 		request.setAttribute("id", request.getParameter("id"));
+		request.setAttribute("name", request.getParameter("name"));
+		request.setAttribute("birthday", request.getParameter("birthday"));
 		return getPage;
 	}
 
