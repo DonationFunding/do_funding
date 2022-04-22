@@ -20,10 +20,6 @@
 	}
 </script>
 <center>
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/do-hjh
 <br>
 <h3>아이디찾기</h3>
 <br>
