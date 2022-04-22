@@ -43,7 +43,11 @@ public class MemberFindIdController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+<<<<<<< HEAD
 			pw.println("<script> alert('찾으시는 회원정보가 없습니다');</script>");
+=======
+			pw.println("<script> alert('찾으시는 회원정보가 없습니다.');</script>");
+>>>>>>> refs/remotes/origin/master
 			pw.flush();
 			return getPage;
 		}//if

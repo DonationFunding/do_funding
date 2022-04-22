@@ -9,12 +9,12 @@
 	function findIdcheck(myform){
 	 	if (myform.name.value==""){
 			alert("이름을 입력하세요.");
-			myform.name.focus();
+			$('input[name=name]').focus();
 			return false;
 		}
 		if (myform.birthday.value.length==0){
 			alert("생년월일을 입력하세요");
-			myform.birthday.focus();
+			$('input[name=birthday]').focus();
 			return false;
 		} 
 	}
@@ -39,7 +39,7 @@
 	</tr>
 	<tr>
 		<td align="center"colspan="2">
-			<input type="submit" value="아이디 찾기" class="btn btn-default btn-sm" onclick="return findIdcheck(myform)">
+			<input type="submit" value="아이디 찾기" class="btn btn-default btn-s	m" onclick="return findIdcheck(myform)">
 		</td>
 	</tr>
 </table>
