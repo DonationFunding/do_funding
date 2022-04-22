@@ -80,6 +80,10 @@
 	
 </script>
 <body>
+	<br>
+	<h3 align="center">주문 및 결제</h3>
+	<br>
+	<form name="myform" action="calculate.ord" >
 	<div class="div2" align="center" style="background-color: #fffcf6; border: 1px solid black;">
 		<h3>결제금액</h3>
 		<tr>

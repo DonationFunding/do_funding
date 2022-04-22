@@ -25,21 +25,21 @@
 			myform.repassword.focus();
 			return false;
 		}
-		alert(count);
+		if(count==3){
+			alert("비밀번호 확인후 재도전하세요~")
+			location.href="/list.prd";
+		}
+		
 		hp2value = myform.hp2.value;
-		alert(hp2value);
 		hp3value = myform.hp3.value;
-		alert(hp3value);
 		if(hp2value==""){
 			alert("전화번호를 입력하세요");
 			return false;
 		}
-		alert(1);
 		if(isNaN(hp2value)){
 			alert("전화번호는 숫자로 입력하세요");
 			return false;
 		}
-		alert(2);
 		if(hp3value==""){
 			alert("전화번호를 입력하세요");
 			return false;
@@ -90,9 +90,8 @@
 		    <td>
 		    </td>
 			<th>
-			패스워드 : <input type="password" name="password">
+			패스워드 : <input type="password" name="password"><input type="hidden" name="key" value="${loginInfo.password }">
 			</th>
-			<td>
 		    </td>
 		</tr>
 		<tr align="center">
