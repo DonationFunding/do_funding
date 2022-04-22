@@ -39,7 +39,7 @@
 	</tr>
 	<tr>
 		<td align="center"colspan="2">
-			<input type="submit" value="아이디 찾기" class="btn btn-default btn-s	m" onclick="return findIdcheck()">
+			<input type="submit" value="아이디 찾기" class="btn btn-default btn-s	m" onclick="return findIdcheck(myform)">
 		</td>
 	</tr>
 </table>
