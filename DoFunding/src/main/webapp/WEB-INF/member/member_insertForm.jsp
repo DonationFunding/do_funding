@@ -7,6 +7,11 @@
 </head>
 <script type="text/javascript">
 	function idcheck(myform){
+		if (myform.id.value.length==0){
+			alert("id를 입력하세요.");
+			myform.id.focus();
+			return false;
+		}
 		location.href="idfunction.mem?id="+myform.id.value;
 	}
 	function memcheck(myform){
