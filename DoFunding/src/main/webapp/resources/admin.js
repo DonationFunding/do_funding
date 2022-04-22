@@ -45,6 +45,11 @@ function catecheck(){
 		$('input[name=code]').focus();
 		return false;
 	}		
+	if($('input[name=code]').val().length>10){
+		alert('코드 길이는 10이하');
+		$('input[name=code]').focus();
+		return false;
+	}		
 	if($('input[name=cname]').val()==""){
 		alert('이름 입력 누락');
 		$('input[name=cname]').focus();

@@ -3,7 +3,6 @@
 <%@ include file="../common/common_top.jsp" %>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <script type="text/javascript">
 	var count = 0;
@@ -74,6 +73,11 @@
 		if(myform.account.value.length==0){
 			alert("계좌번호를 입력하세요.");
 			myform.account.focus();			
+			return false;
+		}
+		if(isNaN(myform.account.value)){
+			alert("계좌번호는 숫자만 입력 가능합니다.");
+			myform.account.focus();
 			return false;
 		}
 	}

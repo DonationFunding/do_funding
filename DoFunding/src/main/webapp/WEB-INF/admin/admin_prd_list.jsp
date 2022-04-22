@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="admin_top.jsp"%>
 <center>
-	<h3>펀딩 목록(${pageInfo.pageNumber})</h3>
+	<h3>펀딩 목록</h3>
 	<form action="admin_prd_list.ad" method="get">
 		<select name="whatColumn">
 			<option value="all">선택</option>

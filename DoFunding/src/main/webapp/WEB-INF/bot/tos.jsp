@@ -6,12 +6,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+#agree {
+margin: 0 auto;
+}
+h1 { text-align: center; }
+</style>
 <meta charset="UTF-8">
 <title>약관동의</title>
 </head>
 <body>
 <h1>홈페이지 이용약관</h1>
-<div class="agree">
+<div id="agree" style="vertical-align: top; width: 50%;">
+<textarea id="agree scroll" style="resize:none; width:100%; height:20rem; padding:0.5rem;" readonly>
+
 <h2>제1장 펀딩 서비스</h2>
 <h3>제1조 (목적)</h3>
 <p>본 장의 약관은 두펀딩 주식회사(이하 "회사")와 회사가 제공하는 리워드형 크라우드펀딩 중개 서비스를 이용하는 서포터 간의 서비스 이용에 관한 권리·의무 관련 사항을 정함을 그 목적으로 합니다.</p>
@@ -66,7 +74,7 @@
 <h6>제4조 (약관의 게시 및 개정)</h6>
 
 <p>회사는 본 약관의 내용을 서포터가 쉽게 알 수 있도록 사이트를 통하여 게시합니다.</p>
-
+</textarea>
 </div>		
 </body>
 </html>
