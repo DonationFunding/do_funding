@@ -81,6 +81,33 @@ filebox .upload-thumb-wrap { /* 추가될 이미지를 감싸는 요소 */
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/option.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){ 
+
+	$("#uploadFile").on("change", handleImgFileSelect);
+
+	function handleImgFileSelect(e) {
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+
+		var reg = /(.*?)\/(jpg|jpeg|png|bmp)$/;
+
+		filesArr.forEach(function(f) {
+			if (!f.type.match(reg)) {
+				alert("확장자는 이미지 확장자만 가능합니다.");
+				return;
+			}
+
+			sel_file = f;
+
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$("#img").attr("src", e.target.result);
+			}
+			reader.readAsDataURL(f);
+		});
+	}
+	
+	
+	
 	var fileTarget = $('.filebox .upload-hidden'); 
 	
 	fileTarget.on('change', function(){ // 값이 변경되면 
@@ -126,7 +153,7 @@ $(document).ready(function(){
 <center>
 <h2>제품 수정 화면(${loginInfo.id})</h2>
 <div >
-	<form:form commandName="prdBean" action="admin_prd_update.ad" method="post" enctype="multipart/form-data" >
+	<form action="admin_prd_update.ad" method="post" enctype="multipart/form-data" >
 		<input type="hidden" name="p_num" value="${prdBean.p_num}">
 		<input type="hidden" name="p_readcount" value="${prdBean.p_readcount}">
 		<input type="hidden" name="p_total_price" value="${prdBean.p_total_price}">
@@ -149,30 +176,38 @@ $(document).ready(function(){
 									<option  value="${category.getCode()}" <c:if test="${category.code eq prdBean.p_category_fk }"> selected</c:if>> ${category.getCname()}</option>
 								</c:forEach>
 						</select>
-						<form:errors cssClass="err" path="p_category_fk" />
 					</td>
 				</tr>
 				<tr>
 					<th>펀딩 제목</th>
 					<td>
 						<input type="text" name="p_subject" value="${prdBean.p_subject}">
-						<form:errors cssClass="err" path="p_subject" />
 					</td>
 				</tr>
 				<tr>
 					<th>이미지 파일</th>
 					<td class="filebox preview-image">
-					    <input class="upload-name" value="파일선택" disabled="disabled">
+					    <input class="upload-name" value="파일선택" disabled="disabled" id="uploadFile">
 					    <label  for="input-file" class='btn btn-default btn-sm'>업로드</label> 
 					    <input type="file" id="input-file" class="upload-hidden"  name="upload">
-						<form:errors cssClass="err" path="p_image" />
+					    <input class="inputStyle" type="file" name="uploadFile" id="uploadFile" /> 
+					    <input type="hidden" id="p_image" name="p_image" value="${prdBean.p_image}" />
+				  				 
 					</td>
+<%-- 					<div class="input_box">
+                                    <label class="input_title">이미지</label><br> <input
+                                        class="inputStyle" type="file" name="uploadFile"
+                                        id="uploadFile" /> <input type="hidden" id="prd_img"
+                                        name="prd_img" value="${product.prd_img }" />
+                                    <div class="img_wrap" style="height: 100">
+                                        <img id="img" src="${product.prd_img }"
+                                            style="width: 100px; margin-left: 175px;" />
+                           </div> --%>
 				</tr>
 				<tr>
 					<th>게시글 내용</th>
 					<td>
 						<textarea name="p_content" rows="15" cols="50" style="resize: none;" >${prdBean.p_content}</textarea>
-						<form:errors cssClass="err" path="p_content" />
 					</td>
 				</tr>
 				<tr>
@@ -184,7 +219,6 @@ $(document).ready(function(){
 						<c:if test="${prdBean != null}">
 							<input type="text" name="p_origin_price" value="${prdBean.p_origin_price}">
 						</c:if>											
-						<form:errors cssClass="err" path="p_origin_price" />
 					</td>
 				</tr>
 				<tr>
@@ -196,7 +230,6 @@ $(document).ready(function(){
 						<c:if test="${prdBean != null}">
 							<input type="text" name="p_end_price" value="${prdBean.p_end_price}">
 						</c:if>						
-						<form:errors cssClass="err" path="p_end_price" />
 					</td>
 				</tr>	
 		<c:set var="p_start_date">
@@ -258,7 +291,7 @@ $(document).ready(function(){
 			<div>
 				<input type="submit" value="상품수정하기" class="btn btn-default btn-sm" onclick="return prdcheck()">
 			</div>
-		</form:form>	
+		</form>	
 	</div>
 </center>
 <%@ include file="admin_bottom.jsp"%>

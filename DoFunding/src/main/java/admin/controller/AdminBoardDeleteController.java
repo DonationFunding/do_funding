@@ -33,7 +33,6 @@ public class AdminBoardDeleteController {
 			HttpServletResponse response
 			) {	
 		response.setContentType("text/html; charset=UTF-8");
-		
 		PrintWriter pw =null;	
 
 		int cnt=boardDao.adminDeleteArticle(bdBean);			
