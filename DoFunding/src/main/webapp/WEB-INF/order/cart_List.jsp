@@ -80,10 +80,6 @@
 	
 </script>
 <body>
-	<br>
-	<h3 align="center">주문 및 결제</h3>
-	<br>
-	<form name="myform" action="calculate.ord" >
 	<div class="div2" align="center" style="background-color: #fffcf6; border: 1px solid black;">
 		<h3>결제금액</h3>
 		<tr>
@@ -147,7 +143,7 @@
 			<th colspan="2">받는 분</th>
 			<td colspan="4">
 				<input type="text" name=name value="${loginInfo.name}"><br><br> 
-				<input type="text" name="hp1" size="3" value="${loginInfo.hp1}">- 
+				<input type="text" name="hp1" size="3" maxlength="3" value="${loginInfo.hp1}">- 
 				<input type="text" name="hp2" size="4" value="${loginInfo.hp2}">-
 				<input type="text" name="hp3" size="4" value="${loginInfo.hp3}">
 			</td>

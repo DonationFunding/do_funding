@@ -29,22 +29,34 @@
 	<div class="container">
     <table class="table" class="text-center">
 	<tr align="center">
-		<th class="text-center">
+	    <td width="35%">
+		</td>
+		<th>
 		       아이디 : <input type="text" name="id" <c:if test="${id != null}">value="${id }" readonly</c:if>>
 		<th>
+		<td width="33%">
+		</td>
 	</tr>
 	<tr align="center">
-		<th class="text-center">
+	    <td>
+		</td>
+		<th>
 		       이름 : <input type="text" name="name">
 		<th>
+		<td>
+		</td>
 	</tr>
 	<tr align="center">
-		<th class="text-center">
+	    <td>
+		</td>
+		<th>
 		      생년월일 : <input type="date" name="birthday" style = "height : 30px;">
 		<th>
+		<td>
+		</td>
 	</tr>
 	<tr>
-		<td align="center"colspan="2">
+		<td align="center" colspan="4">
 			<input type="submit" value="비밀번호찾기" class="btn btn-default btn-sm" onclick="return findPasswordcheck(myform)">
 		</td>
 	</tr>

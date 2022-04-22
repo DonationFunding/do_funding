@@ -29,18 +29,32 @@ a:hover {
 				document.myform.orderqty.select();
 				return false;
 			}
-			if (Number(document.myform.orderqty.value)<0) {
+			if (Number(document.myform.orderqty.value)<0||Number(document.myform.orderqty.value)==0) {
 				alert("수량은 0보다 커야 합니다.");
-				document.myform.orderqty.focus();
+				document.myform.orderqty.select();
+				return false;
+			}	
+		
+			if (Number(document.myform.orderqty.value)>99) {
+				alert("수량은 100보다 작아야 합니다.");
+				document.myform.orderqty.select();
 				return false;
 			}	
 			document.myform.submit();
-			
+			if(isNaN(document.myform.orderqty.value)){
+				alert("숫자만 입력 가능합니다.");
+				document.myform.orderqty.select();
+				return false;
+			}
 	}
 	
 </script>
 <center>
-    <h3>펀딩 상세 화면(${productBean.p_num }/${pageNumber })</h3>
+    <center>
+    <br>
+    <h3>펀딩 상세 화면<%-- (${productBean.p_num }/${pageNumber }) --%></h3>
+    <br>
+    </center>
     <div class="container">
     <table class="table" class="text-center">
     	<tr>
@@ -97,7 +111,7 @@ a:hover {
     		<th>주문수량</th>
     		<td colspan="2">
     				<input type="hidden" name="p_num" value="${productBean.p_num }">		
-    				<input type="number" name=orderqty>	    			
+    				<input type="text" name=orderqty>	    			
 <!-- 현재날짜 -->
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set> 

@@ -28,31 +28,49 @@
 	<div class="container">
     <table class="table" class="text-center">
      
-		<tr aling="center">
-			<th class="text-center">
+		<tr align="center">
+		    <td width="35%">
+		    </td>
+			<th>
 			     아이디 :	<input type="text" name="id" <c:if test="${loginInfo.id != null}">value="${loginInfo.id }" readonly</c:if>>
 				<form:errors cssClass="err" path="id"/>
-			<th>			
+			<th>
+			<td width="28%">
+		    </td>			
 		</tr>
-		<tr aling="center">
-			<th class="text-center">
+		<tr align="center">
+		    <td>
+		    </td>
+			<th>
 			     패스워드 : <input type="password" name="password">
 				<form:errors cssClass="err" path="password"/>
-			<th>			
+			<th>
+			 <td>
+		    </td>			
 		</tr>
-		<tr aling="center">
-			<th class="text-center">
+		<tr align="center">
+		     <td>
+		    </td>
+			<th>
 			     패스워드 확인 : <input type="password" name="repassword">
-			<th>			
+			<th>
+			 <td>
+		    </td>			
 		</tr>
-		<tr aling="center">
-			<th class="text-center">
+		<tr align="center">
+		     <td>
+		    </td>
+			<th>
 			     이름 : <input type="text" name="name" <c:if test="${loginInfo.name != null}">value="${loginInfo.name }" readonly</c:if>>
 				<form:errors cssClass="err" path="name"/>
-			<th>			
+			<th>
+			 <td>
+		    </td>			
 		</tr>
-		<tr aling="center">
-			<th class="text-center">
+		<tr align="center">
+		     <td>
+		    </td>
+			<th>
 			     생년월일 : 
 			     <c:set var="birthday">
 				<fmt:parseDate value="${loginInfo.birthday}" var="dateValue" pattern="yyyy-MM-dd" />
@@ -60,10 +78,12 @@
 			    </c:set> 
 			     <input type="date" name="birthday"  style = "height : 30px;" <c:if test="${loginInfo.birthday != null}">value="${birthday }" readonly</c:if>>
 				<form:errors cssClass="err" path="birthday"/>
-			<th>			
+			<th>
+			 <td>
+		    </td>			
 		</tr>
 		<tr>
-			<td colspan="2" align="center">
+			<td colspan="5" align="center">
 			<input type="submit" value="변경하기"  class="btn btn-default btn-sm" onclick="return resetcheck(myform)">
 			</td>
 		</tr>
