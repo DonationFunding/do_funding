@@ -192,10 +192,7 @@ $(document).ready(function(){
 					    <input type="file" id="input-file" class="upload-hidden"  name="upload">
 					    <input class="inputStyle" type="file" name="uploadFile" id="uploadFile" /> 
 					    <input type="hidden" id="p_image" name="p_image" value="${prdBean.p_image}" />
-				  				 <div class="img_wrap" style="height: 100">
-                                        <img id="img" src="${prdBean.p_image}"
-                                            style="width: 100px; margin-left: 175px;" />
-                           </div>
+				  				 
 					</td>
 <%-- 					<div class="input_box">
                                     <label class="input_title">이미지</label><br> <input
