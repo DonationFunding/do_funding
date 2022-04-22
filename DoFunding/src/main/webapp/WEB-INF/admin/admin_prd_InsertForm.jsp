@@ -180,10 +180,10 @@ $(document).ready(function(){
 					<th>단가</th>
 					<td>
 						<c:if test="${prdBean == null}">
-							<input type="text" name="p_origin_price" value="0">
+							<input type="number" name="p_origin_price" value="0">
 						</c:if>
 						<c:if test="${prdBean != null}">
-							<input type="text" name="p_origin_price" value="${prdBean.p_origin_price}">
+							<input type="number" name="p_origin_price" value="${prdBean.p_origin_price}">
 						</c:if>											
 					</td>
 				</tr>
@@ -191,10 +191,10 @@ $(document).ready(function(){
 					<th>목표 금액</th>
 					<td>
 						<c:if test="${prdBean == null}">
-							<input type="text" name="p_end_price" value="0">
+							<input type="number" name="p_end_price" value="0">
 						</c:if>
 						<c:if test="${prdBean != null}">
-							<input type="text" name="p_end_price" value="${prdBean.p_end_price}">
+							<input type="number" name="p_end_price" value="${prdBean.p_end_price}">
 						</c:if>				
 					</td>
 				</tr>				

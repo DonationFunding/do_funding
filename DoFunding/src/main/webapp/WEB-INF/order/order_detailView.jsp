@@ -55,8 +55,11 @@
 						<c:when test="${totalprice>30000}">
 							${totalprice} 원
 						</c:when>
+						<c:when test="${totalprice > 0  and totalprice < 30000 }">
+							${totalprice+3000}
+					</c:when> 
 						<c:otherwise>
-							${totalprice+3000} 원
+							${totalprice} 원
 						</c:otherwise>
 					</c:choose>
 			</td>
