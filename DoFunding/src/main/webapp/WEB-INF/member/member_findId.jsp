@@ -6,22 +6,13 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <script type="text/javascript">
-<<<<<<< HEAD
-	function findIdcheck(){
-		if ($('input[name=name]').val()==""){
-=======
 	function findIdcheck(myform){
 	 	if (myform.name.value==""){
->>>>>>> refs/remotes/origin/do-pms
 			alert("이름을 입력하세요.");
 			$('input[name=name]').focus();
 			return false;
 		}
-<<<<<<< HEAD
-		if ($('input[name=birthday]').val()==""){
-=======
 		if (myform.birthday.value.length==0){
->>>>>>> refs/remotes/origin/do-pms
 			alert("생년월일을 입력하세요");
 			$('input[name=birthday]').focus();
 			return false;
@@ -32,11 +23,7 @@
 <br>
 <h3>아이디찾기</h3>
 <br>
-<<<<<<< HEAD
-<form name="myform" action="findid.mem" method="post">
-=======
 <form action="findid.mem" method="post" name="myform">
->>>>>>> refs/remotes/origin/do-pms
 	<div class="container">
     <table class="table" class="text-center">
 	

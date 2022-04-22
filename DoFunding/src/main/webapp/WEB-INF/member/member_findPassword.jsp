@@ -25,11 +25,7 @@
 <br>
 <h3>비밀번호찾기</h3>
 <br>
-<<<<<<< HEAD
-<form name="myform" action="findpw.mem" method="post">
-=======
 <form action="findpw.mem" method="post" name="myform">
->>>>>>> refs/remotes/origin/do-pms
 	<div class="container">
     <table class="table" class="text-center">
 	<tr align="center">
