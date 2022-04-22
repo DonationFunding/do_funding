@@ -74,8 +74,10 @@
 		//comfirm : YES/NO t/f
 		//alert(dep);
 		if(dep){
-			document.reform.submit();
-		}		
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 </script>
@@ -202,7 +204,7 @@
 						<td>			
 						<input type="hidden" name="p_num" value="${shopInfo.p_num }"> 
 						<input type="hidden" name="option_no" value="${shopInfo.option_no}"> 
-						<input type="submit" value="삭제" onclick="delcartcheck('${shopInfo.p_subject}')" class="btn btn-default btn-sm" > 
+						<input type="submit" value="삭제" onclick="return delcartcheck('${shopInfo.p_subject}')" class="btn btn-default btn-sm" > 
 						</td>
 					</tr>
 				</c:forEach>
