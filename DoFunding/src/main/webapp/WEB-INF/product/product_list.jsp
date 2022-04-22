@@ -15,9 +15,9 @@
 
 <div align="center">
 	<c:if test="${rotatorlist ne null}">
-		<div class="container">
+		<div class="container" style="width: 100%">
 			<!--  <h2>캐러셀 슬라이드 효과  </h2> -->
-			<div id="carousel-example-generic" class="carousel slide">
+			<div id="carousel-example-generic" class="carousel slide" style="width: 100%">
 
 				<!-- Indicators(이미지 하단의 동그란것->class="carousel-indicators") -->
 				<ol class="carousel-indicators">
