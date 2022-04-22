@@ -17,7 +17,7 @@
 		     <td width="35%">
 		     </td>
 			<th>
-				아이디 : 	<input type="text" name="id">
+				아이디 : 	<input type="text" name="id" >
 			</th>
 			 <td width="33%">
 		     </td>
