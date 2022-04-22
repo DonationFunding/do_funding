@@ -46,13 +46,8 @@
 		<td>
 	</tr>
 	<tr>
-<<<<<<< HEAD
-		<td align="center"colspan="2">
-			<input type="submit" value="아이디 찾기" class="btn btn-default btn-s	m" onclick="return findIdcheck(myform)">
-=======
 		<td align="center"colspan="3">
 			<input type="submit" value="아이디 찾기" class="btn btn-default btn-sm" onclick="return findIdcheck(myform)">
->>>>>>> refs/remotes/origin/do-khc
 		</td>
 	</tr>
 </table>

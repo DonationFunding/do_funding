@@ -25,21 +25,21 @@
 			myform.repassword.focus();
 			return false;
 		}
-		alert(count);
+		if(count==3){
+			alert("비밀번호 확인후 재도전하세요~")
+			location.href="/list.prd";
+		}
+		
 		hp2value = myform.hp2.value;
-		alert(hp2value);
 		hp3value = myform.hp3.value;
-		alert(hp3value);
 		if(hp2value==""){
 			alert("전화번호를 입력하세요");
 			return false;
 		}
-		alert(1);
 		if(isNaN(hp2value)){
 			alert("전화번호는 숫자로 입력하세요");
 			return false;
 		}
-		alert(2);
 		if(hp3value==""){
 			alert("전화번호를 입력하세요");
 			return false;
@@ -73,63 +73,41 @@
 	<div class="container">
     <table class="table" class="text-center">
 		<tr align="center">
-<<<<<<< HEAD
-			<th >
-=======
 		    <td width="35%">
 		    </td>
 			<th>
->>>>>>> refs/remotes/origin/do-khc
 			아이디 : <input type="text" name="id" <c:if test="${loginInfo.id != null}">value="${loginInfo.id }" readonly</c:if>>
 			</th>
 			<td width="28%">
 		    </td>
 		</tr>
 		<tr align="center">
-<<<<<<< HEAD
-			<th class="text-center">
-			패스워드 : <input type="password" name="password"><input type="hidden" name="key" value="${loginInfo.password }">
-=======
 		    <td>
 		    </td>
 			<th>
-			패스워드 : <input type="password" name="password">
->>>>>>> refs/remotes/origin/do-khc
+			패스워드 : <input type="password" name="password"><input type="hidden" name="key" value="${loginInfo.password }">
 			</th>
-			<td>
 		    </td>
 		</tr>
 		<tr align="center">
-<<<<<<< HEAD
-			<th class="text-center">
-=======
 		    <td>
 		    </td>
 			<th>
->>>>>>> refs/remotes/origin/do-khc
 			패스워드 확인 : <input type="password" name="repassword">
 			</th>
 			<td>
 		    </td>
 		</tr>
 		<tr align="center">
-<<<<<<< HEAD
-			<th class="text-center">
-=======
 		    <td></td>
 			<th>
->>>>>>> refs/remotes/origin/do-khc
 			이름 : <input type="text" name="name" <c:if test="${loginInfo.name != null}">value="${loginInfo.name }" readonly</c:if>>
 			</th>
 			<td></td>
 		</tr>
 		<tr align="center">
-<<<<<<< HEAD
-			<th class="text-center">
-=======
 			<td></td>
 			<th>
->>>>>>> refs/remotes/origin/do-khc
 			생년월일 : 
 			 <c:set var="birthday">
 				<fmt:parseDate value="${loginInfo.birthday}" var="dateValue" pattern="yyyy-MM-dd" />
@@ -140,24 +118,16 @@
 			<td></td>
 		</tr>
 		<tr align="center">
-<<<<<<< HEAD
-			<th class="text-center">
-=======
 		    <td></td>
 			<th>
->>>>>>> refs/remotes/origin/do-khc
 			성별 : <input type="radio" name="gender" value="남" <c:if test="${loginInfo.gender eq '남' }">checked</c:if>>남
 				  <input type="radio" name="gender" value="여" <c:if test="${loginInfo.gender eq '여' }">checked</c:if>>여
 			</th>
 			<td></td>
 		</tr>
 		<tr align="center">
-<<<<<<< HEAD
-			<th class="text-center">
-=======
 		    <td></td>
 			<th>
->>>>>>> refs/remotes/origin/do-khc
 			핸드폰 : <select name="hp1">
 					<option value="010">010
 					<option value="011">011
@@ -172,34 +142,22 @@
 			<td></td>
 		</tr>
 		<tr align="center">
-<<<<<<< HEAD
-			<th class="text-center">
-=======
 		    <td></td>
 			<th>
->>>>>>> refs/remotes/origin/do-khc
 			주소 : <input type="text" name="address1" value="${loginInfo.address1 }">
 			</th>
 			<td></td>
 		</tr>
 		<tr align="center">
-<<<<<<< HEAD
-			<th class="text-center">
-=======
 		    <td></td>
 			<th>
->>>>>>> refs/remotes/origin/do-khc
 			상세주소 :	<input type="text" name="address2" value="${loginInfo.address2 }" size="24px">
 			</th>
 			<td></td>
 		</tr>
 		<tr align="center">
-<<<<<<< HEAD
-			<th class="text-center">
-=======
 		    <td></td>
 			<th style="line-height:50%">
->>>>>>> refs/remotes/origin/do-khc
 			결제은행 : <select name="accountbank">
 					<option value="국민은행">국민은행
 					<option value="신한은행">신한은행
