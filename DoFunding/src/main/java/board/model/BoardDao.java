@@ -30,7 +30,11 @@ public class BoardDao {
 		String passwd=sqlSessionTemplate.selectOne(namespace+".GetArticlePasswd", article);
 		if(passwd.equals(article.getB_passwd())) {
 			article=sqlSessionTemplate.selectOne(namespace+".GetArticle", article);
+			System.out.println("1:"+article.getB_re_level()); 
+			System.out.println("2:"+article.getB_re_step()); 
+			System.out.println("3:"+article.getB_ref()); 
 			cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", article);			
+			System.out.println("4 : "+cnt);
 		}
 		else {
 			cnt=-2;
