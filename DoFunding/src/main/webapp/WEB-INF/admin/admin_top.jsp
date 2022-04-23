@@ -23,6 +23,7 @@
 <style>
 .top-banner-wrap {  /* 실제 배너가 주어지면 수정 가능 */
 	background: url(<%=request.getContextPath()%>/resources/images/banner.png) no-repeat;
+	border:none;
 }
 </style>
 <body>
@@ -43,7 +44,7 @@
 			</c:if>
 			<br><br>
 		
-			<div class="top-banner-wrap" style="height: 200px;">
+			<div class="top-banner-wrap" style="height: 200px;" >
 			</div>
 
 			<div class="mobile-menu-wrap">

@@ -30,7 +30,7 @@
 
  <body>
  	<div id="bottom-wrap">
- 		<ul id="bottom-menu1" style="padding-left: 38%;">
+ 		<ul id="bottom-menu1">
  			<li><a href="company.bot">회사소개</a></li>
 	 		<li><a href="tos.bot">이용약관</a></li>
 	 		<li><a href="map.bot">오시는길</a></li>
