@@ -5,11 +5,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
-<style type="text/css">
-a:hover {
-	color: #ff3;
-}
-</style>
+
 <script type="text/javascript">
 	function insert(){
 		location.href = "insert.prd"; // ProductInsertController

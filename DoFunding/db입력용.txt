@@ -105,7 +105,7 @@ insert into do_product values(seqdo_product.nextval,'phonecase','kim','할머님
 insert into do_product values(seqdo_product.nextval,'phonecase','kim','할머님 케이스',30,'핸드폰케이스2.jpg','내용123',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'handkerchief','kim','할머님 손수건',5,'위안부 손수건.jpg','내용123',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'ring','kim','할머님 반지',5,'반지.jpg','내용123',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
-insert into do_product values(seqdo_product.nextval,'necklace','kim','할머님 목걸이',8,'목걸이.jpg','내용123',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-15');
+insert into do_product values(seqdo_product.nextval,'necklace','kim','할머님 목걸이',8,'목걸이.jpg','내용123',10000,12000000,10000000,100,sysdate,'2022-3-20','2022-4-15');
 insert into do_product values(seqdo_product.nextval,'earring','kim','할머님 귀걸이',5,'귀걸이2.jpeg','내용123',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-10');
 insert into do_product values(seqdo_product.nextval,'bracelet','kim','할머님 팔찌',18,'팔찌2.jpg','내용123',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-8');
 insert into do_product values(seqdo_product.nextval,'bracelet','kim','할머님 팔찌',5,'팔찌.jpg','내용123',10000,0,10000000,100,sysdate,'2022-4-30','2022-5-22');
@@ -213,7 +213,6 @@ VALUES(seqdo_option.nextval , '색상:파랑' , 12);
 commit;
 
 
-
 --주문테이블
 drop sequence seqoid ;
 create sequence seqoid start with 1 increment by 1 nocache ;
@@ -226,6 +225,9 @@ create table do_order(
 --주문일
   o_date date default sysdate
 );
+
+insert into do_order values(seqoid.nextval,1,'2022-4-23');
+insert into do_order values(seqoid.nextval,1,'2022-4-23');
 
 
 drop sequence seqod ;
@@ -247,7 +249,12 @@ create table do_orderdetail(
   od_deliver number default 0	
 );
 
+insert into do_orderdetail(od_num,od_o_num,od_p_num,od_option_no,od_qty,od_deliver)values(seqod.nextval, 1,5,2,5,0);
+insert into do_orderdetail(od_num,od_o_num,od_p_num,od_option_no,od_qty,od_deliver)values(seqod.nextval, 2,6,3,10,0);
+
 commit;
+
+
 
 
 drop sequence seqdona ;
