@@ -25,7 +25,7 @@
 </c:set>
 	<div class="container">
             <table class="table" class="text-center">
-            <td colspan="8" align="right"><a href="order.ord">주문내역</a></td>
+            <td colspan="9" align="right"><a href="order.ord">주문내역</a></td>
 			<tr>
 				<th>상품명</th>
 				<th>이미지</th>
@@ -91,17 +91,17 @@
 		<tr>
 			<td colspan="9" align="right">
 				총 계산금액 : 
-					<c:choose>
-						<c:when test="${totalprice>30000}">
-							${totalprice} 원
-						</c:when>
-						<c:when test="${totalprice > 0  and totalprice < 30000 }">
-							${totalprice+3000}
-					</c:when> 
-						<c:otherwise>
-							${totalprice} 원
-						</c:otherwise>
-					</c:choose>
+				<c:choose>
+					<c:when test="${totalprice>30000}">
+						${totalprice} 원
+					</c:when>
+					<c:when test="${totalprice > 0  and totalprice < 30000 }">
+						${totalprice+3000}
+				</c:when> 
+					<c:otherwise>
+						${totalprice} 원
+					</c:otherwise>
+				</c:choose>
 			</td>
 		</tr>
 	</table>

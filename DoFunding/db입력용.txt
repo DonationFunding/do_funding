@@ -276,6 +276,11 @@ create table do_donation(
 	dona_date date default sysdate	
 );	
 
+insert into do_donation(dona_num,dona_o_num,dona_no,dona_money,dona_buyprice,dona_date)values(seqdona.nextval, 1,1,16600,50000,sysdate);
+insert into do_donation(dona_num,dona_o_num,dona_no,dona_money,dona_buyprice,dona_date)values(seqdona.nextval, 2,1,30000,100000,sysdate);
+
+
+
 commit;
 
 
@@ -430,18 +435,6 @@ insert into do_faq_board(faq_num,faq_writer,faq_subject,faq_reg_date,faq_readcou
 values(seqdo_faq_board.nextval,'관리자','펀딩 제품을 사이트에 게시하고 싶은데 어떻게 하나요?','2015-1-1',0,'펀딩 제품 등록 관련 문의는 '1588-8851' 번호로 연락 주시기 바랍니다.');
 
 commit;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
