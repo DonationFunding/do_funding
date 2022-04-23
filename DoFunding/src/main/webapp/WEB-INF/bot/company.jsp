@@ -35,7 +35,8 @@
 <body>
 <h1>Do funding 소개</h1>
 <div class ="text1">
-Do_funding은 더 나은 사회를 위해 도움이 필요한 분들께 기부를 도와줄 수 있도록 지원하는 크라우드 펀딩 플랫폼입니다.
+더 나은 사회를 위한, 도움의 손길이 필요한 이들을 위한 <br>
+크라우드 펀딩 플랫폼 <font><b>Do funding</b></font>
 </div>
 <br>
 <img class= "image-box" src ="<%=request.getContextPath()%>/resources/images/company.jpg">
