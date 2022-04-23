@@ -5,7 +5,15 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
+<<<<<<< HEAD
 
+=======
+<style type="text/css">
+a:hover {
+	color: #555;
+}
+</style>
+>>>>>>> refs/remotes/origin/do_cjh
 <script type="text/javascript">
 	function insert(){
 		location.href = "insert.prd"; // ProductInsertController
