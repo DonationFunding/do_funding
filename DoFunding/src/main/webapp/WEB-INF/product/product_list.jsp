@@ -36,7 +36,7 @@
 							<img
 							src="<%=request.getContextPath()%>/resources/images/${rotatorlist.get(0).getP_image()}"
 							alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-							width="300" height="150">
+							height="250px">
 						</a>
 					</div>
 					<c:forEach var="rota_list" items="${rotatorlist}" begin="1">
