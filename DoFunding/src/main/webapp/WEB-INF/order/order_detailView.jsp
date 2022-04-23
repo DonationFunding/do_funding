@@ -43,24 +43,8 @@
 					<td>${odb.qty}</td>
 					<td>${odb.option_content}</td>
 					<td>${odb.amount}</td>
-					<td>${(odb.p_total_price/odb.p_end_price)*100} %</td>
-<%-- 					<c:choose>
-						<c:when test="${odb.deliver != 0}">
-							<td>
-								<button class="btn-default-disable" disabled="disabled">주문취소</button>
-								<br>
-								<button class="btn-default-disable" disabled="disabled">주문변경</button>
-								<br>
-							</td>
-						</c:when>
-						<c:otherwise>
-							<td>
-								<button class="btn-default-order_cancel" onclick="location.href='#'+ ${odb.od_num}">주문취소</button>
-								<br>
-								<button class="btn-default-disable" disabled="disabled">주문변경</button>
-							</td>
-						</c:otherwise>
-					</c:choose> --%>
+					<td>
+					<fmt:formatNumber value="${(odb.p_total_price/odb.p_end_price)*100}" pattern=".00" /> %</td>
 				</tr>
 			</c:forEach>	
 		</div>
@@ -71,8 +55,11 @@
 						<c:when test="${totalprice>30000}">
 							${totalprice} 원
 						</c:when>
+						<c:when test="${totalprice > 0  and totalprice < 30000 }">
+							${totalprice+3000}
+					</c:when> 
 						<c:otherwise>
-							${totalprice+3000} 원
+							${totalprice} 원
 						</c:otherwise>
 					</c:choose>
 			</td>

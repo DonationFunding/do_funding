@@ -1,7 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common_top.jsp" %>
+
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
+</head>
 <center>
+<center>
+<br>
+<h3>후원 기록</h3>
+<br>
+</center>  
  <div class="container">
         <table class="table table-hover table-sm" class="text-center">
 	<tr>
@@ -31,7 +41,7 @@
 			<td>
 				${o_date }
 			</td>
-			<td>
+			<td >
 				${donation.dona_buyprice}
 			</td>
 			<td>

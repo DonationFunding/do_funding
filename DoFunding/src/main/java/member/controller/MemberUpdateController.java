@@ -20,7 +20,7 @@ import member.model.MemberDao;
 public class MemberUpdateController {
 	private final String command = "/update.mem";
 	private final String getPage = "member_updateForm";
-	private String gotoPage = "member_detailView";
+	private String gotoPage = "redirect:memberInfo.mem";
 	
 	@Autowired
 	MemberDao mdao;
@@ -44,13 +44,16 @@ public class MemberUpdateController {
 		System.out.println("update.mem(post)"+membean.getPassword());
 		ModelAndView mav=new ModelAndView();
 		int cnt = mdao.updateMember(membean);
+		MemberBean loginInfo = mdao.getLoginInfo(membean);
+		session.setAttribute("loginInfo", loginInfo);
 		String destination = (String)session.getAttribute("destination");
+		mav.setViewName(destination);
+		session.removeAttribute(destination);
 		if(destination ==null) {
 			mav.setViewName(gotoPage);
 			return mav;
 		}
 		else {
-			mav.setViewName(destination);
 			return mav;					
 		}
 	}

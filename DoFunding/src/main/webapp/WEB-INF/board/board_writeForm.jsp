@@ -24,7 +24,11 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/check.js"></script>
 <body>
+<center>
+<br>
 <h3>글쓰기</h3>
+<br>
+</center>
 <form action="insert.bd" method="post">
 <div class="container">
 <table class="table" class="text-center">

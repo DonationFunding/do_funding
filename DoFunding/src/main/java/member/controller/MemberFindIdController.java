@@ -32,8 +32,9 @@ public class MemberFindIdController {
 	}
 	
 	@RequestMapping(value = command,method = RequestMethod.POST)
-	public  String doAction(MemberBean membean,HttpServletRequest request,HttpServletResponse response) {
+	public  ModelAndView doAction(MemberBean membean,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		response.setContentType("text/html; charset=UTF-8");
+		ModelAndView mav = new ModelAndView();
 		MemberBean findid = mdao.findId(membean);
 		PrintWriter pw=null;
 		if(findid == null) {
@@ -43,11 +44,14 @@ public class MemberFindIdController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('입력하세요');</script>");
+			pw.println("<script> alert('찾으시는 회원정보가 없습니다.');</script>");
 			pw.flush();
-			return getPage;
+			mav.setViewName(getPage);
+			return mav;
 		}//if
-		return gotoPage+"?id="+findid.getId();
+		session.setAttribute("findid", findid);
+		mav.setViewName(gotoPage);
+		return mav;
 	}
 	
 	

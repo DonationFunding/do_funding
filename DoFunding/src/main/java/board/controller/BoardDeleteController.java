@@ -26,7 +26,7 @@ public class BoardDeleteController {
 	@Autowired
 	private BoardDao boardDao;
 
-	//content.jsp get¹æ½Ä updateForm.bd
+	
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
@@ -38,7 +38,6 @@ public class BoardDeleteController {
 		return getPage;
 	}	
 
-	//boardList.jsp get¹æ½Ä writeArticle.bv
 	@RequestMapping(value=command,method = RequestMethod.POST)
 	public String doAction(
 			@RequestParam(value="pageNumber") String pageNumber,
@@ -51,13 +50,13 @@ public class BoardDeleteController {
 		
 		PrintWriter pw =null;	
 		
-		if(passwd.equals("")){	//ÀÔ·Â ´©¶ô
+		if(passwd.equals("")){	
 			try {
 				pw=response.getWriter();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('ºñ¹Ğ¹øÈ£ ÀÔ·Â ´©¶ô');</script>");
+			pw.println("<script> alert('ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.');</script>");
 			pw.flush();
 			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);
@@ -65,22 +64,22 @@ public class BoardDeleteController {
 		}
 		else
 		{
-			int cnt=boardDao.deleteArticle(bdBean,passwd);			
+			int cnt=boardDao.deleteArticle(bdBean);			
 			try {
 				pw=response.getWriter();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			if(cnt>0) {		//»èÁ¦¼º°ø
+			if(cnt>0) {		
 				return gotoPage+"?pageNumber="+pageNumber;
 			}
 			
-			if(cnt == -2) {	//ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ ¾ÊÇÏ¸é
-				pw.println("<script> alert('ÀÛ¼º±ÛÀÇ ºñ¹Ğ¹øÈ£¿Í ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.');</script>");
+			if(cnt == -2) {	
+				pw.println("<script> alert('ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');</script>");
 				pw.flush();
 			}
 			else {
-				pw.println("<script> alert('±Û ¼öÁ¤ÀÌ ½ÇÆĞÇß½À´Ï´Ù');</script>");
+				pw.println("<script> alert('ê²Œì‹œê¸€ ì‚­ì œì— ì„±ê³µí–ˆìŠµë‹ˆë‹¤.');</script>");
 				pw.flush();
 			}	
 			request.setAttribute("bdBean", bdBean);

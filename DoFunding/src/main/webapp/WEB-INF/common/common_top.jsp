@@ -1,13 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+`<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="common.jsp"%>
 <!DOCTYPE html>
 <html>
+<style>
+.top-banner-wrap {  /* 실제 배너가 주어지면 수정 가능 */
+	background: url(<%=request.getContextPath()%>/resources/images/banner.png) no-repeat;
+}
+</style>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 
 	<title>두펀딩</title>
+	<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
 	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
 </head>
@@ -42,8 +48,8 @@
 			</c:if>
 			<br><br>
 
-			<div class="top-banner-wrap">
-				<h1 class="banner-inner">Do_Funding</h1>
+			<div class="top-banner-wrap" style="height: 200px;">
+				<!-- <h1 class="banner-inner">Do_Funding</h1> -->
 			</div>
 
 			<div class="mobile-menu-wrap">
@@ -55,7 +61,6 @@
 
 							<li class="m2"><a href="#">두펀딩</a>
 								<ul class="sec m2_Menu" align="center">
-									<li><a href="#">Donation Funding</a></li>
 									<li><a href="dona.ord">후원 기록</a></li>
 								</ul>
 							</li>

@@ -16,13 +16,17 @@
 </style>
 
 <script type="text/javascript">
-	function ordcheck() {
-		if (document.myform.name.value.length == "") {
+	function ordcheck(listSize) {
+		if(listSize == 0){
+			alert("최소 한 개 이상의 제품이 있어야 합니다.");
+			return false;
+		}
+		if (document.myform.name.value == "") {
 			alert("이름을 입력하세요.");
 			document.myform.name.focus();
 			return false;
 		}
-		if (document.myform.hp1.value.length == "") {
+		if (document.myform.hp1.value == "") {
 			alert("전화번호를 입력하세요.");
 			document.myform.hp1.focus();
 			return false;
@@ -32,7 +36,7 @@
 			document.myform.hp1.select();
 			return false;
 		}
-		if (document.myform.hp2.value.length == "") {
+		if (document.myform.hp2.value == "") {
 			alert("전화번호를 입력하세요.");
 			document.myform.hp2.focus();
 			return false;
@@ -42,7 +46,7 @@
 			document.myform.hp2.select();
 			return false;
 		}
-		if (document.myform.hp3.value.length == "") {
+		if (document.myform.hp3.value == "") {
 			alert("전화번호를 입력하세요.");
 			document.myform.hp3.focus();
 			return false;
@@ -52,16 +56,17 @@
 			document.myform.hp3.select();
 			return false;
 		}
-		if (document.myform.addr.value.length == "") {
+		if (document.myform.address.value=="") {
 			alert("주소를 입력하세요.");
 			document.myform.addr.focus();
 			return false;
 		}
-		if (document.myform.d_addr.value.length == "") {
+		if (document.myform.address2.value== "") {
 			alert("상세주소를 입력하세요.");
 			document.myform.d_addr.focus();
 			return false;
 		}
+		
 	}
 	function delcartcheck(p_subject){
 		var dep = confirm(p_subject+"(을)를 정말 장바구니에서 삭제 하시겠습니까?");
@@ -69,8 +74,10 @@
 		//comfirm : YES/NO t/f
 		//alert(dep);
 		if(dep){
-			document.reform.submit();
-		}		
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 </script>
@@ -119,7 +126,7 @@
 			</td>
 		</tr>
 		<br> <br> 
-		<input type="submit" name="btn1" value="결제하기"  class="btn btn-default btn-sm" onclick="return ordcheck()">	
+		<input type="submit" name="btn1" value="결제하기"  class="btn btn-default btn-sm" onclick="return ordcheck(${shopLists.size()})">	
 		<a href="list.prd" class="btn btn-default btn-sm">추가주문</a>		
 	</div>	      			
 	<div class="container">
@@ -142,7 +149,7 @@
 			<th colspan="2">받는 분</th>
 			<td colspan="4">
 				<input type="text" name=name value="${loginInfo.name}"><br><br> 
-				<input type="text" name="hp1" size="3" value="${loginInfo.hp1}">- 
+				<input type="text" name="hp1" size="3" maxlength="3" value="${loginInfo.hp1}">- 
 				<input type="text" name="hp2" size="4" value="${loginInfo.hp2}">-
 				<input type="text" name="hp3" size="4" value="${loginInfo.hp3}">
 			</td>
@@ -197,7 +204,7 @@
 						<td>			
 						<input type="hidden" name="p_num" value="${shopInfo.p_num }"> 
 						<input type="hidden" name="option_no" value="${shopInfo.option_no}"> 
-						<input type="submit" value="삭제" onclick="delcartcheck('${shopInfo.p_subject}')" class="btn btn-default btn-sm" > 
+						<input type="submit" value="삭제" onclick="return delcartcheck('${shopInfo.p_subject}')" class="btn btn-default btn-sm" > 
 						</td>
 					</tr>
 				</c:forEach>

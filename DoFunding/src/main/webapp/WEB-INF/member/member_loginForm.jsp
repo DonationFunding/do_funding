@@ -8,22 +8,30 @@
 </head>
 <center>
 <form action="login.mem" method="post">
-<div class="container">
-<table class="table" class="text-center">
+<div class="container" >
+<table class="table" class="text-center"  >
         <h4>로그인</h4>
-		<tr align="center">
-			<th class="text-center">
-				아이디 : 	<input type="text" name="id">
+		<tr align="center" >
+		     <td width="35%">
+		     </td>
+			<th>
+				아이디 : <input type="text" name="id" >
 			</th>
+			 <td width="33%">
+		     </td>
 
 		</tr>
-		<tr  align="center">
-			<th class="text-center">
+		<tr align="center">
+		    <td>
+		    </td>
+			<th>
 				패스워드 : <input type="password" name="password">
 			</th>
+			<td>
+		     </td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center">
+			<td colspan="3" align="center">
 				<input type="submit" value="로그인"  class="btn btn-default btn-sm">
 				<input type="button" value="아이디/비밀번호 찾기"  class="btn btn-default btn-sm" onclick="location.href='findid.mem'">
 				<input type="button" value="회원가입"  class="btn btn-default btn-sm" onclick="location.href='insert.mem'">
