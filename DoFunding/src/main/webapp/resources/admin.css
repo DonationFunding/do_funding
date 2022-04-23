@@ -35,11 +35,7 @@ ul,  li, a {
 	flex-flow: row nowrap;
 	align-items: center;  /* 수직으로 중앙 정렬 */
 	width: 100%;  /* banner의 크기를 설정 */
-	margin: 10px auto;  /* margin 10px을 주고 중앙 정렬 */
-}
-.top-banner-wrap h1 {
-	width: 100%;
-	text-align: center;  /* banner 글자를 중앙 정렬 */
+	margin: 0 auto;  /* margin 10px을 주고 중앙 정렬 */
 }
 .top-inner h1.logo {
 	text-align: center;
@@ -203,7 +199,7 @@ a:hover {
 }
 #bottom-menu1 li {  /* 메뉴를 가로로 배치 */
     float: left;
-	padding: 5px 10px;
+	padding: 5px 60px;
 	list-style: none;
 	line-height: 20x;
 	vertical-align: middle;
@@ -211,6 +207,7 @@ a:hover {
 }
 #bottom-menu1 li:first-child {
 	background: none;
+	padding-left: 29%;
 }
 .bottom-menu2 {
 	position: relative;

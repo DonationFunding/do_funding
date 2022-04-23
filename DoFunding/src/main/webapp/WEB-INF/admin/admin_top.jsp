@@ -16,6 +16,11 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="<%=request.getContextPath() %>/resources/js/bootstrap.min.js"></script>
 </head>
+<style>
+.top-banner-wrap {  /* 실제 배너가 주어지면 수정 가능 */
+	background: url(<%=request.getContextPath()%>/resources/images/banner.png) no-repeat;
+}
+</style>
 <body>
 	<br><br>
 	<div id="top-wrap">
@@ -27,16 +32,12 @@
 						&nbsp;<a href="list.prd">사용자 페이지</a>
 						</c:if>
 						&nbsp;<a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a>
-						&nbsp;<a href="memberInfo.mem">회원정보</a>
-						&nbsp;<a href="list.like?">찜목록</a>
-						&nbsp;<a href="admin_ord_list.ad">주문내역</a>
 					</li>
 				</ul>
 			</c:if>
 			<br><br>
 		
-			<div class="top-banner-wrap">
-				<h1 class="banner-inner">Do_Funding</h1>
+			<div class="top-banner-wrap" style="height: 200px;">
 			</div>
 
 			<div class="mobile-menu-wrap">
