@@ -396,7 +396,10 @@ insert into do_notice_board(no_num,no_writer,no_subject,no_reg_date,no_readcount
 values(seqdo_notice_board.nextval,'관리자','[공지]배송 가능 시간 안내','2018-1-1',0,'영업일 기준 오후 1시 이전 결제 완료 주문건 :  당일 출고됩니다.');
 
 insert into do_notice_board(no_num,no_writer,no_subject,no_reg_date,no_readcount,no_content)
-values(seqdo_notice_board.nextval,'관리자','[공지] 교환 및 반품 안내','2022-3-1',0,'교환 및 반품 안내');
+values(seqdo_notice_board.nextval,'관리자','[공지] 교환 및 반품 안내','2022-3-1',0,'교환 및 반품 안내 1234-5689 연락바랍니다.');
+
+insert into do_notice_board(no_num,no_writer,no_subject,no_reg_date,no_readcount,no_content)
+values(seqdo_notice_board.nextval,'관리자','2022-03-15','2022-3-15',0,'위안부 할머님들을 위하여 세계적인 한글 디자이너인 최정호 디자이너의 작품들이 펀딩 아이템으로 출시될 예정입니다! ');
 
 
 
@@ -420,7 +423,11 @@ create table do_faq_board(
 
 
 insert into do_faq_board(faq_num,faq_writer,faq_subject,faq_reg_date,faq_readcount,faq_content)
-values(seqdo_faq_board.nextval,'관리자','a1','2015-1-1',0,'내용1');
+values(seqdo_faq_board.nextval,'관리자','후원금액의 처리는 어떻게 되는건가요?','2015-1-1',0,'후원금액은 3개월 단위로 모금액을 정산하여 위안부 관련 단체에 후원되며, 증서 및 그 내용을 공지사항 게시판에 업로드 합니다.');
+insert into do_faq_board(faq_num,faq_writer,faq_subject,faq_reg_date,faq_readcount,faq_content)
+values(seqdo_faq_board.nextval,'관리자','해외배송은 어떻게 되나요?','2015-1-1',0,'해외 배송은 아직 기능 준비중이며, 주문금액이 30000원 이상일 시 배송비는 무료입니다.');
+insert into do_faq_board(faq_num,faq_writer,faq_subject,faq_reg_date,faq_readcount,faq_content)
+values(seqdo_faq_board.nextval,'관리자','펀딩 제품을 사이트에 게시하고 싶은데 어떻게 하나요?','2015-1-1',0,'펀딩 제품 등록 관련 문의는 '1588-8851' 번호로 연락 주시기 바랍니다.');
 
 commit;
 
