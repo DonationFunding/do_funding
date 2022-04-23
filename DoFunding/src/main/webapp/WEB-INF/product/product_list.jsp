@@ -61,7 +61,7 @@
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 		<script>
-			$('.carousel').carousel() /* 1 */
+			$('.carousel').carousel(); /* 1 */
 		</script>
 	</c:if>
 	<br><br>

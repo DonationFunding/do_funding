@@ -110,7 +110,7 @@ insert into do_product values(seqdo_product.nextval,'earring','kim','할머님 �
 insert into do_product values(seqdo_product.nextval,'bracelet','kim','할머님 팔찌',18,'팔찌2.jpg','내용123',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-8');
 insert into do_product values(seqdo_product.nextval,'bracelet','kim','할머님 팔찌',5,'팔찌.jpg','내용123',10000,0,10000000,100,sysdate,'2022-4-30','2022-5-22');
 insert into do_product values(seqdo_product.nextval,'bag','kim','할머님 가방',5,'가방3.jpg','내용123',10000,0,10000000,100,sysdate,'2022-5-1','2022-5-30');
-insert into do_product values(seqdo_product.nextval,'bag','kim','할머님 가방',7,'가방.jpg','내용123',10000,0,10000000,100,sysdate,'2022-5-15','2022-5-19');
+insert into do_product values(seqdo_product.nextval,'bag','kim','할머님 가방',7,'가방2.jpg','내용123',10000,0,10000000,100,sysdate,'2022-5-15','2022-5-19');
 insert into do_product values(seqdo_product.nextval,'bracelet','kim','할머님 팔찌',5,'팔찌2.jpg','내용123',10000,0,10000000,100,sysdate,'2022-4-18','2022-5-30');
 insert into do_product values(seqdo_product.nextval,'bag','kim','할머님 가방',5,'가방2.jpg','내용123',10000,0,10000000,100,sysdate,'2022-4-15','2022-5-19');
 

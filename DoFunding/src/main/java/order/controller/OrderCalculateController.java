@@ -25,6 +25,8 @@ import product.model.ProductDao;
 @Controller
 public class OrderCalculateController {
 	private final String command = "/calculate.ord";
+	
+	private String getPage = "redirect:/cart_list.ord";
 	private String gotoPage = "redirect:/order.ord";
 	
 	@Autowired
@@ -51,6 +53,9 @@ public class OrderCalculateController {
 		
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
 		MyCartList mycart = (MyCartList)session.getAttribute("mycart");
+		if(mycart==null) {
+			return getPage;
+		}
 		List<int[]> orderlists = mycart.getAllOrderLists();
 		// key(상품번호), value(주문수량) , 옵션 번호
 			
