@@ -89,7 +89,7 @@
 			</c:forEach>	
 		</div>
 		<tr>
-			<td colspan="8" align="right">
+			<td colspan="9" align="right">
 				총 계산금액 : 
 					<c:choose>
 						<c:when test="${totalprice>30000}">
