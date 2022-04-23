@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
@@ -93,6 +94,7 @@ public class AdminProductUpdateController {
 					dir.delete();
 					System.out.println("삭제했는가 : " + !dir.exists());
 				}
+
 				//기존 이미지 삭제
 				File beforedir = new File(uploadPath+"\\" + p_image1);
 				if (beforedir.exists()) {

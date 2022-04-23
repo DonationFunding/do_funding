@@ -16,10 +16,14 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="<%=request.getContextPath() %>/resources/js/bootstrap.min.js"></script>
 </head>
+<%if(session.getAttribute("loginInfo")==null){%>
+	<script> alert('세션이 만료되었습니다. 로그인 페이지로 이동합니다.');</script>
+<%	response.sendRedirect("start.jsp");} %>
 <body>
 	<br><br>
 	<div id="top-wrap">
 		<header class="top-inner">
+
 			<c:if test="${sessionScope.loginInfo.id  != null}">
 				<ul class="subMenu">
 					<li>
