@@ -177,21 +177,21 @@
 									<tr>
 										<td><c:choose>
 												<c:when test="${0>(t_Date-s_Date)}">
-													<img width="25px"
+													<img width="100px"
 														alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-														src="<%=request.getContextPath() %>/resources/images/re.gif">
+														src="<%=request.getContextPath() %>/resources/images/coming soon.gif">
 												</c:when>
 												<c:otherwise>
 													<c:choose>
 														<c:when test="${(t_Date-s_Date) <= 7}">
-															<img width="25px"
+															<img width="50px"
 																alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 																src="<%=request.getContextPath() %>/resources/images/new-animation.gif">
 														</c:when>
 														<c:otherwise>
 															<c:choose>
 																<c:when test="${prdBean.p_readcount>10}">
-																	<img width="25px"
+																	<img width="50px"
 																		alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 																		src="<%=request.getContextPath() %>/resources/images/hot.gif">
 																</c:when>
