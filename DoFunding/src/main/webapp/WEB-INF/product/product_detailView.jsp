@@ -56,7 +56,6 @@
     	<tr>
     		<td rowspan="10" align="center">
     			<img width=400 height=350  src="<%=request.getContextPath() %>/resources/images/${productBean.p_image}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" >
-    			<%-- <img src="<%=application.getContextPath()%>/resources/${productBean.image}" width=50 height=50> --%>
     		</td>
     	</tr>
     	<tr>
