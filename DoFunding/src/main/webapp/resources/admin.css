@@ -36,8 +36,6 @@ ul,  li, a {
 	align-items: center;  /* 수직으로 중앙 정렬 */
 	width: 100%;  /* banner의 크기를 설정 */
 	margin: 10px auto;  /* margin 10px을 주고 중앙 정렬 */
-	height: 100px;
-	border: 1px solid #555;
 }
 .top-banner-wrap h1 {
 	width: 100%;

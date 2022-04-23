@@ -7,7 +7,7 @@
 </head>
 <style type="text/css">
 a:hover {
-	color: #ff3;
+	color: #555;
 }
 </style>
 <script type="text/javascript">

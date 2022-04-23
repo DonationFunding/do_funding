@@ -195,7 +195,7 @@ a:hover {
 }
 #bottom-menu1 li {  /* 메뉴를 가로로 배치 */
     float: left;
-	padding: 5px 10px;
+	padding: 5px 60px;
 	list-style: none;
 	line-height: 20x;
 	vertical-align: middle;
@@ -203,6 +203,7 @@ a:hover {
 }
 #bottom-menu1 li:first-child {
 	background: none;
+	padding-left: 29%;
 }
 .bottom-menu2 {
 	position: relative;
