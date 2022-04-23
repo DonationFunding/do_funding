@@ -6,11 +6,10 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,8 +31,9 @@ public class MemberFindIdController {
 	}
 	
 	@RequestMapping(value = command,method = RequestMethod.POST)
-	public  String doAction(MemberBean membean,HttpServletRequest request,HttpServletResponse response) {
+	public  ModelAndView doAction(MemberBean membean,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		response.setContentType("text/html; charset=UTF-8");
+		ModelAndView mav = new ModelAndView();
 		MemberBean findid = mdao.findId(membean);
 		PrintWriter pw=null;
 		if(findid == null) {
@@ -45,15 +45,13 @@ public class MemberFindIdController {
 			}
 			pw.println("<script> alert('찾으시는 회원정보가 없습니다.');</script>");
 			pw.flush();
-			return getPage;
+			mav.setViewName(getPage);
+			return mav;
 		}//if
-		return gotoPage+"?id="+findid.getId();
+		session.setAttribute("findid", findid);
+		mav.setViewName(gotoPage);
+		return mav;
 	}
-	
-	
-	
-	
-	
 	
 	
 }

@@ -52,7 +52,6 @@
 	</tr>
 </table>
 </div>
-
 </form>
 </center>
 <%@ include file="../common/common_bottom.jsp" %>

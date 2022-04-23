@@ -58,7 +58,7 @@
 				<td>${prdBean.p_origin_price}원</td>
 				<td>${prdBean.p_total_price}원</td>
 				<td>${prdBean.p_end_price}원</td>
-				<td>${(prdBean.p_total_price/prdBean.p_end_price)*100} %</td>	
+				<td><fmt:formatNumber value="${(prdBean.p_total_price/prdBean.p_end_price)*100}" pattern=".00" /> %</td>	
  				<td>
  				<c:set var="end_date">
  					<fmt:parseDate value="${prdBean.p_end_date}" var="dateValue" pattern="yyyy-MM-dd" />

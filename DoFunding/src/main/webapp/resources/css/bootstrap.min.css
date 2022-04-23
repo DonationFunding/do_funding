@@ -1385,7 +1385,11 @@ img {
 	.thumbnail a>img, .thumbnail>img {
 	display: block;
 	max-width: 100%;
+<<<<<<< HEAD
 	height: 250px
+=======
+	height: 300px;
+>>>>>>> refs/remotes/origin/master
 }
 
 .img-rounded {

@@ -1,5 +1,7 @@
 package product.model;
 
+import java.util.UUID;
+
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -131,7 +133,8 @@ public class ProductBean {
 		System.out.println("upload:" + upload);
 		System.out.println("upload.getName():"+upload.getName());
 		System.out.println("upload.getOriginalFilename():"+upload.getOriginalFilename());
-		p_image = upload.getOriginalFilename();
+		UUID uuid=UUID.randomUUID();
+		p_image = uuid.toString()+"_"+upload.getOriginalFilename();	//사진이름 중복 제거
 	}
 
 	public int getP_num() {

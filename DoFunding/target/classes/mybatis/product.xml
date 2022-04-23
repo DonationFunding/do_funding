@@ -43,9 +43,9 @@
 			where  p_start_date > sysdate 
 		</if>		
 		order by p_num desc
-	</select>
+	</select>	
 	
-	<select id="RotatorList" resultType="MyProduct">		
+ 	<select id="RotatorList" resultType="MyProduct">		
  		select p_num,p_image from (select p_num,p_image, p_readcount, row_number() over (order by p_readcount desc) as rank  from do_product) where rank between 1 and 5
  	</select>
  	
@@ -64,7 +64,7 @@
 	</update>
 
 	<delete id="MultiDeleteProduct">
-		delete do_product where b_num = #{rowcheck}	
+		delete from do_product where p_num = #{rowcheck}	
 	</delete>
 
 	<delete id="DeleteProduct">

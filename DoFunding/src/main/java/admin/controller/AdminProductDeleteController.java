@@ -21,7 +21,7 @@ public class AdminProductDeleteController {
 			@RequestParam(value="p_num",required = true) int p_num,
 			@RequestParam(value="pageNumber",required = true) int pageNumber) {
 		
-		int cnt = productDao.productDelete(p_num);   
+		productDao.productDelete(p_num);   
 
 		return gotoPage + "?pageNumber="+pageNumber;
 

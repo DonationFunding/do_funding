@@ -16,15 +16,21 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="<%=request.getContextPath() %>/resources/js/bootstrap.min.js"></script>
 </head>
+
+<%if(session.getAttribute("loginInfo")==null){%>
+	<script> alert('세션이 만료되었습니다. 로그인 페이지로 이동합니다.');</script>
+<%	response.sendRedirect("start.jsp");} %>
 <style>
 .top-banner-wrap {  /* 실제 배너가 주어지면 수정 가능 */
 	background: url(<%=request.getContextPath()%>/resources/images/banner.png) no-repeat;
+	border:none;
 }
 </style>
 <body>
 	<br><br>
 	<div id="top-wrap">
 		<header class="top-inner">
+
 			<c:if test="${sessionScope.loginInfo.id  != null}">
 				<ul class="subMenu">
 					<li>
@@ -32,12 +38,13 @@
 						&nbsp;<a href="list.prd">사용자 페이지</a>
 						</c:if>
 						&nbsp;<a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a>
+						&nbsp;<a href="memberInfo.mem">회원정보</a>
 					</li>
 				</ul>
 			</c:if>
 			<br><br>
 		
-			<div class="top-banner-wrap" style="height: 200px;">
+			<div class="top-banner-wrap" style="height: 200px;" >
 			</div>
 
 			<div class="mobile-menu-wrap">
@@ -77,7 +84,6 @@
 							<li class="m6"><a href="admin_ord_list.ad">주문내역</a>
 								<ul class="sec m6_Menu" align="center">
  									<li><a href="admin_ord_list.ad">주문 내역</a></li>
-									<li><a href="#">매출통계?</a></li>
 								</ul>
 							</li>
 						</ul>

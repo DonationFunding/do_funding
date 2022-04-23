@@ -13,7 +13,6 @@ import member.model.MemberBean;
 
 import order.model.OrderBean;
 import order.model.OrderDao;
-import product.model.ProductDao;
 
 @Controller
 public class OrderListController {

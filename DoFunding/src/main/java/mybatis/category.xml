@@ -49,4 +49,9 @@
 	<delete id="CategoryDelete">
 		delete from category where cnum=#{cnum}
 	</delete>
+	
+	<delete id="MultiDeleteCategory">
+		delete from category where cnum=#{rowcheck}
+	</delete>
+	
 </mapper>

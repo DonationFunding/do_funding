@@ -1,6 +1,5 @@
 package admin.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +21,6 @@ import utility.Paging;
 public class AdminMemberListController {
 	private final String command = "/admin_mem_list.ad";
 	private final String getPage = "admin_mem_list";
-	private String gotoPage = "redirect:/list.prd";
 	private List<MemberBean> memlist;
 	
 	@Autowired

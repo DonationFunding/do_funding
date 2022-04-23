@@ -13,7 +13,7 @@ import product.model.ProductDao;
 @Controller
 public class AdminProductMultiDeleteController {
 	
-	private final String command = "admin_prd_multidelete.ad";
+	private final String command = "/admin_prd_multidelete.ad";
 	private String gotoPage = "redirect:/admin_prd_list.ad";
 	
 	@Autowired
@@ -26,7 +26,7 @@ public class AdminProductMultiDeleteController {
 		//System.out.println(productBean.getRowcheck());
 		String[] rowcheck=request.getParameterValues("rowcheck");
 		
-		int cnt = productDao.multiDeleteProduct(rowcheck);   
+		productDao.multiDeleteProduct(rowcheck);   
 
 		return gotoPage + "?pageNumber="+pageNumber;
 

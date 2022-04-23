@@ -31,8 +31,7 @@ public class MemberDao {
 
 	public MemberBean findId(MemberBean membean) {
 		MemberBean findid = sqlSessionTemplate.selectOne(namespace+".FindId", membean);
-		if(findid!=null) {
-			System.out.println("dao/findid.getId :"+findid.getId());			
+		if(findid!=null) {	
 		}
 		return findid;
 	}
@@ -73,7 +72,7 @@ public class MemberDao {
 		return count;
 	}
 
-	public int deleteMember(String no, int no1) {
+	public int deleteMember(String no) {
 		int cnt=-1;
 		cnt = sqlSessionTemplate.delete(namespace+".DeleteMember",no);
 		return cnt;

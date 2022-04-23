@@ -36,7 +36,7 @@
 							<img
 							src="<%=request.getContextPath()%>/resources/images/${rotatorlist.get(0).getP_image()}"
 							alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-							width="300" height="150">
+							height="250px">
 						</a>
 					</div>
 					<c:forEach var="rota_list" items="${rotatorlist}" begin="1">
@@ -61,7 +61,7 @@
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 		<script>
-			$('.carousel').carousel() /* 1 */
+			$('.carousel').carousel(); /* 1 */
 		</script>
 	</c:if>
 	<br><br>
@@ -113,49 +113,67 @@
 
 							<td align="center" width="250px">
 								<table style="text-align: center; margin: 20px;">
-									<tr>
-										<td><c:choose>
+										<c:choose>
 												<c:when test="${0>(t_Date-s_Date)}">
-													<a
-														href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}">
+												<tr>
+													<td>
+													<a href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}">
 														<img width="250px" height="250px"
 														alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 														src="<%=request.getContextPath() %>/resources/images/comingsoon1.png"><br>
 														${prdBean.p_subject}<br>
 													</a>
+													</td>
+												</tr>
+												<tr>
+													<td><span style="float: left;">기간 : ${p_start_date} ~ ${p_end_date}</span></td>
+												</tr>
+												<tr>
+													<td><span style="float: left;">금액 : ${prdBean.p_total_price}/${prdBean.p_end_price} 원</span></td>
+												</tr>
+												<tr>
+													<td><span style="float: left;">상품준비중...</span><br>
+													</td>
+												</tr>
+												<tr>
+													<td><input type="range" width="80%" name="userRange"
+														min="1" max="${prdBean.p_end_price}"
+														step="${prdBean.p_end_price/100}"
+														value="${prdBean.p_total_price}" disabled="disabled" /></td>
+												</tr>	
 												</c:when>
 												<c:otherwise>
-													<a
-														href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}">
+												<tr>
+													<td>
+													<a href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}">
 														<img width="250px" height="250px"
 														alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 														src="<%=request.getContextPath() %>/resources/images/${prdBean.p_image}"><br>
 														${prdBean.p_subject}<br>
 													</a>
+													</td>
+												</tr>
+												<tr>
+													<td><span style="float: left;">기간 : ${p_start_date} ~ ${p_end_date}</span></td>
+												</tr>
+												<tr>
+													<td><span style="float: left;">금액 : ${prdBean.p_total_price}/${prdBean.p_end_price} 원</span></td>
+												</tr>
+												<tr>
+													<td><span style="float: left;">진행률 :
+															<fmt:formatNumber value="${(prdBean.p_total_price/prdBean.p_end_price)*100}" pattern=".00" /> %</span>
+															<span style="float: right;">조회수:${prdBean.p_readcount}</span><br>
+													</td>
+												</tr>
+												<tr>
+													<td><input type="range" width="80%" name="userRange"
+														min="1" max="${prdBean.p_end_price}"
+														step="${prdBean.p_end_price/100}"
+														value="${prdBean.p_total_price}" disabled="disabled" /></td>
+												</tr>	
 												</c:otherwise>
-											</c:choose></td>
-									</tr>
+											</c:choose>
 
-									<tr>
-										<td><span style="float: left;">기간 :
-												${p_start_date} ~ ${p_end_date}</span></td>
-									</tr>
-									<tr>
-										<td><span style="float: left;">금액 :
-												${prdBean.p_total_price}/${prdBean.p_end_price} 원</span></td>
-									</tr>
-									<tr>
-										<td><span style="float: left;">진행률 :
-												<fmt:formatNumber value="${(prdBean.p_total_price/prdBean.p_end_price)*100}" pattern=".00" /> %</span>
-												<span style="float: right;">조회수:${prdBean.p_readcount}</span><br>
-										</td>
-									</tr>
-									<tr>
-										<td><input type="range" width="80%" name="userRange"
-											min="1" max="${prdBean.p_end_price}"
-											step="${prdBean.p_end_price/100}"
-											value="${prdBean.p_total_price}" disabled="disabled" /></td>
-									</tr>
 									<tr>
 										<td><c:choose>
 												<c:when test="${0>(t_Date-s_Date)}">

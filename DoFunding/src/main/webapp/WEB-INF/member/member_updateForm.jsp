@@ -28,7 +28,17 @@
 			alert("비밀번호 확인후 재도전하세요~")
 			location.href="/list.prd";
 		}
-		
+		var genderarr = document.getElementsByName("gender");
+		var flag = true;
+		for(var i=0;i<genderarr.length;i++){
+			if(genderarr[i].checked == true){ 
+				flag = false;
+			}
+		}
+		if(flag){
+                alert("성별을 선택하세요."); 
+			return false;
+		}
 		hp2value = myform.hp2.value;
 		hp3value = myform.hp3.value;
 		if(hp2value==""){

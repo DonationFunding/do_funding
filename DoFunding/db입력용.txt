@@ -101,6 +101,7 @@ create table do_product(
 	p_end_date 		date not null		
 );
 
+<<<<<<< HEAD
 insert into do_product values(seqdo_product.nextval,'phonecase','kim','xxx할머님 케이스',5,'핸드폰케이스1.png','내용123',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'phonecase','kim','xxx할머님 케이스',5,'핸드폰케이스2.png','내용123',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'handkerchief','kim','xxx할머님 손수건',5,'위안부 손수건.png','내용123',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
@@ -113,6 +114,20 @@ insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 �
 insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 가방',5,'가방.png','내용123',10000,0,10000000,100,sysdate,'2022-5-15','2022-5-19');
 insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxx할머님 팔찌',5,'팔찌2.png','내용123',10000,0,10000000,100,sysdate,'2022-4-18','2022-5-30');
 insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 가방',5,'가방2.png','내용123',10000,0,10000000,100,sysdate,'2022-4-15','2022-5-19');
+=======
+insert into do_product values(seqdo_product.nextval,'phonecase','kim','할머님 케이스',11201,'핸드폰케이스1.png','내용123',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'phonecase','kim','할머님 케이스',30,'핸드폰케이스2.jpg','내용123',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'handkerchief','kim','할머님 손수건',7513,'위안부 손수건.png','내용123',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'ring','kim','할머님 반지',5,'반지.jpg','내용123',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'necklace','kim','할머님 반지',4861,'반지2.png','내용123',10000,12000000,10000000,100,sysdate,'2022-3-20','2022-4-15');
+insert into do_product values(seqdo_product.nextval,'earring','kim','할머님 귀걸이',3511,'귀걸이2.png','내용123',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-10');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','할머님 팔찌',6751,'팔찌2.png','내용123',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-8');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','할머님 팔찌',5,'팔찌.jpg','내용123',10000,0,10000000,100,sysdate,'2022-4-30','2022-5-22');
+insert into do_product values(seqdo_product.nextval,'bag','kim','할머님 가방',5,'가방3.jpg','내용123',10000,0,10000000,100,sysdate,'2022-5-1','2022-5-30');
+insert into do_product values(seqdo_product.nextval,'bag','kim','할머님 가방',7,'가방2.png','내용123',10000,0,10000000,100,sysdate,'2022-5-15','2022-5-19');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','할머님 목걸이',7001,'목걸이.png','내용123',10000,0,10000000,100,sysdate,'2022-4-18','2022-5-30');
+insert into do_product values(seqdo_product.nextval,'bag','kim','할머님 가방',5,'가방.jpg','내용123',10000,0,10000000,100,sysdate,'2022-4-15','2022-5-19');
+>>>>>>> refs/remotes/origin/master
 
 
 --옵션 테이블
@@ -213,7 +228,6 @@ VALUES(seqdo_option.nextval , '색상:파랑' , 12);
 commit;
 
 
-
 --주문테이블
 drop sequence seqoid ;
 create sequence seqoid start with 1 increment by 1 nocache ;
@@ -226,6 +240,9 @@ create table do_order(
 --주문일
   o_date date default sysdate
 );
+
+insert into do_order values(seqoid.nextval,1,'2022-4-23');
+insert into do_order values(seqoid.nextval,1,'2022-4-23');
 
 
 drop sequence seqod ;
@@ -247,7 +264,12 @@ create table do_orderdetail(
   od_deliver number default 0	
 );
 
+insert into do_orderdetail(od_num,od_o_num,od_p_num,od_option_no,od_qty,od_deliver)values(seqod.nextval, 1,5,2,5,0);
+insert into do_orderdetail(od_num,od_o_num,od_p_num,od_option_no,od_qty,od_deliver)values(seqod.nextval, 2,6,3,10,0);
+
 commit;
+
+
 
 
 drop sequence seqdona ;
@@ -269,10 +291,15 @@ create table do_donation(
 	dona_date date default sysdate	
 );	
 
+insert into do_donation(dona_num,dona_o_num,dona_no,dona_money,dona_buyprice,dona_date)values(seqdona.nextval, 1,1,16600,50000,sysdate);
+insert into do_donation(dona_num,dona_o_num,dona_no,dona_money,dona_buyprice,dona_date)values(seqdona.nextval, 2,1,30000,100000,sysdate);
+
+
+
 commit;
 
 
---기본 게시판 
+--소통 게시판 
 drop sequence seqdo_board;
 create sequence seqdo_board
   increment by 1
@@ -283,8 +310,8 @@ create sequence seqdo_board
 drop table do_board CASCADE CONSTRAINTS;
 create table do_board( 
 	b_num number not null primary key,	
-	b_writer varchar2() not null,	
-	b_subject varchar2(20) not null,
+	b_writer varchar2(30) not null,	
+	b_subject varchar2(200) not null,
 	b_passwd varchar2(20)not null,		
 	b_reg_date date not null,			
 	b_readcount int default 0,			
@@ -300,49 +327,51 @@ create table do_board(
 
 
 insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'admin','a1','1234','2015-1-1',1,0,0,'내용1');
+values(seqdo_board.nextval,'admin','안녕하세요','1234','2018-12-1',1,0,0,'내용1');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'admin','안녕하세요오~','1234','2017-8-2',2,0,0,'내용2');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'kim','핸드폰 케이스 펀딩 어떤거 같나요?','1234','2020-7-1',3,0,0,'내용21');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'kim','저,궁금한 점이 있습니다.','1234','2017-4-1',2,1,1,'내용22');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'admin','답변입니다.','1234','2021-9-11',2,3,2,'내용221');
+
+insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+values(seqdo_board.nextval,'kim','그럼 또 다른 질문 하나..','1234','2022-4-1',2,2,2,'내용222');
 
 
 insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'admin','a2','1234','2015-1-1',2,0,0,'내용2');
+values(seqdo_board.nextval,'kim','안녕하세여','1234','2010-8-23',7,0,0,'내용3');
 
 insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'kim','a22','1234','2015-1-1',2,4,1,'내용21');
+values(seqdo_board.nextval,'a33','화이팅','1234','2018-7-15',7,1,1,'내용33');
 
 insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'a22','a22','1234','2015-1-1',2,1,1,'내용22');
+values(seqdo_board.nextval,'a32','이번 신상 관련해서','1234','2019-10-17',7,2,1,'내용32');
 
 insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'kim','a221','1234','2015-1-1',2,3,2,'내용221');
+values(seqdo_board.nextval,'a322','답변입니다','1234','2019-11-20',7,3,2,'내용322');
 
 insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'a222','a222','1234','2015-1-1',2,2,2,'내용222');
-
-
+values(seqdo_board.nextval,'a3221','그럼 또 다른 질문 하나..','1234','2019-11-29',7,4,3,'내용3221');
 
 insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'kim','a3','1234','2015-1-1',7,0,0,'내용3');
+values(seqdo_board.nextval,'a321','답변입니다','1234','2019-12-15',7,5,4,'내용321');
 
 insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'kim','a31','1234','2015-1-1',7,6,1,'내용31');
+values(seqdo_board.nextval,'kim','저,궁금한 점이 있습니다.','1234','2020-7-12',7,6,5,'내용31');
 
 insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'a311','a311','1234','2015-1-1',7,7,2,'내용311');
+values(seqdo_board.nextval,'a311','답변입니다.','1234','2022-3-1',7,7,6,'내용311');
 
-insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'a32','a32','1234','2015-1-1',7,2,1,'내용32');
 
-insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'a321','a321','1234','2015-1-1',7,5,2,'내용321');
 
-insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'a322','a322','1234','2015-1-1',7,3,2,'내용322');
 
-insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'a3221','a3221','1234','2015-1-1',7,4,3,'내용3221');
-
-insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
-values(seqdo_board.nextval,'a33','a33','1234','2015-1-1',7,1,1,'내용33');
 
 commit;
 
@@ -389,7 +418,10 @@ insert into do_notice_board(no_num,no_writer,no_subject,no_reg_date,no_readcount
 values(seqdo_notice_board.nextval,'관리자','[공지]배송 가능 시간 안내','2018-1-1',0,'영업일 기준 오후 1시 이전 결제 완료 주문건 :  당일 출고됩니다.');
 
 insert into do_notice_board(no_num,no_writer,no_subject,no_reg_date,no_readcount,no_content)
-values(seqdo_notice_board.nextval,'관리자','[공지] 교환 및 반품 안내','2022-3-1',0,'교환 및 반품 안내');
+values(seqdo_notice_board.nextval,'관리자','[공지] 교환 및 반품 안내','2022-3-1',0,'교환 및 반품 안내 1234-5689 연락바랍니다.');
+
+insert into do_notice_board(no_num,no_writer,no_subject,no_reg_date,no_readcount,no_content)
+values(seqdo_notice_board.nextval,'관리자','2022-03-15','2022-3-15',0,'위안부 할머님들을 위하여 세계적인 한글 디자이너인 최정호 디자이너의 작품들이 펀딩 아이템으로 출시될 예정입니다! ');
 
 
 
@@ -413,21 +445,13 @@ create table do_faq_board(
 
 
 insert into do_faq_board(faq_num,faq_writer,faq_subject,faq_reg_date,faq_readcount,faq_content)
-values(seqdo_faq_board.nextval,'관리자','a1','2015-1-1',0,'내용1');
+values(seqdo_faq_board.nextval,'관리자','후원금액의 처리는 어떻게 되는건가요?','2015-1-1',0,'후원금액은 3개월 단위로 모금액을 정산하여 위안부 관련 단체에 후원되며, 증서 및 그 내용을 공지사항 게시판에 업로드 합니다.');
+insert into do_faq_board(faq_num,faq_writer,faq_subject,faq_reg_date,faq_readcount,faq_content)
+values(seqdo_faq_board.nextval,'관리자','해외배송은 어떻게 되나요?','2015-1-1',0,'해외 배송은 아직 기능 준비중이며, 주문금액이 30000원 이상일 시 배송비는 무료입니다.');
+insert into do_faq_board(faq_num,faq_writer,faq_subject,faq_reg_date,faq_readcount,faq_content)
+values(seqdo_faq_board.nextval,'관리자','펀딩 제품을 사이트에 게시하고 싶은데 어떻게 하나요?','2015-1-1',0,'펀딩 제품 등록 관련 문의는 1588-8851 번호로 연락 주시기 바랍니다.');
 
 commit;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

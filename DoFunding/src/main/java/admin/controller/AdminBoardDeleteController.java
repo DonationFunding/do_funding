@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import board.model.BoardBean;
 import board.model.BoardDao;
@@ -33,7 +32,6 @@ public class AdminBoardDeleteController {
 			HttpServletResponse response
 			) {	
 		response.setContentType("text/html; charset=UTF-8");
-		
 		PrintWriter pw =null;	
 
 		int cnt=boardDao.adminDeleteArticle(bdBean);			
