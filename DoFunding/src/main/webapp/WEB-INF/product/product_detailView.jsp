@@ -5,15 +5,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
-<<<<<<< HEAD
 
-=======
-<style type="text/css">
-a:hover {
-	color: #555;
-}
-</style>
->>>>>>> refs/remotes/origin/do_cjh
 <script type="text/javascript">
 	function insert(){
 		location.href = "insert.prd"; // ProductInsertController
@@ -64,7 +56,6 @@ a:hover {
     	<tr>
     		<td rowspan="10" align="center">
     			<img width=400 height=350  src="<%=request.getContextPath() %>/resources/images/${productBean.p_image}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" >
-    			<%-- <img src="<%=application.getContextPath()%>/resources/${productBean.image}" width=50 height=50> --%>
     		</td>
     	</tr>
     	<tr>
