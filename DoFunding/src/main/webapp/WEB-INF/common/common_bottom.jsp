@@ -30,9 +30,9 @@ $('.btn_gotop').click(function(){
 	  <img src="<%=request.getContextPath()%>/resources/images/탑버튼.png" style="width:50px"> 
 	</a>
 </div>
- <body>
+<body>
  	<div id="bottom-wrap">
-	 		<ul id="bottom-menu1">
+	 		<ul id="bottom-menu1" style="padding-left:  38%;">
 	 			<li><a href="company.bot">회사소개</a></li>
 	 			<li><a href="tos.bot">이용약관</a></li>
 	 			<li><a href="map.bot">오시는길</a></li>
