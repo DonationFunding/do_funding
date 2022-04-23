@@ -26,7 +26,7 @@ public class AdminProductMultiDeleteController {
 		//System.out.println(productBean.getRowcheck());
 		String[] rowcheck=request.getParameterValues("rowcheck");
 		
-		int cnt = productDao.multiDeleteProduct(rowcheck);   
+		productDao.multiDeleteProduct(rowcheck);   
 
 		return gotoPage + "?pageNumber="+pageNumber;
 

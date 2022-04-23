@@ -30,7 +30,7 @@ public class AdminCategoryMultiDeleteController {
 		
 		System.out.println("1111");
 
-		int cnt = categoryDao.multiDeleteCategory(rowcheck);   
+		categoryDao.multiDeleteCategory(rowcheck);   
 		System.out.println("3333");
 
 		return gotoPage + "?pageNumber="+pageNumber;

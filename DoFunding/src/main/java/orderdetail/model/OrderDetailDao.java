@@ -18,13 +18,7 @@ public class OrderDetailDao {
 	private String namespace = "orderdetail.model.Orderdetail";
 
 	public void insertOrderDetail(OrderDetailBean odBean) {
-		System.out.println(odBean.getOd_qty());
-		System.out.println(odBean.getOd_option_no());
-		System.out.println(odBean.getOd_p_num());
-		System.out.println(odBean.getOd_o_num());
-		System.out.println(odBean.getOd_deliver());
-		int cnt=sqlSessionTemplate.insert(namespace+".InsertOrderDetail", odBean);
-		System.out.println(cnt);
+		sqlSessionTemplate.insert(namespace+".InsertOrderDetail", odBean);
 	}
 	
 	public void orderDetailList(OrderDetailBean odBean) {
@@ -32,8 +26,7 @@ public class OrderDetailDao {
 	}
 
 	public void insertDonation(DonationBean doBean) {
-		int cnt=sqlSessionTemplate.insert(namespace+".InsertDonation",doBean);
-		System.out.println(cnt);
+		sqlSessionTemplate.insert(namespace+".InsertDonation",doBean);
 	}
 
 	public List<DonationBean> getDonaList(Paging pageInfo, int no) {

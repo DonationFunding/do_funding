@@ -31,15 +31,11 @@ public class BoardDao {
 		if(passwd.equals(article.getB_passwd())) {
 			//삭제할 게시글정보
 			article=sqlSessionTemplate.selectOne(namespace+".GetArticle", article);
-			System.out.println("1:"+article.getB_re_level()); 
-			System.out.println("2:"+article.getB_re_step()); 
-			System.out.println("3:"+article.getB_ref());
 			if(article.getB_re_step()==0 && article.getB_re_level()==0) {
 				cnt=sqlSessionTemplate.delete(namespace+".AllDelete", article);							
 			}else {
 				cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", article);							
 			}
-			System.out.println("4 : "+cnt);
 		}
 		else {
 			cnt=-2;
@@ -59,9 +55,7 @@ public class BoardDao {
 	
 	public int updateArticle(BoardBean article){
 		int cnt=-1;
-		System.out.println(article.getB_passwd());
 		String passwd=sqlSessionTemplate.selectOne(namespace+".GetArticlePasswd", article);
-		System.out.println("passwd:"+passwd);
 		if(passwd.equals(article.getB_passwd())) {
 			cnt=sqlSessionTemplate.update(namespace+".UpdateArticle", article);			
 		}
@@ -74,8 +68,7 @@ public class BoardDao {
 	
 	//detail
 	public BoardBean getArticle(BoardBean article){
-		BoardBean detail=null;
-		
+		BoardBean detail=null;	
 		sqlSessionTemplate.update(namespace+".UpdateReadCount", article);
 		//content
 		detail=sqlSessionTemplate.selectOne(namespace+".GetArticle", article);
@@ -106,7 +99,6 @@ public class BoardDao {
 		int count = 0;
 		for(int i=0;i<rowchecks.length;i++) {
 			String rowcheck=rowchecks[i];
-			System.out.println("rowcheck:"+rowcheck);
 			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteBoard",rowcheck);	
 			count+=cnt;
 		}
@@ -117,7 +109,6 @@ public class BoardDao {
 	public int adminDeleteArticle(BoardBean bdBean) {
 		int cnt=-1;
 			cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", bdBean);			
-		System.out.println(cnt);
 		return cnt;		
 	}
 
@@ -146,15 +137,12 @@ public class BoardDao {
 	public int deleteNotice(NoticeBean noticeBean){
 		int cnt=-1;
 			cnt=sqlSessionTemplate.delete(namespace+".DeleteNotice", noticeBean);			
-		System.out.println(cnt);
 		return cnt;
 	}//deleteNotice
 		
 	public int UpdateNotice(NoticeBean noticeBean){
 		int cnt=-1;
 			cnt=sqlSessionTemplate.update(namespace+".UpdateNotice", noticeBean);			
-
-		System.out.println(cnt);
 		return cnt;
 	}//UpdateNotice
 	
@@ -169,7 +157,6 @@ public class BoardDao {
 	
 	public NoticeBean noticeOneSelect(NoticeBean noticeBean){
 		NoticeBean detail=sqlSessionTemplate.selectOne(namespace+".GetNotice", noticeBean);
-		System.out.println("체크:"+detail.getNo_content());
 		return detail;
 	}//noticeOneSelect	
 
@@ -177,7 +164,6 @@ public class BoardDao {
 		int count = 0;
 		for(int i=0;i<rowchecks.length;i++) {
 			String rowcheck=rowchecks[i];
-			System.out.println("rowcheck:"+rowcheck);
 			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteNotice",rowcheck);	
 			count+=cnt;
 		}
@@ -213,15 +199,12 @@ public class BoardDao {
 	public int deleteFaq(FaqBean faqBean){
 		int cnt=-1;
 			cnt=sqlSessionTemplate.delete(namespace+".DeleteFaq", faqBean);			
-		System.out.println(cnt);
 		return cnt;
 	}//deleteFaq
 		
 	public int UpdateFaq(FaqBean faqBean){
 		int cnt=-1;
 			cnt=sqlSessionTemplate.update(namespace+".UpdateFaq", faqBean);			
-
-		System.out.println(cnt);
 		return cnt;
 	}//UpdateFaq
 	
@@ -244,7 +227,6 @@ public class BoardDao {
 		int count = 0;
 		for(int i=0;i<rowchecks.length;i++) {
 			String rowcheck=rowchecks[i];
-			System.out.println("rowcheck:"+rowcheck);
 			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteFaq",rowcheck);	
 			count+=cnt;
 		}

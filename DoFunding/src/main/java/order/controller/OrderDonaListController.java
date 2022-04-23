@@ -1,19 +1,14 @@
 package order.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -39,8 +34,6 @@ public class OrderDonaListController {
 			@RequestParam(value="pageNumber", required=false) String pageNumber,
 			HttpSession session,HttpServletRequest request) {
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
-		Map<String, String> map=new HashMap<String, String>();
-	
 		
 		int totalCount=orderDetailDao.donaTotalCount(loginInfo.getNo());
 		System.out.println("totalCount:"+totalCount);

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import order.cart.ShoppingInfo;
-import orderdetail.model.OrderDetailBean;
 import orderdetail.model.CompositeDao;
 
 @Controller
