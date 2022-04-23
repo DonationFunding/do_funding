@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
 	<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
-
 <script>
 $(window).scroll(function(){
 	if ($(this).scrollTop() > 300){
