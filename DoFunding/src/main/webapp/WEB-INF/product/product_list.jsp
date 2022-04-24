@@ -17,7 +17,7 @@
 	<c:if test="${rotatorlist ne null}">
 		<div class="container" style="width: 100%">
 			<!--  <h2>캐러셀 슬라이드 효과  </h2> -->
-			<div id="carousel-example-generic" class="carousel slide" style="width: 100%">
+			<div id="carousel-example-generic" class="carousel slide" style="width: 100%; background: url(<%=request.getContextPath()%>/resources/images/carousel.png) no-repeat;">
 
 				<!-- Indicators(이미지 하단의 동그란것->class="carousel-indicators") -->
 				<ol class="carousel-indicators">
