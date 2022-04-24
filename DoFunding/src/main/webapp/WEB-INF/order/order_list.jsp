@@ -13,14 +13,6 @@
     	min-width:320px;
 	}
 </style>
-<% 
-	request.setCharacterEncoding("UTF-8");
-
-	if(request.getAttribute("msg") != null){
-	String msg=(String)request.getAttribute("msg");
-	out.println("<script> alert('"+msg+"');</script>");
-	request.removeAttribute("msg");
-}%>
 <center>
 <br>
 <h3>주문 내역</h3>
