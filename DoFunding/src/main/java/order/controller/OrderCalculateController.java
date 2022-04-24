@@ -104,7 +104,6 @@ public class OrderCalculateController {
 		session.removeAttribute("mycart");
 		session.removeAttribute("shopLists");
 		session.removeAttribute("totalAmount");
-		System.out.println(1);
 		String msg="결제가 완료되었습니다.";
 		try {
 			msg = URLEncoder.encode(msg, "UTF-8");
@@ -113,7 +112,6 @@ public class OrderCalculateController {
 			e.printStackTrace();
 		}
 		String msgGotoPage=gotoPage+"?msg="+msg;
-		System.out.println(2);
 		return msgGotoPage;
 	}
 	

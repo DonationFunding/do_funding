@@ -43,9 +43,7 @@ public class OrderListController {
 		else { 
 			List<OrderBean> orderList=orderDao.orderList(loginInfo);
 			model.addAttribute("orderList", orderList);
-
 			if(msg !=null) {
-				System.out.println(msg);
 				model.addAttribute("msg",msg);
 			}
 			return getPage;
