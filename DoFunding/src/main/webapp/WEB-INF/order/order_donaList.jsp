@@ -10,7 +10,6 @@
 <br>
 <h3>후원 기록</h3>
 <br>
-
  <div class="container">
         <table class="table table-hover table-sm" class="text-center">
 	<tr>
