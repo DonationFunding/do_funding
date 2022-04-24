@@ -66,9 +66,9 @@
 							</li>
 							<li class="m3"><a href="#">펀딩상품</a>
 								<ul class="sec m3_Menu" align="center">
-									<li><a href="list.prd?whatColumn=p_ing">진행중인 펀딩</a></li>
-									<li><a href="list.prd?whatColumn=p_end">마감된 펀딩</a></li>
-									<li><a href="list.prd?whatColumn=p_future">공개 예정</a></li>
+									<li><a href="list.prd?whatColumn1=p_ing">진행중인 펀딩</a></li>
+									<li><a href="list.prd?whatColumn1=p_end">마감된 펀딩</a></li>
+									<li><a href="list.prd?whatColumn1=p_future">공개 예정</a></li>
 								</ul>
 							</li>
 							<li class="m4"><a href="#">커뮤니티</a>

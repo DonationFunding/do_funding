@@ -68,6 +68,7 @@
 	
 	<div>
 		<form action="list.prd" method="get">
+			<input type="hidden" name="whatColumn1" value="${pageInfo.whatColumn1}">
 			<select name="whatColumn">
 				<option value="all">선택</option>
 				<option value="p_subject">상품명</option>

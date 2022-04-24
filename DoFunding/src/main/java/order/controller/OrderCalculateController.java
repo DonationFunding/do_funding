@@ -1,7 +1,11 @@
 package order.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,8 +53,7 @@ public class OrderCalculateController {
 			@RequestParam(value="del_request",required = false) String del_request,
 			@RequestParam(value="order_request",required = false) String order_request,
 			@RequestParam(value="amount",required = false) String amount,
-			HttpSession session ) {
-		
+			HttpSession session) {	
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
 		MyCartList mycart = (MyCartList)session.getAttribute("mycart");
 		if(mycart==null) {
@@ -101,7 +104,17 @@ public class OrderCalculateController {
 		session.removeAttribute("mycart");
 		session.removeAttribute("shopLists");
 		session.removeAttribute("totalAmount");
-		return gotoPage;
+		System.out.println(1);
+		String msg="결제가 완료되었습니다.";
+		try {
+			msg = URLEncoder.encode(msg, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String msgGotoPage=gotoPage+"?msg="+msg;
+		System.out.println(2);
+		return msgGotoPage;
 	}
 	
 }
