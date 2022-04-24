@@ -59,12 +59,12 @@
 						<ul class="secMenu">
 							<li class="m1 no-sub"><a href="list.prd">홈</a></li>
 
-							<li class="m2"><a href="#">두펀딩</a>
+							<li class="m2"><a href="dona.ord">두펀딩</a>
 								<ul class="sec m2_Menu" align="center">
 									<li><a href="dona.ord">후원 기록</a></li>
 								</ul>
 							</li>
-							<li class="m3"><a href="#">펀딩상품</a>
+							<li class="m3"><a href="list.prd">펀딩상품</a>
 								<ul class="sec m3_Menu" align="center">
 									<li><a href="list.prd?whatColumn1=p_ing">진행중인 펀딩</a></li>
 									<li><a href="list.prd?whatColumn1=p_end">마감된 펀딩</a></li>
