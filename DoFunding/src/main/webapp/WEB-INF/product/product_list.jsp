@@ -12,7 +12,14 @@
 <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css"
 	rel="stylesheet">
 </head>
+<% 
+	request.setCharacterEncoding("UTF-8");
 
+	if(request.getAttribute("msg") != null){
+	String msg=(String)request.getAttribute("msg");
+	out.println("<script> alert('"+msg+"');</script>");
+	request.removeAttribute("msg");
+}%>
 <div align="center">
 	<c:if test="${rotatorlist ne null}">
 		<div class="container" style="width: 100%">
