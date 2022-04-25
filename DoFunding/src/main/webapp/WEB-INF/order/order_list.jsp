@@ -61,5 +61,10 @@
 		</c:choose>
 	</table>
 </div>
+	<div class="container">
+			<ul class="pagination pagination-sm">
+				${pageInfo.pagingHtml}
+			</ul>
+	</div>
 </center>
 <%@ include file="../common/common_bottom.jsp"%>
