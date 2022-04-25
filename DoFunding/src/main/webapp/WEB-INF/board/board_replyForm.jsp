@@ -33,6 +33,7 @@
 	<input type="hidden" name="b_ref" value="${bdBean.b_ref}">
 	<input type="hidden" name="b_re_step" value="${bdBean.b_re_step}">
 	<input type="hidden" name="b_re_level" value="${bdBean.b_re_level}">
+	<input type="hidden" name="b_passwd" value="${loginInfo.password}">
 <div class="container">
 <table class="table" class="text-center">
 	<tr>

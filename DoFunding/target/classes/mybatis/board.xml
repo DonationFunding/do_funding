@@ -41,7 +41,7 @@
 
 	<insert id="InsertArticle">
 		insert into do_board
-		(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
+		(b_num,b_writer,b_subject, b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
 		values
 		(seqdo_board.nextval,#{b_writer},#{b_subject},#{b_passwd},#{b_reg_date},seqdo_board.currval,0,0,#{b_content})
 	</insert>

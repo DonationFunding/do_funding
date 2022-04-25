@@ -57,7 +57,7 @@ nocache;
 drop table category cascade constraints purge ;
 create table category(
 	cnum 	number primary key,
-	code 	varchar2(20) not null,	
+	code 	varchar2(40) not null,	
 	cname 	varchar2(50) not null	
 );
 
