@@ -14,6 +14,14 @@
 	}
 </style>
 <center>
+<% 
+    request.setCharacterEncoding("UTF-8");
+
+    if(request.getAttribute("msg") != null){
+    String msg=(String)request.getAttribute("msg");
+    out.println("<script> alert('"+msg+"');</script>");
+    request.removeAttribute("msg");
+}%>
 <br>
 <h3>주문 내역</h3>
 <h3>${msg}</h3>
