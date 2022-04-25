@@ -6,17 +6,12 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class BoardBean {
 	
-	private final String msg=" 입력 누락";
-
 	private int b_num;
 	
-	@NotBlank(message = "작성자"+msg)
 	private String b_writer;  
 	
-	@NotBlank(message = "제목"+msg)
 	private String b_subject; 
 
-	@NotBlank(message = "비번"+msg)
 	private String b_passwd;  
 	
 	private Timestamp b_reg_date; 

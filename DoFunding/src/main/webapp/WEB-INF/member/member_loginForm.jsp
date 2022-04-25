@@ -25,7 +25,7 @@
 		    <td>
 		    </td>
 			<th>
-				패스워드 : <input type="password" name="password">
+				비밀번호 : <input type="password" name="password">
 			</th>
 			<td>
 		     </td>

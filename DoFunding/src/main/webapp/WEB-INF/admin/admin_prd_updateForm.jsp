@@ -248,7 +248,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 						<div>
-							<font color="red">최소 1개의 옵션이 필요합니다. ex) (의류) 100 , red ///(핸드폰관련) galaxy22 </font>
+							<font color="red">최소 1개의 옵션이 필요합니다. ex) (의류) 100, red ///(핸드폰) galaxy22 </font>
 						</div>
 					</div>
 				</div>

@@ -32,7 +32,7 @@
 			return false;
 		}
 		if (isNaN(document.myform.hp1.value)) {
-			alert("전화번호는 숫자만 입력가능합니다");
+			alert("전화번호는 숫자만 입력 가능합니다.");
 			document.myform.hp1.select();
 			return false;
 		}
@@ -42,7 +42,7 @@
 			return false;
 		}
 		if (isNaN(document.myform.hp2.value)) {
-			alert("전화번호는 숫자만 입력가능합니다");
+			alert("전화번호는 숫자만 입력 가능합니다.");
 			document.myform.hp2.select();
 			return false;
 		}
@@ -52,7 +52,7 @@
 			return false;
 		}
 		if (isNaN(document.myform.hp3.value)) {
-			alert("전화번호는 숫자만 입력가능합니다");
+			alert("전화번호는 숫자만 입력 가능합니다.");
 			document.myform.hp3.select();
 			return false;
 		}
@@ -69,7 +69,7 @@
 		
 	}
 	function delcartcheck(p_subject){
-		var dep = confirm(p_subject+"(을)를 정말 장바구니에서 삭제 하시겠습니까?");
+		var dep = confirm(p_subject+"(을)를 정말 장바구니에서 삭제하시겠습니까?");
 		//prompt : 값을 입력 받을 수 있는 창 (제목, 초기값) 확인/취소 버튼이 있음.
 		//comfirm : YES/NO t/f
 		//alert(dep);
@@ -127,7 +127,7 @@
 		</tr>
 		<br> <br> 
 		<input type="submit" name="btn1" value="결제하기"  class="btn btn-default btn-sm" onclick="return ordcheck(${shopLists.size()})">	
-		<a href="list.prd" class="btn btn-default btn-sm">추가주문</a>		
+		<a href="list.prd" class="btn btn-default btn-sm">추가 주문</a>		
 	</div>	      			
 	<div class="container">
           <table class="table" class="text-center">

@@ -22,7 +22,7 @@
 <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
 </head>
 <center>
-<h1>FaQ 목록</h1>
+<h1>FAQ 목록</h1>
 <div class="container">
 		<div align="right">
 			<input type="button" value="추가하기" class="btn btn-default btn-sm" onclick="insert_faq()">
@@ -35,7 +35,7 @@
 		<th class="text-center">조회</th>
 	</tr>
 		<c:if test="${faqList == null}">
-			등록된 FaQ가 없습니다.
+			등록된 FAQ가 없습니다.
 		</c:if>	
 		<c:forEach var="faqBean" items="${faqList}" varStatus="status">
 		<tr>

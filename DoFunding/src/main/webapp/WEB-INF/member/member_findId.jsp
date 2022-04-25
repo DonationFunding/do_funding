@@ -13,7 +13,7 @@
 			return false;
 		}
 		if (myform.birthday.value.length==0){
-			alert("생년월일을 입력하세요");
+			alert("생년월일을 입력하세요.");
 			$('input[name=birthday]').focus();
 			return false;
 		} 

@@ -6,7 +6,7 @@
 </script>
 <center>
 <br>
-<b>카테고리수정</b>
+<b>카테고리 수정</b>
 <br>
 <form method="post" action="admin_cate_update.ad" name="myform">
 	<input type="hidden" name="cnum" value="${cateBean.cnum}">
@@ -15,12 +15,12 @@
     <table class="table" class="text-center">
 		<tr>
 			<th class="text-center">
-			  카테고리코드 : <input type="text" name="code" value="${cateBean.code}">
+			  카테고리 코드 : <input type="text" name="code" value="${cateBean.code}">
 	        </th>		
 		</tr>
 		<tr>
 			<th class="text-center">
-			  카테고리이름 : <input type="text" name="cname" value="${cateBean.cname}">
+			  카테고리 이름 : <input type="text" name="cname" value="${cateBean.cname}">
 		    </th>
 		</tr>
 		<tr> 

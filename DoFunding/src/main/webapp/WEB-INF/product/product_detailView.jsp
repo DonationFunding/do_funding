@@ -16,12 +16,12 @@
 
 	function addcheck(){
 			if (document.myform.orderqty.value =="") {
-				alert("수량을 입력해주세요");
+				alert("수량을 입력해주세요.");
 				document.myform.orderqty.focus();
 				return false;
 			}	
 			if (isNaN(document.myform.orderqty.value)) {
-				alert("수량은 숫자만 입력가능 합니다");
+				alert("수량은 숫자만 입력 가능합니다.");
 				document.myform.orderqty.select();
 				return false;
 			}

@@ -33,6 +33,7 @@
 	<input type="hidden" name="b_ref" value="${bdBean.b_ref}">
 	<input type="hidden" name="b_re_step" value="${bdBean.b_re_step}">
 	<input type="hidden" name="b_re_level" value="${bdBean.b_re_level}">
+	<input type="hidden" name="b_passwd" value="${loginInfo.password}">
 <div class="container">
 <table class="table" class="text-center">
 	<tr>
@@ -53,10 +54,6 @@
 	<tr>
 		<th class="text-center">내용</th>
 		<td><textarea name="b_content" rows="10" cols="50"></textarea></td>
-	</tr>
-	<tr>
-		<th class="text-center">비밀번호</th>
-		<td><input type="password" name="b_passwd" value="1234"></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">

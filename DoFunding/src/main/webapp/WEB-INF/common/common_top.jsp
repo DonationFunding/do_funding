@@ -26,7 +26,7 @@
 					<li>
 						&nbsp;<a href="login.mem">로그인</a>
 						&nbsp;<a href="insert.mem">회원가입</a>
-						&nbsp;<a href="findid.mem">ID/비밀번호 찾기</a>
+						&nbsp;<a href="findid.mem">아이디/비밀번호 찾기</a>
 					</li>
 				</ul>
 
