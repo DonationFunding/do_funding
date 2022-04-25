@@ -12,7 +12,7 @@
 	}
 	function idcheck(myform){
 		if (myform.id.value.length==0){
-			alert("id를 입력하세요.");
+			alert("아이디를 입력하세요.");
 			myform.id.focus();
 			return false;
 		}
@@ -20,12 +20,12 @@
 	}
 	function memcheck(myform){
 		if (myform.id.value.length==0){
-			alert("id를 입력하세요.");
+			alert("아이디를 입력하세요.");
 			myform.id.focus();
 			return false;
 		}
 		if (myform.id.value.length<3 || myform.id.value.length>=9){
-			alert("id는 3~8자리 만 입력가능합니다.");
+			alert("아이디는 3~8자리 만 입력가능합니다.");
 			myform.id.focus();
 			return false;
 		}
@@ -36,7 +36,7 @@
 			flag=false;
 		}
 		if(flag){
-			alert("id중복체크 해주세요")
+			alert("아이디 중복체크 해주세요")
 			return false;
 		}
 		if (myform.password.value.length==0){
