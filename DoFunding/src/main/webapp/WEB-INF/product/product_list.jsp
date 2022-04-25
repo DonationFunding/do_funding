@@ -140,7 +140,7 @@
 													<td><span style="float: left;">금액 : ${prdBean.p_total_price}/${prdBean.p_end_price} 원</span></td>
 												</tr>
 												<tr>
-													<td><span style="float: left;">상품준비중…/span><br>
+													<td><span style="float: left;">상품준비중…</span><br>
 													</td>
 												</tr>
 												<tr>
