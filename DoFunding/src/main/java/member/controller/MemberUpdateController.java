@@ -40,6 +40,7 @@ public class MemberUpdateController {
 		System.out.println("update.mem(post)"+membean.getId());
 		System.out.println("update.mem(post)"+membean.getPassword());
 		ModelAndView mav=new ModelAndView();
+		
 		mdao.updateMember(membean);
 		MemberBean loginInfo = mdao.getLoginInfo(membean);
 		session.setAttribute("loginInfo", loginInfo);

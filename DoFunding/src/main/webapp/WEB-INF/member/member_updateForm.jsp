@@ -99,7 +99,8 @@
 		    <td>
 		    </td>
 			<th>
-			비밀번호 : <input type="password" name="password"><input type="hidden" name="key" value="${loginInfo.password }">
+			비밀번호 : <input type="password" name="password" <c:if test="${loginInfo.password != null}">value="${loginInfo.password }" readonly</c:if>>
+			<%-- <input type="hidden" name="key" value="${loginInfo.password }"> --%>
 			</th>
 		    </td>
 		</tr>
