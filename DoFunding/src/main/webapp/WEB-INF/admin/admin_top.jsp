@@ -16,10 +16,21 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="<%=request.getContextPath() %>/resources/js/bootstrap.min.js"></script>
 </head>
+
+<%if(session.getAttribute("loginInfo")==null){%>
+	<script> alert('세션이 만료되었습니다. 로그인 페이지로 이동합니다.');</script>
+<%	response.sendRedirect("start.jsp");} %>
+<style>
+.top-banner-wrap {  /* 실제 배너가 주어지면 수정 가능 */
+	background: url(<%=request.getContextPath()%>/resources/images/banner.png) no-repeat;
+	border:none;
+}
+</style>
 <body>
 	<br><br>
 	<div id="top-wrap">
 		<header class="top-inner">
+
 			<c:if test="${sessionScope.loginInfo.id  != null}">
 				<ul class="subMenu">
 					<li>
@@ -33,8 +44,7 @@
 			</c:if>
 			<br><br>
 		
-			<div class="top-banner-wrap">
-				<h1 class="banner-inner">Do_Funding</h1>
+			<div class="top-banner-wrap" style="height: 200px;" >
 			</div>
 
 			<div class="mobile-menu-wrap">

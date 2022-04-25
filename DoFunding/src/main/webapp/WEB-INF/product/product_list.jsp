@@ -12,12 +12,19 @@
 <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css"
 	rel="stylesheet">
 </head>
+<% 
+	request.setCharacterEncoding("UTF-8");
 
+	if(request.getAttribute("msg") != null){
+	String msg=(String)request.getAttribute("msg");
+	out.println("<script> alert('"+msg+"');</script>");
+	request.removeAttribute("msg");
+}%>
 <div align="center">
 	<c:if test="${rotatorlist ne null}">
-		<div class="container">
+		<div class="container" style="width: 100%">
 			<!--  <h2>캐러셀 슬라이드 효과  </h2> -->
-			<div id="carousel-example-generic" class="carousel slide">
+			<div id="carousel-example-generic" class="carousel slide" style="width: 100%; background: url(<%=request.getContextPath()%>/resources/images/carousel.png) no-repeat;">
 
 				<!-- Indicators(이미지 하단의 동그란것->class="carousel-indicators") -->
 				<ol class="carousel-indicators">
@@ -36,7 +43,7 @@
 							<img
 							src="<%=request.getContextPath()%>/resources/images/${rotatorlist.get(0).getP_image()}"
 							alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-							width="300" height="150">
+							height="250px">
 						</a>
 					</div>
 					<c:forEach var="rota_list" items="${rotatorlist}" begin="1">
@@ -61,13 +68,14 @@
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 		<script>
-			$('.carousel').carousel() /* 1 */
+			$('.carousel').carousel(); /* 1 */
 		</script>
 	</c:if>
 	<br><br>
 	
 	<div>
 		<form action="list.prd" method="get">
+			<input type="hidden" name="whatColumn1" value="${pageInfo.whatColumn1}">
 			<select name="whatColumn">
 				<option value="all">선택</option>
 				<option value="p_subject">상품명</option>
@@ -177,21 +185,21 @@
 									<tr>
 										<td><c:choose>
 												<c:when test="${0>(t_Date-s_Date)}">
-													<img width="25px"
+													<img width="100px"
 														alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-														src="<%=request.getContextPath() %>/resources/images/re.gif">
+														src="<%=request.getContextPath() %>/resources/images/coming soon.gif">
 												</c:when>
 												<c:otherwise>
 													<c:choose>
 														<c:when test="${(t_Date-s_Date) <= 7}">
-															<img width="25px"
+															<img width="50px"
 																alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 																src="<%=request.getContextPath() %>/resources/images/new-animation.gif">
 														</c:when>
 														<c:otherwise>
 															<c:choose>
 																<c:when test="${prdBean.p_readcount>10}">
-																	<img width="25px"
+																	<img width="50px"
 																		alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 																		src="<%=request.getContextPath() %>/resources/images/hot.gif">
 																</c:when>

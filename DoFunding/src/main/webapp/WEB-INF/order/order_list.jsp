@@ -14,12 +14,10 @@
 	}
 </style>
 <center>
-<center>
 <br>
 <h3>주문 내역</h3>
+<h3>${msg}</h3>
 <br>
-</center>
-
 	<div class="container">
             <table class="table" class="text-center">
 		<c:choose>

@@ -34,19 +34,21 @@ public class ProductListController {
 	@RequestMapping(command)
 	public ModelAndView doAction(
 			@RequestParam(value="whatColumn", required=false) String whatColumn,
+			@RequestParam(value="whatColumn1", required=false) String whatColumn1,
 			@RequestParam(value="keyword", required=false) String keyword,
 			@RequestParam(value="pageNumber", required=false) String pageNumber,
 			HttpServletRequest request
 			) {
 		Map<String, String> map=new HashMap<String, String>();
 		map.put("whatColumn", whatColumn);
+		map.put("whatColumn1", whatColumn1);
 		map.put("keyword", "%"+keyword+"%");
 		
 		int totalCount=productDao.totalCount(map);
 		System.out.println("totalCount:"+totalCount);
 		
 		String url=request.getContextPath()+command;
-		Paging pageInfo=new Paging(pageNumber, null, totalCount, url, whatColumn, keyword);
+		Paging pageInfo=new Paging(pageNumber, null, totalCount, url, whatColumn,whatColumn1, keyword);
 	
 		  
 		List<ProductBean> rotatorlist = productDao.rotatorList();

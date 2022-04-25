@@ -18,7 +18,7 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <center>
-<h1>글목록</h1>
+<h1>소통게시판</h1>
 <div class="container">
 <table class="table table-hover table-sm" class="text-center">
 	

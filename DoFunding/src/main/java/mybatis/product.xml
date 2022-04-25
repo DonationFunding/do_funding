@@ -7,45 +7,90 @@
 
 	<select id="GetTotalCount" resultType="int">
 		select count(*) from do_product
-		<if test="whatColumn == 'p_subject'">
-			where p_subject like #{keyword}
-		</if>
-		<if test="whatColumn == 'p_content'">
-			where p_content like #{keyword}
-		</if>
-		<if test="whatColumn == 'p_ing'">
-			where p_end_date > sysdate and sysdate > p_start_date 
-		</if>
-		<if test="whatColumn == 'p_end'">
-			where sysdate > p_end_date
-		</if>
-		<if test="whatColumn == 'p_future'">
-			where  p_start_date > sysdate 
-		</if>	
+		<choose>
+			<when test="whatColumn1 == 'p_ing'">
+				where p_end_date > sysdate and sysdate > p_start_date 
+						<if test="whatColumn == 'p_subject'">
+							and p_subject like #{keyword}
+						</if>
+						<if test="whatColumn == 'p_content'">
+							and p_content like #{keyword}
+						</if>
+
+			</when>
+			<when test="whatColumn1 == 'p_end'">
+				where sysdate > p_end_date 
+						<if test="whatColumn == 'p_subject'">
+							and p_subject like #{keyword}
+						</if>
+						<if test="whatColumn == 'p_content'">
+							and p_content like #{keyword}
+						</if>		
+			</when>
+			<when test="whatColumn1 == 'p_future'">
+				where  p_start_date > sysdate 
+						<if test="whatColumn == 'p_subject'">
+							and p_subject like #{keyword}
+						</if>
+						<if test="whatColumn == 'p_content'">
+							and p_content like #{keyword}
+						</if>			
+			</when>
+			<otherwise>
+				<if test="whatColumn == 'p_subject'">
+					where p_subject like #{keyword}
+				</if>
+				<if test="whatColumn == 'p_content'">
+					where p_content like #{keyword}
+				</if>				
+			</otherwise>
+		</choose>
 		order by p_num desc
 	</select>
 	
 	<select id="ProductList" resultType="MyProduct">
 		select * from do_product
-		<if test="whatColumn=='p_subject'">
-			where p_subject like #{keyword}
-		</if>
-		<if test="whatColumn=='p_content'">
-			where p_content like #{keyword}
-		</if>
-		<if test="whatColumn == 'p_ing'">
-			where p_end_date > sysdate and sysdate > p_start_date 
-		</if>
-		<if test="whatColumn == 'p_end'">
-			where sysdate > p_end_date
-		</if>
-		<if test="whatColumn == 'p_future'">
-			where  p_start_date > sysdate 
-		</if>		
+		<choose>
+			<when test="whatColumn1 == 'p_ing'">
+				where p_end_date > sysdate and sysdate > p_start_date 
+						<if test="whatColumn == 'p_subject'">
+							and p_subject like #{keyword}
+						</if>
+						<if test="whatColumn == 'p_content'">
+							and p_content like #{keyword}
+						</if>
+			</when>
+			<when test="whatColumn1 == 'p_end'">
+				where sysdate > p_end_date 
+						<if test="whatColumn == 'p_subject'">
+							and p_subject like #{keyword}
+						</if>
+						<if test="whatColumn == 'p_content'">
+							and p_content like #{keyword}
+						</if>		
+			</when>
+			<when test="whatColumn1 == 'p_future'">
+				where  p_start_date > sysdate 
+						<if test="whatColumn == 'p_subject'">
+							and p_subject like #{keyword}
+						</if>
+						<if test="whatColumn == 'p_content'">
+							and p_content like #{keyword}
+						</if>			
+			</when>
+			<otherwise>
+				<if test="whatColumn == 'p_subject'">
+					where p_subject like #{keyword}
+				</if>
+				<if test="whatColumn == 'p_content'">
+					where p_content like #{keyword}
+				</if>				
+			</otherwise>
+		</choose>	
 		order by p_num desc
-	</select>
+	</select>	
 	
-	<select id="RotatorList" resultType="MyProduct">		
+ 	<select id="RotatorList" resultType="MyProduct">		
  		select p_num,p_image from (select p_num,p_image, p_readcount, row_number() over (order by p_readcount desc) as rank  from do_product) where rank between 1 and 5
  	</select>
  	

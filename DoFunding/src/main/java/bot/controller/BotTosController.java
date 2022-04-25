@@ -15,7 +15,7 @@ public class BotTosController {
 	@RequestMapping(command)
 	public ModelAndView doAction(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
-		
+		mav.setViewName(getPage);
 		return mav;
 		
 	}

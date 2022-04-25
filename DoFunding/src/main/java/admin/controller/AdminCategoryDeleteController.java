@@ -21,7 +21,7 @@ public class AdminCategoryDeleteController {
 			@RequestParam(value="cnum",required = true) int cnum,
 			@RequestParam(value="pageNumber",required = true) int pageNumber) {
 		
-		int cnt=cdao.categoryDelete(cnum);   
+		cdao.categoryDelete(cnum);   
 
 		return gotoPage + "?pageNumber="+pageNumber;
 

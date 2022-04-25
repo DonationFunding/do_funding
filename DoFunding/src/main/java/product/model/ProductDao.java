@@ -44,8 +44,7 @@ public class ProductDao {
 	
 	//조회수 증가
 	public ProductBean getProduct(int p_num) {
-		int cnt= sqlSessionTemplate.update(namespace+".ReadcountUp", p_num);
-		System.out.println("readcount+1");
+		sqlSessionTemplate.update(namespace+".ReadcountUp", p_num);
 		ProductBean p_product = sqlSessionTemplate.selectOne(namespace+".GetProduct", p_num);
 		return p_product;
 	}//getProduct
@@ -95,7 +94,6 @@ public class ProductDao {
 		int count = 0;
 		for(int i=0;i<rowchecks.length;i++) {
 			String rowcheck=rowchecks[i];
-			System.out.println("rowcheck:"+rowcheck);
 			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteProduct",rowcheck);
 			count+=cnt;
 		}

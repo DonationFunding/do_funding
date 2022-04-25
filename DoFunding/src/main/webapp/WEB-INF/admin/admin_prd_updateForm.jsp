@@ -82,73 +82,48 @@ filebox .upload-thumb-wrap { /* 추가될 이미지를 감싸는 요소 */
 <script type="text/javascript">
 $(document).ready(function(){ 
 
-	$("#uploadFile").on("change", handleImgFileSelect);
-
-	function handleImgFileSelect(e) {
-		var files = e.target.files;
-		var filesArr = Array.prototype.slice.call(files);
-
-		var reg = /(.*?)\/(jpg|jpeg|png|bmp)$/;
-
-		filesArr.forEach(function(f) {
-			if (!f.type.match(reg)) {
-				alert("확장자는 이미지 확장자만 가능합니다.");
-				return;
-			}
-
-			sel_file = f;
-
-			var reader = new FileReader();
-			reader.onload = function(e) {
-				$("#img").attr("src", e.target.result);
-			}
-			reader.readAsDataURL(f);
-		});
-	}
-	
-	
-	
-	var fileTarget = $('.filebox .upload-hidden'); 
-	
-	fileTarget.on('change', function(){ // 값이 변경되면 
-		if(window.FileReader){ // modern browser 
-			var filename = $(this)[0].files[0].name; 
-		} 
-		else { // old IE 
-			var filename = $(this).val().split('/').pop().split('\\').pop(); // 파일명만 추출 
-		} 
-	
-	// 추출한 파일명 삽입 
-	$(this).siblings('.upload-name').val(filename); 
-	}); 
 	//preview image 
-	var imgTarget = $('.preview-image .upload-hidden'); 
+	var imgTarget = $('.preview-image .upload-hidden'); //file
 
-	imgTarget.on('change', function(){ 
-		var parent = $(this).parent(); 
-		parent.children('.upload-display').remove(); 
+	imgTarget.on('change', function(){ //업로드 누르고 파일 추가 했을경우
 		
-		if(window.FileReader){ 
-			//image 파일만 
-			if (!$(this)[0].files[0].type.match(/image\//)) return;
-			var reader = new FileReader(); 
-			reader.onload = function(e){ 
-				var src = e.target.result; 
-				parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img src="'+src+'" class="upload-thumb"></div></div>'); 
+			if(window.FileReader){ 		
+				//image 파일만 
+				if (!$(this)[0].files[0].type.match(/image\//)) return;
+				var parent = $(this).parent(); 
+				//기존 보여주던 이미지 제거
+				parent.children('.upload-display').remove();
+				
+				if(window.FileReader){ // modern browser 
+					var filename = $(this)[0].files[0].name; 
+				} 
+				else { // old IE 
+					var filename = $(this).val().split('/').pop().split('\\').pop(); // 파일명만 추출 
+				} 		
+			
+				// 추출한 파일명 삽입 기존꺼에 덮어씌우기
+				 $('.filebox .upload-hidden').siblings('.upload-name').val(filename); 
+					
+					var reader = new FileReader(); 
+					reader.onload = function(e){ 
+						var src = e.target.result; 
+						parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img src="'+src+'" class="upload-thumb"></div></div>'); 
+					} 
+					reader.readAsDataURL($(this)[0].files[0]);
+			 }else { 
+				$(this)[0].select(); 
+				$(this)[0].blur(); 
+				var imgSrc = document.selection.createRange().text; 
+				parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img class="upload-thumb"></div></div>'); 
+				var img = $(this).siblings('.upload-display').find('img'); 
+				img[0].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")"; 
 			} 
-			reader.readAsDataURL($(this)[0].files[0]);
-		} 
-		else { 
-			$(this)[0].select(); 
-			$(this)[0].blur(); 
-			var imgSrc = document.selection.createRange().text; 
-			parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img class="upload-thumb"></div></div>'); 
-			var img = $(this).siblings('.upload-display').find('img'); 
-			img[0].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")"; 
-		} 
 	});
 	
 });
+	function reprdlist(pageNumber){	//돌아가기
+		location.href="admin_prd_list.ad?pageNumber="+pageNumber;
+	}
 </script>
 <center>
 <h2>제품 수정 화면(${loginInfo.id})</h2>
@@ -187,22 +162,13 @@ $(document).ready(function(){
 				<tr>
 					<th>이미지 파일</th>
 					<td class="filebox preview-image">
-					    <input class="upload-name" value="파일선택" disabled="disabled" id="uploadFile">
+					<div class="upload-display"><div class="upload-thumb-wrap"><img src="<%=request.getContextPath()%>/resources/images/${prdBean.p_image}" class="upload-thumb"></div></div>
+					    <input class="upload-name" value="${prdBean.p_image}" disabled="disabled" id="uploadFile">
 					    <label  for="input-file" class='btn btn-default btn-sm'>업로드</label> 
-					    <input type="file" id="input-file" class="upload-hidden"  name="upload">
-					    <input class="inputStyle" type="file" name="uploadFile" id="uploadFile" /> 
-					    <input type="hidden" id="p_image" name="p_image" value="${prdBean.p_image}" />
+					    <input type="file" id="input-file" class="upload-hidden"  name="upload"> 
+					    <input type="hidden" id="p_image1" name="p_image1" class="p_image1" value="${prdBean.p_image}" />
 				  				 
 					</td>
-<%-- 					<div class="input_box">
-                                    <label class="input_title">이미지</label><br> <input
-                                        class="inputStyle" type="file" name="uploadFile"
-                                        id="uploadFile" /> <input type="hidden" id="prd_img"
-                                        name="prd_img" value="${product.prd_img }" />
-                                    <div class="img_wrap" style="height: 100">
-                                        <img id="img" src="${product.prd_img }"
-                                            style="width: 100px; margin-left: 175px;" />
-                           </div> --%>
 				</tr>
 				<tr>
 					<th>게시글 내용</th>
@@ -274,7 +240,7 @@ $(document).ready(function(){
 							<div id="optionIndex" >
 								<c:forEach var="option" items="${opList}">
 									<div class='form-group' style='margin: 13px;' >
-										<input type='text' placeholder="옵션"  style="float:left;" name='item_option' id='item_option' value="${option.option_content}">
+										<input type='text' placeholder="옵션"  style="float:left;" name='item_option' id='item_option' class="item_option" value="${option.option_content}">
 										<button type='button' onclick='option_del(this)' style='float:right;' id='optionDelBtn' name='optionDelBtn' class='btn btn-default btn-sm'>삭제</button>
 										<form:errors cssClass="err" path="item_option" />
 									<br></div>
@@ -289,7 +255,8 @@ $(document).ready(function(){
 				</table>
 			</div>
 			<div>
-				<input type="submit" value="상품수정하기" class="btn btn-default btn-sm" onclick="return prdcheck()">
+				<input type="submit" value="상품수정하기" class="btn btn-default btn-sm" onclick="return prdUpcheck()">
+				<input type="button" value="돌아가기" class="btn btn-default btn-sm" onclick="reprdlist('${pageNumber}')">
 			</div>
 		</form>	
 	</div>

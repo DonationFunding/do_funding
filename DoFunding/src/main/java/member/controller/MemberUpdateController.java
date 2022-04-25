@@ -1,8 +1,5 @@
 package member.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -43,7 +40,7 @@ public class MemberUpdateController {
 		System.out.println("update.mem(post)"+membean.getId());
 		System.out.println("update.mem(post)"+membean.getPassword());
 		ModelAndView mav=new ModelAndView();
-		int cnt = mdao.updateMember(membean);
+		mdao.updateMember(membean);
 		MemberBean loginInfo = mdao.getLoginInfo(membean);
 		session.setAttribute("loginInfo", loginInfo);
 		String destination = (String)session.getAttribute("destination");

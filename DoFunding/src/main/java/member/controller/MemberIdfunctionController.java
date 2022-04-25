@@ -18,7 +18,6 @@ import member.model.MemberDao;
 public class MemberIdfunctionController {
 	private final String command = "idfunction.mem";
 	private final String getPage = "member_insertForm";
-	private String gotoPage = "redirect:/login.mem";
 	@Autowired
 	MemberDao mdao;
 	

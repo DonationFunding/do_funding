@@ -7,11 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -59,12 +58,12 @@ public class AdminProductInsertController {
 		 int cnt = productDao.insertProduct(prdBean); 
 
 		 if(cnt > 0) {
-			 //옵션추가부분 최근 가입시킨 제품번호 가져오기
+			
 			 int item_no=productDao.getP_num();
 			 System.out.println("item_no:"+item_no);
 			 prdBean.setOption_item_no(item_no);
 			 for (int i = 0; i < prdBean.getItem_option().length; i++) {
-				 String itemOptionContent = prdBean.getItem_option()[i];	//옵션 1개 값
+				 String itemOptionContent = prdBean.getItem_option()[i];	
 				 System.out.println("itemOptionContent:"+itemOptionContent);
 				 Map<String, Object> map = new HashMap<String, Object>();
 				 map.put("item_option", itemOptionContent);
@@ -72,7 +71,7 @@ public class AdminProductInsertController {
 				 productDao.itemOptionInsert(map);
 				} 
 			 
-			 //파일 추가 부분
+			
 			 String uploadPath = servletContext.getRealPath("/resources/images");
 			 MultipartFile multi = prdBean.getUpload();
 			 File f = new File(uploadPath+"\\" + prdBean.getP_image());

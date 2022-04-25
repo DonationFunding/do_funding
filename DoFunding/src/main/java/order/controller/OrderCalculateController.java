@@ -1,7 +1,11 @@
 package order.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,20 +16,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
-import oracle.sql.DATE;
+
 import order.cart.MyCartList;
 
 import order.model.OrderDao;
 import orderdetail.model.DonationBean;
 import orderdetail.model.OrderDetailBean;
 import orderdetail.model.OrderDetailDao;
-import product.model.OptionBean;
 import product.model.ProductBean;
 import product.model.ProductDao;
 
 @Controller
 public class OrderCalculateController {
 	private final String command = "/calculate.ord";
+	
+	private String getPage = "redirect:/cart_list.ord";
 	private String gotoPage = "redirect:/order.ord";
 	
 	@Autowired
@@ -48,10 +53,12 @@ public class OrderCalculateController {
 			@RequestParam(value="del_request",required = false) String del_request,
 			@RequestParam(value="order_request",required = false) String order_request,
 			@RequestParam(value="amount",required = false) String amount,
-			HttpSession session ) {
-		
+			HttpSession session) {	
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
 		MyCartList mycart = (MyCartList)session.getAttribute("mycart");
+		if(mycart==null) {
+			return getPage;
+		}
 		List<int[]> orderlists = mycart.getAllOrderLists();
 		// key(상품번호), value(주문수량) , 옵션 번호
 			
@@ -97,7 +104,15 @@ public class OrderCalculateController {
 		session.removeAttribute("mycart");
 		session.removeAttribute("shopLists");
 		session.removeAttribute("totalAmount");
-		return gotoPage;
+		String msg="결제가 완료되었습니다.";
+		try {
+			msg = URLEncoder.encode(msg, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String msgGotoPage=gotoPage+"?msg="+msg;
+		return msgGotoPage;
 	}
 	
 }

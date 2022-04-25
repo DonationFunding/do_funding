@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import like.model.LikeDao;
 import member.model.MemberBean;
-import product.model.ProductDao;
+
 
 @Controller
 public class LikeMultiDeleteController {
@@ -31,7 +31,7 @@ public class LikeMultiDeleteController {
 		//System.out.println(productBean.getRowcheck());
 		String[] rowcheck=request.getParameterValues("rowcheck");
 		
-		int cnt = likeDao.multiDeleteProduct(rowcheck,loginInfo);   
+		likeDao.multiDeleteProduct(rowcheck,loginInfo);   
 
 		return gotoPage + "?pageNumber="+pageNumber;
 
