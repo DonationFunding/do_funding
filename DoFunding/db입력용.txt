@@ -100,10 +100,7 @@ create table do_product(
 	p_end_date 		date not null		
 );
 
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/remotes/origin/do-kyg1
 insert into do_product values(seqdo_product.nextval,'phonecase','kim','할머님 케이스',11201,'핸드폰케이스1.png','내용123',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'phonecase','kim','할머님 케이스',30,'핸드폰케이스2.jpg','내용123',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'handkerchief','kim','할머님 손수건',7513,'위안부 손수건.png','내용123',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
