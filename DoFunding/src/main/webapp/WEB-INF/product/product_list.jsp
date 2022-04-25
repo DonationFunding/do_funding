@@ -125,7 +125,7 @@
 												<c:when test="${0>(t_Date-s_Date)}">
 												<tr>
 													<td>
-													<a href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}">
+													<a href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}&whatColumn=${pageInfo.whatColumn}&keyword=${pageInfo.keyword}&whatColumn1=${pageInfo.whatColumn1}">
 														<img width="250px" height="250px"
 														alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 														src="<%=request.getContextPath() %>/resources/images/comingsoon1.png"><br>
@@ -153,7 +153,7 @@
 												<c:otherwise>
 												<tr>
 													<td>
-													<a href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}">
+													<a href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}&whatColumn=${pageInfo.whatColumn}&keyword=${pageInfo.keyword}&whatColumn1=${pageInfo.whatColumn1}">
 														<img width="250px" height="250px"
 														alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 														src="<%=request.getContextPath() %>/resources/images/${prdBean.p_image}"><br>
