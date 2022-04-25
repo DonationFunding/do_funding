@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file= "../common/common_top.jsp" %>
+<%@include file= "admin_top.jsp" %>
 <style type="text/css">
   	body {
   		position: static; 
@@ -52,5 +52,4 @@ Do_funding은 위안부 삶을 살아오시며 피해를 입으신 할머님들�
 
 </body>
 </html>
-
-<%@include file= "../common/common_bottom.jsp" %>
+<%@include file= "admin_bottom.jsp" %>
