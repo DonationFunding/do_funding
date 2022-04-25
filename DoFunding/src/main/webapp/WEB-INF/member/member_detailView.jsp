@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common_top.jsp" %>
 <head>
@@ -134,10 +134,10 @@
 	<tr>
 	    <td></td>
 		<th>
-			적립 포인트
+			총 후원금액
 		</th>
 		<td>
-			${loginInfo.mpoint }
+			${loginInfo.mpoint } 원
 		</td>
 	    <td></td>
 	</tr>
