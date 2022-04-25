@@ -18,7 +18,7 @@
 			}
 		}
 		if (flag == false) {
-			alert("삭제할 체크박스를 하나라도 선택하세요.");
+			alert("삭제할 체크박스를 하나 이상 선택하세요.");
 			return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
 		}
 		var dep = confirm("정말 삭제하시겠습니까?");
@@ -63,7 +63,7 @@
 			</th>
 			<th class="text-center">펀딩번호</th>
 			<th>상품명</th>
-			<th class="text-left">image</th>
+			<th class="text-left">이미지</th>
 			<th class="text-left">가격</th>
 			<th class="text-left">진행률</th>
 			<th class="text-left">마감일</th>
@@ -85,8 +85,10 @@
 				<img width="100" height="100" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 				src="<%=request.getContextPath() %>/resources/images/${prdBean.p_image}"><br>
 			</td>
-			<td>${prdBean.p_origin_price}원</td>
-			<td>${(prdBean.p_total_price/prdBean.p_end_price)*100} %</td>
+			<td>
+				<fmt:formatNumber value="${prdBean.p_origin_price}" pattern="###,###,###" /> 원	
+			</td>
+			<td><fmt:formatNumber value="${(prdBean.p_total_price/prdBean.p_end_price)*100}" pattern=".00" /> %</td>
 			<td>
 				<c:set var="end_date">
 					<fmt:parseDate value="${prdBean.p_end_date}" var="dateValue" pattern="yyyy-MM-dd" />

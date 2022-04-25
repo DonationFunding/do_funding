@@ -14,14 +14,14 @@
 		document.likeform.submit();
 	}
 
-	function addcheck(){
+	function addcheck(id, account){
 			if (document.myform.orderqty.value =="") {
-				alert("수량을 입력해주세요");
+				alert("수량을 입력해주세요.");
 				document.myform.orderqty.focus();
 				return false;
 			}	
 			if (isNaN(document.myform.orderqty.value)) {
-				alert("수량은 숫자만 입력가능 합니다");
+				alert("수량은 숫자만 입력 가능합니다.");
 				document.myform.orderqty.select();
 				return false;
 			}
@@ -42,6 +42,14 @@
 				document.myform.orderqty.select();
 				return false;
 			}
+			if(id == null || id ==""){
+				alert('로그인 후 이용가능합니다.');
+				return false;
+			}
+			if(account ==null || account ==""){
+				alert('계좌연동 후 이용가능합니다.');
+				return false;
+			}
 	}
 	
 </script>
@@ -56,7 +64,6 @@
     	<tr>
     		<td rowspan="10" align="center">
     			<img width=400 height=350  src="<%=request.getContextPath() %>/resources/images/${productBean.p_image}" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg" >
-    			<%-- <img src="<%=application.getContextPath()%>/resources/${productBean.image}" width=50 height=50> --%>
     		</td>
     	</tr>
     	<tr>
@@ -65,7 +72,7 @@
     	</tr>
     	<tr>
     		<th>가격</th>
-    		<td>${productBean.p_origin_price }원</td>
+    		<td><fmt:formatNumber value="${productBean.p_origin_price }" pattern="###,###,###" /> 원</td>
     	</tr>
     	<tr>
     		<th>설명</th>
@@ -91,7 +98,7 @@
     	</tr>
     	
 <!-- add.mall => mall.controller.CartAddController -->
-<form name="myform" method="post" action="add.ord" onsubmit="return addcheck()">
+<form name="myform" method="post" action="add.ord" onsubmit="return addcheck('${sessionScope.loginInfo.id}','${sessionScope.loginInfo.account}')">
     	<tr>
     		<th>옵션</th>
     		<td>
@@ -111,7 +118,7 @@
 <!-- 현재날짜 -->
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set> 
-	    			<input type="submit" value="주문"  class="btn btn-default btn-sm" <c:if test="${sysDate > p_end_date or sysDate < p_start_date}"> disabled</c:if>>
+	    			<input type="submit" value="주문"  class="btn btn-default btn-sm" <c:if test="${sysDate > p_end_date or sysDate < p_start_date}"> disabled</c:if> >
 
     		</td>   		
     	</tr>
@@ -124,6 +131,9 @@
 					<input type="hidden" name= "p_num" value="${productBean.p_num}"/>
 					<input type="hidden" name= "like_check" value="${like_check}"/>
 					<input type="hidden" name= "pageNumber" value="${pageNumber}"/>
+					<input type="hidden" name= "whatColumn" value="${whatColumn}"/>
+					<input type="hidden" name= "whatColumn1" value="${whatColumn1}"/>
+					<input type="hidden" name= "keyword" value="${keyword}"/>
 
 				<c:if test = "${loginInfo != null}">
 					<c:if test="${like_check == 1}"><!--좋아요  -->
@@ -141,7 +151,7 @@
 		</tr>
 		<tr>
     		<td colspan="3">
-    			<a href="list.prd?pageNumber=${pageNumber }">상품 리스트</a>
+    			<a href="list.prd?pageNumber=${pageNumber}&whatColumn=${whatColumn}&keyword=${keyword}&whatColumn1=${whatColumn1}">상품 리스트</a>
     		</td>
     	</tr>
     </table>

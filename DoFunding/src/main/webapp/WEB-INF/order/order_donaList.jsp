@@ -7,11 +7,9 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <center>
-<center>
 <br>
 <h3>후원 기록</h3>
 <br>
-</center>  
  <div class="container">
         <table class="table table-hover table-sm" class="text-center">
 	<tr>
@@ -42,10 +40,10 @@
 				${o_date }
 			</td>
 			<td >
-				${donation.dona_buyprice}
+				<fmt:formatNumber value="${donation.dona_buyprice}" pattern="###,###,###" /> 원	
 			</td>
 			<td>
-				${donation.dona_money}
+				<fmt:formatNumber value="${donation.dona_money}" pattern="###,###,###" /> 원	
 			</td>
 		</tr>
 		

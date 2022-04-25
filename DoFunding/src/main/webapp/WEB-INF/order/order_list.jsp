@@ -14,12 +14,18 @@
 	}
 </style>
 <center>
-<center>
+<% 
+    request.setCharacterEncoding("UTF-8");
+
+    if(request.getAttribute("msg") != null){
+    String msg=(String)request.getAttribute("msg");
+    out.println("<script> alert('"+msg+"');</script>");
+    request.removeAttribute("msg");
+}%>
 <br>
 <h3>주문 내역</h3>
+<h3>${msg}</h3>
 <br>
-</center>
-
 	<div class="container">
             <table class="table" class="text-center">
 		<c:choose>
@@ -55,5 +61,10 @@
 		</c:choose>
 	</table>
 </div>
+	<div class="container">
+			<ul class="pagination pagination-sm">
+				${pageInfo.pagingHtml}
+			</ul>
+	</div>
 </center>
 <%@ include file="../common/common_bottom.jsp"%>

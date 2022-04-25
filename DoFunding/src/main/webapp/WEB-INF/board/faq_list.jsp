@@ -16,7 +16,7 @@
 <link href="<%=request.getContextPath() %>/resources/css/kfonts2.css" rel="stylesheet">
 </head>
 <center>
-<h1>FAQ 목록(전체 글:${totalCount})</h1>
+<h1>FAQ 목록</h1>
 <div class="container">
 <table class="table table-hover table-sm" class="text-center">
 	
@@ -27,7 +27,7 @@
 		<th class="text-center">조회</th>
 	</tr>
 		<c:if test="${faqList == null}">
-			등록된 FaQ가 없습니다.
+			등록된 FAQ가 없습니다.
 		</c:if>	
 		<c:forEach var="faqBean" items="${faqList}" varStatus="status">
 		<tr>

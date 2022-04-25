@@ -32,7 +32,7 @@
 			return false;
 		}
 		if (isNaN(document.myform.hp1.value)) {
-			alert("전화번호는 숫자만 입력가능합니다");
+			alert("전화번호는 숫자만 입력 가능합니다.");
 			document.myform.hp1.select();
 			return false;
 		}
@@ -42,7 +42,7 @@
 			return false;
 		}
 		if (isNaN(document.myform.hp2.value)) {
-			alert("전화번호는 숫자만 입력가능합니다");
+			alert("전화번호는 숫자만 입력 가능합니다.");
 			document.myform.hp2.select();
 			return false;
 		}
@@ -52,7 +52,7 @@
 			return false;
 		}
 		if (isNaN(document.myform.hp3.value)) {
-			alert("전화번호는 숫자만 입력가능합니다");
+			alert("전화번호는 숫자만 입력 가능합니다.");
 			document.myform.hp3.select();
 			return false;
 		}
@@ -69,7 +69,7 @@
 		
 	}
 	function delcartcheck(p_subject){
-		var dep = confirm(p_subject+"(을)를 정말 장바구니에서 삭제 하시겠습니까?");
+		var dep = confirm(p_subject+"(을)를 정말 장바구니에서 삭제하시겠습니까?");
 		//prompt : 값을 입력 받을 수 있는 창 (제목, 초기값) 확인/취소 버튼이 있음.
 		//comfirm : YES/NO t/f
 		//alert(dep);
@@ -90,20 +90,20 @@
 		<h3>결제금액</h3>
 		<tr>
 			<th class="text-center">총 금액</th>
-			<td>${totalAmount}</td>
+			<td><fmt:formatNumber value="${totalAmount}" pattern="###,###,###" /> 원</td>
 			<br>
 		</tr>
 		<tr>
 			<td>배송비</td>
 		<c:choose> 
 			<c:when test="${totalAmount > 30000}">
-				0
+				0 원
 			</c:when> 
 			<c:when test="${totalAmount > 0  and totalAmount < 30000 }">
-				3000
+				3,000 원
 			</c:when> 
 			<c:otherwise>
-				0
+				0 원
 			</c:otherwise> 
 		</c:choose> <br><br>
 		</tr>               
@@ -111,15 +111,15 @@
 			<td>최종 결제금액: 
 			<c:choose> 
 				<c:when test="${totalAmount > 30000}">
-					${totalAmount}
+					<fmt:formatNumber value="${totalAmount}" pattern="###,###,###" /> 원
 					<input type="hidden" name="amount" value="${totalAmount }">
 				</c:when> 
 				<c:when test="${totalAmount > 0  and totalAmount < 30000 }">
-					${totalAmount+3000}
+					<fmt:formatNumber value="${totalAmount+3000}" pattern="###,###,###" /> 원
 					<input type="hidden" name="amount" value="${totalAmount+3000 }">
 				</c:when> 
 				<c:otherwise>
-					${totalAmount}
+					<fmt:formatNumber value="${totalAmount}" pattern="###,###,###" /> 원
 					<input type="hidden" name="amount" value="${totalAmount}">	
 				</c:otherwise> 
 			</c:choose> 
@@ -127,7 +127,7 @@
 		</tr>
 		<br> <br> 
 		<input type="submit" name="btn1" value="결제하기"  class="btn btn-default btn-sm" onclick="return ordcheck(${shopLists.size()})">	
-		<a href="list.prd" class="btn btn-default btn-sm">추가주문</a>		
+		<a href="list.prd" class="btn btn-default btn-sm">추가 주문</a>		
 	</div>	      			
 	<div class="container">
           <table class="table" class="text-center">
@@ -199,8 +199,8 @@
 						<td>${shopInfo.p_subject}</td>
 						<td>${shopInfo.option_content }</td>
 						<td>${shopInfo.qty }</td>
-						<td>${shopInfo.price }</td>
-						<td>${shopInfo.amount }</td>
+						<td><fmt:formatNumber value="${shopInfo.price }" pattern="###,###,###" /> 원</td>
+						<td><fmt:formatNumber value="${shopInfo.amount }" pattern="###,###,###" /> 원</td>
 						<td>			
 						<input type="hidden" name="p_num" value="${shopInfo.p_num }"> 
 						<input type="hidden" name="option_no" value="${shopInfo.option_no}"> 

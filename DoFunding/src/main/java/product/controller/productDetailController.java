@@ -37,6 +37,9 @@ public class productDetailController {
 	public String doAction(
 			@RequestParam(value = "p_num",required = true) int p_num,
 			@RequestParam(value = "pageNumber",required = false) String pageNumber,
+			@RequestParam(value = "whatColumn",required = false) String whatColumn,
+			@RequestParam(value="keyword", required=false) String keyword,
+			@RequestParam(value = "whatColumn1",required = false) String whatColumn1,
 			Model model,HttpSession session) {
 			MemberBean loginInfo=(MemberBean)session.getAttribute("loginInfo");
 			int like_check = 0; //찜하기 용
@@ -59,6 +62,9 @@ public class productDetailController {
 		model.addAttribute("optionList", o_list);
 		model.addAttribute("productBean", p_product);
 		model.addAttribute("pageNumber", pageNumber);
+		model.addAttribute("whatColumn", whatColumn);
+		model.addAttribute("whatColumn1", whatColumn1);
+		model.addAttribute("keyword", keyword);
 		model.addAttribute("like_check", like_check);
 		return getPage;
 	}
@@ -68,6 +74,9 @@ public class productDetailController {
 	public String doAction(
 			@RequestParam(value = "p_num",required = true) int p_num,
 			@RequestParam(value = "pageNumber",required = false) String pageNumber,
+			@RequestParam(value = "whatColumn",required = false) String whatColumn,
+			@RequestParam(value = "whatColumn1",required = false) String whatColumn1,
+			@RequestParam(value="keyword", required=false) String keyword,
 			@RequestParam(value = "like_check",required = false) String like_check,
 			Model model,HttpSession session) {
 		MemberBean loginInfo=(MemberBean)session.getAttribute("loginInfo");
@@ -94,6 +103,9 @@ public class productDetailController {
 		model.addAttribute("optionList", o_list);
 		model.addAttribute("productBean", p_product);
 		model.addAttribute("pageNumber", pageNumber);
+		model.addAttribute("whatColumn", whatColumn);
+		model.addAttribute("whatColumn1", whatColumn1);
+		model.addAttribute("keyword", keyword);
 		model.addAttribute("like_check", check);
 		
 		return getPage;

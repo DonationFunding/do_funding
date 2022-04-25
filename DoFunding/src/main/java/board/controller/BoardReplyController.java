@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import board.model.BoardBean;
 import board.model.BoardDao;
+import member.model.MemberBean;
 
 @Controller
 public class BoardReplyController {
@@ -29,14 +30,16 @@ public class BoardReplyController {
 
 	private PrintWriter pw =null;
 
-	//content.jsp get¹æ½Ä replyForm.bv
+	
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
 			BoardBean bdBean,
 			HttpServletRequest request,
 			HttpSession session) {
+		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
 
+			request.setAttribute("loginInfo", loginInfo);
 			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
@@ -48,9 +51,13 @@ public class BoardReplyController {
 			@RequestParam(value="pageNumber")String pageNumber,
 			BoardBean bdBean,
 			HttpServletRequest request,
-			HttpServletResponse response) {	
+			HttpServletResponse response,
+			HttpSession session) {	
 		//writer/subject/email/content/password/Reg_date/Ip
 		//ref/re_step/re_level
+		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
+
+		request.setAttribute("loginInfo", loginInfo);
 		response.setContentType("text/html; charset=UTF-8");
 		bdBean.setB_reg_date(new Timestamp(System.currentTimeMillis()));
 		int cnt=boardDao.replyArticle(bdBean);
@@ -64,7 +71,7 @@ public class BoardReplyController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('´ä±Û ÀÛ¼ºÀÌ ½ÇÆĞÇß½À´Ï´Ù');</script>");
+			pw.println("<script> alert('ë‹µê¸€ ë“±ë¡ì´ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.');</script>");
 			pw.flush();
 			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);			

@@ -42,7 +42,7 @@
 		    <td>
 		    </td>
 			<th>
-			     패스워드 : <input type="password" name="password">
+			     비밀번호 : <input type="password" name="password">
 				<form:errors cssClass="err" path="password"/>
 			<th>
 			 <td>
@@ -52,7 +52,7 @@
 		     <td>
 		    </td>
 			<th>
-			     패스워드 확인 : <input type="password" name="repassword">
+			     비밀번호 확인 : <input type="password" name="repassword">
 			<th>
 			 <td>
 		    </td>			

@@ -36,10 +36,10 @@
 				<tr>
 					<td>${odb.p_subject}</td>
 					<td ><img width="100px" height="100px" src="<%=request.getContextPath()%>/resources/images/${odb.p_image}"></td>
-					<td>${odb.price}</td>
+					<td><fmt:formatNumber value="${odb.price}" pattern="###,###,###" /> 원</td>
 					<td>${odb.qty}</td>
 					<td>${odb.option_content}</td>
-					<td>${odb.amount}</td>
+					<td><fmt:formatNumber value="${odb.amount}" pattern="###,###,###" /> 원</td>
 					<td>${(odb.p_total_price/odb.p_end_price)*100} %</td>
 <%-- 					<c:choose>
 						<c:when test="${odb.deliver != 0}">
@@ -66,10 +66,10 @@
 				총 계산금액 : 
 					<c:choose>
 						<c:when test="${totalprice>30000}">
-							${totalprice} 원
+							<fmt:formatNumber value="${totalprice}" pattern="###,###,###" /> 원
 						</c:when>
 						<c:otherwise>
-							${totalprice+3000} 원
+							<fmt:formatNumber value="${totalprice+3000}" pattern="###,###,###" /> 원
 						</c:otherwise>
 					</c:choose>
 			</td>

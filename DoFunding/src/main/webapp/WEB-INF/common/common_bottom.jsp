@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/product.css">
 	<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 	<script src="<%=request.getContextPath() %>/resources/common_tb.js"></script>
-
 <script>
 $(window).scroll(function(){
 	if ($(this).scrollTop() > 300){
@@ -31,7 +30,7 @@ $('.btn_gotop').click(function(){
 	  <img src="<%=request.getContextPath()%>/resources/images/탑버튼.png" style="width:50px"> 
 	</a>
 </div>
- <body>
+<body>
  	<div id="bottom-wrap">
 	 		<ul id="bottom-menu1">
 	 			<li><a href="company.bot">회사소개</a></li>
@@ -40,8 +39,8 @@ $('.btn_gotop').click(function(){
 	 		</ul>
 	 	<div class="bottom-menu2">
 		 	<div class="bottom-1">
-		 		<h1><a href="<c:url value="/"/>">두  펀  딩</a></h1>
-		 		<h2><a href="<c:url value="/"/>">DO_FUNDING</a></h2>
+		 		<h1><a href="list.prd">두  펀  딩</a></h1>
+		 		<h2><a href="list.prd">DO_FUNDING</a></h2>
 		 	</div>
 		 	<div class="bottom-2">
 		 		<p>| 두펀딩(주)</p>

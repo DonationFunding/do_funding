@@ -99,6 +99,9 @@ public class BoardDao {
 		int count = 0;
 		for(int i=0;i<rowchecks.length;i++) {
 			String rowcheck=rowchecks[i];
+//			BoardBean bdBean=new BoardBean();
+//			bdBean.setB_num(Integer.parseInt(rowcheck));
+//			bdBean=sqlSessionTemplate.selectOne(namespace+".GetArticle", bdBean);	
 			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteBoard",rowcheck);	
 			count+=cnt;
 		}
@@ -108,7 +111,14 @@ public class BoardDao {
 	
 	public int adminDeleteArticle(BoardBean bdBean) {
 		int cnt=-1;
-			cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", bdBean);			
+
+			bdBean=sqlSessionTemplate.selectOne(namespace+".GetArticle", bdBean);
+			if(bdBean.getB_re_step()==0 && bdBean.getB_re_level()==0) {
+				cnt=sqlSessionTemplate.delete(namespace+".AllDelete", bdBean);							
+			}else {
+				cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", bdBean);							
+			}
+		System.out.println(cnt);
 		return cnt;		
 	}
 
