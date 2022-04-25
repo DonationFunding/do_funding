@@ -123,6 +123,9 @@
 					<input type="hidden" name= "p_num" value="${productBean.p_num}"/>
 					<input type="hidden" name= "like_check" value="${like_check}"/>
 					<input type="hidden" name= "pageNumber" value="${pageNumber}"/>
+					<input type="hidden" name= "whatColumn" value="${whatColumn}"/>
+					<input type="hidden" name= "whatColumn1" value="${whatColumn1}"/>
+					<input type="hidden" name= "keyword" value="${keyword}"/>
 
 				<c:if test = "${loginInfo != null}">
 					<c:if test="${like_check == 1}"><!--좋아요  -->
@@ -140,7 +143,7 @@
 		</tr>
 		<tr>
     		<td colspan="3">
-    			<a href="list.prd?pageNumber=${pageNumber }">상품 리스트</a>
+    			<a href="list.prd?pageNumber=${pageNumber}&whatColumn=${whatColumn}&keyword=${keyword}&whatColumn1=${whatColumn1}">상품 리스트</a>
     		</td>
     	</tr>
     </table>

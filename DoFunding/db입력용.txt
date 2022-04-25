@@ -100,6 +100,7 @@ create table do_product(
 	p_end_date 		date not null		
 );
 
+<<<<<<< HEAD
 insert into do_product values(seqdo_product.nextval,'phonecase','kim','xxx할머님 케이스',5,'핸드폰케이스1.png','내용123',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'phonecase','kim','xxx할머님 케이스',5,'핸드폰케이스2.png','내용123',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'handkerchief','kim','xxx할머님 손수건',5,'위안부 손수건.png','내용123',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
@@ -113,6 +114,21 @@ insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 �
 insert into do_product values(seqdo_product.nextval,'bracelet','kim','xxx할머님 팔찌',5,'팔찌2.png','내용123',10000,0,10000000,100,sysdate,'2022-4-18','2022-5-30');
 insert into do_product values(seqdo_product.nextval,'bag','kim','xxx할머님 가방',5,'가방2.png','내용123',10000,0,10000000,100,sysdate,'2022-4-15','2022-5-19');
 
+=======
+
+insert into do_product values(seqdo_product.nextval,'phonecase','kim','할머님 케이스',11201,'핸드폰케이스1.png','내용123',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'phonecase','kim','할머님 케이스',30,'핸드폰케이스2.jpg','내용123',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'handkerchief','kim','할머님 손수건',7513,'위안부 손수건.png','내용123',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'ring','kim','할머님 반지',5,'반지.jpg','내용123',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
+insert into do_product values(seqdo_product.nextval,'necklace','kim','할머님 반지',4861,'반지2.png','내용123',10000,12000000,10000000,100,sysdate,'2022-3-20','2022-4-15');
+insert into do_product values(seqdo_product.nextval,'earring','kim','할머님 귀걸이',3511,'귀걸이2.png','내용123',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-10');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','할머님 팔찌',6751,'팔찌2.png','내용123',10000,1000000,10000000,100,sysdate,'2022-3-20','2022-4-8');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','할머님 팔찌',5,'팔찌.jpg','내용123',10000,0,10000000,100,sysdate,'2022-4-30','2022-5-22');
+insert into do_product values(seqdo_product.nextval,'bag','kim','할머님 가방',5,'가방3.jpg','내용123',10000,0,10000000,100,sysdate,'2022-5-1','2022-5-30');
+insert into do_product values(seqdo_product.nextval,'bag','kim','할머님 가방',7,'가방2.png','내용123',10000,0,10000000,100,sysdate,'2022-5-15','2022-5-19');
+insert into do_product values(seqdo_product.nextval,'bracelet','kim','할머님 목걸이',7001,'목걸이.png','내용123',10000,0,10000000,100,sysdate,'2022-4-18','2022-5-30');
+insert into do_product values(seqdo_product.nextval,'bag','kim','할머님 가방',5,'가방.jpg','내용123',10000,0,10000000,100,sysdate,'2022-4-15','2022-5-19');
+>>>>>>> refs/remotes/origin/master
 
 
 --옵션 테이블
