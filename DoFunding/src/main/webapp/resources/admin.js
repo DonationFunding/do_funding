@@ -2,6 +2,7 @@
  *  admin.js
  */
 
+
 //다중 삭제
 function selectDelete() {
 
@@ -209,23 +210,110 @@ function prdcheck(){
 		$('textarea[name=p_content]').focus();
 		return false;
 	}
+	if($('input[name=item_option]').val()==null){
+		alert('최소 하나의 옵션이 있어야합니다.');
+		return false;
+	}
+	$('input[name=item_option]').each(function (i,item) { 
+		if($(item).val()==""){	
+			alert(2);
+			opcheck=true;
+			return;
+		}  
+    });	
+	alert(opcheck);
+	if(opcheck){
+		alert('옵션 값이 누락됐습니다.');
+		return false;
+	}		
+}
 
-	if($('input[name=item_option]').val()==""){
-		alert('옵셥이 누락됐습니다.');
-		$('input[name=item_option]').focus();
+function prdUpcheck(){
+
+	if($('input[name=p_subject]').val()==""){
+		alert('제목 입력 누락');
+		$('input[name=p_subject]').focus();
+		return false;
+	}	
+	if($('input[name=p_origin_price]').val()==""){
+		alert('단가 입력 누락');
+		$('input[name=p_origin_price]').focus();
+		return false;
+	}	
+	if($('input[name=p_end_price]').val()==""){
+		alert('목표가 입력 누락');
+		$('input[name=p_end_price]').focus();
+		return false;
+	}		
+	var p_origin_price=Number($('input[name=p_origin_price]').val());
+	//alert(2);
+	if(p_origin_price<1000){
+		alert('단가는 최소 1,000원  이상입니다.');
+		$('input[name=p_origin_price]').focus();
+		return false;
+	}	
+	var p_end_price=Number($('input[name=p_end_price]').val());
+	if(p_end_price<100000){
+		alert('목표 금액은 최소 100,000원 이상입니다.');
+		$('input[name=p_end_price]').focus();
+		return false;
+	}	
+	if($('input[name=p_start_date]').val()==""){
+		alert('모집기간값이 누락됐습니다.');
+		$('input[name=p_start_date]').focus();
+		return false;
+	}	
+	if($('input[name=p_end_date]').val()==""){
+		alert('모집기간값이 누락됐습니다.');
+		$('input[name=p_end_date]').focus();
+		return false;
+	}
+	
+	var sysday=new Date();	
+	var startday=new Date($('input[name="p_start_date"]').val());	
+	var endday=new Date($('input[name="p_end_date"]').val());	
+	if(sysday>startday){
+		alert('모집시작일이 현재보다 과거일 수 없습니다.');
+		$('input[name="p_start_date"]').focus();
+		return false;
+	}		
+	
+	if(sysday>=endday){
+		alert('모집마감일이 현재보다 과거일 수 없습니다.');
+		$('input[name="p_end_date"]').focus();
+		return false;
+	}	
+		
+	if(startday>=endday){
+		alert('모집마감일이 모집시작일보다 과거일 수 없습니다.');
+		$('input[name="p_end_date"]').focus();
+		return false;
+	}		
+	
+	if($('textarea[name=p_content]').val().length<20){
+		//alert($('textarea[name=pcontents]').val());
+		alert('지원사업소개는 최소 20자 이상 입력해야 합니다.');
+		$('textarea[name=p_content]').focus();
+		return false;
+	}
+	if($('input[name=item_option]').val()==null){
+		alert('최소 하나의 옵션이 있어야합니다.');
 		return false;
 	}
 	var opcheck=false;
-	$("input[name='item_option']").each(function (i) {
-		if( $("input[name='item_option']").eq(i).attr("value")==""){
+	$('input[name=item_option]').each(function (i,item) { 
+		if($(item).val()==""){	
 			opcheck=true;
+			return;
 		}  
     });	
 	if(opcheck){
+		alert('옵션 값이 누락됐습니다.');
 		return false;
 	}			
-	return true;
 }
+
+
 
 function check(){
 		//alert(1);

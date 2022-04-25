@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import board.model.BoardDao;
-import category.model.CategoryDao;
+
 
 
 
@@ -28,7 +28,7 @@ public class AdminBoardMultiDeleteController {
 			HttpServletRequest request) {
 		String[] rowcheck=request.getParameterValues("rowcheck");
 		
-		int cnt = boardDao.multiDeleteBoard(rowcheck);   
+		boardDao.multiDeleteBoard(rowcheck);   
 
 		return gotoPage + "?pageNumber="+pageNumber;
 

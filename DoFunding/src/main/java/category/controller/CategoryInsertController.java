@@ -38,7 +38,7 @@ public class CategoryInsertController {
 			return mav; 
 		}
 
-		int cnt = cdao.insertCategory(bean);   
+		cdao.insertCategory(bean);   
 
 		mav.setViewName(gotoPage);
 		return mav;

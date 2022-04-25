@@ -4,9 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,7 +81,6 @@ public class LikeDao {
 			count+=cnt;
 			map.remove(rowcheck);
 		}
-		System.out.println("likecount:"+count);
 		return count;
 		
 	}

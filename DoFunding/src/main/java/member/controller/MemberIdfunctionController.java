@@ -18,7 +18,6 @@ import member.model.MemberDao;
 public class MemberIdfunctionController {
 	private final String command = "idfunction.mem";
 	private final String getPage = "member_insertForm";
-	private String gotoPage = "redirect:/login.mem";
 	@Autowired
 	MemberDao mdao;
 	
@@ -38,6 +37,7 @@ public class MemberIdfunctionController {
 			}
 			pw.println("<script> alert('회원가입 가능합니다');</script>");
 			request.setAttribute("id", mb.getId());
+			request.setAttribute("flag", true);
 			pw.flush();
 			return getPage;
 		}//if

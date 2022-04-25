@@ -15,9 +15,9 @@
 
 <div align="center">
 	<c:if test="${rotatorlist ne null}">
-		<div class="container">
+		<div class="container" style="width: 100%">
 			<!--  <h2>캐러셀 슬라이드 효과  </h2> -->
-			<div id="carousel-example-generic" class="carousel slide">
+			<div id="carousel-example-generic" class="carousel slide" style="width: 100%; background: url(<%=request.getContextPath()%>/resources/images/carousel.png) no-repeat;">
 
 				<!-- Indicators(이미지 하단의 동그란것->class="carousel-indicators") -->
 				<ol class="carousel-indicators">
@@ -36,7 +36,7 @@
 							<img
 							src="<%=request.getContextPath()%>/resources/images/${rotatorlist.get(0).getP_image()}"
 							alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-							width="300" height="150">
+							height="250px">
 						</a>
 					</div>
 					<c:forEach var="rota_list" items="${rotatorlist}" begin="1">
@@ -61,13 +61,14 @@
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 		<script>
-			$('.carousel').carousel() /* 1 */
+			$('.carousel').carousel(); /* 1 */
 		</script>
 	</c:if>
 	<br><br>
 	
 	<div>
 		<form action="list.prd" method="get">
+			<input type="hidden" name="whatColumn1" value="${pageInfo.whatColumn1}">
 			<select name="whatColumn">
 				<option value="all">선택</option>
 				<option value="p_subject">상품명</option>
@@ -113,67 +114,85 @@
 
 							<td align="center" width="250px">
 								<table style="text-align: center; margin: 20px;">
-									<tr>
-										<td><c:choose>
+										<c:choose>
 												<c:when test="${0>(t_Date-s_Date)}">
-													<a
-														href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}">
+												<tr>
+													<td>
+													<a href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}">
 														<img width="250px" height="250px"
 														alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 														src="<%=request.getContextPath() %>/resources/images/comingsoon1.png"><br>
 														${prdBean.p_subject}<br>
 													</a>
+													</td>
+												</tr>
+												<tr>
+													<td><span style="float: left;">기간 : ${p_start_date} ~ ${p_end_date}</span></td>
+												</tr>
+												<tr>
+													<td><span style="float: left;">금액 : ${prdBean.p_total_price}/${prdBean.p_end_price} 원</span></td>
+												</tr>
+												<tr>
+													<td><span style="float: left;">상품준비중...</span><br>
+													</td>
+												</tr>
+												<tr>
+													<td><input type="range" width="80%" name="userRange"
+														min="1" max="${prdBean.p_end_price}"
+														step="${prdBean.p_end_price/100}"
+														value="${prdBean.p_total_price}" disabled="disabled" /></td>
+												</tr>	
 												</c:when>
 												<c:otherwise>
-													<a
-														href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}">
+												<tr>
+													<td>
+													<a href="detail.prd?p_num=${prdBean.p_num}&pageNumber=${pageInfo.pageNumber}">
 														<img width="250px" height="250px"
 														alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 														src="<%=request.getContextPath() %>/resources/images/${prdBean.p_image}"><br>
 														${prdBean.p_subject}<br>
 													</a>
+													</td>
+												</tr>
+												<tr>
+													<td><span style="float: left;">기간 : ${p_start_date} ~ ${p_end_date}</span></td>
+												</tr>
+												<tr>
+													<td><span style="float: left;">금액 : ${prdBean.p_total_price}/${prdBean.p_end_price} 원</span></td>
+												</tr>
+												<tr>
+													<td><span style="float: left;">진행률 :
+															<fmt:formatNumber value="${(prdBean.p_total_price/prdBean.p_end_price)*100}" pattern=".00" /> %</span>
+															<span style="float: right;">조회수:${prdBean.p_readcount}</span><br>
+													</td>
+												</tr>
+												<tr>
+													<td><input type="range" width="80%" name="userRange"
+														min="1" max="${prdBean.p_end_price}"
+														step="${prdBean.p_end_price/100}"
+														value="${prdBean.p_total_price}" disabled="disabled" /></td>
+												</tr>	
 												</c:otherwise>
-											</c:choose></td>
-									</tr>
+											</c:choose>
 
-									<tr>
-										<td><span style="float: left;">기간 :
-												${p_start_date} ~ ${p_end_date}</span></td>
-									</tr>
-									<tr>
-										<td><span style="float: left;">금액 :
-												${prdBean.p_total_price}/${prdBean.p_end_price} 원</span></td>
-									</tr>
-									<tr>
-										<td><span style="float: left;">진행률 :
-												<fmt:formatNumber value="${(prdBean.p_total_price/prdBean.p_end_price)*100}" pattern=".00" /> %</span>
-												<span style="float: right;">조회수:${prdBean.p_readcount}</span><br>
-										</td>
-									</tr>
-									<tr>
-										<td><input type="range" width="80%" name="userRange"
-											min="1" max="${prdBean.p_end_price}"
-											step="${prdBean.p_end_price/100}"
-											value="${prdBean.p_total_price}" disabled="disabled" /></td>
-									</tr>
 									<tr>
 										<td><c:choose>
 												<c:when test="${0>(t_Date-s_Date)}">
-													<img width="25px"
+													<img width="100px"
 														alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
-														src="<%=request.getContextPath() %>/resources/images/re.gif">
+														src="<%=request.getContextPath() %>/resources/images/coming soon.gif">
 												</c:when>
 												<c:otherwise>
 													<c:choose>
 														<c:when test="${(t_Date-s_Date) <= 7}">
-															<img width="25px"
+															<img width="50px"
 																alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 																src="<%=request.getContextPath() %>/resources/images/new-animation.gif">
 														</c:when>
 														<c:otherwise>
 															<c:choose>
 																<c:when test="${prdBean.p_readcount>10}">
-																	<img width="25px"
+																	<img width="50px"
 																		alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 																		src="<%=request.getContextPath() %>/resources/images/hot.gif">
 																</c:when>

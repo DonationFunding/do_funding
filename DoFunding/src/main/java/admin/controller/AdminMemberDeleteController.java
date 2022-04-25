@@ -18,9 +18,7 @@ public class AdminMemberDeleteController {
 	
 	@RequestMapping(value = command , method = RequestMethod.GET)
 	public String doAction(@RequestParam(value="no", required=false) String no) {
-		int no1 = Integer.parseInt(no);
-		System.out.println(no1);
-		int cnt = mdao.deleteMember(no,no1);
+		int cnt = mdao.deleteMember(no);
 		if(cnt < 0) {
 			System.out.println("삭제실패");
 			return gotoPage;
