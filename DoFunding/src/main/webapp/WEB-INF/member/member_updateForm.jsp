@@ -25,7 +25,7 @@
 			return false;
 		}
 		if(count==3){
-			alert("비밀번호 확인후 재도전하세요~")
+			alert("비밀번호 오류 횟수를 초과하였습니다.")
 			location.href="/list.prd";
 		}
 		var genderarr = document.getElementsByName("gender");
@@ -42,15 +42,15 @@
 		hp2value = myform.hp2.value;
 		hp3value = myform.hp3.value;
 		if(hp2value==""){
-			alert("전화번호를 입력하세요");
+			alert("전화번호를 입력하세요.");
 			return false;
 		}
 		if(isNaN(hp2value)){
-			alert("전화번호는 숫자로 입력하세요");
+			alert("전화번호는 숫자만 입력 가능합니다.");
 			return false;
 		}
 		if(hp3value==""){
-			alert("전화번호를 입력하세요");
+			alert("전화번호를 입력하세요.");
 			return false;
 		}
 		if(isNaN(hp3value)){
