@@ -6,6 +6,15 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
 <script type="text/javascript">
+	var flag=true;
+	function check_pw() {
+		if(flag){
+			$("#passcheckindex").append("<input type='password' placeholder='비밀번호를 입력하세요' style='float:center;' id='repassword'>"
+									+"<button type='button' onclick='return pw_check()'>확인</button>"									
+			);
+		flag=false;
+		}
+	}
 	function delconfirm() {
     	if (!confirm("회원탈퇴 하시겠습니까?")) {
         		alert("취소(아니오)를 누르셨습니다.");
@@ -14,9 +23,11 @@
 				location.href="delete.mem?no=${loginInfo.no}";
     	}
 	}
-	function pw_check(password,id){
-		str=prompt("비밀번호를 입력하세요.");
-		if(str!=password){
+	function pw_check(){
+		var password = document.getElementById('password').value;
+		var repassword = document.getElementById('repassword').value;
+		var id = document.getElementById('id').value;
+		if(repassword != password){
 			alert("비밀번호가 일치하지 않습니다.");
 			return false;
 		}else{
@@ -49,6 +60,7 @@
 		</th>
 		<td>
 			${loginInfo.id }
+			<input type="hidden" id="id" value="${loginInfo.id }">	
 		</td>
 		<td></td>
 	</tr>
@@ -60,7 +72,7 @@
 		<td>
 			${loginInfo.name }
 		</td>
-		 <td></td>
+		 <td><input type="hidden" id="password" value="${loginInfo.password }"></td>
 	</tr>
 	<tr>
 	    <td></td>
@@ -152,8 +164,12 @@
 	</tr>
 	<tr>
 		<td colspan="10" align="center">
-			<input type="button" value="정보수정"  class="btn btn-default btn-sm" onclick="return pw_check('${loginInfo.password}','${loginInfo.id}')">
+			<input type="button" value="정보수정"  class="btn btn-default btn-sm" onclick="check_pw()">
 			<input type="button" value="회원탈퇴"  class="btn btn-default btn-sm" onclick="delconfirm()">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="10" align="center" id="passcheckindex">
 		</td>
 	</tr>
 </table>
