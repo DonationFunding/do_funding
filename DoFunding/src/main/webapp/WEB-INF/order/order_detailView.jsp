@@ -25,7 +25,7 @@
 </c:set>
 	<div class="container">
             <table class="table" class="text-center">
-            <td colspan="9" align="right"><a href="order.ord">주문내역</a></td>
+            <td colspan="9" align="right"><a href="order.ord?pageNumber=${pageNumber}">주문내역</a></td>
 			<tr>
 				<th>상품명</th>
 				<th>이미지</th>
