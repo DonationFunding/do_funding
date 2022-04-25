@@ -33,7 +33,6 @@
 		    </td>
 			<th>
 			     아이디 :	<input type="text" name="id" <c:if test="${loginInfo.id != null}">value="${loginInfo.id }" readonly</c:if>>
-				<form:errors cssClass="err" path="id"/>
 			<th>
 			<td width="28%">
 		    </td>			
@@ -43,7 +42,6 @@
 		    </td>
 			<th>
 			     비밀번호 : <input type="password" name="password">
-				<form:errors cssClass="err" path="password"/>
 			<th>
 			 <td>
 		    </td>			
