@@ -63,7 +63,7 @@
 		</div>
 		<tr>
 			<td colspan="8" align="right">
-				총 계산금액 : 
+				총 결제금액 : 
 					<c:choose>
 						<c:when test="${totalprice>30000}">
 							${totalprice} 원

@@ -25,7 +25,7 @@
 		    <td>
 		    </td>
 			<th>
-				패스워드 : <input type="password" name="password">
+				비밀번호 : <input type="password" name="password">
 			</th>
 			<td>
 		     </td>
@@ -33,7 +33,7 @@
 		<tr>
 			<td colspan="3" align="center">
 				<input type="submit" value="로그인"  class="btn btn-default btn-sm">
-				<input type="button" value="아이디/비밀번호 찾기"  class="btn btn-default btn-sm" onclick="location.href='findid.mem'">
+				<input type="button" value="ID/PW 찾기"  class="btn btn-default btn-sm" onclick="location.href='findid.mem'">
 				<input type="button" value="회원가입"  class="btn btn-default btn-sm" onclick="location.href='insert.mem'">
 			</td>
 		</tr>

@@ -18,7 +18,7 @@
 			}
 		}
 		if (flag == false) {
-			alert("삭제할 체크박스를 하나라도 선택하세요.");
+			alert("삭제할 체크박스를 하나 이상 선택하세요.");
 			return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
 		}
 		var dep = confirm("정말 삭제하시겠습니까?");
@@ -63,7 +63,7 @@
 			</th>
 			<th class="text-center">펀딩번호</th>
 			<th>상품명</th>
-			<th class="text-left">image</th>
+			<th class="text-left">이미지</th>
 			<th class="text-left">가격</th>
 			<th class="text-left">진행률</th>
 			<th class="text-left">마감일</th>

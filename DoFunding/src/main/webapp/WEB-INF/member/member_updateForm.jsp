@@ -25,7 +25,7 @@
 			return false;
 		}
 		if(count==3){
-			alert("비밀번호 확인후 재도전하세요~")
+			alert("비밀번호 오류 횟수가 초과됐습니다.")
 			location.href="/list.prd";
 		}
 		var genderarr = document.getElementsByName("gender");
@@ -42,19 +42,19 @@
 		hp2value = myform.hp2.value;
 		hp3value = myform.hp3.value;
 		if(hp2value==""){
-			alert("전화번호를 입력하세요");
+			alert("전화번호를 입력하세요.");
 			return false;
 		}
 		if(isNaN(hp2value)){
-			alert("전화번호는 숫자로 입력하세요");
+			alert("전화번호는 숫자만 입력 가능합니다.");
 			return false;
 		}
 		if(hp3value==""){
-			alert("전화번호를 입력하세요");
+			alert("전화번호를 입력하세요.");
 			return false;
 		}
 		if(isNaN(hp3value)){
-			alert("전화번호는 숫자로 입력하세요");
+			alert("전화번호는 숫자만 입력 가능합니다.");
 			return false;
 		}
 		if(myform.address1.value.length==0){
@@ -99,7 +99,7 @@
 		    <td>
 		    </td>
 			<th>
-			패스워드 : <input type="password" name="password"><input type="hidden" name="key" value="${loginInfo.password }">
+			비밀번호 : <input type="password" name="password"><input type="hidden" name="key" value="${loginInfo.password }">
 			</th>
 		    </td>
 		</tr>
@@ -107,7 +107,7 @@
 		    <td>
 		    </td>
 			<th>
-			패스워드 확인 : <input type="password" name="repassword">
+			비밀번호 확인 : <input type="password" name="repassword">
 			</th>
 			<td>
 		    </td>

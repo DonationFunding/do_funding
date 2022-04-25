@@ -13,7 +13,7 @@
 <div class="container">
 <table class="table" class="text-center">
 		<tr>
-			<th class="text-center">비밀번호를 입력하세요</th>
+			<th class="text-center">비밀번호를 입력하세요.</th>
 		</tr>
 		<tr>
 			<th class="text-center">비밀번호: <input type="password" name="b_passwd"></th>

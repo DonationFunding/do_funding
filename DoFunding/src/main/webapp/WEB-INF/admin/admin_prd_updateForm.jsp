@@ -255,7 +255,7 @@ $(document).ready(function(){
 				</table>
 			</div>
 			<div>
-				<input type="submit" value="상품수정하기" class="btn btn-default btn-sm" onclick="return prdUpcheck()">
+				<input type="submit" value="상품 수정하기" class="btn btn-default btn-sm" onclick="return prdUpcheck()">
 				<input type="button" value="돌아가기" class="btn btn-default btn-sm" onclick="reprdlist('${pageNumber}')">
 			</div>
 		</form>	
