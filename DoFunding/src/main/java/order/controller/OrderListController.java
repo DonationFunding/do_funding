@@ -38,7 +38,7 @@ public class OrderListController {
 		}
 		else if(loginInfo.getAccountbank()==null) { // 
 			session.setAttribute("destination", "redirect:/order.ord");
-			return "redirect:/update.mem"; // MemberLoginController
+			return "redirect:/memberInfo.mem"; // MemberLoginController
 		}
 		else { 
 			List<OrderBean> orderList=orderDao.orderList(loginInfo);

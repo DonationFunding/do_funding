@@ -14,6 +14,15 @@
 				location.href="delete.mem?no=${loginInfo.no}";
     	}
 	}
+	function pw_check(password,id){
+		str=prompt("비밀번호를 입력하세요.");
+		if(str!=password){
+			alert("비밀번호가 일치하지 않습니다.");
+			return false;
+		}else{
+			location.href='update.mem?id='+id;			
+		}
+	}
 </script>
 <center>
 <br>
@@ -143,7 +152,7 @@
 	</tr>
 	<tr>
 		<td colspan="10" align="center">
-			<input type="button" value="정보수정"  class="btn btn-default btn-sm" onclick="location.href='update.mem?id=${loginInfo.id}'">
+			<input type="button" value="정보수정"  class="btn btn-default btn-sm" onclick="return pw_check('${loginInfo.password}','${loginInfo.id}')">
 			<input type="button" value="회원탈퇴"  class="btn btn-default btn-sm" onclick="delconfirm()">
 		</td>
 	</tr>

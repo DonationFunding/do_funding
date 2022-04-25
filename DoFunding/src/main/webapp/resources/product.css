@@ -236,9 +236,3 @@ a:hover {
 	font-weight: bold;
 	text-align: center;
 }
-.bottom-2 p:last-child {
-	font-size: 0.9em;
-	font-size: 0.9rem;
-	font-size: 15px;
-	margin-top: 10px;
-}

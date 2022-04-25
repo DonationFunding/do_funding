@@ -48,7 +48,7 @@
 	</update>
 	
 	<update id="UpdateMember">
-		update do_members set gender=#{gender} , hp1=#{hp1} , hp2=#{hp2} , hp3=#{hp3} , address1=#{address1} , address2=#{address2} , accountbank=#{accountbank} , account=#{account} where id=#{id}
+		update do_members set gender=#{gender} , password=#{password}, hp1=#{hp1} , hp2=#{hp2} , hp3=#{hp3} , address1=#{address1} , address2=#{address2} , accountbank=#{accountbank} , account=#{account} where id=#{id}
 	</update>
 	
 	<update id="MpointUpdate">

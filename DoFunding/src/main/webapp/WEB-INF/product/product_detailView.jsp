@@ -14,7 +14,7 @@
 		document.likeform.submit();
 	}
 
-	function addcheck(){
+	function addcheck(id, account){
 			if (document.myform.orderqty.value =="") {
 				alert("수량을 입력해주세요.");
 				document.myform.orderqty.focus();
@@ -40,6 +40,14 @@
 			if(isNaN(document.myform.orderqty.value)){
 				alert("숫자만 입력 가능합니다.");
 				document.myform.orderqty.select();
+				return false;
+			}
+			if(id == null || id ==""){
+				alert('로그인 후 이용가능합니다.');
+				return false;
+			}
+			if(account ==null || account ==""){
+				alert('계좌연동 후 이용가능합니다.');
 				return false;
 			}
 	}
@@ -90,7 +98,7 @@
     	</tr>
     	
 <!-- add.mall => mall.controller.CartAddController -->
-<form name="myform" method="post" action="add.ord" onsubmit="return addcheck()">
+<form name="myform" method="post" action="add.ord" onsubmit="return addcheck('${sessionScope.loginInfo.id}','${sessionScope.loginInfo.account}')">
     	<tr>
     		<th>옵션</th>
     		<td>
@@ -110,7 +118,7 @@
 <!-- 현재날짜 -->
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <c:set var="sysDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set> 
-	    			<input type="submit" value="주문"  class="btn btn-default btn-sm" <c:if test="${sysDate > p_end_date or sysDate < p_start_date}"> disabled</c:if>>
+	    			<input type="submit" value="주문"  class="btn btn-default btn-sm" <c:if test="${sysDate > p_end_date or sysDate < p_start_date}"> disabled</c:if> >
 
     		</td>   		
     	</tr>

@@ -31,7 +31,7 @@ public class OrderAddController {
 		}
 		else if(loginInfo.getAccountbank()==null) { // 
 			session.setAttribute("destination", "redirect:/detail.prd?pageNumber="+pageNumber+"&p_num="+bean.getP_num());
-			return "redirect:/update.mem"; // MemberLoginController
+			return "redirect:/memberInfo.mem"; // MemberLoginController
 		}
 		else {  // 로그인 했으면
 			MyCartList mycart = (MyCartList)session.getAttribute("mycart");

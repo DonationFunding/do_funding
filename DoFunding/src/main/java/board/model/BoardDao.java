@@ -99,6 +99,9 @@ public class BoardDao {
 		int count = 0;
 		for(int i=0;i<rowchecks.length;i++) {
 			String rowcheck=rowchecks[i];
+//			BoardBean bdBean=new BoardBean();
+//			bdBean.setB_num(Integer.parseInt(rowcheck));
+//			bdBean=sqlSessionTemplate.selectOne(namespace+".GetArticle", bdBean);	
 			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteBoard",rowcheck);	
 			count+=cnt;
 		}
