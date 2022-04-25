@@ -60,10 +60,10 @@
 				<tr>
 					<td>${odb.p_subject}</td>
 					<td ><img width="100px" height="100px" src="<%=request.getContextPath()%>/resources/images/${odb.p_image}"></td>
-					<td>${odb.price}</td>
+					<td><fmt:formatNumber value="${odb.price}" pattern="###,###,###" /> 원</td>
 					<td>${odb.qty}</td>
 					<td>${odb.option_content}</td>
-					<td>${odb.amount}</td>
+					<td><fmt:formatNumber value="${odb.amount}" pattern="###,###,###" /> 원</td>
 					<td><fmt:formatNumber value="${(odb.p_total_price/odb.p_end_price)*100}" pattern=".00" /> %</td>
 					<td>${p_start_date} ~ ${p_end_date}</td>
 					<td>
@@ -93,13 +93,13 @@
 				총 결제금액 : 
 				<c:choose>
 					<c:when test="${totalprice>30000}">
-						${totalprice} 원
+						<fmt:formatNumber value="${totalprice}" pattern="###,###,###" /> 원
 					</c:when>
 					<c:when test="${totalprice > 0  and totalprice < 30000 }">
-						${totalprice+3000}
-				</c:when> 
+						<fmt:formatNumber value="${totalprice+3000}" pattern="###,###,###" /> 원	
+					</c:when> 
 					<c:otherwise>
-						${totalprice} 원
+							<fmt:formatNumber value="${totalprice}" pattern="###,###,###" /> 원	
 					</c:otherwise>
 				</c:choose>
 			</td>

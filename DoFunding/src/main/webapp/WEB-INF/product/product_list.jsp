@@ -20,6 +20,11 @@
 	out.println("<script> alert('"+msg+"');</script>");
 	request.removeAttribute("msg");
 }%>
+<script type="text/javascript">
+ 	/* window.onload function hihi(){
+		prompt("안녕?") 
+ 	} */
+</script>
 <div align="center">
 	<c:if test="${rotatorlist ne null}">
 		<div class="container" style="width: 100%">
@@ -137,7 +142,13 @@
 													<td><span style="float: left;">기간 : ${p_start_date} ~ ${p_end_date}</span></td>
 												</tr>
 												<tr>
-													<td><span style="float: left;">금액 : ${prdBean.p_total_price}/${prdBean.p_end_price} 원</span></td>
+													<td>
+													<span style="float: left;">
+													금액 : <fmt:formatNumber value="${prdBean.p_total_price}" pattern="###,###,###" />
+													 /
+ 													<fmt:formatNumber value="${prdBean.p_end_price}" pattern="###,###,###" /> 
+ 													</span>
+													 원 </td>
 												</tr>
 												<tr>
 													<td><span style="float: left;">상품준비중…</span><br>
@@ -165,11 +176,17 @@
 													<td><span style="float: left;">기간 : ${p_start_date} ~ ${p_end_date}</span></td>
 												</tr>
 												<tr>
-													<td><span style="float: left;">금액 : ${prdBean.p_total_price}/${prdBean.p_end_price} 원</span></td>
+													<td>
+													<span style="float: left;">
+													금액 : <fmt:formatNumber value="${prdBean.p_total_price}" pattern="###,###,###" />
+													 /
+ 													<fmt:formatNumber value="${prdBean.p_end_price}" pattern="###,###,###" /> 
+ 													</span>
+													 원</td>
 												</tr>
 												<tr>
 													<td><span style="float: left;">진행률 :
-															<fmt:formatNumber value="${(prdBean.p_total_price/prdBean.p_end_price)*100}" pattern=".00" /> %</span>
+															<fmt:formatNumber value="${(prdBean.p_total_price/prdBean.p_end_price)*100}" pattern=".00" /> %</span>															
 															<span style="float: right;">조회수:${prdBean.p_readcount}</span><br>
 													</td>
 												</tr>

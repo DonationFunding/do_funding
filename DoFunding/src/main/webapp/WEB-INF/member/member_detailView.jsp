@@ -146,7 +146,7 @@
 			총 후원금액
 		</th>
 		<td>
-			${loginInfo.mpoint } 원
+			<fmt:formatNumber value="${loginInfo.mpoint }" pattern="###,###,###" /> 원			
 		</td>
 	    <td></td>
 	</tr>

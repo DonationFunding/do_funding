@@ -90,20 +90,20 @@
 		<h3>결제금액</h3>
 		<tr>
 			<th class="text-center">총 금액</th>
-			<td>${totalAmount}</td>
+			<td><fmt:formatNumber value="${totalAmount}" pattern="###,###,###" /> 원</td>
 			<br>
 		</tr>
 		<tr>
 			<td>배송비</td>
 		<c:choose> 
 			<c:when test="${totalAmount > 30000}">
-				0
+				0 원
 			</c:when> 
 			<c:when test="${totalAmount > 0  and totalAmount < 30000 }">
-				3000
+				3,000 원
 			</c:when> 
 			<c:otherwise>
-				0
+				0 원
 			</c:otherwise> 
 		</c:choose> <br><br>
 		</tr>               
@@ -111,15 +111,15 @@
 			<td>최종 결제금액: 
 			<c:choose> 
 				<c:when test="${totalAmount > 30000}">
-					${totalAmount}
+					<fmt:formatNumber value="${totalAmount}" pattern="###,###,###" /> 원
 					<input type="hidden" name="amount" value="${totalAmount }">
 				</c:when> 
 				<c:when test="${totalAmount > 0  and totalAmount < 30000 }">
-					${totalAmount+3000}
+					<fmt:formatNumber value="${totalAmount+3000}" pattern="###,###,###" /> 원
 					<input type="hidden" name="amount" value="${totalAmount+3000 }">
 				</c:when> 
 				<c:otherwise>
-					${totalAmount}
+					<fmt:formatNumber value="${totalAmount}" pattern="###,###,###" /> 원
 					<input type="hidden" name="amount" value="${totalAmount}">	
 				</c:otherwise> 
 			</c:choose> 
@@ -199,8 +199,8 @@
 						<td>${shopInfo.p_subject}</td>
 						<td>${shopInfo.option_content }</td>
 						<td>${shopInfo.qty }</td>
-						<td>${shopInfo.price }</td>
-						<td>${shopInfo.amount }</td>
+						<td><fmt:formatNumber value="${shopInfo.price }" pattern="###,###,###" /> 원</td>
+						<td><fmt:formatNumber value="${shopInfo.amount }" pattern="###,###,###" /> 원</td>
 						<td>			
 						<input type="hidden" name="p_num" value="${shopInfo.p_num }"> 
 						<input type="hidden" name="option_no" value="${shopInfo.option_no}"> 
