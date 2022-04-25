@@ -61,7 +61,7 @@ public class BoardWriteController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('�� �ۼ��� �����߽��ϴ�');</script>");
+			pw.println("<script> alert('글쓰기가 실패하였습니다.');</script>");
 			pw.flush();
 			return getPage;
 		}

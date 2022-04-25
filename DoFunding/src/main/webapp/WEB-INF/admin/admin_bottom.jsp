@@ -38,7 +38,7 @@
 	 	<div class="bottom-menu2">
 		 	<div class="bottom-1">
 		 		<h1><a href="<c:url value="/"/>">두  펀  딩</a></h1>
-		 		<h2><a href="<c:url value="/"/>">DOOFUNDING</a></h2>
+		 		<h2><a href="<c:url value="/"/>">DO_FUNDING</a></h2>
 		 	</div>
 		 	<div class="bottom-2">
 		 		<p>| 두펀딩(주)</p>

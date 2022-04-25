@@ -29,7 +29,7 @@ public class BoardReplyController {
 
 	private PrintWriter pw =null;
 
-	//content.jsp get¹æ½Ä replyForm.bv
+	
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public String doAction(
 			@RequestParam(value="pageNumber")String pageNumber,
@@ -64,7 +64,7 @@ public class BoardReplyController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			pw.println("<script> alert('´ä±Û ÀÛ¼ºÀÌ ½ÇÆĞÇß½À´Ï´Ù');</script>");
+			pw.println("<script> alert('ë‹µê¸€ ë“±ë¡ì´ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.');</script>");
 			pw.flush();
 			request.setAttribute("bdBean", bdBean);
 			request.setAttribute("pageNumber", pageNumber);			

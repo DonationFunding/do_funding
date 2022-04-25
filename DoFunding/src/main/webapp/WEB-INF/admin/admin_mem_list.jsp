@@ -67,7 +67,7 @@
 			<td>
 				<c:if test="${memList.admin eq '0'}"> 관리자 </c:if>
 				<c:if test="${memList.admin eq '1'}"> 
-					<c:if test="${memList.accountbank eq null }"> 일반회원 </c:if>
+					<c:if test="${memList.accountbank eq null }"> 준회원 </c:if>
 					<c:if test="${memList.accountbank != null }"> 정회원 </c:if>
 				</c:if>
 			</td>

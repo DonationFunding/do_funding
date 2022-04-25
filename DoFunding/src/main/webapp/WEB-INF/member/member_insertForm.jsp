@@ -36,7 +36,7 @@
 			flag=false;
 		}
 		if(flag){
-			alert("아이디 중복체크 해주세요")
+			alert("아이디 중복체크가 누락되었습니다.")
 			return false;
 		}
 		if (myform.password.value.length==0){
@@ -45,7 +45,7 @@
 			return false;
 		}
 		if (myform.password.value.length==10){
-			alert("비밀번호는 10자리 미만 입력하세요.");
+			alert("비밀번호는 10자리 미만으로 입력하세요.");
 			myform.password.focus();
 			return false;
 		}
@@ -65,7 +65,7 @@
 			return false;
 		}
 		if (myform.birthday.value.length==""){
-			alert("생년월일을 입력하세요");
+			alert("생년월일을 입력하세요.");
 			myform.birthday.focus();
 			return false;
 		}
@@ -95,14 +95,14 @@
 		<tr align="center">
 		    <td></td>
 			<th>
-			    패스워드 : <input type="password" name="password">
+			    비밀번호 : <input type="password" name="password">
 			</th>
 			<td></td>
 		<tr>
 		<tr align="center">
 			<td></td>
 			<th>
-			    패스워드 확인 : <input type="password" name="repassword">
+			    비밀번호 확인 : <input type="password" name="repassword">
 			</th>
 			<td></td>
 		<tr>

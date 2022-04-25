@@ -55,10 +55,6 @@
 		<td><textarea name="b_content" rows="10" cols="50"></textarea></td>
 	</tr>
 	<tr>
-		<th class="text-center">비밀번호</th>
-		<td><input type="password" name="b_passwd" value="1234"></td>
-	</tr>
-	<tr>
 		<td colspan="2" align="center">
 			<input type="submit" name="" value="글쓰기"  class="btn btn-default btn-sm"onclick="return check()">
 			<input type="reset" name="" value="다시작성" class="btn btn-default btn-sm">

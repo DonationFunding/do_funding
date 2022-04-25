@@ -18,12 +18,12 @@
 			return false;
 		}
 		if (myform.birthday.value.length==""){
-			alert("생년월일을 입력하세요");
+			alert("생년월일을 입력하세요.");
 			myform.birthday.focus();
 			return false;
 		}
 		if (myform.birthday.value!=myform.birthkey.value){
-			alert("올바른 생년월일을 입력하세요");
+			alert("올바른 생년월일을 입력하세요.");
 			myform.birthday.focus();
 			return false;
 		}
@@ -71,7 +71,7 @@
 	</tr>
 	<tr>
 		<td align="center" colspan="4">
-			<input type="submit" value="비밀번호찾기" class="btn btn-default btn-sm" onclick="return findPasswordcheck(myform)">
+			<input type="submit" value="비밀번호 찾기" class="btn btn-default btn-sm" onclick="return findPasswordcheck(myform)">
 		</td>
 	</tr>
 </table>

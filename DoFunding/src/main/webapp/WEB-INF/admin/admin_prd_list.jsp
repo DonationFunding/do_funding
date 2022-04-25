@@ -31,7 +31,7 @@
 			</td>
 			<th>펀딩번호</th>
 			<th>펀딩명</th>
-			<th>image</th>
+			<th>이미지</th>
 			<th>가격</th>
 			<th>펀딩금액</th>
 			<th>확정금액</th>

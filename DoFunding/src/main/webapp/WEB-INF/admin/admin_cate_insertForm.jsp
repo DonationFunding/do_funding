@@ -3,7 +3,7 @@
 <%@include file ="admin_top.jsp" %>
 <center>
 <br>
-<b>카테고리등록</b>
+<b>카테고리 등록</b>
 <br>
 <form method="post"  action="admin_cate_insert.ad">
 <div class="container">
@@ -11,12 +11,12 @@
 
          <tr align="center">
 			<th class="text-center">
-				카테고리코드 : <input type="text" name="code" value="${cateBean.code}">
+				카테고리 코드 : <input type="text" name="code" value="${cateBean.code}">
 			</th>
 		</tr>
 		 <tr align="center">
 			<th class="text-center">
-				카테고리이름 : <input type="text" name="cname" value="${cateBean.cname}">
+				카테고리 이름 : <input type="text" name="cname" value="${cateBean.cname}">
 			</th>
 		</tr>
 		<tr> 

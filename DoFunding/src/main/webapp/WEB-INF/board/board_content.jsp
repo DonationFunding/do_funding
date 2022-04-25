@@ -21,7 +21,7 @@
 <body>
 <center>
 <br>
-<h3>글내용보기</h3>
+<h3>글 내용보기</h3>
 <br>
 </center>
 <div class="container">
