@@ -41,7 +41,7 @@ public class AdminOrderListController {
 		System.out.println("totalCount:"+totalCount);
 		
 		String url=request.getContextPath()+command;
-		Paging pageInfo=new Paging(pageNumber, "10", totalCount, url, whatColumn, keyword);
+		Paging pageInfo=new Paging(pageNumber, "5", totalCount, url, whatColumn, keyword);
 		List<OrderBean> orderList=orderDao.allOrderList(pageInfo,map);
 			
 		ModelAndView mav = new ModelAndView();
