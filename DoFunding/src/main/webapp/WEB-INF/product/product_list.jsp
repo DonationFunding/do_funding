@@ -215,7 +215,7 @@
 														</c:when>
 														<c:otherwise>
 															<c:choose>
-																<c:when test="${prdBean.p_readcount>10}">
+																<c:when test="${prdBean.p_readcount>100}">
 																	<img width="50px"
 																		alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 																		src="<%=request.getContextPath() %>/resources/images/hot.gif">

@@ -52,7 +52,7 @@
 							<td>${order.o_num}</td>
 							<td>${order.o_date}</td>
 							<td>
-								<a href="order_detail.ord?o_num=${order.o_num}" class="btn btn-default btn-sm">상세보기</a>
+								<a href="order_detail.ord?o_num=${order.o_num}&pageNumber=${pageInfo.pageNumber}" class="btn btn-default btn-sm">상세보기</a>
 							</td>
 						</tr>
 					</div>
