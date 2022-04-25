@@ -216,12 +216,10 @@ function prdcheck(){
 	}
 	$('input[name=item_option]').each(function (i,item) { 
 		if($(item).val()==""){	
-			alert(2);
 			opcheck=true;
 			return;
 		}  
     });	
-	alert(opcheck);
 	if(opcheck){
 		alert('옵션 값이 누락됐습니다.');
 		return false;
