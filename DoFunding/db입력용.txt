@@ -1,7 +1,6 @@
 --alter user jspid default tablespace users quota unlimited on users; 
 
-
--- 회원 테이블
+--회원 테이블
 drop sequence seqdo_members;
 create sequence seqdo_members 
 	increment by 1 
@@ -101,7 +100,10 @@ create table do_product(
 	p_end_date 		date not null		
 );
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/do-kyg1
 insert into do_product values(seqdo_product.nextval,'phonecase','kim','할머님 케이스',11201,'핸드폰케이스1.png','내용123',10000,8750000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'phonecase','kim','할머님 케이스',30,'핸드폰케이스2.jpg','내용123',10000,4570000,10000000,100,sysdate,'2022-3-20','2022-4-30');
 insert into do_product values(seqdo_product.nextval,'handkerchief','kim','할머님 손수건',7513,'위안부 손수건.png','내용123',10000,3000000,10000000,100,sysdate,'2022-3-20','2022-4-30');
@@ -210,9 +212,7 @@ VALUES(seqdo_option.nextval , '색상:빨강' , 12);
 INSERT INTO do_option (option_no, option_content, option_item_no )
 VALUES(seqdo_option.nextval , '색상:파랑' , 12);	
 
-
 commit;
-
 
 --주문테이블
 drop sequence seqoid ;
@@ -256,8 +256,6 @@ insert into do_orderdetail(od_num,od_o_num,od_p_num,od_option_no,od_qty,od_deliv
 commit;
 
 
-
-
 drop sequence seqdona ;
 create sequence seqdona start with 1 increment by 1 nocache ;
 
@@ -279,7 +277,6 @@ create table do_donation(
 
 insert into do_donation(dona_num,dona_o_num,dona_no,dona_money,dona_buyprice,dona_date)values(seqdona.nextval, 1,1,16600,50000,sysdate);
 insert into do_donation(dona_num,dona_o_num,dona_no,dona_money,dona_buyprice,dona_date)values(seqdona.nextval, 2,1,30000,100000,sysdate);
-
 
 
 commit;
@@ -310,7 +307,7 @@ create table do_board(
 );
 
 
-
+commit;
 
 insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
 values(seqdo_board.nextval,'admin','안녕하세요','1234','2018-12-1',1,0,0,'내용1');
@@ -354,9 +351,6 @@ values(seqdo_board.nextval,'kim','저,궁금한 점이 있습니다.','1234','20
 
 insert into do_board(b_num,b_writer,b_subject,b_passwd,b_reg_date,b_ref,b_re_step,b_re_level,b_content)
 values(seqdo_board.nextval,'a311','답변입니다.','1234','2022-3-1',7,7,6,'내용311');
-
-
-
 
 
 commit;
@@ -428,7 +422,6 @@ create table do_faq_board(
 	faq_readcount int default 0,			
 	faq_content varchar2(3000) not null			
 );
-
 
 insert into do_faq_board(faq_num,faq_writer,faq_subject,faq_reg_date,faq_readcount,faq_content)
 values(seqdo_faq_board.nextval,'관리자','후원금액의 처리는 어떻게 되는건가요?','2015-1-1',0,'후원금액은 3개월 단위로 모금액을 정산하여 위안부 관련 단체에 후원되며, 증서 및 그 내용을 공지사항 게시판에 업로드 합니다.');
