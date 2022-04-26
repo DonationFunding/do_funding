@@ -16,7 +16,7 @@
 			myform.id.focus();
 			return false;
 		}
-		location.href="idfunction.mem?id="+myform.id.value+"&password="+myform.password.value+"&repassword="+myform.repassword.value+"&name="+myform.name.value+"&birthday="+myform.birthday.value;
+		location.href="idfunction.mem?id="+myform.id.value;
 	}
 	function memcheck(myform){
 		if (myform.id.value.length==0){

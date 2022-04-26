@@ -51,7 +51,6 @@ public class MemberInsertController {
 		}
 		else {
 			System.out.println("회원가입 성공");
-			session.setAttribute("msg", "회원가입에 성공했습니다. 로그인창으로 이동합니다.");
 			mav.setViewName(gotoPage);
 		}
 		return mav;

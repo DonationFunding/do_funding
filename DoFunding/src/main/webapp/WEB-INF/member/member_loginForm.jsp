@@ -7,12 +7,6 @@
 <!-- 카카오 스크립트 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
-<% 
-	if(session.getAttribute("msg") != null){
-	String msg=(String)session.getAttribute("msg");
-	out.println("<script> alert('"+msg+"');</script>");
-	session.removeAttribute("msg");
-}%>
 <center>
 <form action="login.mem" method="post">
 <div class="container" >
@@ -43,61 +37,7 @@
 				<input type="button" value="아이디/비밀번호 찾기"  class="btn btn-default btn-sm" onclick="location.href='findid.mem'">
 				<input type="button" value="회원가입"  class="btn btn-default btn-sm" onclick="location.href='insert.mem'">
 			</td>
-		</tr>
-		<tr>
-			<td colspan="3" align="center">
-				<span onclick="kakaoLogin();">
-			      <a href="javascript:void(0)">
-			          <img src="<%=request.getContextPath()%>/resources/images/kakao_login.png">
-			      </a>
-				</span>
-				<span onclick="kakaoLogout();">
-			      <a href="javascript:void(0)">
-			          <span>카카오 로그아웃</span>
-			      </a>
-				</span>
-			</td>
-		</tr>
-
-<script>
-Kakao.init('e853cba823ade770505470a9269644bb'); //발급받은 키 중 javascript키를 사용해준다.
-console.log(Kakao.isInitialized()); // sdk초기화여부판단
-//카카오로그인
-function kakaoLogin() { //클릭시에
-    Kakao.Auth.login({
-      success: function (response) {	
-        Kakao.API.request({
-          url: '/v2/user/me',
-          success: function (response) {
-        	  console.log(response)
-          },
-          fail: function (error) {
-            console.log(error)
-          },
-        })
-      },
-      fail: function (error) {
-        console.log(error)
-      },
-    })
-  }
-//카카오로그아웃  
-function kakaoLogout() {
-    if (Kakao.Auth.getAccessToken()) {
-    	Kakao.Auth.logout()
-    	/* Kakao.API.request({
-        url: '/v1/user/unlink',
-        success: function (response) {
-        	console.log(response)
-        },
-        fail: function (error) {
-          console.log(error)
-        },
-      }) */
-      Kakao.Auth.setAccessToken(undefined)
-    }
-  }  
-</script>				
+		</tr>		
 	</table>
 	</div>
 </form>

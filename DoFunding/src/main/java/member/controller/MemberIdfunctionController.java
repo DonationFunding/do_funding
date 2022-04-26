@@ -25,15 +25,10 @@ public class MemberIdfunctionController {
 	
 	@RequestMapping(value = command,method = RequestMethod.GET)
 	public String doAction(
-			@RequestParam(value="repassword", required = false ) String repassword,
 			MemberBean mb ,
 			HttpServletRequest request,HttpServletResponse response) {
 		response.setContentType("text/html; charset=UTF-8");
 		System.out.println("mb:"+mb.getId());
-		System.out.println("mb:"+mb.getPassword());
-		System.out.println("mb:"+mb.getName());
-		System.out.println("mb:"+mb.getBirthday());
-
 		MemberBean membean = mdao.getLoginInfo(mb);
 		
 		PrintWriter pw=null;
@@ -44,7 +39,6 @@ public class MemberIdfunctionController {
 				e.printStackTrace();
 			}
 			pw.println("<script> alert('회원가입 가능합니다');</script>");
-			request.setAttribute("repassword", repassword);
 			request.setAttribute("memBean", mb);
 			request.setAttribute("flag", true);
 			pw.flush();
@@ -57,7 +51,6 @@ public class MemberIdfunctionController {
 				e.printStackTrace();
 			}
 			pw.println("<script> alert('중복된 아이디가 존재 합니다.');</script>");
-			request.setAttribute("repassword", repassword);
 			request.setAttribute("memBean", mb);
 			pw.flush();
 			return getPage;
