@@ -134,8 +134,7 @@ $(document).ready(function(){
 		    <td width="33%">
 		    </td>
 			<th>아이디 :
-				<input type="text" name="id" <c:if test="${param.id != null }">value="${param.id}"</c:if> onchange="idchange()">
-				<input type="hidden" value="${flag }" name="flag">
+				<input type="text" name="id">
 				<input type="button" value="중복체크" id="titleCheck" class="btn btn-default btn-sm">
 			</th>
 			<td width="28%">
