@@ -34,11 +34,13 @@ public class MemberInsertController {
 		int cnt = mdao.insertMember(membean);
 		if(cnt < 0) {
 			System.out.println("회원가입 실패");
+			mav.setViewName(gotoPage+"?cnt="+cnt);
 		}
 		else {
 			System.out.println("회원가입 성공");
+			mav.setViewName(gotoPage+"?cnt="+cnt);
 		}
-		mav.setViewName(gotoPage);
+		System.out.println(mav.getViewName());
 		return mav;
 	}
 }

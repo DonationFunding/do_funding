@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
@@ -24,8 +26,11 @@ public class MemberLoginController {
 	
 	
 	@RequestMapping(value = command,method = RequestMethod.GET)
-	public String doAction() {
-		return getPage;
+	public ModelAndView doAction(@RequestParam(value="cnt", required=false) String cnt) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("cnt", cnt);
+		mav.setViewName(getPage);
+		return mav;
 	}
 	
 	@RequestMapping(value = command,method = RequestMethod.POST)

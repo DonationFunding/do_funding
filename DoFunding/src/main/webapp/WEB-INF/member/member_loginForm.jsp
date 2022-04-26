@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
+<c:if test="${cnt == 1 }"><script type="text/javascript">alert("회원가입 성공");</script></c:if>
 <center>
 <form action="login.mem" method="post">
 <div class="container" >
