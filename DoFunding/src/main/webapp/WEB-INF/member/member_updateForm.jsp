@@ -7,7 +7,7 @@
 <script type="text/javascript">
 	var count = 0;
 	function memUpcheck(myform){
-		if (myform.password.value.length==0){
+		if (myform.password.value.length == 0){
 			alert("비밀번호를 입력하세요.");
 			myform.password.focus();
 			return false;
