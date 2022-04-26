@@ -10,22 +10,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
 
 @Controller
 public class MemberIdfunctionController {
-	private final String command = "idfunction.mem";
+	private final String command = "/idfunction.mem";
 	private final String getPage = "member_insertForm";
 	@Autowired
 	MemberDao mdao;
 	
 	
 	@RequestMapping(value = command,method = RequestMethod.GET)
-	public String doAction(MemberBean mb ,HttpServletRequest request,HttpServletResponse response) {
+	public String doAction(
+			@RequestParam(value="repassword", required = false ) String repassword,
+			MemberBean mb ,
+			HttpServletRequest request,HttpServletResponse response) {
 		response.setContentType("text/html; charset=UTF-8");
-		System.out.println("mb"+mb.getId());
+		System.out.println("mb:"+mb.getId());
+		System.out.println("mb:"+mb.getPassword());
+		System.out.println("mb:"+mb.getName());
+		System.out.println("mb:"+mb.getBirthday());
+
 		MemberBean membean = mdao.getLoginInfo(mb);
 		
 		PrintWriter pw=null;
@@ -36,7 +44,8 @@ public class MemberIdfunctionController {
 				e.printStackTrace();
 			}
 			pw.println("<script> alert('회원가입 가능합니다');</script>");
-			request.setAttribute("id", mb.getId());
+			request.setAttribute("repassword", repassword);
+			request.setAttribute("memBean", mb);
 			request.setAttribute("flag", true);
 			pw.flush();
 			return getPage;
@@ -48,6 +57,8 @@ public class MemberIdfunctionController {
 				e.printStackTrace();
 			}
 			pw.println("<script> alert('중복된 아이디가 존재 합니다.');</script>");
+			request.setAttribute("repassword", repassword);
+			request.setAttribute("memBean", mb);
 			pw.flush();
 			return getPage;
 		}

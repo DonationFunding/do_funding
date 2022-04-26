@@ -51,8 +51,7 @@ public class MemberLoginController {
 			if(loginInfo.getPassword().equals(membean.getPassword())) {
 				
 				session.setAttribute("loginInfo", loginInfo);
-				
-				
+					
 				String destination = (String)session.getAttribute("destination");
 				if(destination ==null) {
 					return gotoPage;

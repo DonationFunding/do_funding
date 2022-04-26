@@ -16,7 +16,7 @@
 			myform.id.focus();
 			return false;
 		}
-		location.href="idfunction.mem?id="+myform.id.value;
+		location.href="idfunction.mem?id="+myform.id.value+"&password="+myform.password.value+"&repassword="+myform.repassword.value+"&name="+myform.name.value+"&birthday="+myform.birthday.value;
 	}
 	function memcheck(myform){
 		if (myform.id.value.length==0){
@@ -85,7 +85,7 @@
 		    <td width="33%">
 		    </td>
 			<th>아이디 :
-				<input type="text" name="id" <c:if test="${param.id != null }">value="${param.id}"</c:if> onchange="idchange()">
+				<input type="text" name="id" <c:if test="${memBean.id != null }">value="${memBean.id}"</c:if> onchange="idchange()">
 				<input type="hidden" value="${flag }" name="flag">
 				<input type="button" value="중복체크" onclick="return idcheck(myform)" class="btn btn-default btn-sm">
 			</th>
@@ -95,7 +95,7 @@
 		<tr align="center">
 		    <td></td>
 			<th>
-			    비밀번호 : <input type="password" name="password">
+			    비밀번호 : <input type="password" name="password" value="${memBean.password}">
 			    <span id=""></span>
 			</th>
 			<td></td>
@@ -103,21 +103,21 @@
 		<tr align="center">
 			<td></td>
 			<th>
-			    비밀번호 확인 : <input type="password" name="repassword">
+			    비밀번호 확인 : <input type="password" name="repassword" value="${memBean.password}">
 			</th>
 			<td></td>
 		<tr>
 		<tr align="center">
 			<td></td>
 			<th>
-			    이름 : <input type="text" name="name">
+			    이름 : <input type="text" name="name" value="${memBean.name}">
 			</th>
 			<td></td>
 		<tr>
 		<tr align="center">
 			<td></td>
 			<th>
-			    생년월일 : <input type="date" name="birthday" style = "height : 30px;" >
+			    생년월일 : <input type="date" name="birthday" value="${memBean.birthday }" style = "height : 30px;" >
 			</th>
 			<td></td>
 		</tr>
