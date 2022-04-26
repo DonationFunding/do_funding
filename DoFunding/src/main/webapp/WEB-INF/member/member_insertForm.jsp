@@ -67,19 +67,19 @@ $(document).ready(function(){
 			 password = true;
 		 }
 	});
-	 $('input[name=repassword]').change(function() {
-		$('td[id=repassword]').text("");
+	 $('input[name=repassword]').keyup(function() {
 	    var password1 = $('input[name=password]').val(); /* 패스워드와 패스워드 확인 부분 가져오기 */
 	    var repassword1 = $('input[name=repassword]').val(); 	
-	    if(password1 != repassword1) {
-			$('td[id=repassword]').append("패스워드가 일치하지 않습니다.");
-			$('input[name=repassword]').focus();
-			
-	    }else {
+	    if(password1 == repassword1) {
 			$('td[id=repassword]').text("");
 			repassword = true;
+	    }else {
+			$('td[id=repassword]').text("");	    	
+			$('td[id=repassword]').append("<font color='red'>패스워드가 일치하지 않습니다.<font>");
+			$('input[name=repassword]').focus();			
 	    }
 	});
+	 
 	$('#sub').click(function(){
 		if($('input[name=id]').val()==""){
 			alert("아이디를 입력하세요");
