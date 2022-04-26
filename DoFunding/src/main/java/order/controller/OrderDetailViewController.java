@@ -21,10 +21,14 @@ public class OrderDetailViewController {
 	private CompositeDao CompositeDao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
-	public ModelAndView doAction(@RequestParam("o_num") int o_num) { 
+	public ModelAndView doAction(
+			@RequestParam("o_num") int o_num,
+			@RequestParam(value="pageNumber", required=false) String pageNumber
+			) { 
 		ModelAndView mav = new ModelAndView();
 		List<ShoppingInfo> detailList = CompositeDao.detailList(o_num);
 		mav.addObject("detailList", detailList);
+		mav.addObject("pageNumber", pageNumber);
 		mav.addObject("o_num", o_num);
 		mav.setViewName(getPage);	
 		return mav;

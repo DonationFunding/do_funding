@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import board.model.BoardBean;
 import board.model.BoardDao;
 
 
@@ -25,6 +26,7 @@ public class AdminBoardMultiDeleteController {
 	@RequestMapping(command)
 	public String doAction(
 			@RequestParam(value="pageNumber",required = true) int pageNumber,
+
 			HttpServletRequest request) {
 		String[] rowcheck=request.getParameterValues("rowcheck");
 		

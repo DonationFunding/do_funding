@@ -56,7 +56,7 @@
 							<td>${order.o_mnum}</td>
 							<td>${order.o_date}</td>
 							<td>
-								<a href="admin_ord_detail.ad?o_num=${order.o_num}" class="btn btn-default btn-sm">상세보기</a>
+								<a href="admin_ord_detail.ad?o_num=${order.o_num}&pageNumber=${pageInfo.pageNumber}" class="btn btn-default btn-sm">상세보기</a>
 							</td>
 						</tr>
 					</div>
@@ -65,5 +65,10 @@
 		</c:choose>
 	</table>
 </div>
+	<div class="container">
+			<ul class="pagination pagination-sm">
+				${pageInfo.pagingHtml}
+			</ul>
+	</div>
 </center>
 <%@ include file="admin_bottom.jsp"%>

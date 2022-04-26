@@ -55,9 +55,9 @@
 					<img width="100" height="100" alt="<%=request.getContextPath() %>/resources/images/no_image.jpg"
 					src="<%=request.getContextPath() %>/resources/images/${prdBean.p_image}"><br>
 				</td>
-				<td>${prdBean.p_origin_price}원</td>
-				<td>${prdBean.p_total_price}원</td>
-				<td>${prdBean.p_end_price}원</td>
+				<td><fmt:formatNumber value="${prdBean.p_origin_price}" pattern="###,###,###,###" /> 원</td>
+				<td><fmt:formatNumber value="${prdBean.p_total_price}" pattern="###,###,###,###" /> 원</td>
+				<td><fmt:formatNumber value="${prdBean.p_end_price}" pattern="###,###,###,###" /> 원</td>
 				<td><fmt:formatNumber value="${(prdBean.p_total_price/prdBean.p_end_price)*100}" pattern=".00" /> %</td>	
  				<td>
  				<c:set var="end_date">

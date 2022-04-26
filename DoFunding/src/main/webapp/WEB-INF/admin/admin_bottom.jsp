@@ -31,9 +31,9 @@
  <body>
  	<div id="bottom-wrap">
  		<ul id="bottom-menu1">
- 			<li><a href="company.bot">회사소개</a></li>
-	 		<li><a href="tos.bot">이용약관</a></li>
-	 		<li><a href="map.bot">오시는길</a></li>
+ 			<li><a href="company.ad">회사소개</a></li>
+	 		<li><a href="tos.ad">이용약관</a></li>
+	 		<li><a href="map.ad">오시는길</a></li>
  		</ul>
 	 	<div class="bottom-menu2">
 		 	<div class="bottom-1">

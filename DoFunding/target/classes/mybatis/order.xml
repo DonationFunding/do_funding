@@ -14,10 +14,16 @@
 		select max(o_num) from do_order
 	</select>
 
- 	<select id="OrderList" resultType="MyOrder">
+ 	<select id="getOrderList" resultType="MyOrder">
  		select * from do_order where o_mnum = #{no} order by o_num desc
  	</select>
- 
+	<select id="getOrderTotalCount" resultType="int">
+		select count(*) from do_order
+		 where o_mnum = #{no} order by o_num desc
+	</select>
+	
+	
+	
 	<select id="OrderTotalCount" resultType="int">
 		select count(*) from do_order
 		<if test="whatColumn == 'o_mnum'">
@@ -25,7 +31,6 @@
 		</if>
 		order by o_num desc
 	</select>
- 
  	<select id="AllOrderList" resultType="MyOrder">
  		select * from do_order 
  		<if test="whatColumn=='o_mnum'">

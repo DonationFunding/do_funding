@@ -99,6 +99,8 @@ public class BoardDao {
 		int count = 0;
 		for(int i=0;i<rowchecks.length;i++) {
 			String rowcheck=rowchecks[i];
+			BoardBean bdBean=sqlSessionTemplate.selectOne(namespace+".GetArticle", rowchecks);
+			System.out.println("bdBean :" + bdBean);
 //			BoardBean bdBean=new BoardBean();
 //			bdBean.setB_num(Integer.parseInt(rowcheck));
 //			bdBean=sqlSessionTemplate.selectOne(namespace+".GetArticle", bdBean);	
@@ -118,7 +120,6 @@ public class BoardDao {
 			}else {
 				cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", bdBean);							
 			}
-		System.out.println(cnt);
 		return cnt;		
 	}
 

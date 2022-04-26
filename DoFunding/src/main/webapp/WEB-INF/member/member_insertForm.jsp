@@ -96,6 +96,7 @@
 		    <td></td>
 			<th>
 			    비밀번호 : <input type="password" name="password">
+			    <span id=""></span>
 			</th>
 			<td></td>
 		<tr>

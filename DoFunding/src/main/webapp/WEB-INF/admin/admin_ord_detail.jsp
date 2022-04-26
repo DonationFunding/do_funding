@@ -18,7 +18,7 @@
 </center>
 	<div class="container">
             <table class="table" class="text-center">
-             <td colspan="7" align="right"><a href="order.ord">주문내역</a></td>
+             <td colspan="9" align="right"><a href="admin_ord_list.ad?pageNumber=${pageNumber}">주문내역</a></td>
 			<tr>
 				<th>상품명</th>
 				<th>이미지</th>
@@ -26,50 +26,69 @@
 				<th>수량</th>
 				<th>옵션</th>
 				<th>결제금액</th>
-				<th>펀딩현황</th>
+				<th>펀딩률</th>
+				<th>펀딩기간</th>
+				<th>결과</th>
 			</tr>
 		</div>
 		<c:set var="totalprice" value="0" />
 		<div class="od-in" style="text-align: left;">
 			<c:forEach var="odb" items="${detailList}">
+<fmt:parseDate value="${odb.p_start_date}" var="sValue"
+	pattern="yyyy-MM-dd" />
+<fmt:parseNumber value="${sValue.time / (1000*60*60*24)}"
+	integerOnly="true" var="s_Date"></fmt:parseNumber>
+<c:set var="p_start_date">
+	<fmt:formatDate value="${sValue}" pattern="yyyy-MM-dd" />
+</c:set>
+
+<fmt:parseDate value="${odb.p_end_date}" var="eValue"
+	pattern="yyyy-MM-dd" />
+<fmt:parseNumber value="${eValue.time / (1000*60*60*24)}"
+	integerOnly="true" var="e_Date"></fmt:parseNumber>
+<c:set var="p_end_date">
+	<fmt:formatDate value="${eValue}" pattern="yyyy-MM-dd" />
+</c:set>				
 				<c:set var= "totalprice" value="${totalprice + odb.amount}"/>
 				<tr>
 					<td>${odb.p_subject}</td>
 					<td ><img width="100px" height="100px" src="<%=request.getContextPath()%>/resources/images/${odb.p_image}"></td>
-					<td>${odb.price}</td>
+					<td><fmt:formatNumber value="${odb.price}" pattern="###,###,###" /> 원</td>
 					<td>${odb.qty}</td>
 					<td>${odb.option_content}</td>
-					<td>${odb.amount}</td>
-					<td>${(odb.p_total_price/odb.p_end_price)*100} %</td>
-<%-- 					<c:choose>
-						<c:when test="${odb.deliver != 0}">
-							<td>
-								<button class="btn-default-disable" disabled="disabled">주문취소</button>
-								<br>
-								<button class="btn-default-disable" disabled="disabled">주문변경</button>
-								<br>
-							</td>
+					<td><fmt:formatNumber value="${odb.amount}" pattern="###,###,###" /> 원</td>
+					<td><fmt:formatNumber value="${(odb.p_total_price/odb.p_end_price)*100}" pattern=".00" /> %</td>
+					<td>${p_start_date} ~ ${p_end_date}</td>
+					<td>
+					<c:choose>
+						<c:when test="${0<(t_Date-e_Date)}">
+							<c:choose>
+								<c:when test="${(odb.p_total_price>=odb.p_end_price)}">
+										펀딩 성공<br>
+									-상품 배송중-
+								</c:when>
+								<c:otherwise>
+										펀딩 실패<br>
+									-펀딩금 반환처리중-
+								</c:otherwise>
+							</c:choose>
 						</c:when>
-						<c:otherwise>
-							<td>
-								<button class="btn-default-order_cancel" onclick="location.href='#'+ ${odb.od_num}">주문취소</button>
-								<br>
-								<button class="btn-default-disable" disabled="disabled">주문변경</button>
-							</td>
-						</c:otherwise>
-					</c:choose> --%>
+						<c:when test="${0>(t_Date-e_Date)}">
+							펀딩 진행중
+						</c:when>
+					</c:choose>
 				</tr>
 			</c:forEach>	
 		</div>
 		<tr>
-			<td colspan="8" align="right">
+			<td colspan="9" align="right">
 				총 계산금액 : 
 					<c:choose>
 						<c:when test="${totalprice>30000}">
-							${totalprice} 원
+							<fmt:formatNumber value="${totalprice}" pattern="###,###,###" /> 원
 						</c:when>
 						<c:otherwise>
-							${totalprice+3000} 원
+							<fmt:formatNumber value="${totalprice+3000}" pattern="###,###,###" /> 원
 						</c:otherwise>
 					</c:choose>
 			</td>

@@ -64,7 +64,7 @@
 
 <br><br>
 	<div>
-		<a href="insert.bd" class="btn btn-default btn-sm pull-right">글쓰기</a>	
+		<a href="admin_bd_insert.ad" class="btn btn-default btn-sm pull-right">글쓰기</a>	
 	</div>
 	<div class="container">
 		<ul class="pagination pagination-sm">
@@ -73,7 +73,7 @@
 	</div>
 
 
-<form action="list.bd" method="get" class="row g-3">
+<form action="admin_bd_list.ad" method="get" class="row g-3">
 <p>
 	<select name="whatColumn">
 		<option value="all">선택

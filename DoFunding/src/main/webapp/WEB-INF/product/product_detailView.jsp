@@ -72,7 +72,7 @@
     	</tr>
     	<tr>
     		<th>가격</th>
-    		<td>${productBean.p_origin_price }원</td>
+    		<td><fmt:formatNumber value="${productBean.p_origin_price }" pattern="###,###,###" /> 원</td>
     	</tr>
     	<tr>
     		<th>설명</th>

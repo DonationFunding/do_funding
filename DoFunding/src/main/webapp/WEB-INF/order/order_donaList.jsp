@@ -40,10 +40,10 @@
 				${o_date }
 			</td>
 			<td >
-				${donation.dona_buyprice}
+				<fmt:formatNumber value="${donation.dona_buyprice}" pattern="###,###,###" /> 원	
 			</td>
 			<td>
-				${donation.dona_money}
+				<fmt:formatNumber value="${donation.dona_money}" pattern="###,###,###" /> 원	
 			</td>
 		</tr>
 		

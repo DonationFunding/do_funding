@@ -30,9 +30,15 @@ public class OrderDao {
 		return maxOid;
 	}
 
-	public List<OrderBean> orderList(MemberBean loginInfo) {
-		List<OrderBean> list=sqlSessionTemplate.selectList(namespace+".OrderList",loginInfo);
+	public List<OrderBean> getorderList(Paging pageInfo,MemberBean loginInfo) {
+		RowBounds rowBounds=new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
+		List<OrderBean> list=sqlSessionTemplate.selectList(namespace+".getOrderList",loginInfo,rowBounds);
 		return list;
+	}
+
+	public int getorderTotalCount(Map<String, String> map) {
+		int count = sqlSessionTemplate.selectOne(namespace+".getOrderTotalCount",map);
+		return count;
 	}
 
 	public List<OrderBean> allOrderList(Paging pageInfo, Map<String, String> map) {
@@ -45,6 +51,7 @@ public class OrderDao {
 		int count = sqlSessionTemplate.selectOne(namespace+".OrderTotalCount",map);
 		return count;
 	}
+
 
 	
 }

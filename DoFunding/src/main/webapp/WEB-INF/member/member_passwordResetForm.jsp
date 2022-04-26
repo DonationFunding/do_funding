@@ -29,11 +29,10 @@
     <table class="table" class="text-center">
      
 		<tr align="center">
-		    <td width="35%">
+		    <td width="30%">
 		    </td>
 			<th>
 			     아이디 :	<input type="text" name="id" <c:if test="${loginInfo.id != null}">value="${loginInfo.id }" readonly</c:if>>
-				<form:errors cssClass="err" path="id"/>
 			<th>
 			<td width="28%">
 		    </td>			
@@ -43,7 +42,6 @@
 		    </td>
 			<th>
 			     비밀번호 : <input type="password" name="password">
-				<form:errors cssClass="err" path="password"/>
 			<th>
 			 <td>
 		    </td>			
@@ -62,7 +60,6 @@
 		    </td>
 			<th>
 			     이름 : <input type="text" name="name" <c:if test="${loginInfo.name != null}">value="${loginInfo.name }" readonly</c:if>>
-				<form:errors cssClass="err" path="name"/>
 			<th>
 			 <td>
 		    </td>			
@@ -77,7 +74,6 @@
 				<fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd" />	
 			    </c:set> 
 			     <input type="date" name="birthday"  style = "height : 30px;" <c:if test="${loginInfo.birthday != null}">value="${birthday }" readonly</c:if>>
-				<form:errors cssClass="err" path="birthday"/>
 			<th>
 			 <td>
 		    </td>			
