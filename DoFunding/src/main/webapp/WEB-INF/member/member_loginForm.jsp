@@ -7,7 +7,12 @@
 <!-- 카카오 스크립트 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
-<c:if test="${cnt == 1 }"><script type="text/javascript">alert("회원가입 성공");</script></c:if>
+<%
+	if(session.getAttribute("cnt")!=null){
+		out.println("<script> alert('회원가입에 성공하였습니다. 로그인 화면으로 이동합니다.');</script>");
+		session.removeAttribute("cnt");
+	}
+%>
 <center>
 <form action="login.mem" method="post">
 <div class="container" >
