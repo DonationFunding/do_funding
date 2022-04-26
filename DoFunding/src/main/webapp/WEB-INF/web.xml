@@ -163,7 +163,6 @@
 		<servlet-name>like</servlet-name>
 		<url-pattern>*.like</url-pattern>
 	</servlet-mapping>
-	
 </web-app>
 	
 
