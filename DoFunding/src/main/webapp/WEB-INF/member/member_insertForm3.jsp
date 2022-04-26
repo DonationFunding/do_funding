@@ -5,56 +5,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
-<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-	var use;
-	var isCheck=false;
-	$('#titleCheck').click(function(){
-		isCheck=true;
-		$.ajax({
-			url : "idfunction.mem",
-			data : ({id : $('input[name=id]').val()}),
-			success : function(data){
-				if(data=='false'){
-					alert("사용할수 있습니다.");
-					use=false;
-					isChange=false;
-				}
-				else{
-					alert("이미 사용중인 아이디 입니다.");
-					use=true;	
-				}
-			},
-			error : function(){
-	        	alert(data);
-	        }
-		});
-	}); //titleCheck	
- 	$('#sub').click(function(){
- 		if($('input[name=id]').val()==""){
- 			alert("아이디를 입력하세요");
- 			return false;
- 		}
-		if(use==true){
-			alert("이미 사용중인 아이디 입니다.");
-			return false;
-		} else if(isCheck==false||isChange==true){
-			alert("아이디 중복체크 해주세요");
-			return false;
-		}
-	});
-	$('input[name=id]').keydown(function(){
-		isChange=true;
-		use=false;
-	});
-
-
-});//ready
-
-
-
-/*
+	
 	var flag=true;
 	function idchange(){
 		document.myform.flag.value="";
@@ -120,7 +73,7 @@ $(document).ready(function(){
 		}
 		flag=true;
 		
-	} */
+	}
 </script>
 
 <center>
@@ -134,14 +87,9 @@ $(document).ready(function(){
 		    <td width="33%">
 		    </td>
 			<th>아이디 :
-<<<<<<< HEAD
-				<input type="text" name="id" <c:if test="${memBean.id != null }">value="${memBean.id}"</c:if> onchange="idchange()">
+				<input type="text" name="id" <c:if test="${param.id != null }">value="${param.id}"</c:if> onchange="idchange()">
 				<input type="hidden" value="${flag }" name="flag">
 				<input type="button" value="중복체크" onclick="return idcheck(myform)" class="btn btn-default btn-sm">
-=======
-				<input type="text" name="id">
-				<input type="button" value="중복체크" id="titleCheck" class="btn btn-default btn-sm">
->>>>>>> refs/remotes/origin/do-pms2
 			</th>
 			<td width="28%">
 		     </td>
@@ -149,7 +97,7 @@ $(document).ready(function(){
 		<tr align="center">
 		    <td></td>
 			<th>
-			    비밀번호 : <input type="password" name="password" value="${memBean.password}">
+			    비밀번호 : <input type="password" name="password">
 			    <span id=""></span>
 			</th>
 			<td></td>
@@ -157,27 +105,27 @@ $(document).ready(function(){
 		<tr align="center">
 			<td></td>
 			<th>
-			    비밀번호 확인 : <input type="password" name="repassword" value="${memBean.password}">
+			    비밀번호 확인 : <input type="password" name="repassword">
 			</th>
 			<td></td>
 		<tr>
 		<tr align="center">
 			<td></td>
 			<th>
-			    이름 : <input type="text" name="name" value="${memBean.name}">
+			    이름 : <input type="text" name="name">
 			</th>
 			<td></td>
 		<tr>
 		<tr align="center">
 			<td></td>
 			<th>
-			    생년월일 : <input type="date" name="birthday" value="${memBean.birthday }" style = "height : 30px;" >
+			    생년월일 : <input type="date" name="birthday" style = "height : 30px;" >
 			</th>
 			<td></td>
 		</tr>
 		<tr>
 			<td align="center" colspan="5">
-			<input type="submit" value="가입하기" id="sub" class="btn btn-default btn-sm"></td>
+			<input type="submit" value="가입하기" class="btn btn-default btn-sm" onclick="return memcheck(myform)"></td>
 		</tr>
 	</table>
 	</div>

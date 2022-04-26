@@ -44,15 +44,27 @@ public class MemberInsertController {
 		}
 		if(cnt < 0) {
 			System.out.println("회원가입 실패");
+<<<<<<< HEAD
 			pw.println("<script> alert('회원가입에 실패했습니다. 내용을 다시 확인해 주세요.');</script>");
 			mav.addObject("memBean", memBean);
 			mav.setViewName(getPage);
 			pw.flush();
+=======
+			mav.setViewName(gotoPage+"?cnt="+cnt);
+>>>>>>> refs/remotes/origin/do-pms2
 		}
 		else {
 			System.out.println("회원가입 성공");
+<<<<<<< HEAD
 			mav.setViewName(gotoPage);
+=======
+			mav.setViewName(gotoPage+"?cnt="+cnt);
+>>>>>>> refs/remotes/origin/do-pms2
 		}
+<<<<<<< HEAD
+=======
+		System.out.println(mav.getViewName());
+>>>>>>> refs/remotes/origin/do-pms2
 		return mav;
 	}
 }

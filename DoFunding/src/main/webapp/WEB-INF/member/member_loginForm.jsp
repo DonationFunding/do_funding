@@ -7,6 +7,7 @@
 <!-- 카카오 스크립트 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
+<c:if test="${cnt == 1 }"><script type="text/javascript">alert("회원가입 성공");</script></c:if>
 <center>
 <form action="login.mem" method="post">
 <div class="container" >
@@ -16,7 +17,7 @@
 		     <td width="35%">
 		     </td>
 			<th>
-				아이디 : <input type="text" name="id" >
+				아이디 : <input type="text" name="id">
 			</th>
 			 <td width="33%">
 		     </td>
