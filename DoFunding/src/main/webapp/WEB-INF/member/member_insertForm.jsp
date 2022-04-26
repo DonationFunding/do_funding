@@ -5,9 +5,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 </head>
-<script src="<%=request.getContextPath() %>/resources/js/jquery.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	var exppass = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
+	var id;
+	var password = false;
+	var repassword = false;
 	var use;
 	var isCheck=false;
 	$('#titleCheck').click(function(){
@@ -31,24 +34,75 @@ $(document).ready(function(){
 	        }
 		});
 	}); //titleCheck	
- 	$('#sub').click(function(){
- 		if($('input[name=id]').val()==""){
- 			alert("아이디를 입력하세요");
- 			return false;
- 		}
+	$('input[name=id]').keydown(function(){
+		isChange=true;
+		use=false;
+		$('td[id=id]').text("");
+	});
+	id=true;
+	$('input[name=id]').focus(function(){
+		if(id){
+			if($('input[name=id]').val()==""){
+				$('td[id=id]').append("아이디를 입력하세요");
+				id=false;
+			}
+		}
+	});
+	$('input[name=password]').change(function(){
+		$('td[id=password]').text("");
+		 var pw = $(this).val();
+		 var num = pw.search(/[0-9]/g);
+		 var eng = pw.search(/[a-z]/ig);
+		 var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+		 if(pw.length < 8 || pw.length > 20){
+			 $('td[id=password]').append("8자리 ~ 20자리 이내로 입력해주세요.");
+			 $('input[name=password]').focus();
+		 }else if(pw.search(/\s/) != -1){
+			 $('td[id=password]').append("비밀번호는 공백 없이 입력해주세요.");
+			 $('input[name=password]').focus();
+		 }else if(num < 0 || eng < 0 || spe < 0 ){
+			 $('td[id=password]').append("영문,숫자, 특수문자를 혼합하여 입력해주세요");
+			 $('input[name=password]').focus();
+		 }else {
+			 password = true;
+		 }
+	});
+	 $('input[name=repassword]').change(function() {
+		$('td[id=repassword]').text("");
+	    var password1 = $('input[name=password]').val(); /* 패스워드와 패스워드 확인 부분 가져오기 */
+	    var repassword1 = $('input[name=repassword]').val(); 	
+	    if(password1 != repassword1) {
+			$('td[id=repassword]').append("패스워드가 일치하지 않습니다.");
+			$('input[name=repassword]').focus();
+			
+	    }else {
+			$('td[id=repassword]').text("");
+			repassword = true;
+	    }
+	});
+	$('#sub').click(function(){
+		if($('input[name=id]').val()==""){
+			alert("아이디를 입력하세요");
+			return false;
+		}
 		if(use==true){
 			alert("이미 사용중인 아이디 입니다.");
 			return false;
-		} else if(isCheck==false||isChange==true){
+		}
+		if(password==false){
+			alert("비밀번호 규칙을 지켜주세요.");
+			return false;
+		}
+		if(repassword==false){
+			alert("비밀번호가 일치 하지않습니다.");
+			return false;
+		}
+		if(isCheck==false||isChange==true){
 			alert("아이디 중복체크 해주세요");
 			return false;
 		}
 	});
-	$('input[name=id]').keydown(function(){
-		isChange=true;
-		use=false;
-	});
-
+	
 });//ready
 </script>
 
@@ -66,23 +120,22 @@ $(document).ready(function(){
 				<input type="text" name="id">
 				<input type="button" value="중복체크" id="titleCheck" class="btn btn-default btn-sm">
 			</th>
-			<td width="28%">
+			<td width="28%" id="id">
 		     </td>
 		</tr>
 		<tr align="center">
 		    <td></td>
 			<th>
-			    비밀번호 : <input type="password" name="password" value="${memBean.password}">
-			    <span id=""></span>
+			    비밀번호 : <input type="password" name="password" id="password" value="${memBean.password}">
 			</th>
-			<td></td>
+			<td id="password"></td>
 		<tr>
 		<tr align="center">
 			<td></td>
 			<th>
 			    비밀번호 확인 : <input type="password" name="repassword" value="${memBean.password}">
 			</th>
-			<td></td>
+			<td id="repassword"></td>
 		<tr>
 		<tr align="center">
 			<td></td>
