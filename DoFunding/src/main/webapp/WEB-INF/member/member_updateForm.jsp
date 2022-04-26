@@ -6,7 +6,7 @@
 </head>
 <script type="text/javascript">
 	var count = 0;
-	function memcheck(myform){
+	function memUpcheck(myform){
 		if (myform.password.value.length == 0){
 			alert("비밀번호를 입력하세요.");
 			myform.password.focus();
@@ -176,7 +176,7 @@
 			<td></td>
 		</tr>			
 		<tr>
-			<td colspan="7" align="center"><input type="submit" value="변경하기" class="btn btn-default btn-sm" onclick="return memcheck(myform)"></td>
+			<td colspan="7" align="center"><input type="submit" value="변경하기" class="btn btn-default btn-sm" onclick="return memUpcheck(myform)"></td>
 		</tr>
 	</table>
 	</div>
