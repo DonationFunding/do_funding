@@ -118,7 +118,6 @@ public class BoardDao {
 			}else {
 				cnt=sqlSessionTemplate.delete(namespace+".DeleteArticle", bdBean);							
 			}
-		System.out.println(cnt);
 		return cnt;		
 	}
 
