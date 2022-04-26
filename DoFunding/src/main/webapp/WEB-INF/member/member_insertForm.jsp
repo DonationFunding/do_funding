@@ -20,7 +20,7 @@ $(document).ready(function(){
 			data : ({id : $('input[name=id]').val()}),
 			success : function(data){
 				if(data=='false'){
-					alert("사용할 수 있습니다.");
+					alert("사용 가능한 아이디 입니다.");
 					use=false;
 					isChange=false;
 				}
@@ -43,37 +43,41 @@ $(document).ready(function(){
 	$('input[name=id]').focus(function(){
 		if(id){
 			if($('input[name=id]').val()==""){
-				$('td[id=id]').append("아이디를 입력하세요");
+				$('td[id=id]').append("<font color='red'>아이디를 입력하세요</font>");
 				id=false;
 			}
 		}
 	});
-	$('input[name=password]').change(function(){
+	$('input[name=password]').keyup(function(){
 		$('td[id=password]').text("");
 		 var pw = $(this).val();
 		 var num = pw.search(/[0-9]/g);
 		 var eng = pw.search(/[a-z]/ig);
 		 var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-		 if(pw.length < 8 || pw.length > 20){
-			 $('td[id=password]').append("8자리 ~ 20자리 이내로 입력해주세요.");
-			 $('input[name=password]').focus();
+		 if(pw==""){
+			 $('td[id=password]').text("");
 		 }else if(pw.search(/\s/) != -1){
-			 $('td[id=password]').append("비밀번호는 공백 없이 입력해주세요.");
+			 $('td[id=password]').append("<font color='red'>비밀번호는 공백 없이 입력해주세요.</font>");
 			 $('input[name=password]').focus();
 		 }else if(num < 0 || eng < 0 || spe < 0 ){
-			 $('td[id=password]').append("영문,숫자, 특수문자를 혼합하여 입력해주세요");
+			 $('td[id=password]').append("<font color='red'>영문,숫자, 특수문자를 혼합하여 입력해주세요</font>");
 			 $('input[name=password]').focus();
-		 }else {
+		 }else if(pw.length < 8 || pw.length > 20){
+			 $('td[id=password]').append("<font color='red'>8자리 ~ 20자리 이내로 입력해주세요.</font>");
+			 $('input[name=password]').focus();
+		 }else{
 			 password = true;
 		 }
 	});
 	 $('input[name=repassword]').keyup(function() {
-	    var password1 = $('input[name=password]').val(); /* 패스워드와 패스워드 확인 부분 가져오기 */
+		$('td[id=repassword]').text("");
+		var password1 = $('input[name=password]').val(); /* 패스워드와 패스워드 확인 부분 가져오기 */
 	    var repassword1 = $('input[name=repassword]').val(); 	
 	    if(password1 == repassword1) {
-			$('td[id=repassword]').text("");
 			repassword = true;
-	    }else {
+	    }else if(repassword1==""){
+	    	$('td[id=repassword]').text("");
+	    }else{
 			$('td[id=repassword]').text("");	    	
 			$('td[id=repassword]').append("<font color='red'>패스워드가 일치하지 않습니다.<font>");
 			$('input[name=repassword]').focus();			
