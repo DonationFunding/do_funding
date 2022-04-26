@@ -17,17 +17,6 @@
 			myform.repassword.focus();
 			return false;
 		}
-		if (myform.password.value != myform.key.value){
-			alert("비밀번호를 확인하세요.");
-			count += 1;
-			alert(count)
-			myform.repassword.focus();
-			return false;
-		}
-		if(count==3){
-			alert("비밀번호 오류 횟수를 초과하였습니다.")
-			location.href="/list.prd";
-		}
 		var genderarr = document.getElementsByName("gender");
 		var flag = true;
 		for(var i=0;i<genderarr.length;i++){
@@ -99,8 +88,8 @@
 		    <td>
 		    </td>
 			<th>
-			비밀번호 : <input type="password" name="password" <c:if test="${loginInfo.password != null}">value="${loginInfo.password }" readonly</c:if>>
-			<%-- <input type="hidden" name="key" value="${loginInfo.password }"> --%>
+			비밀번호 : <input type="password" name="password" <c:if test="${loginInfo.password != null}"> value='${loginInfo.password }'</c:if>>
+
 			</th>
 		    </td>
 		</tr>
@@ -108,7 +97,7 @@
 		    <td>
 		    </td>
 			<th>
-			비밀번호 확인 : <input type="password" name="repassword">
+			비밀번호 확인 : <input type="password" name="repassword" <c:if test="${loginInfo.password != null}"> value='${loginInfo.password }'</c:if>>
 			</th>
 			<td>
 		    </td>

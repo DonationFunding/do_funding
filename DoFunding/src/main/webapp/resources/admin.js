@@ -15,7 +15,7 @@ function selectDelete() {
 		}
 	}
 	if (flag == false) {
-		alert("삭제할 체크박스를 하나라도 선택하세요.");
+		alert("삭제할 체크박스를 하나 이상 선택하세요.");
 		return; //돌아가 밑에는 못 간다.return t/f 중요하지 않다.
 	}
 	var dep = confirm("정말 삭제하시겠습니까?");
@@ -162,7 +162,7 @@ function prdcheck(){
 	var p_origin_price=Number($('input[name=p_origin_price]').val());
 	//alert(2);
 	if(p_origin_price<1000){
-		alert('단가는 최소 1,000원  이상입니다.');
+		alert('단가는 최소 1,000원 이상입니다.');
 		$('input[name=p_origin_price]').focus();
 		return false;
 	}	
@@ -173,12 +173,12 @@ function prdcheck(){
 		return false;
 	}	
 	if($('input[name=p_start_date]').val()==""){
-		alert('모집기간값이 누락됐습니다.');
+		alert('모집기간 값이 누락됐습니다.');
 		$('input[name=p_start_date]').focus();
 		return false;
 	}	
 	if($('input[name=p_end_date]').val()==""){
-		alert('모집기간값이 누락됐습니다.');
+		alert('모집기간 값이 누락됐습니다.');
 		$('input[name=p_end_date]').focus();
 		return false;
 	}
@@ -211,7 +211,11 @@ function prdcheck(){
 		return false;
 	}
 	if($('input[name=item_option]').val()==null){
-		alert('최소 하나의 옵션이 있어야합니다.');
+		alert('최소 하나의 옵션이 있어야 합니다.');
+		return false;
+	}
+	if($('input[name=item_option]').val()==""){
+		alert('옵션 값이 누락됐습니다.');
 		return false;
 	}
 	$('input[name=item_option]').each(function (i,item) { 
@@ -246,7 +250,7 @@ function prdUpcheck(){
 	var p_origin_price=Number($('input[name=p_origin_price]').val());
 	//alert(2);
 	if(p_origin_price<1000){
-		alert('단가는 최소 1,000원  이상입니다.');
+		alert('단가는 최소 1,000원 이상입니다.');
 		$('input[name=p_origin_price]').focus();
 		return false;
 	}	
@@ -257,12 +261,12 @@ function prdUpcheck(){
 		return false;
 	}	
 	if($('input[name=p_start_date]').val()==""){
-		alert('모집기간값이 누락됐습니다.');
+		alert('모집기간 값이 누락됐습니다.');
 		$('input[name=p_start_date]').focus();
 		return false;
 	}	
 	if($('input[name=p_end_date]').val()==""){
-		alert('모집기간값이 누락됐습니다.');
+		alert('모집기간 값이 누락됐습니다.');
 		$('input[name=p_end_date]').focus();
 		return false;
 	}
@@ -295,7 +299,7 @@ function prdUpcheck(){
 		return false;
 	}
 	if($('input[name=item_option]').val()==null){
-		alert('최소 하나의 옵션이 있어야합니다.');
+		alert('최소 하나의 옵션이 있어야 합니다.');
 		return false;
 	}
 	var opcheck=false;
