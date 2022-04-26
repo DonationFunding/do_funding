@@ -59,7 +59,7 @@ function catecheck(){
 }
 
 
-
+cate_flag=false;
 
 //카테고리 추가
 function insertCate() {
@@ -101,43 +101,9 @@ function deletePrd(p_num,pageNumber){
 }//deletePrd
 
 
-//게시글 추가
-/*function insertPrd() {
-	location.href="admin_prd_insert.ad"; 
-}*/
-//게시글 수정
-/*function updatePrd(b_num,pageNumber){
-	location.href = "admin_prd_update.ad?b_num=" + b_num + "&pageNumber="+ pageNumber;
-}//updatePrd*/
-//게시글 삭제
-function deleteBd(b_num,pageNumber){
-	var dep = confirm("정말 삭제하시겠습니까?");
-	//prompt : 값을 입력 받을 수 있는 창 (제목, 초기값) 확인/취소 버튼이 있음.
-	//comfirm : YES/NO t/f
-	//alert(dep);
-	if(dep){
-		location.href="admin_bd_delete.ad?b_num="+b_num+"&pageNumber="+ pageNumber;
-	}
-}//deletePrd
-
-
-
-//회원정보삭제
-function deleteMem(gnum){
-	//alert(gnum);	//회원번호
-	//var contextPath= getContextPath();
-	var dep = confirm("정말 삭제하시겠습니까?");
-	//prompt : 값을 입력 받을 수 있는 창 (제목, 초기값) 확인/취소 버튼이 있음.
-	//comfirm : YES/NO t/f
-	//alert(dep);
-	if(dep){
-		location.href="mem_delete_proc.jsp?gnum="+gnum;
-	}
-}//deleteMem
-
-
 function prdcheck(){
 	//alert(1);
+	
 
 	if($('input[name=p_subject]').val()==""){
 		alert('제목 입력 누락');
@@ -230,6 +196,8 @@ function prdcheck(){
 	}		
 }
 
+prdUp_flag=false;
+
 function prdUpcheck(){
 
 	if($('input[name=p_subject]').val()==""){
@@ -315,10 +283,38 @@ function prdUpcheck(){
 	}			
 }
 
+//게시글 삭제
+function deleteBd(b_num,pageNumber){
+	var dep = confirm("정말 삭제하시겠습니까?");
+	//prompt : 값을 입력 받을 수 있는 창 (제목, 초기값) 확인/취소 버튼이 있음.
+	//comfirm : YES/NO t/f
+	//alert(dep);
+	if(dep){
+		location.href="admin_bd_delete.ad?b_num="+b_num+"&pageNumber="+ pageNumber;
+	}
+}//deletePrd
+
+
+
+//회원정보삭제
+function deleteMem(gnum){
+	//alert(gnum);	//회원번호
+	//var contextPath= getContextPath();
+	var dep = confirm("정말 삭제하시겠습니까?");
+	//prompt : 값을 입력 받을 수 있는 창 (제목, 초기값) 확인/취소 버튼이 있음.
+	//comfirm : YES/NO t/f
+	//alert(dep);
+	if(dep){
+		location.href="mem_delete_proc.jsp?gnum="+gnum;
+	}
+}//deleteMem
+
+
+
+
 
 
 function check(){
-		//alert(1);
 		if($('input[name="b_writer"]').val()==""){
 			alert("이름이 누락되었습니다.");
 			$('input[name="b_writer"]').focus();
@@ -348,7 +344,6 @@ function check(){
 	}//check
 	
 function noticecheck(){
-		//alert(1);
 		if($('input[name="no_writer"]').val()==""){
 			alert("이름이 누락되었습니다.");
 			$('input[name="no_writer"]').focus();
@@ -366,10 +361,9 @@ function noticecheck(){
 			return false;
 		}
 	
-	}//check
+	}
 	
 function faqcheck(){
-		//alert(1);
 		if($('input[name="faq_writer"]').val()==""){
 			alert("이름이 누락되었습니다.");
 			$('input[name="faq_writer"]').focus();
@@ -387,5 +381,5 @@ function faqcheck(){
 			return false;
 		}
 	
-	}//check
+	}
 

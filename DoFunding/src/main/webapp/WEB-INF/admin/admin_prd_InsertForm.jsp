@@ -125,6 +125,9 @@ $(document).ready(function(){
 		} 
 	});
 	
+	
+	
+	
 });
 </script>
 <center>
@@ -173,7 +176,7 @@ $(document).ready(function(){
 				<tr>
 					<th>펀딩 내용</th>
 					<td>
-						<textarea name="p_content" rows="15" cols="50" placeholder="지원사업소개는 최소 20자 이상 입력해야 합니다." style="resize: none;">${productBean.p_content}</textarea>
+						<textarea name="p_content" rows="15" cols="50" placeholder="지원사업소개는 최소 20자 이상 입력해야 합니다." style="resize: none;" >${prdBean.p_content}</textarea>
 					</td>
 				</tr>
 				<tr>

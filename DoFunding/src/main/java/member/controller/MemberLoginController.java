@@ -10,13 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
 
 @Controller
 public class MemberLoginController {
-	private final String command = "login.mem";
+	private final String command = "/login.mem";
 	private final String getPage = "member_loginForm";
 	private String gotoPage = "redirect:/list.prd";
 	@Autowired
@@ -24,8 +26,11 @@ public class MemberLoginController {
 	
 	
 	@RequestMapping(value = command,method = RequestMethod.GET)
-	public String doAction() {
-		return getPage;
+	public ModelAndView doAction(@RequestParam(value="cnt", required=false) String cnt) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("cnt", cnt);
+		mav.setViewName(getPage);
+		return mav;
 	}
 	
 	@RequestMapping(value = command,method = RequestMethod.POST)
@@ -51,8 +56,7 @@ public class MemberLoginController {
 			if(loginInfo.getPassword().equals(membean.getPassword())) {
 				
 				session.setAttribute("loginInfo", loginInfo);
-				
-				
+					
 				String destination = (String)session.getAttribute("destination");
 				if(destination ==null) {
 					return gotoPage;
