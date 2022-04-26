@@ -98,16 +98,18 @@ public class BoardDao {
 	public int multiDeleteBoard(String[] rowchecks) {//rowchecks  = b_nums
 		int count = 0;
 		for(int i=0;i<rowchecks.length;i++) {
-			String rowcheck=rowchecks[i];	//rowcheck = b_num
-			BoardBean bdBean=sqlSessionTemplate.selectOne(namespace+".GetArticle", rowcheck);
-			
-//			BoardBean bdBean=new BoardBean();
-//			bdBean.setB_num(Integer.parseInt(rowcheck));
-//			bdBean=sqlSessionTemplate.selectOne(namespace+".GetArticle", bdBean);	
-			int cnt = sqlSessionTemplate.delete(namespace+".MultiDeleteBoard",rowcheck);	
-			count+=cnt;
+			String b_num=rowchecks[i];	//rowcheck = b_num
+			int checkCount=sqlSessionTemplate.selectOne(namespace+".ArticleCount", b_num);//존재하는가? 가져와
+			if(checkCount != 0) {
+				BoardBean bdBean=sqlSessionTemplate.selectOne(namespace+".GetArticle", b_num);
+				if(bdBean.getB_re_step()==0 && bdBean.getB_re_level()==0) {
+					count+=sqlSessionTemplate.delete(namespace+".AllDelete", bdBean);							
+				}else {
+					count+=sqlSessionTemplate.delete(namespace+".DeleteArticle", bdBean);							
+				}
+			}
+		
 		}
-
 		return count;	
 	}
 	
